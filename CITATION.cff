@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this code or these records, please cite the paper and this repository."
+title: "Do retracted papers look disruptive? Code, specification and run records"
+type: software
+authors:
+  - family-names: "Mohasel Arjomandi"
+    given-names: "Hossein"
+license: MIT
+repository-code: "https://github.com/HosseinMA96/retracted-disruption-open-data"
+date-released: "2026-11-24"
+keywords:
+  - disruption index
+  - CD index
+  - retraction
+  - research integrity
+  - OpenCitations
+  - Retraction Watch
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Mohasel Arjomandi"
+      given-names: "Hossein"
+  title: "Do retracted papers look disruptive? The CD index before retraction on the open biomedical citation graph"
+  status: submitted
+  year: 2026

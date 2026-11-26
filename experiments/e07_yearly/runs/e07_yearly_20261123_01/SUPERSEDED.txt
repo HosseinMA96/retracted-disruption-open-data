@@ -1,0 +1,1 @@
+Superseded by e07_yearly_20261123_02 (notice rule matched publication types by name; PubMed 2026 names D016440 'Retraction Notice', so retraction notices were flagged only through RetractionOf links). Window-sum checks of this run passed. Kept for the record; not used (POSTHOC.md P8 amendment).

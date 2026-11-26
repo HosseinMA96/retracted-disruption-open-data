@@ -1,0 +1,26 @@
+{
+  "run_id": "e05_refs_20261110_01",
+  "script": "e05_refs.py",
+  "script_sha256": "72d240fb962738a95ab2bd919826d8dab176136f568fd86ea2b83e39b4c54705",
+  "config": {
+    "e2_run": "e02_pop_20261110_01",
+    "e3_run": "e03_cd5_20261110_01",
+    "posthoc": "P1"
+  },
+  "host": "vm-project-c",
+  "python": "3.11.18",
+  "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+  "started_utc": "2026-11-10T06:25:54Z",
+  "results": {
+    "within_stratum_diff_log1p_n_refs": -0.01701173387855402,
+    "within_stratum_diff_log1p_cites_w0": 0.0989656524216701,
+    "spearman_cd_vs_nrefs_context": -0.19239974817820246,
+    "median_refs": {
+      "context": 30.0,
+      "control": 35.0,
+      "retracted_in_window": 33.0,
+      "retracted_primary": 40.0
+    }
+  },
+  "seconds": 0.9
+}

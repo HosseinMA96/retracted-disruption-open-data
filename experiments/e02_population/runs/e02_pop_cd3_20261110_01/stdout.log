@@ -1,0 +1,44 @@
+[    47.3s] biomedical_nodes_2000_2017: 16113426
+[   147.7s] with_journal_not_dup: 14777227
+[   147.7s] with_journal_not_dup_zero_refs: 422892
+[   147.8s] eligible: 14354335
+[   148.2s] rw_matched_iids: 53170
+[   148.2s] rw_matched_iids_in_window_zero_refs: 484
+[   148.2s] retracted_secondary_all: 13661
+[   148.2s] retracted_primary_after_window: 7350
+[   148.2s] retracted_by_class: [('honest_error', 1990, 615), ('misconduct', 6508, 4172), ('other', 3926, 1855), ('paper_mill', 1237, 708)]
+[   148.2s] retracted_by_year: [(2000, 125, 94), (2001, 155, 125), (2002, 165, 140), (2003, 187, 148), (2004, 303, 233), (2005, 317, 240), (2006, 413, 265), (2007, 423, 259), (2008, 493, 279), (2009, 532, 289), (2010, 606, 311), (2011, 660, 360), (2012, 737, 363), (2013, 854, 489), (2014, 1084, 543), (2015, 1092, 542), (2016, 1012, 552), (2017, 1292, 824), (2018, 1437, 669), (2019, 1774, 625)]
+[   148.7s] strata: 6565
+[   148.7s] strata_without_controls: 5
+[   148.7s] retracted_in_strata_without_controls: 5
+[   148.7s] strata_with_fewer_than_K_per_retracted: 20
+[   148.7s] controls: 68190
+[   148.7s] context_sample: 28784
+[   148.7s] context_sample_retracted: 25
+[   150.1s] label_rows_by_group: [('context', 28784, 3246), ('control', 68190, 7608), ('retracted', 13661, 1031)]
+[   150.1s] focal_iids: 110462
+[   150.1s] files: {'labels.parquet': 'a6d23e7ceb22bf171a35cdfb781fc69ff1c621444fe89c82efe85f2babb5bb77', 'focal_iids.parquet': 'e677c5d7e966beca71c4d329ef0531d43829fddcad73bec2bcfe4435a470c930'}
+done in 150.1 s -> /home/azureuser/e/experiments/e02_population/runs/e02_pop_cd3_20261110_01
+	Command being timed: "/home/azureuser/mamba/envs/d/bin/python e02_population.py e02_pop_cd3_20261110_01 2019 3"
+	User time (seconds): 426.45
+	System time (seconds): 37.18
+	Percent of CPU this job got: 305%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:31.95
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 26907076
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 2
+	Minor (reclaiming a frame) page faults: 12674725
+	Voluntary context switches: 12171
+	Involuntary context switches: 4703
+	Swaps: 0
+	File system inputs: 31960080
+	File system outputs: 2912
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

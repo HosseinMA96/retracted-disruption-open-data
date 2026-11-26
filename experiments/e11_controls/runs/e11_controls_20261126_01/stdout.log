@@ -1,0 +1,33 @@
+[     1.8s] cd5_reproduced: ['controls_defined', 'controls_n', 'mean_cd_controls_matched', 'mh_cd_pos', 'mh_top_p95', 'mh_top_p99', 'retracted_defined', 'retracted_in_used_strata', 'retracted_n', 'share_top_p95_controls', 'share_top_p99_controls', 'strata_used', 'e02 strata', 'e02 controls']
+[     1.9s] cd5_controls_used_strata: {'controls': 31674, 'controls_defined': 31662}
+[     1.9s] cd5_undefined: {'context': 19, 'control': 25, 'retracted_secondary': 2}
+[     1.9s] cd5_shares_retracted_vs_controls_weighted: {'pos': [0.20126, [0.17299, 0.1599, 0.18592]], 'p95': [0.03096, [0.0312, 0.02804, 0.03473]], 'p99': [0.00371, [0.00544, 0.00432, 0.00663]]}
+[     4.3s] cd3_reproduced: ['controls_defined', 'controls_n', 'mean_cd_controls_matched', 'mh_cd_pos', 'mh_top_p95', 'mh_top_p99', 'retracted_defined', 'retracted_in_used_strata', 'retracted_n', 'share_top_p95_controls', 'share_top_p99_controls', 'strata_used', 'e02 strata', 'e02 controls']
+[     4.4s] cd3_controls_used_strata: {'controls': 48069, 'controls_defined': 48044}
+[     4.4s] cd3_undefined: {'context': 32, 'control': 44, 'retracted_primary': 1, 'retracted_secondary': 2}
+[     4.4s] cd3_shares_retracted_vs_controls_weighted: {'pos': [0.22333, [0.18433, 0.17352, 0.19573]], 'p95': [0.0377, [0.03415, 0.03108, 0.03752]], 'p99': [0.00504, [0.00557, 0.00463, 0.00664]]}
+[     4.4s] outputs: ['controls.json']
+done in 4.4 s -> /home/azureuser/e/experiments/e11_controls/runs/e11_controls_20261126_01
+	Command being timed: "/home/azureuser/mamba/envs/d/bin/python e11_controls.py e11_controls_20261126_01 e02_pop_20261110_01 e03_cd5_20261110_01 e04_eval_20261110_01 e02_pop_cd3_20261110_01 e03_cd5_cd3_20261110_01 e04_eval_cd3_20261110_01"
+	User time (seconds): 5.29
+	System time (seconds): 0.27
+	Percent of CPU this job got: 116%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:04.77
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 537732
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 101606
+	Voluntary context switches: 247
+	Involuntary context switches: 60
+	Swaps: 0
+	File system inputs: 15896
+	File system outputs: 64
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

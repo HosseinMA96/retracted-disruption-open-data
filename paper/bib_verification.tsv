@@ -1,0 +1,46 @@
+key	doi	status	date	title
+funk2017dynamic	10.1287/mnsc.2015.2366	OK crossref	2026-11-23	A Dynamic Network Measure of Technological Change
+wu2019large	10.1038/s41586-019-0941-9	OK crossref	2026-11-23	Large teams develop and small teams disrupt science and technology
+park2023papers	10.1038/s41586-022-05543-x	OK crossref	2026-11-23	Papers and patents are becoming less disruptive over time
+holst2024artefacts	10.48550/arXiv.2402.14583	OK datacite	2026-11-23	Dataset Artefacts are the Hidden Drivers of the Declining Disruptiveness in Science
+holst2026partially	10.1038/s41586-026-10787-y	OK crossref	2026-11-23	Dataset artefacts can partially drive the measured decline in disruption
+park2026reply	10.1038/s41586-026-10788-x	OK crossref	2026-11-23	Reply to: Dataset artefacts can partially drive the measured decline in disruption
+park2025robust	10.48550/arXiv.2503.00184	OK datacite	2026-11-23	Robust Evidence for Declining Disruptiveness: Assessing the Role of Zero-Backward-Citation Works
+petersen2024inflation	10.1162/qss_a_00333	OK crossref	2026-11-23	The disruption index is biased by citation inflation
+petersen2025reanalysis	10.1016/j.joi.2024.101605	OK crossref	2026-11-23	The disruption index suffers from citation inflation: Re-analysis of temporal CD trend and relationship with t
+wu2026inventory	10.48550/arXiv.2602.05140	OK datacite	2026-11-23	Is Innovation Becoming Less Disruptive? An Inventory of the Literature
+leibel2023overview	10.1007/s11192-023-04873-5	OK crossref	2026-11-23	What do we know about the disruption index in scientometrics? An overview of the literature
+lin2026displacement	10.1162/QSS.a.409	OK crossref	2026-11-23	The Disruption Index measures displacement between a paper and its most cited reference
+sixt2024dimensions	10.1162/qss_a_00328	OK crossref	2026-11-23	Dimensions: Calculating disruption indices at scale
+chen2025thresholds	10.48550/arXiv.2504.07828	OK datacite	2026-11-23	Dynamic disruption index across citation and cited references windows: Recommendations for thresholds in resea
+sheng2023prior	10.1007/s11192-023-04751-0	OK crossref	2026-11-23	The association between prior knowledge and the disruption of an article
+copara2024mesh	10.48550/arXiv.2406.18792	OK datacite	2026-11-23	MeSH Concept Relevance and Knowledge Evolution: A Data-driven Perspective
+jiang2024opencitations	10.1177/01655515241263545	OK crossref	2026-11-23	A new method of calculating the disruption index based on open citation data
+xu2025alternative	10.1016/j.joi.2025.101685	OK crossref	2026-11-23	Do OpenCitations and Dimensions serve as an alternative to Web of Science for calculating disruption indexes?
+you2022questionable	10.1016/j.joi.2022.101294	OK crossref	2026-11-23	Disturbance of questionable publishing to academia
+deng2025persistent	10.1038/s43588-025-00808-7	OK crossref	2026-11-23	The critical role of persistent disruption in advancing science
+lou2026beyond	10.1515/jdis-2026-0064	OK crossref	2026-11-23	Beyond Retractions: A Topic-Based Analysis of the Impact and Lifespan of Retracted Papers
+feng2024molbio	10.1007/s11192-024-05101-4	OK publisher/DBLP; volume 129(8), pages 4795-4817	2026-11-26	Citation network analysis of retractions in molecular biology field
+candal2022papermills	10.1136/bmj-2022-071517	OK crossref	2026-11-23	Retracted papers originating from paper mills: cross sectional study
+fletcher2025predicting	10.1186/s41073-025-00168-w	OK crossref	2026-11-23	Predicting retracted research: a dataset and machine learning approaches
+cabanac2024chain	10.1038/d41586-024-02747-1	OK crossref	2026-11-23	Chain retraction: how to stop bad science propagating through the literature
+cabanac2022pps	10.48550/arXiv.2210.04895	OK datacite	2026-11-23	The 'Problematic Paper Screener' automatically selects suspect publications for post-publication (re)assessmen
+arjomandi2024dataset	10.13012/B2IDB-5216575_V1	OK datacite	2026-11-23	Parsed Open Citations and PubMed Data
+ocmeta2024dump	10.6084/m9.figshare.21747461.v7	OK datacite	2026-11-23	OpenCitations Meta CSV dataset of all bibliographic metadata
+massari2024meta	10.1162/qss_a_00292	OK crossref	2026-11-23	OpenCitations Meta
+peroni2020opencitations	10.1162/qss_a_00023	OK crossref	2026-11-23	OpenCitations, an infrastructure organization for open scholarship
+rittman2025rw	10.13003/692016	OK crossref	2026-11-23	Retraction Watch retractions now in the Crossref API
+mantel1959	10.1093/jnci/22.4.719	OK crossref	2026-11-23	Statistical Aspects of the Analysis of Data From Retrospective Studies of Disease
+robins1986estimator	10.2307/2531052	OK crossref	2026-11-23	Estimators of the Mantel-Haenszel Variance Consistent in Both Sparse Data and Large-Strata Limiting Models
+wilson1927	10.1080/01621459.1927.10502953	OK crossref	2026-11-23	Probable Inference, the Law of Succession, and Statistical Inference
+raasveldt2019duckdb	10.1145/3299869.3320212	OK crossref	2026-11-23	DuckDB
+arjomandi2026retracteddata	10.5281/zenodo.23874477	OK datacite	2026-11-23	Retracted papers and their open citation neighbourhoods: Retraction Watch labels linked to the OpenCitations g
+wuyan2019solo	10.48550/arXiv.1905.03461	OK datacite	2026-11-23	Solo citations, duet citations, and prelude citations: New measures of the disruption of academic papers
+bornmann2020convergent	10.1162/qss_a_00068	OK crossref	2026-11-23	Are disruption index indicators convergently valid? The comparison of several indicator variants with assessme
+schuirmann1987tost	10.1007/BF01068419	OK crossref	2026-11-23	A comparison of the Two One-Sided Tests Procedure and the Power Approach for assessing the equivalence of aver
+lakens2017equivalence	10.1177/1948550617697177	OK crossref	2026-11-23	Equivalence Tests
+hsiao2021continued	10.1162/qss_a_00155	OK crossref	2026-11-23	Continued use of retracted papers: Temporal trends in citations and (lack of) awareness of retractions shown i
+crossdi2025	10.1038/s41597-025-06232-w	OK crossref	2026-11-23	CrossDI: A comprehensive dataset crossing three databases for calculating disruption indexes
+azoulay2015retractions	10.1162/REST_a_00469	OK crossref	2026-11-23	Retractions
+arjomandi2026prospective	10.48550/arXiv.2611.10474	OK arXiv record/full text; DOI registration pending, cited by arXiv URL	2026-11-26	Do links to retracted papers predict future retractions? An out-of-sample test on the open biomedical citation graph
+scancar2026distortion	10.1073/pnas.2618402123	OK PubMed 42879494/publisher metadata	2026-11-26	Suspected distortion of citations in high-impact cancer journals

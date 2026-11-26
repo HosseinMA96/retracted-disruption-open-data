@@ -1,0 +1,261 @@
+{
+ "10.1038/s41586-022-05543-x": {
+  "ok": true,
+  "agency": "crossref",
+  "title": "Papers and patents are becoming less disruptive over time",
+  "venue": "Nature",
+  "year": 2023,
+  "type": "journal-article",
+  "first_author": "Park, Michael",
+  "volume": "613",
+  "page": "138-144"
+ },
+ "10.1287/mnsc.2015.2366": {
+  "ok": true,
+  "agency": "crossref",
+  "title": "A Dynamic Network Measure of Technological Change",
+  "venue": "Management Science",
+  "year": 2017,
+  "type": "journal-article",
+  "first_author": "Funk, Russell J.",
+  "volume": "63",
+  "page": "791-817"
+ },
+ "10.1038/s41586-019-0941-9": {
+  "ok": true,
+  "agency": "crossref",
+  "title": "Large teams develop and small teams disrupt science and technology",
+  "venue": "Nature",
+  "year": 2019,
+  "type": "journal-article",
+  "first_author": "Wu, Lingfei",
+  "volume": "566",
+  "page": "378-382"
+ },
+ "10.1038/s41586-026-10787-y": {
+  "ok": true,
+  "agency": "crossref",
+  "title": "Dataset artefacts can partially drive the measured decline in disruption",
+  "venue": "Nature",
+  "year": 2026,
+  "type": "journal-article",
+  "first_author": "Holst, Vincent",
+  "volume": "656",
+  "page": "E7-E13"
+ },
+ "10.1038/s41586-026-10788-x": {
+  "ok": true,
+  "agency": "crossref",
+  "title": "Reply to: Dataset artefacts can partially drive the measured decline in disruption",
+  "venue": "Nature",
+  "year": 2026,
+  "type": "journal-article",
+  "first_author": "Park, Michael",
+  "volume": "656",
+  "page": "E14-E21"
+ },
+ "10.1038/s41586-023-06767-1": {
+  "ok": true,
+  "agency": "crossref",
+  "title": "Remote collaboration fuses fewer breakthrough ideas",
+  "venue": "Nature",
+  "year": 2023,
+  "type": "journal-article",
+  "first_author": "Lin, Yiling",
+  "volume": "623",
+  "page": "987-991"
+ },
+ "10.1162/qss_a_00333": {
+  "ok": true,
+  "agency": "crossref",
+  "title": "The disruption index is biased by citation inflation",
+  "venue": "Quantitative Science Studies",
+  "year": 2024,
+  "type": "journal-article",
+  "first_author": "Petersen, Alexander Michael",
+  "volume": "5",
+  "page": "936-953"
+ },
+ "10.1016/j.joi.2024.101605": {
+  "ok": true,
+  "agency": "crossref",
+  "title": "The disruption index suffers from citation inflation: Re-analysis of temporal CD trend and relationship with team size reveal discrepancies",
+  "venue": "Journal of Informetrics",
+  "year": 2025,
+  "type": "journal-article",
+  "first_author": "Petersen, Alexander Michael",
+  "volume": "19",
+  "page": "101605"
+ },
+ "10.1162/qss_a_00328": {
+  "ok": true,
+  "agency": "crossref",
+  "title": "Dimensions: Calculating disruption indices at scale",
+  "venue": "Quantitative Science Studies",
+  "year": 2024,
+  "type": "journal-article",
+  "first_author": "Sixt, Joerg",
+  "volume": "5",
+  "page": "975-990"
+ },
+ "10.1007/s11192-023-04751-0": {
+  "ok": true,
+  "agency": "crossref",
+  "title": "The association between prior knowledge and the disruption of an article",
+  "venue": "Scientometrics",
+  "year": 2023,
+  "type": "journal-article",
+  "first_author": "Sheng, Libo",
+  "volume": "128",
+  "page": "4731-4751"
+ },
+ "10.1142/s0219525923500066": {
+  "ok": true,
+  "agency": "crossref",
+  "title": "IS DISRUPTION DECREASING, OR IS IT ACCELERATING?",
+  "venue": "Advances in Complex Systems",
+  "year": 2023,
+  "type": "journal-article",
+  "first_author": "BENTLEY, R. ALEXANDER",
+  "volume": "26",
+  "page": null
+ },
+ "10.1016/j.joi.2022.101294": {
+  "ok": true,
+  "agency": "crossref",
+  "title": "Disturbance of questionable publishing to academia",
+  "venue": "Journal of Informetrics",
+  "year": 2022,
+  "type": "journal-article",
+  "first_author": "You, Taekho",
+  "volume": "16",
+  "page": "101294"
+ },
+ "10.3138/jsp-2023-0056": {
+  "ok": true,
+  "agency": "crossref",
+  "title": "The Disruptive Innovation Evaluation and Empirical Analysis of Chinese, Japanese, Indian, and South Korean Scientific Journals",
+  "venue": "Journal of Scholarly Publishing",
+  "year": 2025,
+  "type": "journal-article",
+  "first_author": "Jiang, Yuyan",
+  "volume": "56",
+  "page": "60-78"
+ },
+ "10.1177/01655515241263545": {
+  "ok": true,
+  "agency": "crossref",
+  "title": "A new method of calculating the disruption index based on open citation data",
+  "venue": "Journal of Information Science",
+  "year": 2024,
+  "type": "journal-article",
+  "first_author": "Jiang, Yuyan",
+  "volume": "52",
+  "page": "837-852"
+ },
+ "10.1371/journal.pone.0294946": {
+  "ok": true,
+  "agency": "crossref",
+  "title": "Open reproducible scientometric research with Alexandria3k",
+  "venue": "PLOS ONE",
+  "year": 2023,
+  "type": "journal-article",
+  "first_author": "Spinellis, Diomidis",
+  "volume": "18",
+  "page": "e0294946"
+ },
+ "10.1038/s43588-025-00808-7": {
+  "ok": true,
+  "agency": "crossref",
+  "title": "The critical role of persistent disruption in advancing science",
+  "venue": "Nature Computational Science",
+  "year": 2025,
+  "type": "journal-article",
+  "first_author": "Deng, Nan",
+  "volume": "5",
+  "page": "492-501"
+ },
+ "10.2139/ssrn.4923505": {
+  "ok": true,
+  "agency": "crossref",
+  "title": "Collaboration in Medical Science and Innovation",
+  "venue": "",
+  "year": 2024,
+  "type": "posted-content",
+  "first_author": "Wang, Max",
+  "volume": null,
+  "page": null
+ },
+ "10.48550/arXiv.2402.14583": {
+  "ok": true,
+  "agency": "datacite",
+  "title": "Dataset Artefacts are the Hidden Drivers of the Declining Disruptiveness in Science",
+  "year": 2024,
+  "venue": "arXiv",
+  "first_author": "Holst, Vincent"
+ },
+ "10.48550/arXiv.2503.00184": {
+  "ok": true,
+  "agency": "datacite",
+  "title": "Robust Evidence for Declining Disruptiveness: Assessing the Role of Zero-Backward-Citation Works",
+  "year": 2025,
+  "venue": "arXiv",
+  "first_author": "Park, Michael"
+ },
+ "10.48550/arXiv.2602.05140": {
+  "ok": true,
+  "agency": "datacite",
+  "title": "Is Innovation Becoming Less Disruptive? An Inventory of the Literature",
+  "year": 2026,
+  "venue": "arXiv",
+  "first_author": "Wu, Xiangting"
+ },
+ "10.48550/arXiv.2406.18792": {
+  "ok": true,
+  "agency": "datacite",
+  "title": "MeSH Concept Relevance and Knowledge Evolution: A Data-driven Perspective",
+  "year": 2024,
+  "venue": "arXiv",
+  "first_author": "Copara, Jenny"
+ },
+ "10.48550/arXiv.2504.09589": {
+  "ok": true,
+  "agency": "datacite",
+  "title": "Knowledge Independence Breeds Disruption but Limits Recognition",
+  "year": 2025,
+  "venue": "arXiv",
+  "first_author": "Yu, Xiaoyao"
+ },
+ "10.48550/arXiv.2504.04677": {
+  "ok": true,
+  "agency": "datacite",
+  "title": "The Disruption Index Measures Displacement Between a Paper and Its Most Cited Reference",
+  "year": 2025,
+  "venue": "arXiv",
+  "first_author": "Lin, Yiling"
+ },
+ "10.48550/arXiv.2308.02383": {
+  "ok": true,
+  "agency": "datacite",
+  "title": "What do we know about the disruption index in scientometrics? An overview of the literature",
+  "year": 2023,
+  "venue": "arXiv",
+  "first_author": "Leibel, Christian"
+ },
+ "10.48550/arXiv.2504.07828": {
+  "ok": true,
+  "agency": "datacite",
+  "title": "Dynamic disruption index across citation and cited references windows: Recommendations for thresholds in research evaluation",
+  "year": 2025,
+  "venue": "arXiv",
+  "first_author": "Chen, Hongkan"
+ },
+ "10.48550/arXiv.2406.15311": {
+  "ok": true,
+  "agency": "datacite",
+  "title": "The disruption index suffers from citation inflation and is confounded by shifts in scholarly citation practice",
+  "year": 2024,
+  "venue": "arXiv",
+  "first_author": "Petersen, Alexander M."
+ }
+}

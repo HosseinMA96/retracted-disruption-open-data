@@ -1,0 +1,214 @@
+{
+  "run_id": "e07_yearly_20261123_01",
+  "script": "e07_yearly.py",
+  "script_sha256": "bd0d6e3b5358d67f9af0c75060b928c4f3774bcbb611d5a0f30ee8337d91e421",
+  "config": {
+    "e2_runs": [
+      "e02_pop_cd3_20261110_01",
+      "e02_pop_20261110_01"
+    ],
+    "e3_check_runs": [
+      "e03_cd5_cd3_20261110_01",
+      "e03_cd5_20261110_01"
+    ],
+    "y_end": 2023,
+    "focal_sha256": {
+      "e02_pop_cd3_20261110_01": "e677c5d7e966beca71c4d329ef0531d43829fddcad73bec2bcfe4435a470c930",
+      "e02_pop_20261110_01": "8773bcb0a57ea31fdbe98b76c3f250b441bd5d1b01394a66fdb79cfbb07fea4e"
+    },
+    "yearly_lib_sha256": "f49cdf62939358cd077e6847560165ef57ec71e3393d73d9ed2f6100ee369276",
+    "spec_sha256": "1403d0d13d35bd32c40ede1be24833ab15e7977edb2f56c2128ef8823373ad31",
+    "posthoc_sha256": "7b8f6d11ce319ecf1b2583f525b37d38b232b8b7e263a26ab15089891d5645b0",
+    "notice_pub_types": [
+      "Retraction of Publication",
+      "Published Erratum",
+      "Expression of Concern"
+    ],
+    "notice_links": [
+      "RetractionOf",
+      "ErratumFor",
+      "ExpressionOfConcernFor"
+    ]
+  },
+  "host": "vm-project-c",
+  "python": "3.11.18",
+  "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+  "started_utc": "2026-11-24T06:09:32Z",
+  "results": {
+    "focal": 110462,
+    "pubmed_pub_types_seen": [
+      [
+        "D000075742",
+        "Expression of Concern",
+        3248
+      ],
+      [
+        "D016425",
+        "Published Erratum",
+        194062
+      ],
+      [
+        "D016440",
+        "Retraction Notice",
+        29990
+      ],
+      [
+        "D016441",
+        "Retracted Publication",
+        30697
+      ]
+    ],
+    "pubmed_cc_reftypes_seen": [
+      [
+        "AssociatedDataset",
+        245
+      ],
+      [
+        "AssociatedPublication",
+        245
+      ],
+      [
+        "CommentIn",
+        1215063
+      ],
+      [
+        "CommentOn",
+        1213619
+      ],
+      [
+        "ErratumFor",
+        195668
+      ],
+      [
+        "ErratumIn",
+        337002
+      ],
+      [
+        "ExpressionOfConcernFor",
+        3801
+      ],
+      [
+        "ExpressionOfConcernIn",
+        3798
+      ],
+      [
+        "OriginalReportIn",
+        1382
+      ],
+      [
+        "ReprintIn",
+        3238
+      ],
+      [
+        "ReprintOf",
+        3245
+      ],
+      [
+        "RepublishedFrom",
+        1651
+      ],
+      [
+        "RepublishedIn",
+        1449
+      ],
+      [
+        "RetractedandRepublishedFrom",
+        64
+      ],
+      [
+        "RetractedandRepublishedIn",
+        66
+      ],
+      [
+        "RetractionIn",
+        30861
+      ],
+      [
+        "RetractionOf",
+        30305
+      ],
+      [
+        "SummaryForPatientsIn",
+        1382
+      ],
+      [
+        "UpdateIn",
+        40001
+      ],
+      [
+        "UpdateOf",
+        39839
+      ]
+    ],
+    "pubmed_notice_records_by_type_link": [
+      [
+        false,
+        true,
+        29272
+      ],
+      [
+        true,
+        false,
+        3989
+      ],
+      [
+        true,
+        true,
+        193236
+      ]
+    ],
+    "notice_nodes": 105914,
+    "notice_nodes_that_are_focal": 2737,
+    "rows_fr": 4409105,
+    "rows_a": 4603700,
+    "rows_ab": 2953897,
+    "rows_ne": 1213780,
+    "rows_knt": 3229370,
+    "check_vs_e03_cd5_cd3_20261110_01": {
+      "papers": 110462,
+      "not_in_focal": 0,
+      "mismatches": 0,
+      "windows": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    "check_vs_e03_cd5_20261110_01": {
+      "papers": 86950,
+      "not_in_focal": 0,
+      "mismatches": 0,
+      "windows": [
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          5
+        ]
+      ]
+    },
+    "yearly_rows": 948941,
+    "citations_total": {
+      "ni": 1649803,
+      "nj": 2953897,
+      "ni_ntc": 6621,
+      "nj_ntc": 7356,
+      "nk_ntc": 3229370
+    },
+    "focal_with_any_notice_citation": 10422,
+    "frozen": {
+      "yearly.parquet": {
+        "sha256": "4ad7390ebdb83272909df656c376ef094dc0f81673f418bb1b9cf71ccfcc83f6",
+        "rows": 948941
+      }
+    }
+  },
+  "seconds": 169.5
+}

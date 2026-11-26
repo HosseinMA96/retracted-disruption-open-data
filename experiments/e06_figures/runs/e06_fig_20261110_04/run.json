@@ -1,0 +1,25 @@
+{
+  "run_id": "e06_fig_20261110_04",
+  "script": "e06_figures.py",
+  "script_sha256": "b03262631ac094b9ed5ac99a9b3e7016fac152955b9c24c6a32e788c2b717cf8",
+  "config": {
+    "e4_cd5": "e04_eval_20261110_01",
+    "e4_cd3": "e04_eval_cd3_20261110_01",
+    "palette": [
+      "#2a78d6",
+      "#eb6834"
+    ],
+    "palette_check": "dataviz validate_palette.js light: all pass"
+  },
+  "host": "Hossein",
+  "python": "3.10.9",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "started_utc": "2026-11-10T04:41:43Z",
+  "results": {
+    "figures": [
+      "fig1_forest.pdf",
+      "fig1_forest.png"
+    ]
+  },
+  "seconds": 0.5
+}

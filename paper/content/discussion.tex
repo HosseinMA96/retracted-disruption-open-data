@@ -1,0 +1,74 @@
+\section{Discussion}\label{sec:discussion}
+
+\paragraph{A small mean difference, but a sign shift} For the late-retracted primary set, the post hoc 90\% interval
+rules out absolute mean CD$_5$ differences above 0.00093, about 28\% of the review comparison's effect. Retracted papers
+reach the top 5\% of their year about as often as controls, but positive scores are more common (odds ratio 1.23).
+Thus, the two primary estimates do not give identical conclusions: the index registers a sign shift without a large
+mean difference or unadjusted top-tier excess. An evaluation rewarding high CD$_5$ does not systematically favour
+these late-retracted papers, but it does not exclude them either. A separate prospective study found that links to
+papers retracted by a fixed cutoff predicted later retraction, albeit weakly as a standalone screen
+\citep{arjomandi2026prospective}; \citet{lou2026beyond} reported the retrospective citation-network association.
+
+\paragraph{What the $n_k$ term hides} The papers that cite retracted papers less often also cite their references.
+The difference is small, three percentage points in the share of such citing papers or about 0.12 standard deviations
+of DI$_{nok}$, but it is positive in all reason classes except honest error, its interval excludes zero for
+misconduct and for other reasons, and the shift in its sign survives adjustment for reference and citation counts.
+CD$_5$ registers it only through its sign, because the papers that cite only the references outnumber the citing papers
+by more than two orders of magnitude for the median paper. The pattern is in line with the first expectation set out in
+the introduction, that fabricated or falsified findings are cited without the literature they built on, but two other
+readings fit the data and cannot be separated here: retracted papers may attract citations from outside their immediate
+literature, or their reference lists may matter less to the papers that cite them. The data give no support to the
+second expectation, that paper-mill products are consolidating. Whatever the reason, variants that remove $n_k$
+\citep{wuyan2019solo,bornmann2020convergent} or that adjust for reference length would score retracted papers somewhat
+higher than comparable papers. \citet{scancar2026distortion} found citation patterns among suspected paper-mill
+articles in highly ranked molecular-cancer journals consistent with citation inflation. This motivates considering
+the composition of citing papers, but does not establish why they omit a focal paper's references. The present
+analysis does not exclude citing papers that are themselves retracted, so it cannot separate that possibility from
+the other explanations.
+
+\paragraph{Reference length and the top tier} At equal reference length, retracted papers reach the top 5\% of
+CD$_5$ more often (odds ratio 1.42). The unadjusted comparison, which is what an evaluator sees, shows no
+over-representation because retracted papers less often have the short reference lists that favour high scores. The
+adjusted estimate shrinks when citations in the window are also held fixed (1.19), but citations are part of the score
+itself, so that model over-adjusts. A small over-representation of retracted papers among high scorers at equal
+reference length is therefore likely; the data give no support to the opposite conclusion that the index penalises
+them.
+
+\paragraph{Scores that include the retraction} Scores computed over windows that include the retraction differ for two
+reasons. Notice records are counted among the citing papers, and more than a third of the papers retracted inside the
+window have one. Beyond notices, the papers citing a retracted paper increasingly ignore its references while its
+citations fall. This divergence starts before the notice, most clearly for misconduct, which fits critical attention
+that precedes a formal retraction, and it steepens after the notice; the comparison is descriptive, not causal. For
+users of the index the implication is simple: scores of retracted papers that include the notice year or later years
+describe the retraction as much as the paper. They should be computed on a window that ends before the notice, with
+notice records excluded, or be flagged.
+
+\paragraph{Honest error} Papers retracted for honest error score slightly lower than their controls on CD$_5$, show no
+clear difference on DI$_{nok}$, and their change after the notice shows no sign of an earlier trend. These classes are small (294
+and 615 papers in the two windows), so the pattern should be read as a hypothesis: papers later found to contain errors
+may build closely on their references, and their errors may come to attention only with the notice.
+
+\paragraph{Relation to the debate on declining disruption} Requiring at least one reference removes almost all
+CD$_5 = 1$ records (0.04\% remain), which are the records at the centre of the artefact debate
+\citep{holst2024artefacts,holst2026partially,park2026reply}. This study makes no claim about long-run trends; the
+yearly means of the reference sample are reported for orientation only. The size of $n_k$ found here, at least 90\% of
+the denominator for almost all papers, is a reminder that CD$_5$ values near zero are the rule on a large citation
+graph, so that differences between groups appear in thousandths.
+
+\paragraph{Limitations} OpenCitations does not cover all references, and the choice of data source affects disruption
+scores \citep{xu2025alternative,crossdi2025}; scores computed here are scores on open data. 83.3\% of Retraction Watch
+papers were matched to the graph. Reason classes are a rule-based grouping of Retraction Watch reasons, and many
+notices give limited information (the ``other'' class). Because the graph is complete only to about September 2023, the
+main analysis ends with papers from 2017 and covers only 276 paper-mill papers; the post hoc three-year window raises
+this to 708, but most paper-mill papers were published after 2019. Retractions are a selected and incomplete label of
+problematic work: some unreliable papers are never retracted, and the controls may contain them. Several analyses
+were added after the main results were known. They are labelled post hoc and their plans were recorded before they
+were run, but their equivalence margins ($\pm 0.1$ standard deviations; 0.80--1.25) are conventions rather than values
+derived from the use of the index. The score SD is sensitive to the tails: the scored set's 5th--95th percentile span
+is only about 0.028, and the $\pm 0.0044$ margin exceeds the review effect of $-0.0033$. The 0.00093 bound is therefore
+the more interpretable result; a statistically detected contrast can still fit within a chosen equivalence margin.
+The primary set is also selected for late retraction: first notices occur in the sixth or a later calendar year after
+publication. Its conclusions need not generalize to papers retracted during the scoring window, which are analysed
+separately. Notice
+records are identified only through PubMed. Because of the earlier trend, the change around the notice cannot be
+attributed to the notice alone. Only two members of the index family are analysed.

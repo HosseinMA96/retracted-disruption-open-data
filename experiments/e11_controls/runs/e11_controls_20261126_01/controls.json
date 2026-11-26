@@ -1,0 +1,399 @@
+{
+ "cd5": {
+  "population": {
+   "retracted": 10450,
+   "strata": 5458,
+   "controls": 52147,
+   "controls_defined": 52122
+  },
+  "primary": {
+   "papers": 4587,
+   "papers_defined": 4587,
+   "strata_with_primary_paper": 2240,
+   "strata_used": 2239,
+   "papers_in_used_strata": 4586
+  },
+  "controls_used_strata": {
+   "controls": 31674,
+   "controls_defined": 31662
+  },
+  "controls_other_strata": {
+   "controls": 20473,
+   "controls_defined": 20460,
+   "strata_not_used": 3219
+  },
+  "controls_in_strata_with_primary_paper": 31674,
+  "undefined": {
+   "label_rows_by_group": {
+    "context": 19,
+    "control": 25,
+    "retracted_secondary": 2
+   },
+   "label_rows": 87088,
+   "distinct_papers": 86950,
+   "distinct_papers_undefined": 46,
+   "all_have_zero_denominator": true
+  },
+  "shares": {
+   "pos": {
+    "retracted_used_strata": {
+     "k": 923,
+     "n": 4586,
+     "share_ci": [
+      0.2012647187091147,
+      0.18991247348754725,
+      0.21311703411027488
+     ]
+    },
+    "retracted_all_primary_v1": {
+     "k": 924,
+     "n": 4587,
+     "share_ci": [
+      0.2014388489208633,
+      0.19008392046362524,
+      0.2132934472068254
+     ]
+    },
+    "controls_weighted": [
+     0.172985054877008,
+     0.15989938207083906,
+     0.1859228684261128
+    ],
+    "retracted_weighted_check": 0.2012647187091147,
+    "controls_pooled_used_strata": {
+     "k": 5725,
+     "n": 31662,
+     "share_ci": [
+      0.18081612027035562,
+      0.17661560323851117,
+      0.18509408206478423
+     ]
+    },
+    "controls_pooled_other_strata": {
+     "k": 4030,
+     "n": 20460,
+     "share_ci": [
+      0.19696969696969696,
+      0.1915771442952624,
+      0.20247602312174884
+     ]
+    },
+    "controls_pooled_all_v1": {
+     "k": 9755,
+     "n": 52122,
+     "share_ci": [
+      0.187157054602663,
+      0.18383164194632592,
+      0.19052857941458926
+     ]
+    }
+   },
+   "p95": {
+    "retracted_used_strata": {
+     "k": 142,
+     "n": 4586,
+     "share_ci": [
+      0.030963802878325338,
+      0.0263296774724857,
+      0.03638307496759852
+     ]
+    },
+    "retracted_all_primary_v1": {
+     "k": 142,
+     "n": 4587,
+     "share_ci": [
+      0.030957052539786353,
+      0.026323924827992524,
+      0.036375167207768414
+     ]
+    },
+    "controls_weighted": [
+     0.031200517563336784,
+     0.0280363095904303,
+     0.03472600152243444
+    ],
+    "retracted_weighted_check": 0.030963802878325338,
+    "controls_pooled_used_strata": {
+     "k": 1047,
+     "n": 31662,
+     "share_ci": [
+      0.033068031078264164,
+      0.03115433296665,
+      0.03509502261655989
+     ]
+    },
+    "controls_pooled_other_strata": {
+     "k": 1066,
+     "n": 20460,
+     "share_ci": [
+      0.05210166177908113,
+      0.04913971051249001,
+      0.05523177758581503
+     ]
+    },
+    "controls_pooled_all_v1": {
+     "k": 2113,
+     "n": 52122,
+     "share_ci": [
+      0.040539503472621925,
+      0.03887992771036463,
+      0.04226680239825773
+     ]
+    }
+   },
+   "p99": {
+    "retracted_used_strata": {
+     "k": 17,
+     "n": 4586,
+     "share_ci": [
+      0.003706934147405146,
+      0.002315757836688445,
+      0.005928883982759093
+     ]
+    },
+    "retracted_all_primary_v1": {
+     "k": 17,
+     "n": 4587,
+     "share_ci": [
+      0.003706126008284282,
+      0.002315252713549121,
+      0.005927593216922537
+     ]
+    },
+    "controls_weighted": [
+     0.005436676748846429,
+     0.004323171712354854,
+     0.006627854327946874
+    ],
+    "retracted_weighted_check": 0.003706934147405146,
+    "controls_pooled_used_strata": {
+     "k": 176,
+     "n": 31662,
+     "share_ci": [
+      0.00555871391573495,
+      0.004797591940238769,
+      0.0064398040050501135
+     ]
+    },
+    "controls_pooled_other_strata": {
+     "k": 203,
+     "n": 20460,
+     "share_ci": [
+      0.009921798631476051,
+      0.00865270921272504,
+      0.011374889124431752
+     ]
+    },
+    "controls_pooled_all_v1": {
+     "k": 379,
+     "n": 52122,
+     "share_ci": [
+      0.007271401711369479,
+      0.006577431675261871,
+      0.008037998533926349
+     ]
+    }
+   },
+   "v1_mh_control_counts_are_all_scored_controls": true
+  }
+ },
+ "cd3": {
+  "population": {
+   "retracted": 13661,
+   "strata": 6565,
+   "controls": 68190,
+   "controls_defined": 68146
+  },
+  "primary": {
+   "papers": 7350,
+   "papers_defined": 7349,
+   "strata_with_primary_paper": 3310,
+   "strata_used": 3308,
+   "papers_in_used_strata": 7348
+  },
+  "controls_used_strata": {
+   "controls": 48069,
+   "controls_defined": 48044
+  },
+  "controls_other_strata": {
+   "controls": 20121,
+   "controls_defined": 20102,
+   "strata_not_used": 3257
+  },
+  "controls_in_strata_with_primary_paper": 48079,
+  "undefined": {
+   "label_rows_by_group": {
+    "context": 32,
+    "control": 44,
+    "retracted_primary": 1,
+    "retracted_secondary": 2
+   },
+   "label_rows": 110635,
+   "distinct_papers": 110462,
+   "distinct_papers_undefined": 79,
+   "all_have_zero_denominator": true
+  },
+  "shares": {
+   "pos": {
+    "retracted_used_strata": {
+     "k": 1641,
+     "n": 7348,
+     "share_ci": [
+      0.22332607512248231,
+      0.21394932739001316,
+      0.23299196688379176
+     ]
+    },
+    "retracted_all_primary_v1": {
+     "k": 1642,
+     "n": 7349,
+     "share_ci": [
+      0.22343175942305077,
+      0.21405398111705773,
+      0.23309853200113592
+     ]
+    },
+    "controls_weighted": [
+     0.18432625003328332,
+     0.17352375175057405,
+     0.1957275334734229
+    ],
+    "retracted_weighted_check": 0.22332607512248231,
+    "controls_pooled_used_strata": {
+     "k": 9344,
+     "n": 48044,
+     "share_ci": [
+      0.1944883856464907,
+      0.19097355449380435,
+      0.19805207033259783
+     ]
+    },
+    "controls_pooled_other_strata": {
+     "k": 3844,
+     "n": 20102,
+     "share_ci": [
+      0.1912247537558452,
+      0.18584741247851883,
+      0.196720089694581
+     ]
+    },
+    "controls_pooled_all_v1": {
+     "k": 13188,
+     "n": 68146,
+     "share_ci": [
+      0.1935256654829337,
+      0.19057677459139633,
+      0.19650910823184414
+     ]
+    }
+   },
+   "p95": {
+    "retracted_used_strata": {
+     "k": 277,
+     "n": 7348,
+     "share_ci": [
+      0.03769733260751225,
+      0.033578398885337,
+      0.04229940566366199
+     ]
+    },
+    "retracted_all_primary_v1": {
+     "k": 277,
+     "n": 7349,
+     "share_ci": [
+      0.03769220302081916,
+      0.03357382058265264,
+      0.042293664445176585
+     ]
+    },
+    "controls_weighted": [
+     0.03415152131110766,
+     0.031075067247899994,
+     0.037523379449861755
+    ],
+    "retracted_weighted_check": 0.03769733260751225,
+    "controls_pooled_used_strata": {
+     "k": 1711,
+     "n": 48044,
+     "share_ci": [
+      0.035613187911081506,
+      0.033992795809487344,
+      0.037307838847949595
+     ]
+    },
+    "controls_pooled_other_strata": {
+     "k": 1166,
+     "n": 20102,
+     "share_ci": [
+      0.058004178688687694,
+      0.054856436720113214,
+      0.06132082392238583
+     ]
+    },
+    "controls_pooled_all_v1": {
+     "k": 2877,
+     "n": 68146,
+     "share_ci": [
+      0.04221817861649987,
+      0.040734007483041186,
+      0.043753959984222886
+     ]
+    }
+   },
+   "p99": {
+    "retracted_used_strata": {
+     "k": 37,
+     "n": 7348,
+     "share_ci": [
+      0.005035383777898748,
+      0.0036554808874254955,
+      0.006932560073631121
+     ]
+    },
+    "retracted_all_primary_v1": {
+     "k": 37,
+     "n": 7349,
+     "share_ci": [
+      0.005034698598448769,
+      0.0036549831855236924,
+      0.006931617782461255
+     ]
+    },
+    "controls_weighted": [
+     0.005568637883953344,
+     0.004625055891325472,
+     0.006644164552152211
+    ],
+    "retracted_weighted_check": 0.005035383777898748,
+    "controls_pooled_used_strata": {
+     "k": 260,
+     "n": 48044,
+     "share_ci": [
+      0.005411705936225127,
+      0.004794053162178948,
+      0.006108446982593424
+     ]
+    },
+    "controls_pooled_other_strata": {
+     "k": 240,
+     "n": 20102,
+     "share_ci": [
+      0.011939110536265049,
+      0.010528152060721632,
+      0.013536575475975966
+     ]
+    },
+    "controls_pooled_all_v1": {
+     "k": 500,
+     "n": 68146,
+     "share_ci": [
+      0.007337187802658997,
+      0.006723606539225172,
+      0.008006311776535078
+     ]
+    }
+   },
+   "v1_mh_control_counts_are_all_scored_controls": true
+  }
+ }
+}

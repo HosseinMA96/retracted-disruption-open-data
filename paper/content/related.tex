@@ -1,0 +1,43 @@
+\section{Related work}\label{sec:related}
+
+\paragraph{The CD index and its debates} \citet{funk2017dynamic} introduced the index for patents, using citations in
+the first five years after a patent's issue; \citet{wu2019large} and \citet{park2023papers} applied it to tens of
+millions of papers. \citet{wu2019large} call papers in the top 5\% of the disruption distribution highly disruptive.
+\citet{park2023papers} reported that papers and patents have become less disruptive over the decades they studied,
+with PubMed among the robustness datasets. \citet{holst2024artefacts} argued that records without references, which
+receive CD$_5 = 1$ whenever they are cited, are hidden drivers of that decline; the published comment states that such
+artefacts can partially drive it \citep{holst2026partially}, and the original authors dispute an artefact-based
+explanation \citep{park2026reply,park2025robust}. \citet{petersen2024inflation} showed that citation inflation,
+including the growth of reference lists, biases the index, and \citet{petersen2025reanalysis} found that trends
+controlled for it are at the level of noise in the period they studied. \citet{leibel2023overview} review the index
+family, its variants and its limitations, and \citet{lin2026displacement} interpret the index as capturing the
+displacement of a paper's most cited reference.
+
+\paragraph{Variants and data sources} Several variants change the terms of the index. The variant without $n_k$, the
+number of papers that cite only the references, was proposed by \citet{wuyan2019solo} and studied as DI$_1^{nok}$ by
+\citet{bornmann2020convergent}. Disruption has been computed at scale on Dimensions \citep{sixt2024dimensions} and on
+OpenCitations \citep{jiang2024opencitations}, and compared across Web of Science, Dimensions and OpenCitations
+\citep{xu2025alternative,crossdi2025}. Biomedical applications include an analysis of PubMed papers
+\citep{sheng2023prior} and disruption measures for MeSH concepts \citep{copara2024mesh}. \citet{deng2025persistent}
+identify persistently disruptive papers, which are not themselves disrupted by the papers that cite them.
+
+\paragraph{Disruption and questionable work} Two studies link disruption measures to research integrity.
+\citet{you2022questionable} found that questionable publications, as they defined them, were less disruptive and less
+influential than comparable publications. \citet{copara2024mesh} propagated article disruption scores to MeSH concepts
+and aggregated concept metrics for papers. Their disruption-specific comparison differed between retracted and
+non-retracted papers in seven of eight years; the overall relevance composite, combining informativeness, usefulness,
+disruptiveness and influence, differed in all eight. Neither compares matched papers on their own paper-level CD
+scores, and neither scores them
+before the retraction. The literature search for this study, which included the 105-study inventory of
+\citet{wu2026inventory}, found no such comparison.
+
+\paragraph{Retractions in citation networks} Retracted papers cluster within citation networks
+\citep{feng2024molbio,lou2026beyond}, and papers that cite them are retracted more often \citep{lou2026beyond}.
+A prospective analysis on the same open citation snapshot found that citing papers retracted by the predictor cutoff
+was associated with later retraction within journal and year \citep{arjomandi2026prospective}; it used the same linked
+Retraction Watch dataset \citep{arjomandi2026retracteddata}, but did not analyse disruption.
+Paper-mill retractions share characteristics \citep{candal2022papermills}, tools flag papers that cite retracted work
+\citep{cabanac2024chain} and other problematic papers \citep{cabanac2022pps}, and retraction can be predicted to a
+limited extent from text and metadata \citep{fletcher2025predicting}. Citations to a paper fall sharply after its
+retraction \citep{azoulay2015retractions}, and retraction notices themselves appear among the citing items of retracted
+papers \citep{hsiao2021continued}. None of these studies uses the disruption index.

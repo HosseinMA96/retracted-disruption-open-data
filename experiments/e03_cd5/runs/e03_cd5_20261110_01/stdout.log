@@ -1,0 +1,49 @@
+[     0.0s] focal: 86950
+[    72.6s] focal_reference_pairs: 3407153
+[    72.6s] target_nodes: 2417970
+[    72.6s] incoming_citations_kept: 331830072
+batch 1/16: 5343 papers
+batch 2/16: 5421 papers
+batch 3/16: 5460 papers
+batch 4/16: 5297 papers
+batch 5/16: 5388 papers
+batch 6/16: 5390 papers
+batch 7/16: 5455 papers
+batch 8/16: 5512 papers
+batch 9/16: 5445 papers
+batch 10/16: 5411 papers
+batch 11/16: 5540 papers
+batch 12/16: 5467 papers
+batch 13/16: 5504 papers
+batch 14/16: 5491 papers
+batch 15/16: 5438 papers
+batch 16/16: 5388 papers
+[   146.2s] cd_w0_defined: 86904
+[   146.2s] cd_w1_defined: 86885
+[   146.2s] cd1_w0_share_of_defined: 0.00038
+[   146.2s] cd_w0_quantiles: [-0.057777, -0.021806, -0.004371, -0.000977, 0.0, 0.005935, 0.055556]
+[   146.2s] frozen: {'scores.parquet': {'sha256': 'fa9fdb9ad3105c06d3bc490c0ddd518f927e5466e85445f09163aa566459c015', 'rows': 86950}}
+done in 146.2 s -> /home/azureuser/e/experiments/e03_cd5/runs/e03_cd5_20261110_01
+	Command being timed: "/home/azureuser/mamba/envs/d/bin/python e03_cd5.py e03_cd5_20261110_01 e02_pop_20261110_01 16"
+	User time (seconds): 983.44
+	System time (seconds): 21.25
+	Percent of CPU this job got: 685%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:26.60
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 8511980
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 9
+	Minor (reclaiming a frame) page faults: 4699068
+	Voluntary context switches: 6165
+	Involuntary context switches: 9777
+	Swaps: 0
+	File system inputs: 18008
+	File system outputs: 6100792
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

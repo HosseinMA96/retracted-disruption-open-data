@@ -1,0 +1,10 @@
+{
+ "run": "e01_doi_20261109_01",
+ "script": "e01_doi_check.py",
+ "script_sha256": "c5ad5185b521e1412af2220fa01fa26a3d5127d9633b1b415cf04a98a7174958",
+ "utc": "2026-11-10T03:45:02.144958Z",
+ "python": "3.10.9",
+ "n_dois": 26,
+ "n_ok": 26,
+ "host": "laptop (network-only, <1 MB output)"
+}

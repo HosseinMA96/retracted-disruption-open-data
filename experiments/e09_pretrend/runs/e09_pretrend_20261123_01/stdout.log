@@ -1,0 +1,29 @@
+[     0.4s] frozen_inputs_verified: True
+[     1.8s] reproduces_P6_of: e08_posthoc2_20261123_02
+[     2.5s] P9a_real: {'n': 2763, 'strata': 1562, 'mean': 0.06403205168256132, 'ci': [0.037093975208812816, 0.09287371282162452], 'mean_change_retracted': 0.1943606187143777, 'mean_change_controls': 0.1303285670318164}
+[     2.5s] P9a_placebo: {'n': 2565, 'strata': 1428, 'mean': 0.036063011722021435, 'ci': [0.01241871858909893, 0.060269080400378275], 'mean_change_retracted': 0.11823006011416197, 'mean_change_controls': 0.08216704839214052}
+[     3.1s] outputs: ['results.json', 'event_time_balanced.csv']
+done in 3.1 s -> /home/azureuser/e/experiments/e09_pretrend/runs/e09_pretrend_20261123_01
+	Command being timed: "/home/azureuser/mamba/envs/d/bin/python e09_pretrend.py e09_pretrend_20261123_01 e02_pop_cd3_20261110_01 e03_cd5_cd3_20261110_01 e07_yearly_20261123_02 e08_posthoc2_20261123_02"
+	User time (seconds): 3.84
+	System time (seconds): 0.21
+	Percent of CPU this job got: 46%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:08.71
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 515020
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 217
+	Minor (reclaiming a frame) page faults: 37501
+	Voluntary context switches: 1693
+	Involuntary context switches: 17
+	Swaps: 0
+	File system inputs: 619816
+	File system outputs: 56
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

@@ -1,0 +1,28 @@
+[     0.9s] within_stratum_diff_log1p_n_refs: -0.01701173387855402
+[     0.9s] within_stratum_diff_log1p_cites_w0: 0.0989656524216701
+[     0.9s] spearman_cd_vs_nrefs_context: -0.19239974817820246
+[     0.9s] median_refs: {'context': 30.0, 'control': 35.0, 'retracted_in_window': 33.0, 'retracted_primary': 40.0}
+done in 0.9 s -> /home/azureuser/e/experiments/e05_posthoc/runs/e05_refs_20261110_01
+	Command being timed: "/home/azureuser/mamba/envs/d/bin/python e05_refs.py e05_refs_20261110_01 e02_pop_20261110_01 e03_cd5_20261110_01"
+	User time (seconds): 1.73
+	System time (seconds): 0.19
+	Percent of CPU this job got: 11%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:16.47
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 258768
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 217
+	Minor (reclaiming a frame) page faults: 24290
+	Voluntary context switches: 1677
+	Involuntary context switches: 38
+	Swaps: 0
+	File system inputs: 611400
+	File system outputs: 48
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

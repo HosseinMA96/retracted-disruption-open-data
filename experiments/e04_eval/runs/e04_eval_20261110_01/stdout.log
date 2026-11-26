@@ -1,0 +1,63 @@
+[     0.0s] frozen_scores_verified: True
+/home/azureuser/e/experiments/e04_eval/e04_eval.py:52: Pandas4Warning: The 'lsuffix' and 'rsuffix' keywords in DataFrame.join are deprecated and will be removed in a future version. Use the 'suffixes' keyword instead.
+  m = gr.join(gc, lsuffix="_r", rsuffix="_c", how="inner").sort_index()
+[     2.2s] RQ1_primary: {'retracted_defined': 4587, 'strata_used': 2239, 'diff': 0.0001980334284802096, 'diff_ci': [-0.0006095775323810018, 0.0010852202382419954]}
+/home/azureuser/e/experiments/e04_eval/e04_eval.py:52: Pandas4Warning: The 'lsuffix' and 'rsuffix' keywords in DataFrame.join are deprecated and will be removed in a future version. Use the 'suffixes' keyword instead.
+  m = gr.join(gc, lsuffix="_r", rsuffix="_c", how="inner").sort_index()
+[     3.8s] RQ2_honest_error: {'retracted_defined': 294, 'strata_used': 261, 'diff': -0.004075728922261972, 'diff_ci': [-0.007679293036219712, -0.0007282494579005494]}
+/home/azureuser/e/experiments/e04_eval/e04_eval.py:52: Pandas4Warning: The 'lsuffix' and 'rsuffix' keywords in DataFrame.join are deprecated and will be removed in a future version. Use the 'suffixes' keyword instead.
+  m = gr.join(gc, lsuffix="_r", rsuffix="_c", how="inner").sort_index()
+[     5.4s] RQ2_misconduct: {'retracted_defined': 2743, 'strata_used': 1437, 'diff': 0.000317935210992439, 'diff_ci': [-0.0002064758418508371, 0.0008176872747196716]}
+/home/azureuser/e/experiments/e04_eval/e04_eval.py:52: Pandas4Warning: The 'lsuffix' and 'rsuffix' keywords in DataFrame.join are deprecated and will be removed in a future version. Use the 'suffixes' keyword instead.
+  m = gr.join(gc, lsuffix="_r", rsuffix="_c", how="inner").sort_index()
+[     7.0s] RQ2_other: {'retracted_defined': 1274, 'strata_used': 756, 'diff': 0.0008440500567744957, 'diff_ci': [-0.001717502848781942, 0.003965870122193777]}
+/home/azureuser/e/experiments/e04_eval/e04_eval.py:52: Pandas4Warning: The 'lsuffix' and 'rsuffix' keywords in DataFrame.join are deprecated and will be removed in a future version. Use the 'suffixes' keyword instead.
+  m = gr.join(gc, lsuffix="_r", rsuffix="_c", how="inner").sort_index()
+/home/azureuser/e/experiments/e04_eval/e04_eval.py:41: RuntimeWarning: invalid value encountered in scalar divide
+  v = (P * R).sum() / (2 * R.sum() ** 2) + ((P * Sx + Q * R).sum()) / (2 * R.sum() * Sx.sum()) + (Q * Sx).sum() / (2 * Sx.sum() ** 2)
+/home/azureuser/e/experiments/e04_eval/e04_eval.py:41: RuntimeWarning: divide by zero encountered in scalar divide
+  v = (P * R).sum() / (2 * R.sum() ** 2) + ((P * Sx + Q * R).sum()) / (2 * R.sum() * Sx.sum()) + (Q * Sx).sum() / (2 * Sx.sum() ** 2)
+[     8.6s] RQ2_paper_mill: {'retracted_defined': 276, 'strata_used': 97, 'diff': 0.0005773459611713258, 'diff_ci': [-0.00013633065092060915, 0.0012265442316697222]}
+/home/azureuser/e/experiments/e04_eval/e04_eval.py:52: Pandas4Warning: The 'lsuffix' and 'rsuffix' keywords in DataFrame.join are deprecated and will be removed in a future version. Use the 'suffixes' keyword instead.
+  m = gr.join(gc, lsuffix="_r", rsuffix="_c", how="inner").sort_index()
+[    10.3s] rob_a_no_cd1: {'retracted_defined': 4585, 'strata_used': 2238, 'diff': 4.5914051563571475e-05, 'diff_ci': [-0.0005042877030415824, 0.0005858621227591231]}
+/home/azureuser/e/experiments/e04_eval/e04_eval.py:52: Pandas4Warning: The 'lsuffix' and 'rsuffix' keywords in DataFrame.join are deprecated and will be removed in a future version. Use the 'suffixes' keyword instead.
+  m = gr.join(gc, lsuffix="_r", rsuffix="_c", how="inner").sort_index()
+[    11.9s] rob_b_no_reviews: {'retracted_defined': 4192, 'strata_used': 2125, 'diff': 0.00013727627108344587, 'diff_ci': [-0.0007404540676520366, 0.0011837049768012532]}
+/home/azureuser/e/experiments/e04_eval/e04_eval.py:52: Pandas4Warning: The 'lsuffix' and 'rsuffix' keywords in DataFrame.join are deprecated and will be removed in a future version. Use the 'suffixes' keyword instead.
+  m = gr.join(gc, lsuffix="_r", rsuffix="_c", how="inner").sort_index()
+[    13.8s] rob_c_ref_deciles: {'retracted_defined': 4587, 'strata_used': 2315, 'diff': 0.0012266059251359207, 'diff_ci': [0.0003864432589902056, 0.0022296510706426523]}
+/home/azureuser/e/experiments/e04_eval/e04_eval.py:52: Pandas4Warning: The 'lsuffix' and 'rsuffix' keywords in DataFrame.join are deprecated and will be removed in a future version. Use the 'suffixes' keyword instead.
+  m = gr.join(gc, lsuffix="_r", rsuffix="_c", how="inner").sort_index()
+[    15.5s] rob_d_window_w1: {'retracted_defined': 4587, 'strata_used': 2239, 'diff': 0.0003143524432898782, 'diff_ci': [-0.0006293941982968804, 0.0013471994519543072]}
+/home/azureuser/e/experiments/e04_eval/e04_eval.py:52: Pandas4Warning: The 'lsuffix' and 'rsuffix' keywords in DataFrame.join are deprecated and will be removed in a future version. Use the 'suffixes' keyword instead.
+  m = gr.join(gc, lsuffix="_r", rsuffix="_c", how="inner").sort_index()
+[    17.5s] rob_e_secondary: {'retracted_defined': 10448, 'strata_used': 5454, 'diff': 0.0014444863049287466, 'diff_ci': [0.000782279230097525, 0.0022084133188563027]}
+/home/azureuser/e/experiments/e04_eval/e04_eval.py:52: Pandas4Warning: The 'lsuffix' and 'rsuffix' keywords in DataFrame.join are deprecated and will be removed in a future version. Use the 'suffixes' keyword instead.
+  m = gr.join(gc, lsuffix="_r", rsuffix="_c", how="inner").sort_index()
+[    18.8s] rob_f_ge5_cites: {'retracted_defined': 4097, 'strata_used': 1962, 'diff': 0.0006223660300298654, 'diff_ci': [7.198057336849554e-05, 0.001148757608371515]}
+[    18.9s] outputs: ['results.json', 'context_by_year.csv', 'thresholds.csv']
+done in 18.9 s -> /home/azureuser/e/experiments/e04_eval/runs/e04_eval_20261110_01
+	Command being timed: "/home/azureuser/mamba/envs/d/bin/python e04_eval.py e04_eval_20261110_01 e02_pop_20261110_01 e03_cd5_20261110_01"
+	User time (seconds): 19.17
+	System time (seconds): 0.53
+	Percent of CPU this job got: 102%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:19.19
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 641076
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 13
+	Minor (reclaiming a frame) page faults: 208581
+	Voluntary context switches: 184
+	Involuntary context switches: 172
+	Swaps: 0
+	File system inputs: 19288
+	File system outputs: 104
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

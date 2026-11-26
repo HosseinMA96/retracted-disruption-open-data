@@ -1,0 +1,124 @@
+{
+  "run_id": "e04_eval_cd3_20261110_01",
+  "script": "e04_eval.py",
+  "script_sha256": "f3d5c4b2024e77663f6d677d4748ea374d564f0cae6c32478a14cfc18ef07043",
+  "config": {
+    "e2_run": "e02_pop_cd3_20261110_01",
+    "e3_run": "e03_cd5_cd3_20261110_01",
+    "seed": 20261109,
+    "n_boot": 2000,
+    "spec_sha256": "1403d0d13d35bd32c40ede1be24833ab15e7977edb2f56c2128ef8823373ad31"
+  },
+  "host": "vm-project-c",
+  "python": "3.11.18",
+  "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+  "started_utc": "2026-11-10T06:31:06Z",
+  "results": {
+    "frozen_scores_verified": true,
+    "RQ1_primary": {
+      "retracted_defined": 7349,
+      "strata_used": 3308,
+      "diff": 0.0003900193840375504,
+      "diff_ci": [
+        -0.0002702487247695512,
+        0.001137386331858044
+      ]
+    },
+    "RQ2_honest_error": {
+      "retracted_defined": 615,
+      "strata_used": 517,
+      "diff": -0.002673862927447307,
+      "diff_ci": [
+        -0.004294724908540103,
+        -0.001171541095302747
+      ]
+    },
+    "RQ2_misconduct": {
+      "retracted_defined": 4172,
+      "strata_used": 2057,
+      "diff": 0.00044607622747025157,
+      "diff_ci": [
+        -0.00018696535456362118,
+        0.0011903624000556936
+      ]
+    },
+    "RQ2_other": {
+      "retracted_defined": 1854,
+      "strata_used": 1126,
+      "diff": 0.001278831796921948,
+      "diff_ci": [
+        -0.0007384533960045472,
+        0.003550473231559803
+      ]
+    },
+    "RQ2_paper_mill": {
+      "retracted_defined": 708,
+      "strata_used": 207,
+      "diff": 0.0003937147429608809,
+      "diff_ci": [
+        -8.841202316234126e-05,
+        0.0008215735050953138
+      ]
+    },
+    "rob_a_no_cd1": {
+      "retracted_defined": 7347,
+      "strata_used": 3307,
+      "diff": 0.00032391789342062184,
+      "diff_ci": [
+        -0.00016528199108001122,
+        0.0008343945799838485
+      ]
+    },
+    "rob_b_no_reviews": {
+      "retracted_defined": 6793,
+      "strata_used": 3148,
+      "diff": 0.0003889507307088107,
+      "diff_ci": [
+        -0.0003189339703979533,
+        0.0011650522019822252
+      ]
+    },
+    "rob_c_ref_deciles": {
+      "retracted_defined": 7349,
+      "strata_used": 3632,
+      "diff": 0.0012609921900992172,
+      "diff_ci": [
+        0.0005170737122187339,
+        0.0020171642093792332
+      ]
+    },
+    "rob_d_window_w1": {
+      "retracted_defined": 7349,
+      "strata_used": 3308,
+      "diff": 0.0005353016570935671,
+      "diff_ci": [
+        -0.00022322709830080212,
+        0.001382908005581873
+      ]
+    },
+    "rob_e_secondary": {
+      "retracted_defined": 13658,
+      "strata_used": 6560,
+      "diff": 0.0012719358108260633,
+      "diff_ci": [
+        0.0006740450234757175,
+        0.001898257685079216
+      ]
+    },
+    "rob_f_ge5_cites": {
+      "retracted_defined": 5907,
+      "strata_used": 2596,
+      "diff": 0.0007756660319447596,
+      "diff_ci": [
+        0.00022717343994105985,
+        0.0013550547979685383
+      ]
+    },
+    "outputs": [
+      "results.json",
+      "context_by_year.csv",
+      "thresholds.csv"
+    ]
+  },
+  "seconds": 24.6
+}

@@ -1,0 +1,138 @@
+\section{Data and methods}\label{sec:methods}
+
+\subsection{Data}
+\paragraph{Citation graph} The graph is the January 2024 OpenCitations snapshot distributed as parsed tables by
+\citet{arjomandi2024dataset} \citep[see also][]{peroni2020opencitations}. Publication years, identifiers and journals
+come from OpenCitations Meta \citep{massari2024meta,ocmeta2024dump}. Measured by the monthly count of citing papers,
+the snapshot is effectively complete to about September 2023. A paper is \emph{biomedical} if it has a PMID in Meta or
+its DOI appears in the PubMed 2026 baseline, from which publication types and comment/correction links are also taken.
+
+\paragraph{Retractions} Retraction labels come from the Retraction Watch database distributed by Crossref
+\citep{rittman2025rw}, in the repository snapshot of 30 October 2026 (62,735 retracted papers). Papers were linked to graph
+nodes by DOI or PMID; 52,254 of the 62,735 (83.3\%) were matched, giving 53,170 graph nodes. The linked table is
+public \citep{arjomandi2026retracteddata}. The date of the first retraction notice and the union of the reasons given
+by Retraction Watch are kept per paper; reinstated papers are excluded.
+
+\paragraph{Reason classes} Each retracted paper receives one class, assigned in this order: \emph{paper mill} (reason
+``Paper Mill''); \emph{misconduct} (fabrication or falsification, manipulation of images, data or results, plagiarism,
+duplicated images, compromised peer review, rogue editor, forged authorship or affiliation, computer-generated
+content, hoax papers, or an official misconduct finding); \emph{honest error} (any ``Error in'' or ``Error by''
+reason, results not reproducible, contaminated materials or cell lines, ``Doing the Right Thing''); and \emph{other}
+(everything else, including notices with limited information). The full list of reason strings is in the
+specification file (see the data and code availability statement).
+
+\subsection{Populations}
+\paragraph{Eligible papers} Biomedical papers published 2000--2017 with a journal in Meta, at least one reference in
+the graph, and no duplicate DOI record. The year limit ensures that the five-year window ends by 2022, inside the
+complete part of the snapshot. Papers without references are excluded: their index equals 1 whenever they are cited
+and is undefined otherwise, and they are the records behind the CD$_5 = 1$ artefact discussed by
+\citet{holst2024artefacts}. Of 12,522,210 biomedical papers from 2000--2017 with a journal, 341,432 (2.7\%) have no
+reference in the graph, leaving 12,180,778 eligible papers.
+
+\paragraph{Retracted papers} Eligible papers matched to a retraction: 10,450. The \emph{primary set} contains the
+4,587 papers whose first retraction notice is dated after 31 December of the fifth year after publication, so that the
+whole scoring window precedes the retraction. The 5,863 papers retracted earlier form, together with the primary set,
+the \emph{secondary set} used in a robustness check.
+
+\paragraph{Controls} For every retracted paper, five eligible papers from the same journal and publication year that
+are neither in Retraction Watch nor flagged as retracted in PubMed. Within a stratum, controls are the papers with the
+lowest value of a fixed hash of their identifier (seed 20261109), which makes the draw deterministic. This gives
+52,147 controls in 5,458 journal $\times$ year strata; four strata (four retracted papers) have no eligible control.
+This pool is drawn for all 10,450 retracted papers, not just the 4,587 primary-set papers. A comparison uses only the
+controls with a defined score in strata containing scored papers of the compared set. The primary analysis uses
+2,239 strata containing 4,586 primary-set papers and 31,662 scored controls.
+
+\paragraph{Reference sample} A deterministic 0.2\% sample of all eligible papers (24,491 papers) provides the
+yearly distribution of the index, from which the top-5\% and top-1\% thresholds are taken.
+
+\paragraph{Post hoc population} The same rules applied to papers published 2000--2019 with a three-year window give
+13,661 retracted papers (7,350 retracted after their window), 68,190 controls and a reference sample of 28,784 papers.
+It contains every paper of the population above.
+
+\subsection{The CD index}\label{sec:score}
+For a focal paper $f$ published in year $t$ with references $R(f)$ in the graph, let $A$ be the papers published in the
+window that cite $f$, and $B$ the papers published in the window, other than $f$, that cite at least one paper in
+$R(f)$. With $n_i = |A \setminus B|$ (citing papers that cite none of the references), $n_j = |A \cap B|$ (citing
+papers that also cite at least one reference) and $n_k = |B \setminus A|$ (papers that cite only the references),
+\begin{equation}
+\mathrm{CD}(f) = \frac{n_i - n_j}{n_i + n_j + n_k},
+\end{equation}
+undefined when the denominator is zero \citep{funk2017dynamic,park2023papers}. Self-loops are ignored.
+\citet{park2023papers} measure the index five years after each paper's publication year. The main window (CD$_5$)
+covers the citing years $t$ to $t+5$; because year-level data cannot order the focal paper and other papers of the same
+year, those papers are included. The reference implementation of the index counts only citing works with a later
+timestamp than the focal work\footnote{Software \texttt{cdindex} by R.~J. Funk,
+\url{https://github.com/russellfunk/cdindex}, file \texttt{src/cdindex.c} at commit \texttt{4eece64}.}, which with
+year-level timestamps corresponds to the citing years $t+1$ to $t+5$; this window is used in robustness check (d).
+
+The post hoc variant without $n_k$,
+\begin{equation}
+\mathrm{DI}_{nok}(f) = \frac{n_i - n_j}{n_i + n_j},
+\end{equation}
+was proposed by \citet{wuyan2019solo} and studied as DI$_1^{nok}$ by \citet{bornmann2020convergent}. It depends only on
+the papers that cite $f$ and is defined when there is at least one; $(1 - \mathrm{DI}_{nok})/2$ is the share of
+citing papers that also cite a reference. CD and DI$_{nok}$ always have the same sign.
+
+The score script reads only the list of focal papers and their years; it never reads retraction labels. Its output
+(86,950 papers) was hashed (SHA-256) before the evaluation script joined the labels, and the evaluation script checks
+the hash. An implementation in DuckDB \citep{raasveldt2019duckdb} was tested against a brute-force count on random
+graphs (1,200 focal papers, both windows, identical counts). For the before-and-after comparison, a second label-free
+script counted the citing papers of each focal paper by citing year; its sums over the scoring windows equal the frozen
+counts for all 110,462 papers of both populations, and its output was hashed before labels were joined.
+
+\paragraph{Pre-specification record} The unchanged specification is \texttt{SPEC.md}, committed in the then-private
+project repository on 10 November 2026 at 04:02:19 UTC (Git commit
+\texttt{293755b1cb7087d6f226d6f96f4b97cb0148e4c5}). Its SHA-256,
+\nolinkurl{1403d0d13d35bd32c40ede1be24833ab15e7977edb2f56c2128ef8823373ad31},
+is recorded in the score run's \texttt{run.json}, which reports a start time of 06:12:02 UTC the same day
+(\texttt{e03\_cd5\_20261110\_01}); the evaluation run records the same hash. These files and provenance are available
+with the code. Git dates and local run records are not an independent registry timestamp, so the design is described
+as pre-specified, not publicly pre-registered.
+
+\subsection{Analyses}
+All analyses below were specified before any score was computed, except those marked post hoc. The plan of each post
+hoc analysis, with its margins and expected directions, was recorded before it was run.
+\begin{itemize}
+\item \textbf{RQ1 (primary):} the mean difference in CD$_5$ between retracted papers and their controls within
+journal $\times$ year strata, averaged over retracted papers, with a 95\% interval from 2,000 bootstrap resamples of
+strata; and the Mantel--Haenszel odds ratio \citep{mantel1959} for a positive score (CD$_5 > 0$), with the
+Robins--Breslow--Greenland variance \citep{robins1986estimator}.
+\item \textbf{RQ2:} the same by reason class.
+\item \textbf{RQ3:} the share of papers at or above the 95th and 99th percentiles of CD$_5$ in their publication year
+(from the reference sample), with Wilson intervals \citep{wilson1927}, and the stratified odds ratio for reaching them.
+\item \textbf{Robustness (pre-specified):} (a) without CD$_5 = 1$ papers; (b) without reviews (PubMed publication
+types Review, Systematic Review, Meta-Analysis); (c) strata further split by deciles of reference count; (d) window
+$t+1$ to $t+5$; (e) the secondary set; (f) papers with at least five citations in the window.
+\item \textbf{Post hoc, first round:} (P1) reference and citation counts by group; (P2) a three-year window (CD$_3$)
+for papers published 2000--2019, which adds paper-mill papers from 2018--2019, with the primary set defined by a
+retraction after the third year.
+\item \textbf{Post hoc, second round:} (P3) equivalence tests: two one-sided tests \citep{schuirmann1987tost,
+lakens2017equivalence} with margins of $\pm 0.1$ standard deviations of the score in the reference sample for mean
+differences and 0.80--1.25 for odds ratios; these post hoc margins are conventions, not validated thresholds for the CD
+index. Equivalence is shown if the 90\% interval lies inside the margin; the smallest supported symmetric margin is
+reported so readers can apply a different threshold. (P4) A positive control: reviews compared with the other
+never-retracted controls of the same journal and year, expected to be more consolidating because papers citing a
+review often also cite the work it reviews. (P5) RQ1--RQ3 with DI$_{nok}$. (P6) Before and after the notice: for
+retracted papers of the 2000--2019 population with retraction year $R$ between $t+1$ and 2021, the change in
+DI$_{nok}$ from the citing years $R-3$ to $R-1$ (not before $t$) to the years $R+1$ to $R+3$ (not after 2022),
+minus the mean change of their stratum's controls over the same years, for papers with at least one citing paper in
+both periods, with year $R$ and notice records excluded.
+(P7) The sign shift: papers without citing papers in the window, odds ratios among cited papers only, and conditional
+logistic regression within journal $\times$ year strata with $\log(1+\text{references})$ and
+$\log(1+\text{citing papers in the window})$ as covariates. (P8) Editorial notices: citing records that PubMed
+types as retraction notices, published errata or expressions of concern, or that carry the corresponding links
+(RetractionOf, ErratumFor, ExpressionOfConcernFor), and robustness check (e) without them.
+\item \textbf{Post hoc, third round:} (P9) checks of P6 for an earlier trend: a placebo notice three years before the
+real one, and yearly means on a balanced set of papers; (P10) the size of $n_k$.
+\item \textbf{Post hoc, fourth round (descriptive):} (P11) the controls behind the primary comparisons: their number in
+the strata used, and their shares above zero and above the yearly thresholds, with each stratum weighted by its
+retracted papers as for the mean difference (95\% interval from 2,000 bootstrap resamples of strata).
+\end{itemize}
+Only group-level results are reported. No per-paper score of a non-retracted paper is released.
+
+\paragraph{Software and AI assistance} The analyses ran in Python 3.11 with DuckDB 1.5, pandas 3.1, NumPy 2.4, SciPy
+1.17 and statsmodels 0.15 on one cloud machine; figures were drawn with Matplotlib 3.10 from the run records. The
+analysis and figure scripts were written with the help of a generative AI assistant (Claude Opus 5.5, Anthropic) under
+the author's direction. Every counting step was tested against brute-force counts on random graphs, each evaluation
+script first reproduces the earlier estimates it builds on, and all scripts and run records are public
+(see the data and code availability statement).

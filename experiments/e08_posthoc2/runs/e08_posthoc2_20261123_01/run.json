@@ -1,0 +1,136 @@
+{
+  "run_id": "e08_posthoc2_20261123_01",
+  "script": "e08_eval.py",
+  "script_sha256": "fdbfa6e8965a353a8f16cf6ce3fd31c7e34d57011ed7efa46d1eb0a409decdf1",
+  "config": {
+    "e2_cd5": "e02_pop_20261110_01",
+    "e3_cd5": "e03_cd5_20261110_01",
+    "e4_cd5": "e04_eval_20261110_01",
+    "e2_cd3": "e02_pop_cd3_20261110_01",
+    "e3_cd3": "e03_cd5_cd3_20261110_01",
+    "e4_cd3": "e04_eval_cd3_20261110_01",
+    "e7": "e07_yearly_20261123_01",
+    "seed": 20261109,
+    "n_boot": 2000,
+    "or_margin": [
+      0.8,
+      1.25
+    ],
+    "diff_margin_sd": 0.1,
+    "spec_sha256": "1403d0d13d35bd32c40ede1be24833ab15e7977edb2f56c2128ef8823373ad31",
+    "posthoc_sha256": "7b8f6d11ce319ecf1b2583f525b37d38b232b8b7e263a26ab15089891d5645b0"
+  },
+  "host": "vm-project-c",
+  "python": "3.11.18",
+  "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+  "started_utc": "2026-11-24T06:12:27Z",
+  "results": {
+    "frozen_inputs_verified": true,
+    "replay_cd5_reproduces_e04_eval_20261110_01": "11 comparisons identical",
+    "replay_cd3_reproduces_e04_eval_cd3_20261110_01": "11 comparisons identical",
+    "P3_cd5_primary": {
+      "diff_ci90": [
+        -0.0005101539821989077,
+        0.000930884477668809
+      ],
+      "diff_margin": 0.004423863822379305,
+      "diff_equivalent": true,
+      "top5": {
+        "or": 0.9938439680527376,
+        "ci": [
+          0.825745975911234,
+          1.19616184837574
+        ],
+        "ci90": [
+          0.8507176314686659,
+          1.1610501490719265
+        ],
+        "tost_p": 0.01086490088798886,
+        "equivalent": true,
+        "min_margin": 1.1754781645628
+      }
+    },
+    "P4_reviews_cd5": {
+      "retracted_defined": 6032,
+      "diff": -0.003292341068305791,
+      "diff_ci": [
+        -0.006597488742069842,
+        -0.0010981529210819848
+      ],
+      "or_pos": 0.9470247449789599
+    },
+    "P5_cd5_primary": {
+      "retracted_defined": 4518,
+      "diff": 0.06676782196398197,
+      "diff_ci": [
+        0.04629698251315362,
+        0.08680891931195356
+      ]
+    },
+    "P7_clogit": {
+      "pos_unadjusted": [
+        1.232,
+        1.135,
+        1.339
+      ],
+      "pos_refs": [
+        1.321,
+        1.214,
+        1.436
+      ],
+      "pos_refs_cites": [
+        1.316,
+        1.21,
+        1.433
+      ],
+      "top5_unadjusted": [
+        0.994,
+        0.825,
+        1.197
+      ],
+      "top5_refs": [
+        1.422,
+        1.157,
+        1.747
+      ],
+      "top5_refs_cites": [
+        1.189,
+        0.959,
+        1.474
+      ]
+    },
+    "P8_share_inside_window_with_notice": {
+      "n": 5863,
+      "with_notice_citation": 2137,
+      "share": 0.36448916936721815,
+      "mean_notice_citations": 0.44976974245266926
+    },
+    "P8_e_or_pos_with_vs_without": [
+      1.4996163534488167,
+      1.3531889186061703
+    ],
+    "P6_did_without_notices": {
+      "n": 5100,
+      "strata": 2842,
+      "mean": 0.07388054924696333,
+      "ci": [
+        0.050691881166311285,
+        0.0975164124681845
+      ]
+    },
+    "P6_did_with_notices": {
+      "n": 5120,
+      "strata": 2854,
+      "mean": 0.07351787270492041,
+      "ci": [
+        0.05086398491850582,
+        0.09620881349658154
+      ]
+    },
+    "outputs": [
+      "results.json",
+      "event_time.csv"
+    ]
+  },
+  "seconds": 205.6
+}

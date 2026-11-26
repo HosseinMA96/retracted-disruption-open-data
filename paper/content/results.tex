@@ -1,0 +1,205 @@
+\section{Results}\label{sec:results}
+
+\subsection{Scores and thresholds}
+CD$_5$ is defined for 86,904 of the 86,950 scored papers; the other 46 (25 controls, two papers retracted inside their
+window and 19 papers of the reference sample) have no paper in the window that cites them or one of their references,
+so $n_i+n_j+n_k=0$. Thus, 52,122 of the full pool of 52,147 controls have a defined score; the 25 undefined scores
+are excluded, not treated as zero.
+The distribution is concentrated near zero: in the scored set the 5th, 50th and 95th
+percentiles are $-0.0218$, $-0.0010$ and $0.0059$. The reason is $n_k$. For the median paper, 2,862 papers in the
+window cite only its references, against 12 that cite the paper itself, and $n_k$ makes up at least 90\% of the
+denominator for 97.9\% of papers (P10). Papers without a citing paper in the window but with $n_k>0$ score exactly zero. CD$_5 = 1$ is
+rare (0.04\% of defined scores) because papers without references are excluded. In the reference sample, the yearly
+top-5\% threshold falls from 0.021 (2000) to between 0.005 and 0.006 (2014--2017), and the top-1\% threshold from 0.13
+to between 0.04 and 0.06. The mean CD$_5$ per publication year stays between $-0.0049$ and $0.0009$.
+
+\subsection{RQ1: retracted papers versus matched controls}
+All 4,587 primary-set papers have a defined score; 4,586 are in the 2,239 strata that have controls with a score.
+These strata hold 31,674 of the 52,147 controls (the others are in strata that contain only papers retracted inside
+their window); 12 have an undefined score, leaving 31,662 as the comparison group (P11).
+Control percentages below use only this comparison group, with each stratum weighted by its number of scored
+primary-set papers, as for the mean difference; they are not pooled percentages of all 52,122 scored controls.
+For comparison, the pooled shares within these primary strata are 18.1\% positive (5,725/31,662), 3.3\% above the
+top-5\% threshold (1,047/31,662), and 0.56\% above the top-1\% threshold (176/31,662).
+The stratum-weighted mean CD$_5$ is $-0.00217$ for retracted papers and $-0.00236$ for their controls, a difference of
+$0.00020$ (95\% CI $-0.00061$ to $0.00109$). The post hoc 90\% interval, $-0.00051$ to $0.00093$, rules out absolute
+mean differences larger than 0.00093, about 28\% of the difference between reviews and other papers (below).
+It also lies inside the chosen equivalence margin of $\pm 0.0044$ (0.1 standard deviations), but that margin is wider
+than the review effect itself; the bound is therefore more informative than the equivalence label.
+Retracted papers have a positive score somewhat
+more often within the comparison strata (923 of 4,586, 20.1\%, against 17.3\% of their controls, 95\% bootstrap CI
+16.0--18.6; stratified odds ratio 1.23, 1.13--1.34).
+
+\subsection{RQ2: reason classes}
+Papers retracted for misconduct (2,743) and for paper-mill production (276) do not differ from their controls in mean
+score, and both differences are equivalent to zero within the margin (90\% intervals $-0.00010$ to $0.00074$ and
+$0.00001$ to $0.00111$); their odds of reaching the top 5\% are close to one but imprecise (Table~\ref{tab:main},
+Fig.~\ref{fig:forest}). None of the 276 paper-mill papers reaches the top 1\%. Papers retracted for honest error (294)
+score lower than their controls (difference $-0.0041$, $-0.0077$ to $-0.0007$), that is, they are slightly more
+consolidating.
+
+\subsection{RQ3: the most disruptive papers}
+Retracted papers are not over-represented among the most disruptive papers of their year
+(Table~\ref{tab:main}). 3.1\% of them (2.6--3.6) reach the top-5\% threshold, against 3.1\% (2.8--3.5) of their
+controls, weighted in the same way; within strata the odds ratio is 0.99 (0.83--1.20), and its 90\% interval
+(0.85--1.16) lies inside the equivalence range of 0.80--1.25 (two one-sided tests, $p = 0.011$). For the top 1\%, 17
+retracted papers (0.37\%, 0.23--0.59) reach the threshold, against 0.54\% (0.43--0.66) of their controls; the odds
+ratio of 0.67 (0.40--1.12) is too imprecise for equivalence. Both groups reach the yearly thresholds less often than
+the nominal 5\% and 1\%: they come from the journals in which retractions occur, whereas the thresholds come from the
+reference sample of all eligible papers.
+
+\begin{table}[t]
+\centering
+\caption{CD$_5$ of retracted papers (primary set) versus controls from the same journal and year, by reason class.
+Diff.: stratified mean difference ($\times 10^{-3}$, 95\% bootstrap CI). OR: Mantel--Haenszel odds ratio (95\% CI).}
+\label{tab:main}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrrrr}
+\toprule
+ & $n$ & Diff. ($\times10^{-3}$) & OR, CD$_5>0$ & OR, top 5\% & Top 1\% ($n$) \\
+\midrule
+All retracted & 4,587 & 0.20 ($-0.61$, 1.09) & 1.23 (1.13, 1.34) & 0.99 (0.83, 1.20) & 17 \\
+Misconduct & 2,743 & 0.32 ($-0.21$, 0.82) & 1.29 (1.15, 1.44) & 0.93 (0.71, 1.22) & 5 \\
+Paper mill & 276 & 0.58 ($-0.14$, 1.23) & 1.20 (0.93, 1.57) & 1.10 (0.53, 2.29) & 0 \\
+Honest error & 294 & $-4.08$ ($-7.68$, $-0.73$) & 1.15 (0.82, 1.60) & 1.02 (0.55, 1.88) & 2 \\
+Other & 1,274 & 0.84 ($-1.72$, 3.97) & 1.18 (1.02, 1.36) & 1.06 (0.79, 1.41) & 10 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\subsection{Robustness}
+Table~\ref{tab:rob} gives the pre-specified checks. Excluding CD$_5 = 1$ papers (a), reviews (b) or using the window
+$t+1$ to $t+5$ (d) leaves the results unchanged. Three checks move them. Splitting strata by reference-count decile
+(c) gives a positive mean difference and an odds ratio of 1.47 (1.15--1.88) for the top 5\%; this check keeps only the
+3,664 retracted papers that have a control in the same decile, and P7 below shows that the shift reflects reference
+length rather than the change of sample. Restricting to papers with at least five citations in the window (f) gives a
+small positive mean difference. Including the 5,863 papers retracted inside their window (e) raises the odds ratio for
+a positive score from 1.23 to 1.50 (1.42--1.58), while the top-5\% odds ratio stays at 1.00.
+
+\begin{table}[t]
+\centering
+\caption{Robustness checks for the primary set (CD$_5$) and the post hoc three-year window (CD$_3$, papers
+2000--2019). Diff.\ in units of $10^{-3}$; 95\% intervals in parentheses.}
+\label{tab:rob}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrrrr}
+\toprule
+ & \multicolumn{3}{c|}{CD$_5$, 2000--2017} & \multicolumn{2}{c}{CD$_3$, 2000--2019 (post hoc)} \\
+Check & Diff. & OR, CD$>0$ & OR, top 5\% & OR, CD$>0$ & OR, top 5\% \\
+\midrule
+Main analysis & 0.20 ($-0.61$, 1.09) & 1.23 & 0.99 (0.83, 1.20) & 1.30 & 1.12 (0.98, 1.28) \\
+(a) no CD $=1$ & 0.05 ($-0.50$, 0.59) & 1.23 & 0.99 (0.82, 1.19) & 1.30 & 1.12 (0.98, 1.28) \\
+(b) no reviews & 0.14 ($-0.74$, 1.18) & 1.23 & 0.98 (0.81, 1.19) & 1.31 & 1.13 (0.98, 1.30) \\
+(c) + reference deciles & 1.23 (0.39, 2.23) & 1.38 & 1.47 (1.15, 1.88) & 1.33 & 1.46 (1.23, 1.73) \\
+(d) window from $t+1$ & 0.31 ($-0.63$, 1.35) & 1.24 & 1.01 (0.84, 1.21) & 1.32 & 1.15 (1.01, 1.31) \\
+(e) all retracted & 1.44 (0.78, 2.21) & 1.50 & 1.00 (0.90, 1.12) & 1.54 & 1.16 (1.06, 1.26) \\
+(f) $\ge 5$ citations & 0.62 (0.07, 1.15) & 1.28 & 1.09 (0.88, 1.35) & 1.39 & 1.32 (1.12, 1.56) \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\subsection{Post hoc: a positive control}
+Reviews among the never-retracted controls score lower than the other controls of the same journal and year: the mean
+difference in CD$_5$ is $-0.0033$ ($-0.0066$ to $-0.0011$), and reviews reach the top 5\% (odds ratio 0.58,
+0.47--0.72) and the top 1\% (0.39, 0.21--0.73) much less often (6,032 reviews, 4,832 of them in the 2,083 strata that
+also contain other controls; Fig.~\ref{fig:forest}). The design therefore detects a contrast expected from the
+construction of the index, with sample sizes similar to those of the main analysis. The review effect is smaller in
+magnitude than the chosen mean-equivalence margin, so this check demonstrates detection of a contrast, not validation
+of that margin.
+
+\subsection{Post hoc: what the index hides}
+The variant without $n_k$ shows a difference that CD$_5$ compresses. On DI$_{nok}$, retracted papers score higher than
+their controls by 0.067 (0.046--0.087; $-0.309$ against $-0.376$, 4,518 retracted papers with a citing paper in the
+window). On average, 65.5\% of the papers citing a retracted paper also cite at least one of its references, against
+68.8\% for controls. The difference holds with the three-year window (0.075, 0.056--0.093) and is largest for
+misconduct (0.083, 0.058--0.109); it is 0.049 (0.019--0.078) for other reasons, 0.054 ($-0.003$ to 0.120) for paper
+mills and 0.004 ($-0.056$ to 0.060) for honest error (Fig.~\ref{fig:forest}). Because CD and DI$_{nok}$ have the same
+sign, this is the shift already seen in the odds of a positive CD$_5$ (1.23). It is not an artefact of uncited papers,
+which score zero: retracted papers are uncited in the window less often (1.5\% against 4.0\%), but among cited papers
+the odds ratio is still 1.20 (1.11--1.31), and it is 1.32 (1.21--1.44) when reference length is held fixed in a
+conditional logistic regression within journal $\times$ year. With both reference length and citing-paper count held
+fixed, the odds ratio is 1.32 (1.21--1.43; Table~\ref{tab:posthoc}). DI$_{nok}$ cannot define a top
+tier: more than 5\% of papers score exactly 1, so its 95th and 99th percentiles equal 1 in every year.
+
+Reference length also explains robustness check (c). In the conditional logistic regression, the odds ratio for
+reaching the top 5\% of CD$_5$ is 0.99 without covariates and 1.42 (1.16--1.75) with $\log(1+\text{references})$;
+adding $\log(1+\text{citing papers in the window})$ gives 1.19 (0.96--1.47). Short reference lists favour high scores
+(coefficient $-1.64$ per unit of log references), and retracted papers have them less often: their mean list length
+within strata is similar to that of controls (P1), but the lower quartile is 29 for primary-set retracted papers against
+22 for all never-retracted controls of the population. At equal
+reference length, retracted papers therefore reach the top 5\% more often; without the adjustment, their longer lists
+offset this.
+
+\begin{table}[!htbp]
+\centering
+\caption{Post hoc estimates (95\% intervals unless stated). Primary set and CD$_5$ window unless stated; P6 and P9 use
+the 2000--2019 population. $n$: retracted papers (reviews for P4).}
+\label{tab:posthoc}
+\small
+\begin{tabular}{@{}p{0.49\linewidth}lr@{}}
+\toprule
+Analysis & Estimate & $n$ \\
+\midrule
+P3 Mean difference in CD$_5$: 90\% interval (margin $\pm 0.0044$) & $-0.00051$ to $0.00093$ & 4,587 \\
+P3 Top 5\%, odds ratio: 90\% interval (margin 0.80--1.25) & 0.85 to 1.16 & 4,587 \\
+P4 Reviews vs other controls: mean difference in CD$_5$ & $-0.0033$ ($-0.0066$, $-0.0011$) & 6,032 \\
+P4 Reviews vs other controls: top 5\%, odds ratio & 0.58 (0.47, 0.72) & 6,032 \\
+P5 Mean difference in DI$_{nok}$ & 0.067 (0.046, 0.087) & 4,518 \\
+P5 Mean difference in DI$_{nok}$, CD$_3$ window, 2000--2019 & 0.075 (0.056, 0.093) & 7,125 \\
+P6 Change in DI$_{nok}$ after vs before the notice, minus controls & 0.074 (0.050, 0.097) & 5,100 \\
+P7 CD$_5 > 0$, cited papers only, odds ratio & 1.20 (1.11, 1.31) & 4,518 \\
+P7 CD$_5 > 0$, conditional logit with log references & 1.32 (1.21, 1.44) & 3,766 \\
+P7 CD$_5 > 0$, conditional logit with log references and log citations & 1.32 (1.21, 1.43) & 3,766 \\
+P7 Top 5\%, conditional logit with log references & 1.42 (1.16, 1.75) & 2,168 \\
+P7 Top 5\%, conditional logit with log references and log citations & 1.19 (0.96, 1.47) & 2,168 \\
+P8 Retracted inside the window, CD$_5>0$, odds ratio: with notice records & 1.71 (1.60, 1.82) & 5,861 \\
+P8 \quad the same without notice records & 1.44 (1.34, 1.54) & 5,860 \\
+P9 The same for papers with $R \ge t+4$: real notice & 0.064 (0.037, 0.093) & 2,763 \\
+P9 \quad placebo notice three years earlier & 0.036 (0.012, 0.060) & 2,565 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Post hoc: the retraction inside the window}
+Editorial notices are among the citing records of retracted papers. In the CD$_5$ window, 36.7\% of the papers
+retracted inside the window have at least one citing record that PubMed types as a retraction notice, erratum or
+expression of concern, against 4.7\% of all controls; so do 18.4\% of the papers retracted only after the window. Removing
+notice records from the citing papers lowers the odds ratio for a positive score from 1.71 (1.60--1.82) to 1.44
+(1.34--1.54) for papers retracted inside the window, and from 1.50 to 1.35 (1.28--1.43) for all retracted papers
+(robustness check e); the primary-set estimate changes little, from 1.23 to 1.24 (1.14--1.34).
+
+Apart from notices, the citing papers change around the retraction. For 5,100 retracted papers
+from 2000--2019 with citing papers before and after the notice, DI$_{nok}$ rose by 0.174 from the three years before
+the notice year to the three years after it, against 0.100 for their controls over the same calendar years: a
+difference in differences of 0.074 (0.050--0.097). Their citations fell from 3.9 to 2.6 per year, while those of the
+controls rose from 3.1 to 4.7. The change began before the notice. Among papers retracted at least four years after
+publication, a placebo notice three years before the real one gives a difference in differences of 0.036
+(0.012--0.060), against 0.064 (0.037--0.093) for the real notice, and in a balanced set of 3,083 papers the gap in
+DI$_{nok}$ grows from 0.053 three years before the notice to 0.092 in the notice year and 0.201 two years after it.
+Figure~\ref{fig:event} describes this balanced population, not the 5,100-paper three-year-window comparison. Its lines
+are separate means over the defined annual scores in each group: their differences at these three years are 0.048,
+0.074 and 0.185. The paired gaps use only retracted papers whose own annual score and their controls' mean are both
+defined, whereas the plotted means include different subsets when a group has no citing paper that year. For the
+balanced population, mean control citations stay between 4.0 and 4.9 per year, rather than the 3.1 to 4.7 change in the
+broader three-year-window comparison. By
+reason, the placebo change is close to zero for honest error (0.005, $-0.065$ to 0.077; real notice 0.079,
+0.012--0.149) but not for misconduct (0.042, 0.010--0.074; real notice 0.078, 0.041--0.115).
+
+\subsection{Post hoc: reference and citation counts, and a shorter window}
+\paragraph{P1: reference and citation counts} Retracted papers in the primary set have more references than
+controls overall (median 40 against 35), but the gap in means comes from the journals they appear in: within journal
+$\times$ year strata, the retracted-paper-weighted difference in $\log(1+\overline{\text{references}})$ is $-0.017$,
+where the bar is the group mean within each stratum (not the mean of log-transformed paper counts).
+Their window citations are also higher (median 19 against 13); the corresponding difference in
+$\log(1+\overline{\text{citing papers}})$ is 0.099. In the reference
+sample, CD$_5$ decreases with reference count (Spearman $\rho = -0.19$) and with citations in the window
+($\rho = -0.43$).
+
+\paragraph{P2: three-year window, papers up to 2019} The shorter window admits 7,350 primary-set papers (7,349 with a
+defined score), including 708 paper-mill papers, compared with the 48,044 scored controls in the 3,308 strata that also
+contain a scored primary-set paper (P11).
+The results match the main analysis: mean
+difference $0.00039$ ($-0.00027$ to $0.00114$; equivalent within the margin); odds ratio for a positive score 1.30
+(1.22--1.39); top 5\% 1.12 (0.98--1.28), whose 90\% interval (1.00--1.25) narrowly misses the equivalence range; top 1\%
+0.89 (0.63--1.28). For paper-mill papers the mean difference is $0.00039$ ($-0.00009$ to $0.00082$), the top-5\% odds
+ratio 1.23 (0.83--1.81), and none of the 708 reaches the top 1\% (Fig.~\ref{fig:forest}).

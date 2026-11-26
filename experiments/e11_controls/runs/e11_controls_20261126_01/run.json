@@ -1,0 +1,131 @@
+{
+  "run_id": "e11_controls_20261126_01",
+  "script": "e11_controls.py",
+  "script_sha256": "2313a871dab0e2cd4a552b5686e38bc7fbc8931ea38701255a3020c5cf514d4f",
+  "config": {
+    "e2_cd5": "e02_pop_20261110_01",
+    "e3_cd5": "e03_cd5_20261110_01",
+    "e4_cd5": "e04_eval_20261110_01",
+    "e2_cd3": "e02_pop_cd3_20261110_01",
+    "e3_cd3": "e03_cd5_cd3_20261110_01",
+    "e4_cd3": "e04_eval_cd3_20261110_01",
+    "posthoc": "P11",
+    "seed": 20261109,
+    "n_boot": 2000,
+    "spec_sha256": "1403d0d13d35bd32c40ede1be24833ab15e7977edb2f56c2128ef8823373ad31",
+    "posthoc_sha256": "a87b287f2a43f4727da51201dc309db42fb803712e40bcde19404c403ec924d9"
+  },
+  "host": "vm-project-c",
+  "python": "3.11.18",
+  "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+  "started_utc": "2026-11-26T17:34:24Z",
+  "results": {
+    "cd5_reproduced": [
+      "controls_defined",
+      "controls_n",
+      "mean_cd_controls_matched",
+      "mh_cd_pos",
+      "mh_top_p95",
+      "mh_top_p99",
+      "retracted_defined",
+      "retracted_in_used_strata",
+      "retracted_n",
+      "share_top_p95_controls",
+      "share_top_p99_controls",
+      "strata_used",
+      "e02 strata",
+      "e02 controls"
+    ],
+    "cd5_controls_used_strata": {
+      "controls": 31674,
+      "controls_defined": 31662
+    },
+    "cd5_undefined": {
+      "context": 19,
+      "control": 25,
+      "retracted_secondary": 2
+    },
+    "cd5_shares_retracted_vs_controls_weighted": {
+      "pos": [
+        0.20126,
+        [
+          0.17299,
+          0.1599,
+          0.18592
+        ]
+      ],
+      "p95": [
+        0.03096,
+        [
+          0.0312,
+          0.02804,
+          0.03473
+        ]
+      ],
+      "p99": [
+        0.00371,
+        [
+          0.00544,
+          0.00432,
+          0.00663
+        ]
+      ]
+    },
+    "cd3_reproduced": [
+      "controls_defined",
+      "controls_n",
+      "mean_cd_controls_matched",
+      "mh_cd_pos",
+      "mh_top_p95",
+      "mh_top_p99",
+      "retracted_defined",
+      "retracted_in_used_strata",
+      "retracted_n",
+      "share_top_p95_controls",
+      "share_top_p99_controls",
+      "strata_used",
+      "e02 strata",
+      "e02 controls"
+    ],
+    "cd3_controls_used_strata": {
+      "controls": 48069,
+      "controls_defined": 48044
+    },
+    "cd3_undefined": {
+      "context": 32,
+      "control": 44,
+      "retracted_primary": 1,
+      "retracted_secondary": 2
+    },
+    "cd3_shares_retracted_vs_controls_weighted": {
+      "pos": [
+        0.22333,
+        [
+          0.18433,
+          0.17352,
+          0.19573
+        ]
+      ],
+      "p95": [
+        0.0377,
+        [
+          0.03415,
+          0.03108,
+          0.03752
+        ]
+      ],
+      "p99": [
+        0.00504,
+        [
+          0.00557,
+          0.00463,
+          0.00664
+        ]
+      ]
+    },
+    "outputs": [
+      "controls.json"
+    ]
+  },
+  "seconds": 4.4
+}

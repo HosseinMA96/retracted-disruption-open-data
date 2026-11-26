@@ -1,0 +1,31 @@
+{
+  "run_id": "e06_fig_20261123_01",
+  "script": "e06_figs_v2.py",
+  "script_sha256": "687ae93d787b90eae45f3cac54151681d26e3e60447206e26c28c30bcdf5e8d6",
+  "config": {
+    "e4_cd5": "e04_eval_20261110_01",
+    "e4_cd3": "e04_eval_cd3_20261110_01",
+    "e8": "e08_posthoc2_20261123_02",
+    "e9": "e09_pretrend_20261123_01",
+    "matplotlib": "3.10.8",
+    "palette": [
+      "#2a78d6",
+      "#eb6834",
+      "#7a7a74"
+    ]
+  },
+  "host": "Hossein",
+  "python": "3.14.10",
+  "platform": "Linux-6.8.0-149-generic-x86_64-with-glibc2.35",
+  "started_utc": "2026-11-24T05:41:16Z",
+  "results": {
+    "balanced_papers": 3083,
+    "figures": [
+      "fig1_forest.pdf",
+      "fig1_forest.png",
+      "fig2_event.pdf",
+      "fig2_event.png"
+    ]
+  },
+  "seconds": 0.9
+}

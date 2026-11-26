@@ -1,0 +1,51 @@
+{
+  "run_id": "e03_cd5_cd3_20261110_01",
+  "script": "e03_cd5.py",
+  "script_sha256": "fd16976873f463b9b654019e4645b045f2182124cc38002774c9a40909251d54",
+  "config": {
+    "e2_run": "e02_pop_cd3_20261110_01",
+    "n_batches": 16,
+    "focal_sha256": "e677c5d7e966beca71c4d329ef0531d43829fddcad73bec2bcfe4435a470c930",
+    "cd_lib_sha256": "f84232c0d7c1a940a3fd59be1f5ad9e08a34a81dbe79df0bda3fd9a98e7ba518",
+    "spec_sha256": "1403d0d13d35bd32c40ede1be24833ab15e7977edb2f56c2128ef8823373ad31",
+    "windows": {
+      "w0": [
+        0,
+        3
+      ],
+      "w1": [
+        1,
+        3
+      ]
+    }
+  },
+  "host": "vm-project-c",
+  "python": "3.11.18",
+  "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+  "started_utc": "2026-11-10T06:28:27Z",
+  "results": {
+    "focal": 110462,
+    "focal_reference_pairs": 4409105,
+    "target_nodes": 3006323,
+    "incoming_citations_kept": 381655989,
+    "cd_w0_defined": 110383,
+    "cd_w1_defined": 110341,
+    "cd1_w0_share_of_defined": 0.000362,
+    "cd_w0_quantiles": [
+      -0.052347,
+      -0.018868,
+      -0.003598,
+      -0.000685,
+      0.0,
+      0.005,
+      0.045455
+    ],
+    "frozen": {
+      "scores.parquet": {
+        "sha256": "211642476f01bda334cdbf67733cd8aa782c16272e33610006bbdaf9804381d5",
+        "rows": 110462
+      }
+    }
+  },
+  "seconds": 158.0
+}

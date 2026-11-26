@@ -1,0 +1,41 @@
+[     0.1s] focal: 110462
+[     6.9s] pubmed_pub_types_seen: [('D000075742', 'Expression of Concern', 3248), ('D016425', 'Published Erratum', 194062), ('D016440', 'Retraction Notice', 29990), ('D016441', 'Retracted Publication', 30697)]
+[     7.1s] pubmed_cc_reftypes_seen: [('AssociatedDataset', 245), ('AssociatedPublication', 245), ('CommentIn', 1215063), ('CommentOn', 1213619), ('ErratumFor', 195668), ('ErratumIn', 337002), ('ExpressionOfConcernFor', 3801), ('ExpressionOfConcernIn', 3798), ('OriginalReportIn', 1382), ('ReprintIn', 3238), ('ReprintOf', 3245), ('RepublishedFrom', 1651), ('RepublishedIn', 1449), ('RetractedandRepublishedFrom', 64), ('RetractedandRepublishedIn', 66), ('RetractionIn', 30861), ('RetractionOf', 30305), ('SummaryForPatientsIn', 1382), ('UpdateIn', 40001), ('UpdateOf', 39839)]
+[    12.9s] pubmed_notice_records_by_type_link: [(False, True, 29272), (True, False, 3989), (True, True, 193236)]
+[    35.3s] notice_nodes: 105914
+[    35.3s] notice_nodes_that_are_focal: 2737
+[   168.1s] rows_fr: 4409105
+[   168.1s] rows_a: 4603700
+[   168.1s] rows_ab: 2953897
+[   168.1s] rows_ne: 1213780
+[   168.1s] rows_knt: 3229370
+[   168.8s] check_vs_e03_cd5_cd3_20261110_01: {'papers': 110462, 'not_in_focal': 0, 'mismatches': 0, 'windows': [[0, 3], [1, 3]]}
+[   168.9s] check_vs_e03_cd5_20261110_01: {'papers': 86950, 'not_in_focal': 0, 'mismatches': 0, 'windows': [[0, 5], [1, 5]]}
+[   169.4s] yearly_rows: 948941
+[   169.4s] citations_total: {'ni': 1649803, 'nj': 2953897, 'ni_ntc': 6621, 'nj_ntc': 7356, 'nk_ntc': 3229370}
+[   169.5s] focal_with_any_notice_citation: 10422
+[   169.5s] frozen: {'yearly.parquet': {'sha256': '4ad7390ebdb83272909df656c376ef094dc0f81673f418bb1b9cf71ccfcc83f6', 'rows': 948941}}
+done in 169.5 s -> /home/azureuser/e/experiments/e07_yearly/runs/e07_yearly_20261123_01
+	Command being timed: "/home/azureuser/mamba/envs/d/bin/python e07_yearly.py e07_yearly_20261123_01 e02_pop_cd3_20261110_01,e02_pop_20261110_01 e03_cd5_cd3_20261110_01,e03_cd5_20261110_01"
+	User time (seconds): 639.16
+	System time (seconds): 21.12
+	Percent of CPU this job got: 389%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:49.60
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 14113640
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 9
+	Minor (reclaiming a frame) page faults: 4747300
+	Voluntary context switches: 10827
+	Involuntary context switches: 4661
+	Swaps: 0
+	File system inputs: 31126232
+	File system outputs: 3774832
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
