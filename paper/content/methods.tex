@@ -122,10 +122,17 @@ An article-type sensitivity (P13) requires PubMed Journal Article and excludes r
 meta-analyses, editorials, letters, comments, published errata, retraction notices and expressions of concern from
 both groups if any PMID- or DOI-linked record carries an excluded type. Retracted Publication is retained because
 it labels the original article, not its notice. Missing publication types are excluded and counted.
-This is an operational research-article proxy, not a guarantee of original research. The original control draw,
+This is an operational research-article proxy. The original control draw,
 frozen scores and yearly thresholds are retained; strata lacking eligible scored papers in either group are dropped.
 P13 repeats the mean and odds-ratio comparisons in both windows, with matched-log diagnostics and conditional-logit
 models for CD$_5$.
+
+An author-name sensitivity (P14) counts distinct non-reinstated paper keys per author name across the full frozen
+Retraction Watch snapshot. Names are split on semicolons, whitespace is collapsed and case is normalized; duplicate
+notices are unioned, without fuzzy matching or merging initials. Any primary paper linked to a name on at least ten
+such papers is excluded. Blank or placeholder names are retained and their coverage reported. Both windows repeat
+the CD and DI$_{nok}$ comparisons overall and by reason class, retaining original controls, scores and thresholds.
+The resampling unit remains journal $\times$ year.
 
 For changes around the notice (P6), papers from 2000--2019 with retraction year $R$ between $t+1$ and 2021 were
 compared over citing years $R-3$ to $R-1$ (not before $t$) and $R+1$ to $R+3$ (not after 2022), excluding year $R$
@@ -145,7 +152,7 @@ Only group-level results are reported. No per-paper score of a non-retracted pap
 \paragraph{Software and AI assistance} The analyses ran in Python 3.11 with DuckDB 1.5, pandas 3.1, NumPy 2.4, SciPy
 1.17 and statsmodels 0.15 on one cloud machine; figures were drawn with Matplotlib 3.10 from the run records. The
 analysis and figure scripts were written with the help of a generative AI assistant (Claude Opus 5.5, Anthropic) under
-the author's direction. GitHub Copilot (GPT-6.1 Sol) was used for the P13 analysis code, figure-layout revisions
+the author's direction. GitHub Copilot (GPT-6.1 Sol) was used for the P13 and P14 analysis code, figure-layout revisions
 and manuscript checks. Every counting step was tested against brute-force counts on random graphs, each evaluation
 script first reproduces the earlier estimates it builds on, and all scripts and run records are public
 (see the data and code availability statement).

@@ -216,3 +216,32 @@ P1 log-of-mean points reproduced before new calculations. Seed 20261109, 2,000 j
   editorial, letter, comment and notice items can qualify. No research-article-only rerun is performed.
 - Retraction Watch's raw CSV has an `Author` field (D2 run metadata); processed diagnostic labels omit it.
   A raw-name exclusion is possible but not performed. The author requested manuscript-only changes and no VM restart.
+
+## P14 author-name exclusion (`e14_authors_20261126_01`; v0.8)
+
+POSTHOC.md plan precedes execution; raw CSV/D2 hashes, D2 key/reinstatement counts and frozen score/label hashes
+verified. D5 mapping hash recorded and unchanged during the join. Original CD primary points/intervals/positive
+and top-5% odds ratios/retracted comparison counts and P5 DI_nok points/counts reproduced first.
+Aggregate outputs only; no author-name strings, identifiers or paper-name associations released.
+
+| Quantity | CD5 | CD3 |
+|---|---|---|
+| Primary papers removed (all have linked names) | 2,280 / 4,587 | 3,722 / 7,350 |
+| Retained eligible / scored / compared | 2,307 / 2,307 / 2,306 | 3,628 / 3,627 / 3,626 |
+| Compared controls / strata (CD) | 23,999 / 1,363 | 37,294 / 2,115 |
+| Mean CD gap, 95% CI | 0.000270349 (-0.001132407, 0.001948257) | 0.000633389 (-0.000474505, 0.001839628) |
+| Positive-score OR, 95% CI | 1.259203 (1.122322, 1.412778) | 1.320564 (1.207766, 1.443897) |
+| Top-5% OR, 95% CI | 0.969281 (0.750257, 1.252244) | 1.032776 (0.850834, 1.253625) |
+| DI_nok gap, 95% CI | 0.060765180 (0.037890014, 0.083505447) | 0.068509649 (0.048250237, 0.089267319) |
+| DI_nok compared papers / controls / strata | 2,260 / 23,161 / 1,327 | 3,485 / 35,081 / 2,020 |
+
+Source: `results.json.windows.cd5/cd3`; all reason-class CD/DI_nok points, intervals, ORs and counts are in
+`by_class`, and Table A.2 uses those mean contrasts. `author_summary`: 62,734 non-reinstated paper keys,
+62,621 with names, 174,990 normalized names, 1,649 names at >=10 keys, 22,028 excluded keys.
+The DI_nok gap persists; the shorter-window top-tier excess weakens under this restriction.
+Names are not disambiguated identities and the bootstrap remains journal-year.
+
+v0.8 interpretation: P12/P13 overall mean-log reference differences establish direction, not the magnitude of the
+adjusted OR changes or a causal explanation. The manuscript drops P1's log-of-stratum-mean quantities; original
+run records and their distinct statistics remain intact here. Reported differences are computed before rounding.
+Primary CD5 means are -0.002165233620 and -0.002363267049, yielding +0.000198033428.

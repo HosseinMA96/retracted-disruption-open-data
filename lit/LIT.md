@@ -1,5 +1,11 @@
 # Project E literature (E1 gate, 2026-11-09)
 
+## v0.8 wording check (2026-11-26)
+Petersen et al. (2025), DOI 10.1016/j.joi.2024.101605: the author-hosted published manuscript's abstract
+says disruptiveness incrementally increased in 2005-2015; the Introduction describes the net temporal/team-size
+effects as "at the level of noise." Related work now reports a small increase with that qualification.
+Full text checked at https://re.public.polimi.it/retrieve/dba99d17-aef1-47a8-93b3-261741391541/informetrics_2025.pdf .
+
 Every DOI below resolved through Crossref or DataCite in run `experiments/e01_lit/runs/e01_doi_20261109_01` (title, venue, year, first author recorded in `dois.json`), except the two marked *search*, found by Crossref bibliographic query in the same run (`queries.json`). "Read": **full**, **abstract**, **inventory** (as described in Wu et al. 2026's Table 1, read verbatim via HTML on 2026-11-09), or **title**. Nothing below *full/abstract* may be cited for a specific finding before it is read.
 
 ## The debate (core)

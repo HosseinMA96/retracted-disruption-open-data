@@ -2,27 +2,22 @@
 \setcounter{table}{0}
 \renewcommand{\theHtable}{\theHsection.\arabic{table}}
 \section{Exploratory diagnostics and accounting}\label{sec:appendix}
-The identifiers P1--P13 refer to the archived plans in \texttt{POSTHOC.md}; the code's experiment index and
+The identifiers P1--P14 refer to the archived plans in \texttt{POSTHOC.md}; the code's experiment index and
 claim-to-run map link them to immutable results. These analyses were added after the primary results were known.
 
 \subsection{Reference and citation counts (P1)}
 The primary-set retracted papers have overall median reference counts of 40, against 35 for the full control pool,
-and median window citations of 19 against 13. These pooled contrasts are not matched comparisons.
-P1's within-stratum statistic first takes the group arithmetic mean count $m_{gs}$ for group $g$ in stratum $s$,
-then computes $\log(1+m_{gs})$. Weighted by the number of primary retracted papers per stratum, the retracted-minus-control
-differences are $-0.017$ for references and $+0.099$ for window citations. This is not the mean of the
-paper-level $\log(1+\text{count})$ used in the conditional-logit models; P12 reports that matched quantity in the
-main text. In the reference sample, CD$_5$ decreases with reference count (Spearman $\rho=-0.19$) and with window
+and median window citations of 19 against 13. In the reference sample, CD$_5$ decreases with reference count
+(Spearman $\rho=-0.19$) and with window
 citations ($\rho=-0.43$). The lower reference-count quartile is 29 for primary-set retracted papers and 22 for
-the full control pool, not for a within-stratum comparison.
+the full control pool.
 
 \subsection{Margins and interval interpretation (P3)}
 P3 evaluates conventional margins with two one-sided tests
 \citep{schuirmann1987tost,lakens2017equivalence}: $\pm0.1$ reference-sample standard deviations for mean differences
 and 0.80--1.25 for odds ratios. The resulting mean margin, $\pm0.0044$, exceeds the observed review effect
 ($-0.0033$); the score SD is tail-sensitive, with a scored-set 5th--95th percentile span of about 0.028.
-These margins are not validated negligible-effect thresholds for the index. This paper therefore interprets
-the observed intervals and the 0.00093 bound, not equivalence to zero. The top-5\% odds ratio's 90\% interval is
+The top-5\% odds ratio's 90\% interval is
 0.85--1.16.
 
 \subsection{Notice records (P8)}
@@ -31,7 +26,7 @@ retraction notice, erratum or expression of concern, against 4.7\% of the full c
 retracted after the window. Removing notice records lowers the positive-score odds ratio from 1.71 (1.60--1.82;
 5,861 compared papers) to 1.44 (1.34--1.54; 5,860 compared papers) for papers retracted inside the window,
 and from 1.50 to 1.35 (1.28--1.43) for all retracted papers. The primary-set estimate changes little,
-from 1.23 to 1.24 (1.14--1.34). These changes do not isolate the effect of the notice itself.
+from 1.23 to 1.24 (1.14--1.34).
 
 \subsection{Placebo timing and annual scores (P9 and P12)}
 Among papers retracted at least four years after publication, a placebo notice three years before the real one
@@ -108,8 +103,51 @@ The CD$_5$ conditional-logit positive-score odds ratios are 1.25 (1.13--1.37) un
 1.07 (0.86--1.34), 1.64 (1.28--2.10) and 1.39 (1.08--1.80)
 (1,524 retracted papers in 383 outcome-varying strata).
 The matched mean-log reference difference is $+0.064$ (0.045--0.083; group means 3.626 and 3.562).
-The P1-style log-of-stratum-mean reference difference, retaining eligible papers with undefined CD scores, is
-$+0.0059$, rather than $-0.017$ on the unrestricted set.
 The matched mean-log citation difference is $+0.265$ (0.233--0.299).
 The DI$_{nok}$ mean gap is 0.074 (0.049--0.098; 3,471 compared papers) for CD$_5$ and
 0.082 (0.062--0.102; 5,413) for CD$_3$.
+
+\subsection{Author-name sensitivity (P14)}
+P14 was planned in \texttt{POSTHOC.md} before execution. Across the full frozen snapshot,
+1,649 normalized names occur on at least ten distinct non-reinstated retracted paper keys; 22,028 of 62,734 such
+keys carry at least one of those names. Duplicate notices are unioned by DOI, or PMID when DOI is absent.
+Names are split on semicolons, trimmed, whitespace-collapsed and case-normalized, without initials merging or
+fuzzy matching. Blank fields and exact placeholders (unknown, [unknown], n/a, not available) count as missing.
+Any linked qualifying key excludes a primary node; controls are not author-screened or redrawn.
+All 4,587 CD$_5$ and 7,350 CD$_3$ primary nodes have names on at least one linked non-reinstated key.
+
+The rule removes 2,280 CD$_5$ primary papers, leaving 2,307 scored and 2,306 compared with 23,999 controls in
+1,363 strata. It removes 3,722 CD$_3$ primary papers, leaving 3,628 eligible, 3,627 scored and 3,626 compared
+with 37,294 controls in 2,115 strata. Original scores and yearly thresholds remain fixed.
+The CD$_3$ mean gap is 0.00063 ($-0.00047$ to $0.00184$), positive-score odds ratio 1.32 (1.21--1.44), and
+top-5\% odds ratio 1.03 (0.85--1.25). Table~\ref{tab:authors} gives mean contrasts by reason class; all
+odds ratios and aggregate coverage are in the run record. Original CD mean intervals, odds ratios and comparison
+counts, and DI$_{nok}$ mean points and counts, are reproduced before exclusion. The new intervals use 2,000
+journal--year bootstrap resamples. Only aggregates are released, not author names or paper-name associations.
+
+\begin{table}[!htbp]
+\centering
+\caption{P14 author-name exclusion sensitivity (95\% intervals). $n$: compared retracted papers for CD / DI$_{nok}$.
+CD gap is in units of $10^{-3}$; DI$_{nok}$ gap is unscaled. Controls and yearly thresholds are unchanged.}
+\label{tab:authors}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrr}
+\toprule
+Group & $n$, CD / DI$_{nok}$ & CD gap & DI$_{nok}$ gap \\
+\midrule
+\multicolumn{4}{l}{Five-year window, 2000--2017} \\
+All retracted & 2,306 / 2,260 & 0.27 ($-1.13$, 1.95) & 0.061 (0.038, 0.084) \\
+Misconduct & 1,244 / 1,231 & 0.05 ($-0.73$, 0.78) & 0.079 (0.048, 0.110) \\
+Paper mill & 88 / 87 & 0.75 (0.27, 1.29) & 0.064 ($-0.024$, 0.162) \\
+Honest error & 204 / 199 & $-5.44$ ($-9.83$, $-1.33$) & $-0.023$ ($-0.091$, 0.046) \\
+Other & 770 / 743 & 2.08 ($-1.68$, 6.75) & 0.053 (0.017, 0.089) \\
+\midrule
+\multicolumn{4}{l}{Three-year window, 2000--2019} \\
+All retracted & 3,626 / 3,485 & 0.63 ($-0.47$, 1.84) & 0.069 (0.048, 0.089) \\
+Misconduct & 1,875 / 1,816 & 0.15 ($-0.59$, 0.98) & 0.085 (0.057, 0.113) \\
+Paper mill & 231 / 228 & 0.45 (0.02, 0.89) & 0.006 ($-0.089$, 0.102) \\
+Honest error & 412 / 402 & $-3.75$ ($-5.92$, $-1.65$) & 0.014 ($-0.032$, 0.063) \\
+Other & 1,108 / 1,039 & 3.13 (0.17, 6.87) & 0.074 (0.035, 0.115) \\
+\bottomrule
+\end{tabular}}
+\end{table}

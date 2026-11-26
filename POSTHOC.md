@@ -168,3 +168,31 @@ every included item reports original research. Missing/unlinked publication type
 - Bootstrap seed 20261109, 2,000 draws; P13 comparisons use independent child generators after offset 1000.
   Record the plan/helper/input hashes, metadata coverage and exclusion counts. Release aggregate outputs only.
   Never overwrite a run. Deallocate the VM immediately after the run and checksum-verified fetch, including failure.
+
+# Post hoc P14: author-name exclusion (2026-11-26; before running)
+
+The author requests and approves restarting the preserved VM for this sensitivity after seeing P1-P13.
+It tests whether the citation-composition finding depends on papers associated with frequently retracting author
+names. It is not an author-cluster bootstrap or a disambiguated-author analysis.
+
+- Use the exact Retraction Watch CSV frozen by D2 (snapshot commit a98cc7e). Reproduce its paper keys (normalized
+  original DOI, otherwise PMID), union author names over duplicate retraction notices, and verify against D2's
+  frozen paper table. Count distinct non-reinstated retracted paper keys per author-name string across the full
+  snapshot, not just the biomedical primary set.
+- Split the Author field on semicolons; trim/collapse whitespace and casefold, without fuzzy matching, merging
+  initials, or transliteration. Blank names and the exact placeholders unknown, [unknown], n/a and not available
+  are missing. A name with at least 10 distinct retracted papers meets the fixed exclusion threshold.
+- Link paper keys through D5's rw_iid table. Exclude a primary retracted node if any linked key has any name meeting
+  that threshold. Retain papers with missing author information and report their count; do not silently treat them
+  as known low-frequency authors. Controls are unchanged and their author identities are not screened.
+- Verify CSV, D2 table and frozen E2 labels/E3 scores; record and check the stability of the D5 mapping hash.
+  Reproduce the original CD5/CD3 primary
+  mean differences, intervals, positive/top-5% odds ratios and compared counts, plus P5 DI_nok points/counts.
+- For CD5 and CD3, repeat the original mean and positive/top-5% comparisons, and the DI_nok mean comparison,
+  overall and by reason class. Keep the original scoring windows, control draw and reference-sample thresholds.
+  Report scored/compared and removed counts, author coverage and loss of strata; explicitly mark an empty
+  comparison as not estimable.
+- Use 2,000 journal-year bootstrap resamples, seed 20261109, independent child generators after offset 2000.
+  No new reference-length mechanism test or author-cluster interval is claimed. Release aggregate counts and
+  estimates only, never names, per-paper associations or identifiers. Record plan/helper/input hashes, logs,
+  manifest and checksums under a new run ID; deallocate immediately after fetch, including failure.

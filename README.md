@@ -42,14 +42,18 @@ labelled post hoc, and each plan was written down before it was run.
 | Article-type sensitivity, CD5 top 5% (P13) | 1.07 (0.86-1.33), 3,521 compared retracted papers / 23,839 controls |
 | Article-type sensitivity, reference-adjusted CD5 top 5% | 1.64 (1.28-2.10); matched mean-log reference gap +0.064 (0.045-0.083) |
 | Article-type sensitivity, CD3 top 5% | 1.21 (1.04-1.42), 5,592 compared retracted papers / 37,334 controls |
+| Author-name exclusion (P14), five-year DI_nok | +0.061 (0.038-0.084), 2,260 compared papers; 2,280 primary papers removed |
+| Author-name exclusion (P14), three-year top 5% | 1.03 (0.85-1.25), 3,626 compared papers |
 | Size of n_k for the median paper | 2,862 papers citing only the references vs 12 citing the paper |
 | Change in DI_nok after vs before the notice, minus controls (post hoc) | +0.074 (0.050–0.097); placebo 3 years earlier +0.036 |
 
 **Take-away:** the pre-specified five-year analysis shows a small positive-score shift but no unadjusted top-tier
-excess; the post hoc three-year window leans toward a modest excess. Article-type restriction retains the reference
+excess; the post hoc three-year window leans toward a modest excess, but this weakens under author-name exclusions.
+The citation-composition contrast persists after that exclusion. Article-type restriction retains the reference
 imbalance and adjusted excess, but is an operational proxy, not a guarantee of original research.
 The n_k term compresses the citation-composition gap, and scores including post-retraction years are shifted. Every
-number above is traced in [`FINDINGS.md`](FINDINGS.md).
+number above is traced in [`FINDINGS.md`](FINDINGS.md). Mean-log reference gaps describe the direction of imbalance,
+not the magnitude of the adjusted odds-ratio shifts. P14 uses name strings, not disambiguated author identities.
 
 The full pool of 52,147 controls was drawn for all 10,450 retracted papers, including those retracted inside their
 window. Of these controls, 25 have an undefined CD5 because its denominator is zero, leaving 52,122 scored controls.
@@ -68,13 +72,13 @@ The primary comparison uses only the 31,662 scored controls in strata containing
 .
 ├── README.md            ← you are here
 ├── SPEC.md              pre-specified design (v1; its SHA-256 is in every run.json)
-├── POSTHOC.md           post hoc plans P1–P13, each written before it was run
+├── POSTHOC.md           post hoc plans P1–P14, each written before it was run
 ├── FINDINGS.md          every number in the paper → the run that produced it
 ├── REPRODUCE.md         inputs, environment, exact commands in order, determinism notes
 ├── CITATION.cff         how to cite this repository
 ├── experiments/
 │   ├── README.md        index of steps and the runs cited in the paper
-│   ├── e01 … e13/       one folder per step: script(s), lab notebook RESULTS_LOG.md, runs/<run_id>/
+│   ├── e01 … e14/       one folder per step: script(s), lab notebook RESULTS_LOG.md, runs/<run_id>/
 │   └── …/runs/<id>/     run.json (parameters, script hash, counts) · stdout.log · group-level outputs · SHA256SUMS
 ├── paper/               LaTeX source (content/, journals/joi/main.tex), figures, refs.bib + DOI checks
 ├── lit/                 literature gate, verified DOIs and the claim check
@@ -90,6 +94,7 @@ ok=1; for d in experiments/*/runs/*/; do (cd "$d" && sha256sum -c --quiet SHA256
 # 2. unit tests (need duckdb, pandas): CD counts and yearly counts against brute force
 cd experiments/e03_cd5 && python test_cd.py && cd ../e07_yearly && python test_yearly.py && cd ../..
 python experiments/e13_article_types/test_sensitivity.py
+python experiments/e14_authors/test_authors.py
 
 # 3. rebuild the figures from the run records (byte-identical to the committed ones with Matplotlib 3.10.8)
 cd experiments/e06_figures && python e06_figs_v2.py my_rebuild e04_eval_20261110_01 e04_eval_cd3_20261110_01 \

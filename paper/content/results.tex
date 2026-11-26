@@ -17,8 +17,9 @@ All 4,587 primary-set papers have a defined score; 4,586 are in the 2,239 strata
 These strata hold 31,674 of the 52,147 controls; 12 have an undefined score, leaving 31,662 as the comparison group.
 Control percentages below use only this comparison group, with each stratum weighted by its number of scored
 primary-set papers, as for the mean difference; they are not pooled percentages of all 52,122 scored controls.
-The stratum-weighted mean CD$_5$ is $-0.00217$ for retracted papers and $-0.00236$ for their controls, a difference of
-$0.00020$ (95\% CI $-0.00061$ to $0.00109$). The post hoc 90\% interval, $-0.00051$ to $0.00093$, rules out absolute
+The stratum-weighted mean CD$_5$ is $-0.002165$ for retracted papers and $-0.002363$ for their controls, a difference of
+$0.00020$ (95\% CI $-0.00061$ to $0.00109$). Differences are computed before rounding the group means.
+The post hoc 90\% interval, $-0.00051$ to $0.00093$, rules out absolute
 mean differences larger than 0.00093, about 28\% of the difference between reviews and other papers (below).
 Retracted papers have a positive score somewhat
 more often within the comparison strata (923 of 4,586, 20.1\%, against 17.3\% of their controls, 95\% bootstrap CI
@@ -27,7 +28,7 @@ more often within the comparison strata (923 of 4,586, 20.1\%, against 17.3\% of
 \subsection{RQ2: reason classes}
 The mean differences for misconduct (2,742 compared papers) and paper-mill production (276) are small
 and their 95\% intervals include zero (Table~\ref{tab:main}). The post hoc 90\% intervals are $-0.00010$ to $0.00074$
-and $0.00001$ to $0.00111$, respectively; the latter is entirely above zero, though small in magnitude.
+and $0.00001$ to $0.00111$, respectively.
 Their odds of reaching the top 5\% are close to one but imprecise (Table~\ref{tab:main},
 Fig.~\ref{fig:forest}). None of the 276 paper-mill papers reaches the top 1\%. Papers retracted for honest error (294)
 score lower than their controls (difference $-0.0041$, $-0.0077$ to $-0.0007$), that is, they are slightly more
@@ -66,8 +67,8 @@ Other & 1,274 & 0.84 ($-1.72$, 3.97) & 1.18 (1.02, 1.36) & 1.06 (0.79, 1.41) & 1
 Table~\ref{tab:rob} gives the pre-specified checks. Excluding CD$_5 = 1$ papers (a), reviews (b) or using the window
 $t+1$ to $t+5$ (d) leaves the results unchanged. Three checks move them. Splitting strata by reference-count decile
 (c) gives a positive mean difference and an odds ratio of 1.47 (1.15--1.88) for the top 5\%; this check keeps only the
-3,664 retracted papers that have a control in the same decile. The reference-length analysis below supports an
-imbalance consistent with this shift, but does not alone establish its explanation. Restricting to papers with at least five citations in the window (f) gives a
+3,664 retracted papers that have a control in the same decile. The reference-length analysis below describes an
+imbalance in the direction of this shift. Restricting to papers with at least five citations in the window (f) gives a
 small positive mean difference. Including the 5,863 papers retracted inside their window (e) raises the odds ratio for
 a positive score from 1.23 to 1.50 (1.42--1.58), while the top-5\% odds ratio stays at 1.00.
 
@@ -129,18 +130,23 @@ conditional logistic regression within journal $\times$ year. With both referenc
 fixed, the odds ratio is 1.32 (1.21--1.43; Table~\ref{tab:posthoc}). DI$_{nok}$ cannot define a top
 tier: more than 5\% of papers score exactly 1, so its 95th and 99th percentiles equal 1 in every year.
 
+\paragraph{Author-name sensitivity (P14)}
+Excluding papers linked to any author name represented on at least ten retracted papers in the full Retraction Watch
+snapshot removes 2,280 of the 4,587 primary papers. Among the 2,306 compared survivors, the CD$_5$ mean difference
+is 0.00027 ($-0.00113$ to $0.00195$), the positive-score odds ratio 1.26 (1.12--1.41), and the top-5\% odds ratio
+0.97 (0.75--1.25). The DI$_{nok}$ gap remains positive, 0.061 (0.038--0.084; 2,260 compared papers), including
+misconduct, 0.079 (0.048--0.110). The citation-composition contrast therefore persists after this substantial
+exclusion. The rule and reason-class estimates are in \ref{sec:appendix}.
+
 \subsection{Exploratory: reference length and the top tier}
-Reference length helps explain robustness check (c). In the conditional logistic regression, the odds ratio for
+The top-tier comparison is sensitive to reference length. In the conditional logistic regression, the odds ratio for
 reaching the top 5\% of CD$_5$ is 0.99 without covariates and 1.42 (1.16--1.75) with $\log(1+\text{references})$;
 adding $\log(1+\text{citing papers in the window})$ gives 1.19 (0.96--1.47). Short reference lists favour high scores
 (coefficient $-1.64$ per unit of log references). The matched diagnostic (P12), using the same log transformation
-as this model, gives means of $\log(1+\text{references})$ of 3.642 for the 4,586 compared retracted papers and 3.557
+as this model, gives means of $\log(1+\text{references})$ of 3.6418 for the 4,586 compared retracted papers and 3.5575
 for their 31,662 controls, weighted within strata. The difference is $+0.084$ (95\% strata-bootstrap CI
-0.058--0.109). This directly supports a reference-length imbalance in the direction that suppresses retracted
-papers' unadjusted scores, although it does not alone establish the explanation for the model's shift.
+0.058--0.109). This imbalance is in the direction of suppression of retracted papers' unadjusted scores.
 The corresponding matched difference in mean $\log(1+\text{citing papers})$ is $+0.311$ (0.280--0.341).
-The log-of-stratum-mean statistics in \ref{sec:appendix} measure a different quantity; they are not evidence
-of balance in the model covariate.
 
 \paragraph{Article-type sensitivity (P13)}
 Restricting both groups to the PubMed article-type proxy compares 3,521 retracted papers with 23,839 controls in
@@ -149,8 +155,7 @@ Restricting both groups to the PubMed article-type proxy compares 3,521 retracte
 The matched mean-log reference difference remains positive, $+0.064$ (0.045--0.083).
 The top-5\% conditional-logit odds ratio is 1.64 (1.28--2.10) with log references and 1.39 (1.08--1.80) with
 log references and citations. Excluding review and editorial/notice types therefore does not remove the
-reference-length imbalance or adjusted excess. The restriction changes the retracted set as well as its controls;
-it is not a causal decomposition. Class-specific results and population accounting are in \ref{sec:appendix}.
+reference-length imbalance or adjusted excess. Class-specific results and population accounting are in \ref{sec:appendix}.
 
 \begin{table}[!htbp]
 \centering
@@ -195,7 +200,7 @@ controls rose from 3.1 to 4.7. The change began before the notice, as the placeb
 In a separate balanced population of 3,083 papers, Figure~\ref{fig:event} plots the mean paired annual gap
 in DI$_{nok}$: 0.053 (95\% CI 0.020--0.083) three years before the notice, 0.092 (0.059--0.124) in the notice year,
 and 0.201 (0.162--0.242) two years after it. These estimates use 2,220, 2,440 and 1,982 defined pairs,
-respectively; uncited annual scores are undefined. This pattern is descriptive, not evidence of a causal notice effect.
+respectively; uncited annual scores are undefined.
 
 \subsection{Exploratory: a shorter scoring window}
 The shorter window admits 7,350 primary-set papers (7,349 with a
@@ -212,3 +217,6 @@ ratio 1.23 (0.83--1.81), and none of the 708 reaches the top 1\% (Fig.~\ref{fig:
 The article-type sensitivity (P13) compares 5,592 papers with 37,334 controls in 2,735 strata. Its mean CD$_3$
 difference is 0.00087 (0.00018--0.00169), positive-score odds ratio 1.32 (1.23--1.42), and top-5\% odds ratio
 1.21 (1.04--1.42), also consistent with a modest excess rather than identical top-tier results across windows.
+After author-name exclusions (P14), 3,626 papers are compared: the top-5\% odds ratio falls to
+1.03 (0.85--1.25), while the DI$_{nok}$ gap remains positive, 0.069 (0.048--0.089; 3,485 compared papers).
+Thus the three-year top-tier excess is not clear under every sensitivity restriction.

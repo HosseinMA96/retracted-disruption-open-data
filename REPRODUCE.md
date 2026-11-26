@@ -49,6 +49,8 @@ Run each from its experiment folder: `python <script> <args>`.
 | P12 matched-log and paired annual diagnostics | `e12_diagnostics/e12_diagnostics.py e12_diag_20261126_01` (fixed frozen input runs in the script) | 1 s |
 | Test of P13 (synthetic classification and matching) | `e13_article_types/test_sensitivity.py` | seconds |
 | P13 article-type restriction | `e13_article_types/e13_article_types.py e13_articles_20261126_01` (frozen score/label tables plus PubMed metadata, no graph rerun) | 4.6 min |
+| Test of P14 (synthetic names, duplicate/reinstated records, threshold, empty comparison) | `e14_authors/test_authors.py` | seconds |
+| P14 author-name exclusion | `e14_authors/e14_authors.py e14_authors_20261126_01` (frozen tables and raw RW CSV, no graph rerun) | 19 s |
 | Figures (laptop) | `e06_figures/e06_figs_v2.py e06_fig_20261126_06 e04_eval_20261110_01 e04_eval_cd3_20261110_01 e08_posthoc2_20261123_02 e09_pretrend_20261123_01 e12_diag_20261126_01` | seconds |
 | Paper | `cd paper/journals/joi && tectonic -X compile main.tex`; upload packages: `./build_submission.sh` | – |
 
@@ -73,6 +75,13 @@ Run each from its experiment folder: `python <script> <args>`.
   hashes. It retains Journal Article, excludes review/editorial/notice types on any linked record, and deliberately
   retains Retracted Publication. Both groups are filtered; original controls and year thresholds are not redrawn
   or recalibrated. PubMed Journal Article is an operational proxy, not a guarantee of original research.
+- P14 checks raw RW CSV and D2 hashes, reproduces D2 paper keys/reinstatement exclusions, and records/checks the
+  stability of the D5 mapping hash. It verifies frozen label/score hashes and reproduces original CD mean intervals,
+  positive/top-5% odds ratios and retracted comparison counts, plus P5 DI_nok points/counts, before exclusion.
+  Names are semicolon-delimited, whitespace-collapsed and casefolded, without fuzzy matching. At least ten distinct
+  non-reinstated paper keys in the full snapshot qualify a name; any qualifying linked key excludes a primary node.
+  Controls, scores and thresholds stay fixed. Missing names are retained; 2,000 journal-year bootstrap draws use
+  seed 20261109 with child-generator offset 2000. Only aggregates are released; names are not disambiguated identities.
 
 ## Submission document build
 `paper/journals/joi/build_submission.sh` also invokes `build_declaration.py` to create the editable

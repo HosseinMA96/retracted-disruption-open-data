@@ -1,5 +1,5 @@
 The CD index of 4,587 biomedical papers, scored before their retraction
-Five-year analysis: small mean gap, more positive scores, no top-5% excess
+Primary five-year CD: small mean gap, more positive scores, no clear top-5% excess
 Citing papers of retracted papers less often cite their references
 At equal reference length, retracted papers reach the top 5% more often
 After the retraction notice the gap widens, partly continuing a trend
