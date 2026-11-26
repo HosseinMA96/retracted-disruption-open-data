@@ -10,9 +10,9 @@ does not systematically favour these late-retracted papers in the main compariso
 papers retracted by a fixed cutoff predicted later retraction, albeit weakly as a standalone screen
 \citep{arjomandi2026prospective}; \citet{lou2026beyond} reported the retrospective citation-network association.
 
-\paragraph{What the $n_k$ term hides} The papers that cite retracted papers less often also cite their references.
-The difference is small, three percentage points in the share of such citing papers or about 0.12 standard deviations
-of DI$_{nok}$. In the unfiltered comparison, its point estimate is positive in every reason class, though near zero for honest error.
+\paragraph{What the $n_k$ term hides} Papers that cite a retracted paper are less likely to also cite its references
+(65.5\% vs 68.8\% for controls). In the unfiltered comparison, the DI$_{nok}$ gap is positive in every reason class,
+though near zero for honest error.
 Its interval excludes zero for
 misconduct and for other reasons, and the shift in its sign survives adjustment for reference and citation counts.
 CD$_5$ registers it only through its sign, because the papers that cite only the references outnumber the citing papers
@@ -25,20 +25,16 @@ second expectation, that paper-mill products are consolidating. Whatever the rea
 higher than comparable papers. \citet{scancar2026distortion} found citation patterns among suspected paper-mill
 articles in highly ranked molecular-cancer journals consistent with manipulated citation counts.
 This motivates considering the composition of citing papers, distinct from the growth of reference lists discussed
-in the disruption-index literature. The DI$_{nok}$ contrast persists after excluding papers linked to author names
-with at least ten retractions in the snapshot: 0.061 (0.038--0.084) for the five-year window and
-0.069 (0.048--0.089) for the three-year window.
+in the disruption-index literature. The DI$_{nok}$ contrast persists in both windows after excluding papers linked
+to frequently retracted author names.
 
 \paragraph{Reference length and the top tier} At equal reference length, retracted papers reach the top 5\% of
-CD$_5$ more often (odds ratio 1.42). The pre-specified unadjusted five-year comparison, which is what an evaluator sees, shows no
-over-representation. The matched mean-log reference difference, $+0.084$ (0.058--0.109), supports a reference-length
-imbalance in the direction that suppresses high scores, consistent with the change after adjustment. The
-adjusted estimate shrinks when citations in the window are also held fixed (1.19), but citations are part of the score
-itself. These exploratory models show that the top-tier comparison is sensitive to reference length.
-The article-type sensitivity retains the reference-length imbalance ($+0.064$ in matched mean log references)
-and gives a larger reference-adjusted top-tier odds ratio, 1.64 (1.28--2.10), falling to 1.39 (1.08--1.80)
-with citations also held fixed. A mixture of reviews and editorial/notice items therefore does not explain away
-this pattern under the operational filter.
+CD$_5$ more often, whereas the pre-specified unadjusted comparison shows no clear excess.
+Retracted papers have longer reference lists on the matched mean-log scale, an imbalance in the direction that
+suppresses high scores. The adjusted contrast shrinks when citations in the window are also held fixed.
+The article-type sensitivity retains both the imbalance and the adjusted excess.
+Thus a mixture of reviews and editorial/notice items does not explain away the pattern under the operational filter;
+the comparisons remain sensitive to covariate adjustment.
 
 \paragraph{Scores that include the retraction} Scores computed over windows that include the retraction differ for two
 reasons. Notice records are counted among the citing papers, and more than a third of the papers retracted inside the
@@ -50,27 +46,27 @@ describe the retraction as much as the paper. They should be computed on a windo
 notice records excluded, or be flagged.
 
 \paragraph{Honest error} Papers retracted for honest error score slightly lower than their controls on CD$_5$, show no
-clear difference on DI$_{nok}$, and their change after the notice shows no sign of an earlier trend. These classes are small (294
-and 615 papers in the two windows), so the pattern should be read as a hypothesis: papers later found to contain errors
+clear difference on DI$_{nok}$, and their change after the notice shows no sign of an earlier trend. These classes are
+small, so the pattern should be read as a hypothesis: papers later found to contain errors
 may build closely on their references, and their errors may come to attention only with the notice.
 
 \paragraph{Relation to the debate on declining disruption} Requiring at least one reference removes almost all
-CD$_5 = 1$ records (0.04\% remain), which are the records at the centre of the artefact debate
+CD$_5 = 1$ records, which are the records at the centre of the artefact debate
 \citep{holst2024artefacts,holst2026partially,park2026reply}. This study makes no claim about long-run trends; the
-yearly means of the reference sample are reported for orientation only. The size of $n_k$ found here, at least 90\% of
-the denominator for almost all papers, is a reminder that CD$_5$ values near zero are the rule on a large citation
+yearly means of the reference sample are reported for orientation only. The dominance of $n_k$ in
+the denominator is a reminder that CD$_5$ values near zero are the rule on a large citation
 graph, so that differences between groups appear in thousandths.
 
 \paragraph{Limitations} OpenCitations does not cover all references, and the choice of data source affects disruption
 scores \citep{xu2025alternative,crossdi2025}; scores computed here are scores on open data. 83.3\% of Retraction Watch
 papers were matched to the graph. Reason classes are a rule-based grouping of Retraction Watch reasons, and many
 notices give limited information (the ``other'' class). Because the graph is complete only to about September 2023, the
-main analysis ends with papers from 2017 and covers only 276 paper-mill papers; the post hoc three-year window raises
-this to 708, but most paper-mill papers were published after 2019. Retractions are a selected and incomplete label of
+main analysis ends with papers from 2017; the post hoc three-year window includes more paper-mill papers,
+but most were published after 2019. Retractions are a selected and incomplete label of
 problematic work: some unreliable papers are never retracted, and the controls may contain them. Several analyses
 were added after the main results were known. Their plans were recorded before their runs, but the analyses remain
-exploratory. The 0.00093 bound is an interval-based description, not a validated negligible-effect threshold.
-The conventional margins in P3 are not used to claim equivalence to zero.
+exploratory. The mean-difference bound is an interval-based description, not a validated negligible-effect threshold.
+The conventional margins are not used to claim equivalence to zero.
 The reference-adjustment contrasts are not causal decompositions. The overall mean-log reference gaps describe
 the direction of imbalance, not the magnitude of the odds-ratio shifts; the models use only outcome-varying strata,
 and reference-count tails or model-subset imbalances are not diagnosed here. Adjusting for citations may over-adjust
@@ -79,12 +75,12 @@ references from citations arriving from outside the immediate literature; citing
 retracted are not excluded.
 
 Bootstrap resampling clusters by journal--year, not by author; serial retractors can contribute papers across
-strata, so uncertainty may be understated if their outcomes are correlated. P14 removes about half the primary papers,
+strata, so uncertainty may be understated if their outcomes are correlated. The author-name check removes about half the primary papers,
 but it uses author-name strings, not disambiguated identities: name variants can escape exclusion, common names can
 merge different people, and names do not establish responsibility for retraction. It is not an author-cluster
 analysis. The five-year citation-composition contrast persists, but the three-year top-tier excess weakens under this
 restriction.
-The main controls are not restricted to research articles. P13 excludes review and editorial/notice types from both
+The main controls are not restricted to research articles. The article-type check excludes review and editorial/notice types from both
 groups, but PubMed Journal Article is a broad indexing category, so the restricted set is not guaranteed to contain
 only original research. Its changes cannot be attributed uniquely to the controls' publication-type composition.
 The primary set is also selected for late retraction: first notices occur in the sixth or a later calendar year after

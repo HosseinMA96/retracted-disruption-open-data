@@ -1,13 +1,15 @@
 % Paper E, JOURNAL OF INFORMETRICS version (Elsevier elsarticle, author-year).
 % Text comes from ../../content/ (central version); only layout and journal-specific placement live here.
-% JOI guide not reachable by script (403); user to confirm on the official page: review model, abstract length, highlights,
+% JOI guide not reachable by script (403); user confirmed single-anonymized review on 2026-11-26.
+% Confirm on the official page: abstract length, highlights,
 % keywords. Elsevier-wide rules applied: highlights 3-5 x <= 85 characters; AI declaration title and wording (2026-11-23).
-% Anonymized variant for double-anonymized review: \anontrue (see ../build_submission.sh).
+% Upload the identified source package from build_submission.sh; keep \anonfalse and the public GitHub link.
 % Build locally: tectonic -X compile main.tex (Elsevier compiles with pdflatex + bibtex).
 \documentclass[preprint,12pt,authoryear]{elsarticle}
 \usepackage{graphicx}
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
+\usepackage{array}
 \usepackage{xcolor}
 \usepackage{xurl}
 \usepackage[hidelinks]{hyperref}
@@ -68,8 +70,8 @@ $n_k$ (post hoc). Bars: 95\% intervals. Circles: CD$_5$, papers 2000--2017, retr
 \caption{The papers citing retracted papers around the first retraction notice (post hoc; 3,083 papers from
 2000--2019 retracted between three years after publication and 2019, notice records excluded). Left: mean paired
 annual DI$_{nok}$ gap, each retracted paper minus its same-journal--year control mean, with 95\% intervals from
-2,000 bootstrap resamples of strata. Positive values mean citing papers less often also cite the references of
-retracted papers. Only defined pairs contribute; their numbers vary by year (\ref{sec:appendix}).
+2,000 bootstrap resamples of strata. Positive values mean papers that cite a retracted paper are less likely to also
+cite its references than are papers citing its controls. Only defined pairs contribute; their numbers vary by year (\ref{sec:appendix}).
 Right: citing papers per paper and year, including zero counts, in this balanced population, not the broader
 5,100-paper window comparison.}
 \label{fig:event}

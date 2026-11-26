@@ -1,4 +1,11 @@
 # E06 figures: lab notebook
+
+## v0.9 review-label separation (2026-11-26)
+`e06_fig_20261126_07` is current. Same E4/E8/E9/P12 inputs and estimates; Figure 1 gives the two-line review
+label extra space below Other, without reducing the 11.5 pt native / 8.62 pt printed font.
+The rendered PDF gap from Other's bottom to Reviews vs's top is 9.98 pt at native size in both left panels.
+Figure 2 is byte-identical to run _06. Source hash, stdout, output manifest and SHA256SUMS are preserved.
+Manuscript figure, first page and uniformly formatted Table 3 inspected after building.
 - e06_fig_20261110_01: superseded (log-axis minor labels overlapped; legend clipped).
 - e06_fig_20261110_02: superseded (panel-1 title lacked the ×10⁻³ scale).
 - e06_fig_20261110_03: a rerun that failed to change the title (string mismatch); deleted before use, never cited.

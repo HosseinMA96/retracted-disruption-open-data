@@ -36,7 +36,7 @@ labelled post hoc, and each plan was written down before it was run.
 | Odds ratio for a positive CD5 (pre-specified RQ1) | **1.23** (1.13–1.34) |
 | Odds ratio for reaching the top 5% of the year | **0.99** (0.83–1.20) |
 | Positive control: reviews vs other papers, top 5% | 0.58 (0.47–0.72): the design detects a real contrast |
-| Variant without n_k (DI_nok): retracted − controls (post hoc) | **+0.067** (0.046–0.087): their citing papers less often cite their references |
+| Variant without n_k (DI_nok): retracted − controls (post hoc) | **+0.067** (0.046–0.087): papers citing a retracted paper are less likely to also cite its references |
 | Top 5% at equal reference length (post hoc) | 1.42 (1.16–1.75) |
 | Matched difference in mean log(1 + references), P12 | **+0.084** (0.058–0.109), 4,586 retracted papers / 31,662 controls |
 | Article-type sensitivity, CD5 top 5% (P13) | 1.07 (0.86-1.33), 3,521 compared retracted papers / 23,839 controls |
@@ -107,6 +107,10 @@ cd paper/journals/joi && tectonic -X compile main.tex
 ```
 
 **Full pipeline:** about 64 GB RAM and under one machine-hour on top of the graph tables; see [`REPRODUCE.md`](REPRODUCE.md).
+
+**JOI upload:** use the identified `paper/journals/joi/joi_latex_source.zip`, not a manuscript PDF or the legacy
+anonymized package. Separate highlights and an official declarations-tool statement are also required.
+See [`paper/journals/joi/UPLOAD.md`](paper/journals/joi/UPLOAD.md); nothing has been submitted.
 
 ## Data sources
 

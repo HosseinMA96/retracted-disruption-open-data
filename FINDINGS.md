@@ -134,7 +134,7 @@ review/editorial/notice type excluded; Retracted Publication is retained. Thresh
 - ≥ 1 notice citation in the CD5 window: retracted after the window 18.4% (844/4,587); retracted inside the window 36.7%
   (2,151/5,863); controls 4.7% (2,456/52,147); reference sample 3.0%.
 - Without notice citations: primary unchanged (difference 0.00029; CD5 > 0 1.24; top 5% 1.02); all retracted
-  (robustness e) CD5 > 0 **1.50 → 1.35 (1.28–1.43)**; retracted inside the window only **1.71 → 1.44 (1.34–1.54)**.
+  (robustness e) CD5 > 0 **1.50 → 1.35 (1.28–1.42)**; retracted inside the window only **1.71 → 1.44 (1.34–1.54)**.
 
 ## P6 before and after the retraction (CD3 population 2000–2019; notices excluded)
 - 7,899 retracted papers with t+1 ≤ R ≤ 2021; 5,100 with a defined change and controls (2,842 strata).
@@ -165,7 +165,8 @@ review/editorial/notice type excluded; Retracted Publication is retained. Thresh
 - P7: the conditional logit for CD5 > 0 uses 3,766 retracted papers (strata with outcome variation); for the top 5%, 2,168 (`e08_posthoc2_20261123_02`).
 - P7: CD5 > 0 with both log references and log window citations: OR 1.31637, 95% CI 1.20953–1.43266, reported as
   **1.32 (1.21–1.43)** (`e08_posthoc2_20261123_02`, `P7_sign_shift.clogit.pos_refs_cites`).
-- P8: papers retracted inside the window with a defined score: 5,861 with notice records, 5,860 without (`e08_posthoc2_20261123_02`).
+- P8: papers retracted inside the window: 5,861 scored / **5,858 compared** with notice records,
+  5,860 scored / **5,857 compared** without (`e08_posthoc2_20261123_02`, `P8_notices.inside_window_only_*`).
 
 # Post hoc round 4 (POSTHOC.md P11, descriptive; run `e11_controls_20261126_01`; every e04 value used reproduced exactly)
 - Controls were drawn for all retracted papers of a population; a comparison uses the controls in the strata of the
@@ -245,3 +246,18 @@ v0.8 interpretation: P12/P13 overall mean-log reference differences establish di
 adjusted OR changes or a causal explanation. The manuscript drops P1's log-of-stratum-mean quantities; original
 run records and their distinct statistics remain intact here. Reported differences are computed before rounding.
 Primary CD5 means are -0.002165233620 and -0.002363267049, yielding +0.000198033428.
+
+## v0.9 wording, accounting and source clarification (no analysis rerun)
+
+- A.3 uses P8 `retracted_in_used_strata`: **5,858 / 5,857 compared**, not the **5,861 / 5,860 scored**
+  counts in `retracted_defined`. The all-retracted no-notices positive-score CI is
+  **1.282206215528376–1.42493183279939**, printed **1.28–1.42**, from current run _02.
+- Citing papers in A/B come from the whole OpenCitations edge table, joined to the full parsed publication table
+  for known years; PubMed/journal rules apply only to focal eligibility. Evidence:
+  `experiments/e03_cd5/e03_cd5.py` passes C's `edges.parquet` and `pubs_slim.parquet` to `cd_lib.build_inputs`;
+  `cd_lib.py` joins citing IDs to publication years without biomedical or journal filtering.
+  Thus the median n_k = 2,862 counts reference-only citing papers across the graph, not just biomedical citers.
+- The composition wording now explicitly concerns whether a citing paper also cites references, not how often
+  it cites the focal paper: **65.5% vs 68.8% for controls** (unchanged P5 results).
+- Figure run `e06_fig_20261126_07` changes review-row spacing only; Figure 2 is byte-identical to _06.
+  Identified-only JOI source and persistent upload instructions retain the author and GitHub link.

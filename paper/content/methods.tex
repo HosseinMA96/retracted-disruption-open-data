@@ -61,6 +61,9 @@ papers that also cite at least one reference) and $n_k = |B \setminus A|$ (paper
 \mathrm{CD}(f) = \frac{n_i - n_j}{n_i + n_j + n_k},
 \end{equation}
 undefined when the denominator is zero \citep{funk2017dynamic,park2023papers}. Self-loops are ignored.
+Both $A$ and $B$ draw citing papers from the whole OpenCitations graph, not only biomedical papers.
+A citing paper must have a known publication year in the parsed publication table and fall within the window;
+the PubMed and journal eligibility rules select focal papers, not their citing papers or references.
 \citet{park2023papers} measure the index five years after each paper's publication year. The main window (CD$_5$)
 covers the citing years $t$ to $t+5$; because year-level data cannot order the focal paper and other papers of the same
 year, those papers are included. The reference implementation of the index counts only citing works with a later

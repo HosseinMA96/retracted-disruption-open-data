@@ -42,6 +42,10 @@ for line in (HERE / "dois.txt").read_text().splitlines():
         b = b.replace("IS DISRUPTION DECREASING, OR IS IT ACCELERATING?", "Is disruption decreasing, or is it accelerating?")
     if key == "rittman2025rw":
         b = re.sub(r"^@article", "@misc", b)[:-1] + ", howpublished={Crossref blog}}"
+    if (b.lower().startswith("@misc")
+            and re.search(r"(?:publisher|archiveprefix)\s*=\s*\{arxiv\}", b, re.I)
+            and not re.search(r"\bhowpublished\s*=", b, re.I)):
+        b = b[:-1].rstrip().rstrip(",") + ", howpublished={arXiv preprint}}"
     out.append(b)
 # Pure ASCII (Springer compiles with pdflatex): accents as LaTeX escapes, typographic marks as ASCII.
 ASCII = {"\u00e1": "{\\'a}", "\u00c1": "{\\'A}", "\u00e9": "{\\'e}", "\u00ed": "{\\'i}", "\u00f3": "{\\'o}",

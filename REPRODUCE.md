@@ -51,7 +51,7 @@ Run each from its experiment folder: `python <script> <args>`.
 | P13 article-type restriction | `e13_article_types/e13_article_types.py e13_articles_20261126_01` (frozen score/label tables plus PubMed metadata, no graph rerun) | 4.6 min |
 | Test of P14 (synthetic names, duplicate/reinstated records, threshold, empty comparison) | `e14_authors/test_authors.py` | seconds |
 | P14 author-name exclusion | `e14_authors/e14_authors.py e14_authors_20261126_01` (frozen tables and raw RW CSV, no graph rerun) | 19 s |
-| Figures (laptop) | `e06_figures/e06_figs_v2.py e06_fig_20261126_06 e04_eval_20261110_01 e04_eval_cd3_20261110_01 e08_posthoc2_20261123_02 e09_pretrend_20261123_01 e12_diag_20261126_01` | seconds |
+| Figures (laptop) | `e06_figures/e06_figs_v2.py e06_fig_20261126_07 e04_eval_20261110_01 e04_eval_cd3_20261110_01 e08_posthoc2_20261123_02 e09_pretrend_20261123_01 e12_diag_20261126_01` | seconds |
 | Paper | `cd paper/journals/joi && tectonic -X compile main.tex`; upload packages: `./build_submission.sh` | – |
 
 ## 4. Determinism and checks
@@ -88,6 +88,9 @@ Run each from its experiment folder: `python <script> <args>`.
 `competing_interests.docx` from the manuscript title and declaration text. This needs `python-docx==1.2.0`;
 `DOCX_PYTHON` selects its interpreter. A local DOCX is not an output of Elsevier's declarations tool:
 the author must still complete that tool and upload its generated `.doc`/`.docx`.
+JOI's single-anonymized review process requires the identified source package. The build no longer generates
+an anonymized variant; author and GitHub-link presence are checked. See `paper/journals/joi/UPLOAD.md` for exact
+files and the required Editorial Manager pdfLaTeX-generated PDF check.
 
 ## 5. Runs not cited
 - `e07_yearly_20261123_01`, `e08_posthoc2_20261123_01`: notice rule matched PubMed publication types by name; the 2026

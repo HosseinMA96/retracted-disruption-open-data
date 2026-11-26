@@ -26,6 +26,7 @@ plt.rcParams.update({"font.size": 11.5, "axes.spines.top": False, "axes.spines.r
 # ---------------- Fig. 1 -------------------------------------------------------------------------------------
 ROWS = [("All retracted", None), ("Misconduct", "misconduct"), ("Paper mill", "paper_mill"), ("Honest error", "honest_error"),
         ("Other", "other"), ("Reviews vs\nother controls", "REVIEWS")]
+ROW_Y = [0, 1, 2, 3, 4, 5.6]
 SER = [("5", BLUE, "o", -0.14, "CD$_5$, papers 2000–2017"), ("3", ORANGE, "s", 0.14, "CD$_3$, papers 2000–2019 (post hoc)")]
 def cd_cell(w, k):
     if k == "REVIEWS": return e8["P4_reviews"]["cd5"] if w == "5" else None
@@ -45,7 +46,7 @@ for ax, (title, key, is_or, ref, cell, scale) in zip(axes, panels):
         for i, (_, k) in enumerate(ROWS):
             x = cell(w, k)
             if x is None: continue
-            c, m, y = (GREY, "D", i) if k == "REVIEWS" else (col, mk, i + dy)
+            c, m, y = (GREY, "D", ROW_Y[i]) if k == "REVIEWS" else (col, mk, ROW_Y[i] + dy)
             if is_or:
                 kk = key[1] if k == "REVIEWS" else key[0]
                 o = x[kk]; est, (lo, hi) = o["or"], o["ci"]
@@ -59,9 +60,9 @@ for ax, (title, key, is_or, ref, cell, scale) in zip(axes, panels):
         ax.xaxis.set_minor_formatter(matplotlib.ticker.NullFormatter())
     ax.set_title(title, fontsize=11.5, color=DARK); ax.tick_params(colors="#55554f", length=2)
     ax.grid(axis="x", color="#e6e6e1", lw=0.5); ax.set_axisbelow(True)
-axes[0].set_yticks(range(len(ROWS))); axes[0].set_yticklabels([r[0] for r in ROWS]); axes[0].invert_yaxis()
-axes[0].axhline(len(ROWS) - 1.5, color="#d0d0ca", lw=0.6)
-for ax in axes[1:]: ax.axhline(len(ROWS) - 1.5, color="#d0d0ca", lw=0.6)
+axes[0].set_yticks(ROW_Y); axes[0].set_yticklabels([r[0] for r in ROWS]); axes[0].invert_yaxis()
+axes[0].axhline(4.8, color="#d0d0ca", lw=0.6)
+for ax in axes[1:]: ax.axhline(4.8, color="#d0d0ca", lw=0.6)
 h, l = axes[0].get_legend_handles_labels()
 h.append(plt.Line2D([], [], color=GREY, marker="D", ms=4.5, mec="white", lw=1.5)); l.append("Reviews vs other controls, CD$_5$ window")
 fig.legend(h, l, loc="lower center", ncol=1, frameon=False, bbox_to_anchor=(0.55, 0.0), fontsize=11.5)
