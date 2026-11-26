@@ -1,0 +1,89 @@
+{
+  "paired_event": [
+    {
+      "tau": -3,
+      "n_pairs": 2220,
+      "strata": 1266,
+      "paired_diff": 0.05281008480412019,
+      "ci_lo": 0.02040779247194936,
+      "ci_hi": 0.08291055586640327
+    },
+    {
+      "tau": -2,
+      "n_pairs": 2504,
+      "strata": 1445,
+      "paired_diff": 0.07207967802821688,
+      "ci_lo": 0.0445525960942116,
+      "ci_hi": 0.09960707799169886
+    },
+    {
+      "tau": -1,
+      "n_pairs": 2468,
+      "strata": 1432,
+      "paired_diff": 0.08860327922949808,
+      "ci_lo": 0.060736093994566205,
+      "ci_hi": 0.1183354447349542
+    },
+    {
+      "tau": 0,
+      "n_pairs": 2440,
+      "strata": 1429,
+      "paired_diff": 0.09228243086559523,
+      "ci_lo": 0.05944807184921533,
+      "ci_hi": 0.12448429909131568
+    },
+    {
+      "tau": 1,
+      "n_pairs": 2225,
+      "strata": 1315,
+      "paired_diff": 0.12295408671810405,
+      "ci_lo": 0.08664844244308195,
+      "ci_hi": 0.1591304852493041
+    },
+    {
+      "tau": 2,
+      "n_pairs": 1982,
+      "strata": 1184,
+      "paired_diff": 0.2014972083265407,
+      "ci_lo": 0.16158868075726351,
+      "ci_hi": 0.24173785169351342
+    },
+    {
+      "tau": 3,
+      "n_pairs": 1854,
+      "strata": 1128,
+      "paired_diff": 0.150683252803256,
+      "ci_lo": 0.11192759655240773,
+      "ci_hi": 0.1894082166359458
+    }
+  ],
+  "matched_mean_logs": {
+    "n_refs": {
+      "mean_retracted": 3.641801947047599,
+      "mean_controls": 3.5574784519301144,
+      "difference": 0.08432349511748502,
+      "log_of_mean_difference": -0.01701173387855402,
+      "retracted_compared": 4586,
+      "controls_compared": 31662,
+      "ci": [
+        0.0580048110300973,
+        0.10904290960746478
+      ]
+    },
+    "cites_w0": {
+      "mean_retracted": 2.956958933150452,
+      "mean_controls": 2.6460935953751283,
+      "difference": 0.3108653377753238,
+      "log_of_mean_difference": 0.0989656524216701,
+      "retracted_compared": 4586,
+      "controls_compared": 31662,
+      "ci": [
+        0.2795587679213359,
+        0.34107584884038106
+      ]
+    }
+  },
+  "author_identifier_columns_in_labels": [],
+  "frozen_hashes_verified": true,
+  "P9_P11_P1_reproduced": true
+}

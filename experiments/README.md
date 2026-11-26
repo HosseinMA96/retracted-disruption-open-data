@@ -12,7 +12,8 @@
 | `e09_pretrend/` | **Post hoc** P9: placebo notice and balanced event time | `e09_pretrend_20261123_01` | `RESULTS_LOG.md` |
 | `e10_describe/` | **Post hoc** P10: size of n_k (descriptive) | `e10_nk_20261123_01` | `RESULTS_LOG.md` |
 | `e11_controls/` | **Post hoc** P11: controls behind the primary comparisons (counts, matched shares; descriptive; replays E4 first) | `e11_controls_20261126_01` | `RESULTS_LOG.md` |
-| `e06_figures/` | Paper figures from run records (laptop) | `e06_fig_20261126_01` (current; same values, embedded fonts); earlier: `e06_fig_20261123_02`, `e06_fig_20261110_04` | `RESULTS_LOG.md` |
+| `e12_diagnostics/` | **Post hoc** P12: paired annual confidence intervals and matched mean-log count differences; reproduces P9/P11/P1 | `e12_diag_20261126_01` | `RESULTS_LOG.md` |
+| `e06_figures/` | Paper figures from run records (laptop) | `e06_fig_20261126_04` (current; paired annual gaps and intervals); earlier marginal figure: `e06_fig_20261126_01` | `RESULTS_LOG.md` |
 
 Runs not cited carry a `SUPERSEDED.txt` with the reason: `e07_yearly_20261123_01`, `e08_posthoc2_20261123_01`
 (notice rule by type name; see POSTHOC.md P8 amendment), `e06_fig_20261110_01`, `_02`, `e06_fig_20261123_01` (layout).
@@ -27,5 +28,7 @@ Runs not cited carry a `SUPERSEDED.txt` with the reason: `e07_yearly_20261123_01
 | Per-run config, script hash, counts | `<exp>/runs/<run_id>/run.json` |
 | Per-run checksums | `<exp>/runs/<run_id>/SHA256SUMS` |
 | Run stdout | `<exp>/runs/<run_id>/stdout.log` |
+| Main exploratory questions / diagnostic appendix | `../paper/content/results.tex`, `../paper/content/appendix.tex` |
+| P12 paired points, counts and confidence intervals | `e12_diagnostics/runs/e12_diag_20261126_01/paired_event.csv` |
 | Large intermediates (labels, frozen scores, yearly counts) | VM disk `~/e/data/work/` only (per-paper tables are never released) |
 | VM billing events | `../vm/sessions.log` |

@@ -2,8 +2,8 @@
 
 All from `e04_eval_20261110_01` (scores `e03_cd5_20261110_01`, populations `e02_pop_20261110_01`, SPEC v1) unless stated. Mean differences are retracted − matched controls within journal × year, weighted by retracted papers, 95% bootstrap CI over strata. ORs are Mantel–Haenszel within journal × year.
 
-## RQ1 (primary set: 4,587 papers retracted after their 5-year window; 2,239 strata)
-- Mean CD5: retracted −0.00217, controls −0.00236; **difference 0.00020 [−0.00061, 0.00109]** → no difference in mean disruption.
+## RQ1 (4,587 scored primary papers; 4,586 compared in 2,239 strata)
+- Mean CD5: retracted −0.00217, controls −0.00236; **difference 0.00020 [−0.00061, 0.00109]**; a small estimated gap.
 - CD5 > 0: 924/4,587 retracted vs 9,755/52,122 controls; **OR 1.23 [1.13, 1.34]**. (The control count and share here,
   and in the two RQ3 lines below, are over all scored controls of the population, including strata without a
   primary-set paper; the paper uses the like-for-like shares of P11 since v0.3.)
@@ -15,7 +15,7 @@ All from `e04_eval_20261110_01` (scores `e03_cd5_20261110_01`, populations `e02_
 ## RQ2 (primary set by reason class)
 | Class | n | Diff [CI] | OR CD5>0 [CI] | OR top 5% [CI] | Top 1% (retracted) |
 |---|---|---|---|---|---|
-| Misconduct | 2,743 | 0.00032 [−0.00021, 0.00082] | 1.29 [1.15, 1.44] | 0.93 [0.71, 1.22] | 5 (0.18%) |
+| Misconduct | 2,742 compared | 0.00032 [−0.00021, 0.00082] | 1.29 [1.15, 1.44] | 0.93 [0.71, 1.22] | 5 (0.18%) |
 | Paper mill | 276 | 0.00058 [−0.00014, 0.00123] | 1.20 [0.93, 1.57] | 1.10 [0.53, 2.29] | 0 |
 | Honest error | 294 | −0.00408 [−0.00768, −0.00073] | 1.15 [0.82, 1.60] | 1.02 [0.55, 1.88] | 2 |
 | Other | 1,274 | 0.00084 [−0.00172, 0.00397] | 1.18 [1.02, 1.36] | 1.06 [0.79, 1.41] | 10 |
@@ -42,8 +42,9 @@ All from `e04_eval_20261110_01` (scores `e03_cd5_20261110_01`, populations `e02_
 # Post hoc (POSTHOC.md; not in SPEC v1)
 
 ## P1 reference length (`e05_refs_20261110_01`)
-- Median references: retracted (primary) 40, controls 35, context 30; within journal × year the log difference is −0.017 (no difference).
-- Median window citations: retracted (primary) 19, controls 13; within strata +0.099 in log1p (≈10% more).
+- Median references: retracted (primary) 40, full control pool 35, context 30; within journal × year the difference in
+  log(1 + group arithmetic mean) is −0.017. This is not evidence of balance in mean paper-level log references (P12).
+- Median window citations: retracted (primary) 19, full control pool 13; within strata +0.099 in log(1 + group mean).
 - CD5 correlates negatively with reference count (Spearman −0.19) and with window citations (−0.43) in the context sample.
 
 ## P2 three-year window, papers 2000–2019 (`e04_eval_cd3_20261110_01`)
@@ -66,14 +67,16 @@ All from `e04_eval_20261110_01` (scores `e03_cd5_20261110_01`, populations `e02_
 
 # Post hoc round 2 (POSTHOC.md P3–P8; run `e08_posthoc2_20261123_02` on `e07_yearly_20261123_02`; the replay of v1 is exact)
 
-## P3 equivalence (margins fixed in POSTHOC.md before the run)
+## P3 historical margins and interval bounds (margins fixed in POSTHOC.md before the run)
 - Margin for mean differences: ±0.1 SD of the score in the reference sample: CD5 ±0.00442 (SD 0.0442); CD3 ±0.00442.
-- CD5 primary: difference 0.00020, **90% interval −0.00051 to 0.00093 → equivalent**; smallest supported margin 0.00093.
-- CD5 primary, top 5%: OR 0.99, **90% 0.85–1.16 → equivalent within 0.80–1.25** (TOST p = 0.011). Top 1%: 0.67, 90%
-  0.44–1.03 (not shown). CD5 > 0: 1.23, 90% 1.15–1.32 (not equivalent).
-- CD3 primary: difference 90% −0.00017 to 0.00101 → equivalent; top 5% 1.12, 90% 1.00–1.25 → narrowly not (p = 0.054).
-- By class (CD5): mean difference equivalent for misconduct (90% −0.00010 to 0.00074), paper mill (0.00001 to 0.00111),
-  other (−0.00127 to 0.00343); not for honest error (−0.00699 to −0.00123). Class odds ratios too imprecise.
+- CD5 primary: difference 0.00020, **90% interval −0.00051 to 0.00093**; absolute-difference bound 0.00093.
+- CD5 primary, top 5%: OR 0.99, **90% 0.85–1.16**. Top 1%: 0.67, 90% 0.44–1.03.
+  CD5 > 0: 1.23, 90% 1.15–1.32.
+- CD3 primary: difference 90% −0.00017 to 0.00101; top 5% 1.12, 90% 1.00–1.25.
+- By class (CD5), mean-difference 90% intervals: misconduct −0.00010 to 0.00074, paper mill 0.00001 to 0.00111,
+  other −0.00127 to 0.00343, honest error −0.00699 to −0.00123.
+- v0.5 drops equivalence conclusions: the conventional mean margin exceeds the review effect, and the paper-mill
+  90% interval lies entirely above zero. Original TOST outputs remain unchanged in the archived JSON.
 
 ## P4 positive control: reviews vs other never-retracted papers (same journal × year; CD5 controls)
 - 6,032 reviews (4,832 in 2,083 usable strata) vs 46,090: CD5 difference **−0.00329 (−0.0066 to −0.0011)**
@@ -81,10 +84,12 @@ All from `e04_eval_20261110_01` (scores `e03_cd5_20261110_01`, populations `e02_
 - The retracted papers' 90% interval excludes mean differences above 0.00093, about 28% of the review gap.
 
 ## P5 DI_nok = (n_i − n_j)/(n_i + n_j)
-- CD5 window, primary (4,518 defined): retracted −0.309, controls −0.376, **difference +0.067 (0.046–0.087)**; margin
-  ±0.056 → not equivalent. Share of citing papers that also cite a reference: (1 − DI_nok)/2 ≈ 0.655 vs 0.688.
+- CD5 window, primary (4,518 defined, **4,517 compared**): retracted −0.309, controls −0.376,
+  **difference +0.067 (0.046–0.087)**. Share of citing papers that also cite a reference:
+  (1 − DI_nok)/2 ≈ 0.655 vs 0.688.
 - By class: misconduct +0.083 (0.058–0.109); other +0.049 (0.019–0.078); paper mill +0.054 (−0.003 to 0.120);
-  honest error +0.004 (−0.056 to 0.060). CD3 window, primary (7,125): +0.075 (0.056–0.093); paper mill +0.056
+  honest error +0.004 (−0.056 to 0.060). CD3 window, primary (7,125 defined, **7,122 compared**):
+  +0.075 (0.056–0.093); paper mill +0.056
   (−0.008 to 0.122).
 - Top-tier thresholds of DI_nok are degenerate (95th and 99th percentiles = 1.0 in every year); papers at DI_nok = 1:
   retracted 2.5% vs controls 4.9% (OR 0.59, 0.48–0.72) — not interpreted as a top-tier result.
@@ -96,8 +101,8 @@ All from `e04_eval_20261110_01` (scores `e03_cd5_20261110_01`, populations `e02_
 - Conditional logit, strata journal × year: CD5 > 0: 1.23 (1.14–1.34) unadjusted; **1.32 (1.21–1.44)** + log(1 +
   references); 1.32 (1.21–1.43) + log(1 + window citations). Top 5%: 0.99 (0.83–1.20) unadjusted; **1.42 (1.16–1.75)**
   + log(1 + references); 1.19 (0.96–1.47) + log(1 + window citations). Reference coefficient −1.64 (top 5%).
-- Reading: at equal reference length, retracted papers reach the top 5% more often; unadjusted they do not, because they
-  less often have short reference lists (lower quartile 29 vs 22 references, P1), which favour high scores.
+- Reading: the adjusted top-tier comparison is sensitive to reference length. P12's matched mean-log imbalance
+  supports the direction of the shift; P1's pooled lower quartiles (29 vs 22) are not matched evidence.
 
 ## P8 editorial-notice citations (retraction notices, errata, expressions of concern; PubMed types/links)
 - ≥ 1 notice citation in the CD5 window: retracted after the window 18.4% (844/4,587); retracted inside the window 36.7%
@@ -153,11 +158,24 @@ All from `e04_eval_20261110_01` (scores `e03_cd5_20261110_01`, populations `e02_
   (the rest is the weighting: pooled shares in the used strata are 18.1%, 3.3%, 0.56%).
 
 ## Event-figure estimands clarified in v0.4 (same P9 run; no new estimates)
-- Figure 2 plots `dinok_ret` and `dinok_ctl`, each a mean over its own defined annual scores. At tau = -3, 0, +2,
+- v0.4 Figure 2 plotted `dinok_ret` and `dinok_ctl`, each a mean over its own defined annual scores. At tau = -3, 0, +2,
   their differences are 0.04809, 0.07358, 0.18485.
 - The text's 0.05281, 0.09228, 0.20150 are `paired_diff`: means over pairs with both scores defined. These are not
   differences of separately averaged curves; the paired subsets contain 2,220, 2,440 and 1,982 papers, respectively.
 - Both use the 3,083-paper event-time population. The 5,100-paper P6 window comparison and its 3.10 to 4.69 control
   citation change are separate; Figure 2's balanced controls instead have means from 4.04 to 4.93 per year.
 - P1's -0.017 and 0.099 are differences of **log(1 + the within-stratum group mean)**, not means of paper-level
-  log(1 + counts), as verified in `e05_refs.py`. The manuscript keeps the statistic actually computed.
+  log(1 + counts), as verified in `e05_refs.py`. v0.5 retains this in the appendix and adds P12's distinct statistic.
+
+## P12 paired annual intervals and matched mean-log counts (`e12_diag_20261126_01`)
+Frozen input hashes checked; all seven P9 paired points/counts, P11's 4,586 / 31,662 comparison population and both
+P1 log-of-mean points reproduced before new calculations. Seed 20261109, 2,000 journal-year bootstrap resamples.
+- Mean log(1 + references): retracted **3.641801947**, matched controls **3.557478452**;
+  difference **+0.084323495 (0.058004811–0.109042910)**.
+- Mean log(1 + window citing papers): **2.956958933** vs **2.646093595**;
+  difference **+0.310865338 (0.279558768–0.341075849)**.
+- Figure 2 now plots `paired_event.csv`: tau -3 **0.052810085 (0.020407792–0.082910556), n=2,220**;
+  tau 0 **0.092282431 (0.059448072–0.124484299), n=2,440**;
+  tau +2 **0.201497208 (0.161588681–0.241737852), n=1,982**.
+- Label inputs contain no author-identifier columns; no author-cluster or largest-retractor check was performed.
+  The limitation is stated, and the VM was deallocated immediately after the run and checksum-verified fetch.

@@ -14,3 +14,13 @@
   caption now state the distinction and the different populations explicitly. No statistical estimate is changed.
 - Completed in 1.7 seconds with Matplotlib 3.10.8; both PDF year ranges extract as en dashes. The new run's figures,
   configuration, stdout and checksums are preserved; earlier figure runs are unchanged.
+
+# v0.5 paired annual figure (2026-11-26)
+- `e06_fig_20261126_02` first plotted P12 paired points and 95% bootstrap intervals; its axis label was clipped
+  and the citation legend overlapped a curve. `e06_fig_20261126_03` moved the legend and split the label, but needed
+  a wider left margin. Both runs and their checksums are retained.
+- **e06_fig_20261126_04** is current: P12 input `e12_diag_20261126_01/paired_event.csv`, whose points/counts first
+  reproduce P9. Figure 1 is byte-identical to `e06_fig_20261126_01`. Figure 2 plots the paired annual gap with CIs,
+  rather than different-subset marginal means; its citation panel is unchanged.
+- PNG inspected and every rendered PDF word verified inside the page bounds. A first canvas check included an
+  off-axis, undisplayed Matplotlib tick; the rendered-PDF check avoids that false positive.

@@ -1,20 +1,22 @@
 """E6 v2: paper figures from run records only (results.json / CSV files of the E4, E8 and E9 runs). Runs on a laptop.
 Fig. 1: forest plot by retraction reason, CD5 and CD3 (v1 + P2), DI_nok (P5) and the review positive control (P4).
-Fig. 2: event time around the retraction notice, balanced set (P9b): DI_nok and citing papers per year.
-usage: python e06_figs_v2.py RUN_ID E4_CD5 E4_CD3 E8 E9   -> fig1_forest.pdf, fig2_event.pdf (+ .png previews)
+Fig. 2: event time around the retraction notice, balanced set (P9b); optional P12 adds paired-gap confidence intervals.
+usage: python e06_figs_v2.py RUN_ID E4_CD5 E4_CD3 E8 E9 [E12] -> PDF figures (+ PNG previews).
+Without E12, the earlier marginal-score figure is reproduced.
 """
 import sys, json
 from pathlib import Path
 import matplotlib; matplotlib.use("Agg"); import matplotlib.ticker
 import matplotlib.pyplot as plt
 import pandas as pd
-from common import Run
+from common import Run, sha256
 
 HERE = Path(__file__).resolve().parents[1]
 R5, R3, R8, R9 = sys.argv[2:6]
+R12 = sys.argv[6] if len(sys.argv) == 7 else None
 BLUE, ORANGE, GREY, DARK = "#2a78d6", "#eb6834", "#7a7a74", "#333330"
 run = Run(sys.argv[1], __file__, {"e4_cd5": R5, "e4_cd3": R3, "e8": R8, "e9": R9, "matplotlib": matplotlib.__version__,
-                                   "palette": [BLUE, ORANGE, GREY], "pdf_fonttype": 42})
+                                   "palette": [BLUE, ORANGE, GREY], "pdf_fonttype": 42, "e12": R12})
 load = lambda exp, r, f="results.json": json.loads((HERE / exp / "runs" / r / f).read_text())
 e4 = {"5": load("e04_eval", R5), "3": load("e04_eval", R3)}
 e8 = load("e08_posthoc2", R8)
@@ -72,21 +74,36 @@ et = pd.read_csv(HERE / "e09_pretrend" / "runs" / R9 / "event_time_balanced.csv"
 e9 = load("e09_pretrend", R9)
 fig, axes = plt.subplots(1, 2, figsize=(7.2, 2.5), gridspec_kw={"wspace": 0.28})
 ax = axes[0]
-ax.plot(et.tau, et.dinok_ret, color=ORANGE, marker="o", ms=4, lw=1.4, label="Retracted papers")
-ax.plot(et.tau, et.dinok_ctl, color=GREY, marker="s", ms=3.5, lw=1.4, label="Controls (same journal × year)")
-ax.set_ylabel("Mean DI$_{nok}$ from that year's citing papers", fontsize=7.5)
-ax.set_title("DI$_{nok}$ (higher: citing papers ignore the references)", fontsize=7.5, color=DARK)
+if R12:
+    paired_path = HERE / "e12_diagnostics" / "runs" / R12 / "paired_event.csv"
+    paired = pd.read_csv(paired_path)
+    if not (paired.tau.equals(et.tau) and paired.n_pairs.equals(et.n_pairs)
+            and ((paired.paired_diff - et.paired_diff).abs() < 1e-12).all()):
+        raise ValueError("Paired figure input does not reproduce P9 points and counts")
+    ax.errorbar(paired.tau, paired.paired_diff,
+                yerr=[paired.paired_diff - paired.ci_lo, paired.ci_hi - paired.paired_diff],
+                color=ORANGE, marker="o", ms=4, lw=1.4, capsize=3)
+    ax.axhline(0, color="#8a8a85", lw=0.7, zorder=0)
+    ax.set_ylabel("Mean paired DI$_{nok}$ gap\n(retracted − controls)", fontsize=7.5)
+    ax.set_title("Citation-composition gap (95% intervals)", fontsize=7.5, color=DARK)
+    run.log("paired_event_sha256", sha256(paired_path))
+    run.log("plotted_paired_points", paired.to_dict("records"))
+else:
+    ax.plot(et.tau, et.dinok_ret, color=ORANGE, marker="o", ms=4, lw=1.4, label="Retracted papers")
+    ax.plot(et.tau, et.dinok_ctl, color=GREY, marker="s", ms=3.5, lw=1.4, label="Controls (same journal × year)")
+    ax.set_ylabel("Mean DI$_{nok}$ from that year's citing papers", fontsize=7.5)
+    ax.set_title("DI$_{nok}$ (higher: citing papers ignore the references)", fontsize=7.5, color=DARK)
 ax2 = axes[1]
-ax2.plot(et.tau, et.cites_ret, color=ORANGE, marker="o", ms=4, lw=1.4)
-ax2.plot(et.tau, et.cites_ctl, color=GREY, marker="s", ms=3.5, lw=1.4)
+ax2.plot(et.tau, et.cites_ret, color=ORANGE, marker="o", ms=4, lw=1.4, label="Retracted papers")
+ax2.plot(et.tau, et.cites_ctl, color=GREY, marker="s", ms=3.5, lw=1.4, label="Controls (same journal × year)")
 ax2.set_ylabel("Citing papers per paper and year", fontsize=7.5); ax2.set_ylim(bottom=0)
 ax2.set_title("Citations", fontsize=7.5, color=DARK)
 for a in axes:
     a.axvline(0, color="#8a8a85", lw=0.8, ls=(0, (3, 2)), zorder=0); a.set_xticks(range(-3, 4))
     a.set_xlabel("Years relative to the first retraction notice", fontsize=7.5)
     a.tick_params(colors="#55554f", length=2); a.grid(axis="y", color="#e6e6e1", lw=0.5); a.set_axisbelow(True)
-axes[0].legend(frameon=False, fontsize=7, loc="upper left")
-fig.subplots_adjust(bottom=0.2, left=0.08, right=0.99, top=0.9)
+axes[1 if R12 else 0].legend(frameon=False, fontsize=7, loc="lower left" if R12 else "upper left")
+fig.subplots_adjust(bottom=0.2, left=0.11 if R12 else 0.08, right=0.99, top=0.9)
 for ext in ("pdf", "png"):
     fig.savefig(run.dir / f"fig2_event.{ext}", dpi=200, metadata={"CreationDate": None} if ext == "pdf" else None)
 run.log("balanced_papers", int(et.n_ret.iloc[0]))

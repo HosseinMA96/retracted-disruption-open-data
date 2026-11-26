@@ -1,0 +1,27 @@
+[     0.9s] paired_points_and_counts_reproduced: True
+[     0.9s] matched_mean_logs: {'n_refs': {'mean_retracted': 3.641801947047599, 'mean_controls': 3.5574784519301144, 'difference': 0.08432349511748502, 'log_of_mean_difference': -0.01701173387855402, 'retracted_compared': 4586, 'controls_compared': 31662, 'ci': [0.0580048110300973, 0.10904290960746478]}, 'cites_w0': {'mean_retracted': 2.956958933150452, 'mean_controls': 2.6460935953751283, 'difference': 0.3108653377753238, 'log_of_mean_difference': 0.0989656524216701, 'retracted_compared': 4586, 'controls_compared': 31662, 'ci': [0.2795587679213359, 0.34107584884038106]}}
+[     0.9s] author_identifier_columns_in_labels: []
+done in 0.9 s -> /home/azureuser/e/experiments/e12_diagnostics/runs/e12_diag_20261126_01
+	Command being timed: "/home/azureuser/mamba/envs/d/bin/python e12_diagnostics.py e12_diag_20261126_01"
+	User time (seconds): 1.57
+	System time (seconds): 0.24
+	Percent of CPU this job got: 141%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:01.29
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 512404
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 22
+	Minor (reclaiming a frame) page faults: 65994
+	Voluntary context switches: 319
+	Involuntary context switches: 38
+	Swaps: 0
+	File system inputs: 60264
+	File system outputs: 56
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

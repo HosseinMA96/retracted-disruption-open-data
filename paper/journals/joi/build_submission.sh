@@ -10,6 +10,7 @@
 set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"; P="$(cd "$HERE/../.." && pwd)"
 TECTONIC="${TECTONIC:-$HOME/miniforge3/envs/tectonic-env/bin/tectonic}"
+DOCX_PYTHON="${DOCX_PYTHON:-python3}"
 CLS_DIR="${CLS_DIR:-$(dirname "$(find "$HOME/.cache/tectonic" -name elsarticle.cls | head -1)")}"
 FIGS="fig1_forest fig2_event"
 
@@ -62,7 +63,8 @@ build submission 0 joi_latex_source.zip
 build submission_anon 1 joi_latex_source_anon.zip
 ( cd "$HERE" && "$TECTONIC" -X compile title_page.tex )
 # Individual editable sources and figures are in submission/ or submission_anon/; ZIPs are also supplied.
-test -s "$HERE/competing_interests.txt"
+"$DOCX_PYTHON" "$HERE/build_declaration.py"
+test -s "$HERE/competing_interests.docx"
 # the anonymized PDF must not name the author anywhere (text or metadata)
 anon_txt=$(pdftotext "$HERE/submission_anon/main.pdf" -)      # no pipe into grep -q: with pipefail, SIGPIPE hides matches
 if grep -q -i -E "Microsoft|hosseinm|HosseinMA96|retracted-disruption" <<< "$anon_txt"; then

@@ -1,0 +1,46 @@
+{
+  "run_id": "e12_diag_20261126_01",
+  "script": "e12_diagnostics.py",
+  "script_sha256": "ffc4af594a7d2d6c3bf4c48ee714949edc26d15f83eead9a8f036bdc0b5ee8ff",
+  "config": {
+    "posthoc": "P12",
+    "seed": 20261109,
+    "n_boot": 2000,
+    "posthoc_sha256": "420ebd7879145b9a17fdbe8ddf2447ace682a7041dff74feabfdb65eb619131e"
+  },
+  "host": "vm-project-c",
+  "python": "3.11.18",
+  "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+  "started_utc": "2026-11-26T18:34:19Z",
+  "results": {
+    "paired_points_and_counts_reproduced": true,
+    "matched_mean_logs": {
+      "n_refs": {
+        "mean_retracted": 3.641801947047599,
+        "mean_controls": 3.5574784519301144,
+        "difference": 0.08432349511748502,
+        "log_of_mean_difference": -0.01701173387855402,
+        "retracted_compared": 4586,
+        "controls_compared": 31662,
+        "ci": [
+          0.0580048110300973,
+          0.10904290960746478
+        ]
+      },
+      "cites_w0": {
+        "mean_retracted": 2.956958933150452,
+        "mean_controls": 2.6460935953751283,
+        "difference": 0.3108653377753238,
+        "log_of_mean_difference": 0.0989656524216701,
+        "retracted_compared": 4586,
+        "controls_compared": 31662,
+        "ci": [
+          0.2795587679213359,
+          0.34107584884038106
+        ]
+      }
+    },
+    "author_identifier_columns_in_labels": []
+  },
+  "seconds": 0.9
+}

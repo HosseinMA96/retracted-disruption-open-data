@@ -121,3 +121,21 @@ over journal × year strata, as in SPEC §6.
     comparison group correctly in the paper and to put like-for-like control shares next to the retracted shares.
     Script `e11_controls/e11_controls.py`, test `e11_controls/test_e11.py` (synthetic data), pipeline
     `vm/run_posthoc4.sh`.
+# Post hoc diagnostic P12 (2026-11-26; planned before running; after P1-P11)
+
+Purpose: address review requests without altering the frozen scores or original results. The author approved
+restarting the preserved analysis VM for this short run; it must be deallocated afterwards.
+
+- From the existing CD3 labels and frozen yearly counts, reproduce P9's balanced 3,083-paper population, all seven
+  annual paired means and their contributing counts exactly. For each year -3 to +3, bootstrap the mean paired
+  DI_nok gap over journal-by-publication-year strata (2,000 resamples, seed 20261109) and report a 95% percentile
+  interval. Notices remain excluded; both annual scores must be defined. The figure will plot this paired statistic,
+  not differences of marginal means. Different years can have different contributing pairs.
+- From CD5 labels and frozen scores, use precisely the primary comparison strata and defined scores from P11.
+  Compute the retracted-paper-weighted within-stratum difference in the mean of log(1 + references), and of
+  log(1 + window citations), with the same strata bootstrap. Report matched group means, differences, intervals and
+  compared counts; separately reproduce P1's log(1 + group mean) statistic. Do not presume the sign of a new result.
+- Verify frozen input hashes before any join, compare reproduced points/counts against P9 and P11 records, and fail
+  on disagreement. Release aggregate outputs only. A new run ID is required; original runs are never overwritten.
+- Check whether the preserved label schemas contain disambiguated author identifiers. If they do not, do not
+  substitute journal clusters or ambiguous author strings for an author-cluster analysis; state the limitation.

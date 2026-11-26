@@ -1,0 +1,92 @@
+{
+  "run_id": "e06_fig_20261126_04",
+  "script": "e06_figs_v2.py",
+  "script_sha256": "0e441bb6a3fe065f7d5842a09fd0986fb1d82f2f8243d03eff18980556b2f56b",
+  "config": {
+    "e4_cd5": "e04_eval_20261110_01",
+    "e4_cd3": "e04_eval_cd3_20261110_01",
+    "e8": "e08_posthoc2_20261123_02",
+    "e9": "e09_pretrend_20261123_01",
+    "matplotlib": "3.10.8",
+    "palette": [
+      "#2a78d6",
+      "#eb6834",
+      "#7a7a74"
+    ],
+    "pdf_fonttype": 42,
+    "e12": "e12_diag_20261126_01"
+  },
+  "host": "Hossein",
+  "python": "3.10.22",
+  "platform": "Linux-6.8.0-149-generic-x86_64-with-glibc2.35",
+  "started_utc": "2026-11-26T17:43:11Z",
+  "results": {
+    "paired_event_sha256": "11b95bf4f2d646ef2be29480f8e1725351cb511b57887f03bce1575475aee2c6",
+    "plotted_paired_points": [
+      {
+        "tau": -3,
+        "n_pairs": 2220,
+        "strata": 1266,
+        "paired_diff": 0.0528100848041201,
+        "ci_lo": 0.0204077924719493,
+        "ci_hi": 0.0829105558664032
+      },
+      {
+        "tau": -2,
+        "n_pairs": 2504,
+        "strata": 1445,
+        "paired_diff": 0.0720796780282168,
+        "ci_lo": 0.0445525960942116,
+        "ci_hi": 0.0996070779916988
+      },
+      {
+        "tau": -1,
+        "n_pairs": 2468,
+        "strata": 1432,
+        "paired_diff": 0.088603279229498,
+        "ci_lo": 0.0607360939945662,
+        "ci_hi": 0.1183354447349542
+      },
+      {
+        "tau": 0,
+        "n_pairs": 2440,
+        "strata": 1429,
+        "paired_diff": 0.0922824308655952,
+        "ci_lo": 0.0594480718492153,
+        "ci_hi": 0.1244842990913156
+      },
+      {
+        "tau": 1,
+        "n_pairs": 2225,
+        "strata": 1315,
+        "paired_diff": 0.122954086718104,
+        "ci_lo": 0.0866484424430819,
+        "ci_hi": 0.1591304852493041
+      },
+      {
+        "tau": 2,
+        "n_pairs": 1982,
+        "strata": 1184,
+        "paired_diff": 0.2014972083265407,
+        "ci_lo": 0.1615886807572635,
+        "ci_hi": 0.2417378516935134
+      },
+      {
+        "tau": 3,
+        "n_pairs": 1854,
+        "strata": 1128,
+        "paired_diff": 0.150683252803256,
+        "ci_lo": 0.1119275965524077,
+        "ci_hi": 0.1894082166359458
+      }
+    ],
+    "balanced_papers": 3083,
+    "figures": [
+      "fig1_forest.pdf",
+      "fig1_forest.png",
+      "fig2_event.pdf",
+      "fig2_event.png"
+    ]
+  },
+  "seconds": 3.6
+}

@@ -31,13 +31,14 @@ labelled post hoc, and each plan was written down before it was run.
 |---|---|
 | Retracted papers scored before their retraction | **4,587** |
 | Primary comparison: retracted papers / scored controls / journal-year strata | **4,586** / **31,662** / **2,239** |
-| Mean difference in CD5 (retracted − controls) | **0.0002** (95% CI −0.0006 to 0.0011); equivalent within ±0.1 SD (post hoc) |
+| Mean difference in CD5 (retracted − controls) | **0.0002** (95% CI −0.0006 to 0.0011) |
 | Interpretable mean-difference bound (post hoc 90% interval) | Absolute differences above **0.00093** excluded, about 28% of the review effect |
 | Odds ratio for a positive CD5 (pre-specified RQ1) | **1.23** (1.13–1.34) |
-| Odds ratio for reaching the top 5% of the year | **0.99** (0.83–1.20); equivalent within 0.80–1.25 (post hoc) |
+| Odds ratio for reaching the top 5% of the year | **0.99** (0.83–1.20) |
 | Positive control: reviews vs other papers, top 5% | 0.58 (0.47–0.72): the design detects a real contrast |
 | Variant without n_k (DI_nok): retracted − controls (post hoc) | **+0.067** (0.046–0.087): their citing papers less often cite their references |
 | Top 5% at equal reference length (post hoc) | 1.42 (1.16–1.75) |
+| Matched difference in mean log(1 + references), P12 | **+0.084** (0.058–0.109), 4,586 retracted papers / 31,662 controls |
 | Size of n_k for the median paper | 2,862 papers citing only the references vs 12 citing the paper |
 | Change in DI_nok after vs before the notice, minus controls (post hoc) | +0.074 (0.050–0.097); placebo 3 years earlier +0.036 |
 
@@ -62,13 +63,13 @@ The primary comparison uses only the 31,662 scored controls in strata containing
 .
 ├── README.md            ← you are here
 ├── SPEC.md              pre-specified design (v1; its SHA-256 is in every run.json)
-├── POSTHOC.md           post hoc plans P1–P11, each written before it was run
+├── POSTHOC.md           post hoc plans P1–P12, each written before it was run
 ├── FINDINGS.md          every number in the paper → the run that produced it
 ├── REPRODUCE.md         inputs, environment, exact commands in order, determinism notes
 ├── CITATION.cff         how to cite this repository
 ├── experiments/
 │   ├── README.md        index of steps and the runs cited in the paper
-│   ├── e01 … e11/       one folder per step: script(s), lab notebook RESULTS_LOG.md, runs/<run_id>/
+│   ├── e01 … e12/       one folder per step: script(s), lab notebook RESULTS_LOG.md, runs/<run_id>/
 │   └── …/runs/<id>/     run.json (parameters, script hash, counts) · stdout.log · group-level outputs · SHA256SUMS
 ├── paper/               LaTeX source (content/, journals/joi/main.tex), figures, refs.bib + DOI checks
 ├── lit/                 literature gate, verified DOIs and the claim check
@@ -86,7 +87,9 @@ cd experiments/e03_cd5 && python test_cd.py && cd ../e07_yearly && python test_y
 
 # 3. rebuild the figures from the run records (byte-identical to the committed ones with Matplotlib 3.10.8)
 cd experiments/e06_figures && python e06_figs_v2.py my_rebuild e04_eval_20261110_01 e04_eval_cd3_20261110_01 \
-   e08_posthoc2_20261123_02 e09_pretrend_20261123_01 && cmp runs/my_rebuild/fig1_forest.pdf ../../paper/figures/fig1_forest.pdf && cd ../..
+   e08_posthoc2_20261123_02 e09_pretrend_20261123_01 e12_diag_20261126_01 && \
+   cmp runs/my_rebuild/fig1_forest.pdf ../../paper/figures/fig1_forest.pdf && \
+   cmp runs/my_rebuild/fig2_event.pdf ../../paper/figures/fig2_event.pdf && cd ../..
 
 # 4. build the paper (Tectonic or any LaTeX)
 cd paper/journals/joi && tectonic -X compile main.tex
@@ -107,7 +110,8 @@ cd paper/journals/joi && tectonic -X compile main.tex
 
 - **Pre-specified.** [`SPEC.md`](SPEC.md) fixed populations, score, analyses and robustness checks before any score
   existed; its hash is recorded in every run. It was not deposited with a registry, so it is a pre-specification, not a
-  formal pre-registration.
+  formal pre-registration. The original repository and commit history remain private; the public release cannot
+  resolve commit `293755b1`. [`experiments/spec_provenance.json`](experiments/spec_provenance.json) documents this.
 - **Post hoc, but planned.** Each later analysis was written into [`POSTHOC.md`](POSTHOC.md) with its margins and
   expected directions before it was run; one rule was amended (and the affected runs redone) before its results were read.
 - **Frozen scores.** Evaluation scripts check the hashes of the frozen score and count files before they read any label,
@@ -135,5 +139,5 @@ keep their own terms.
 ## Generative AI
 
 Claude Opus 5.5 (Anthropic) was used as a coding and writing assistant under the author's direction; GitHub Copilot
-(powered by GPT-6.1 Sol, OpenAI) assisted with the submission-readiness revision. The author
+(powered by GPT-6.1 Sol, OpenAI) was used to check and edit the manuscript before submission. The author
 checked every analysis, number and reference.

@@ -1,0 +1,60 @@
+\appendix
+\section{Exploratory diagnostics and accounting}\label{sec:appendix}
+The identifiers P1--P12 refer to the archived plans in \texttt{POSTHOC.md}; the code's experiment index and
+claim-to-run map link them to immutable results. These analyses were added after the primary results were known.
+
+\subsection{Reference and citation counts (P1)}
+The primary-set retracted papers have overall median reference counts of 40, against 35 for the full control pool,
+and median window citations of 19 against 13. These pooled contrasts are not matched comparisons.
+P1's within-stratum statistic first takes the group arithmetic mean count $m_{gs}$ for group $g$ in stratum $s$,
+then computes $\log(1+m_{gs})$. Weighted by the number of primary retracted papers per stratum, the retracted-minus-control
+differences are $-0.017$ for references and $+0.099$ for window citations. This is not the mean of the
+paper-level $\log(1+\text{count})$ used in the conditional-logit models; P12 reports that matched quantity in the
+main text. In the reference sample, CD$_5$ decreases with reference count (Spearman $\rho=-0.19$) and with window
+citations ($\rho=-0.43$). The lower reference-count quartile is 29 for primary-set retracted papers and 22 for
+the full control pool, not for a within-stratum comparison.
+
+\subsection{Historical margins and interval interpretation (P3)}
+The archived P3 plan tested conventional margins with two one-sided tests
+\citep{schuirmann1987tost,lakens2017equivalence}: $\pm0.1$ reference-sample standard deviations for mean differences
+and 0.80--1.25 for odds ratios. The resulting mean margin, $\pm0.0044$, exceeds the observed review effect
+($-0.0033$); the score SD is tail-sensitive, with a scored-set 5th--95th percentile span of about 0.028.
+These margins are not validated negligible-effect thresholds for the index. This paper therefore interprets
+the observed intervals and the 0.00093 bound, not equivalence to zero. The top-5\% odds ratio's 90\% interval is
+0.85--1.16.
+
+\subsection{Notice records (P8)}
+In the CD$_5$ window, 36.7\% of papers retracted inside the window have a citing record identified by PubMed as a
+retraction notice, erratum or expression of concern, against 4.7\% of the full control pool; so do 18.4\% of papers
+retracted after the window. Removing notice records lowers the positive-score odds ratio from 1.71 (1.60--1.82;
+5,861 compared papers) to 1.44 (1.34--1.54; 5,860 compared papers) for papers retracted inside the window,
+and from 1.50 to 1.35 (1.28--1.43) for all retracted papers. The primary-set estimate changes little,
+from 1.23 to 1.24 (1.14--1.34). These changes do not isolate the effect of the notice itself.
+
+\subsection{Placebo timing and annual scores (P9 and P12)}
+Among papers retracted at least four years after publication, a placebo notice three years before the real one
+gives a difference in differences in DI$_{nok}$ of 0.036 (0.012--0.060; 2,565 compared papers), against
+0.064 (0.037--0.093; 2,763 compared papers) for the real notice. By reason, the placebo change is close to zero
+for honest error (0.005, $-0.065$ to 0.077; real notice 0.079, 0.012--0.149) but not for misconduct
+(0.042, 0.010--0.074; real notice 0.078, 0.041--0.115).
+
+Figure~\ref{fig:event} uses the balanced population with annual calendar coverage from three years before to three
+years after the notice. P12 reproduces every original P9 paired point and count before adding 95\% intervals.
+At event years $-3,-2,-1,0,1,2,3$, respectively, the numbers of defined pairs are
+2,220, 2,504, 2,468, 2,440, 2,225, 1,982 and 1,854. Missing annual DI$_{nok}$ scores are not replaced by zero.
+Mean control citations in this population range from 4.0 to 4.9 per year; it is distinct from the 5,100-paper
+three-year-window comparison.
+
+\subsection{Denominator size (P10)}
+For the median scored paper, 2,862 papers in the window cite only its references, against 12 that cite the
+paper itself. The $n_k$ term accounts for at least 90\% of the CD$_5$ denominator for 97.9\% of papers.
+Thus a citation-composition difference can change the sign while producing only a small difference in CD$_5$.
+
+\subsection{Controls behind the primary comparisons (P11)}
+The 52,147 controls were drawn for all 10,450 retracted papers. The CD$_5$ primary comparison uses 2,239 strata
+with 4,586 scored retracted papers and 31,674 controls, of which 12 have undefined scores, leaving 31,662.
+The remaining controls belong to strata without a primary retracted paper in the comparison.
+Pooled shares in the used strata are 18.1\% positive (5,725/31,662), 3.3\% above the top-5\% threshold
+(1,047/31,662), and 0.56\% above the top-1\% threshold (176/31,662).
+Weighting each stratum by its compared retracted papers instead gives 17.3\%, 3.1\% and 0.54\%, the shares
+reported in the main comparisons. CD$_3$ uses 7,349 scored primary papers and 48,044 scored controls in 3,308 strata.

@@ -11,7 +11,8 @@ papers retracted by a fixed cutoff predicted later retraction, albeit weakly as 
 
 \paragraph{What the $n_k$ term hides} The papers that cite retracted papers less often also cite their references.
 The difference is small, three percentage points in the share of such citing papers or about 0.12 standard deviations
-of DI$_{nok}$, but it is positive in all reason classes except honest error, its interval excludes zero for
+of DI$_{nok}$, but its point estimate is positive in every reason class, though near zero for honest error.
+Its interval excludes zero for
 misconduct and for other reasons, and the shift in its sign survives adjustment for reference and citation counts.
 CD$_5$ registers it only through its sign, because the papers that cite only the references outnumber the citing papers
 by more than two orders of magnitude for the median paper. The pattern is in line with the first expectation set out in
@@ -28,11 +29,11 @@ the other explanations.
 
 \paragraph{Reference length and the top tier} At equal reference length, retracted papers reach the top 5\% of
 CD$_5$ more often (odds ratio 1.42). The unadjusted comparison, which is what an evaluator sees, shows no
-over-representation because retracted papers less often have the short reference lists that favour high scores. The
+over-representation. The new matched mean-log reference difference, $+0.084$ (0.058--0.109), supports a reference-length
+imbalance in the direction that suppresses high scores, consistent with the change after adjustment. The
 adjusted estimate shrinks when citations in the window are also held fixed (1.19), but citations are part of the score
-itself, so that model over-adjusts. A small over-representation of retracted papers among high scorers at equal
-reference length is therefore likely; the data give no support to the opposite conclusion that the index penalises
-them.
+itself, so that model may over-adjust. These exploratory models show that the top-tier comparison is sensitive to
+reference length; they do not establish a causal effect or validate a preferred adjustment.
 
 \paragraph{Scores that include the retraction} Scores computed over windows that include the retraction differ for two
 reasons. Notice records are counted among the citing papers, and more than a third of the papers retracted inside the
@@ -62,11 +63,11 @@ notices give limited information (the ``other'' class). Because the graph is com
 main analysis ends with papers from 2017 and covers only 276 paper-mill papers; the post hoc three-year window raises
 this to 708, but most paper-mill papers were published after 2019. Retractions are a selected and incomplete label of
 problematic work: some unreliable papers are never retracted, and the controls may contain them. Several analyses
-were added after the main results were known. They are labelled post hoc and their plans were recorded before they
-were run, but their equivalence margins ($\pm 0.1$ standard deviations; 0.80--1.25) are conventions rather than values
-derived from the use of the index. The score SD is sensitive to the tails: the scored set's 5th--95th percentile span
-is only about 0.028, and the $\pm 0.0044$ margin exceeds the review effect of $-0.0033$. The 0.00093 bound is therefore
-the more interpretable result; a statistically detected contrast can still fit within a chosen equivalence margin.
+were added after the main results were known. Their plans were recorded before their runs, but the analyses remain
+exploratory. The 0.00093 bound is an interval-based description, not a validated negligible-effect threshold.
+Bootstrap resampling clusters by journal--year, not by author; serial retractors can contribute papers across
+strata, so uncertainty may be understated if their outcomes are correlated. The diagnostic inputs contain no
+author identifiers, preventing an author-cluster or largest-retractor exclusion check.
 The primary set is also selected for late retraction: first notices occur in the sixth or a later calendar year after
 publication. Its conclusions need not generalize to papers retracted during the scoring window, which are analysed
 separately. Notice

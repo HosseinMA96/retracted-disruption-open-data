@@ -80,18 +80,20 @@ graphs (1,200 focal papers, both windows, identical counts). For the before-and-
 script counted the citing papers of each focal paper by citing year; its sums over the scoring windows equal the frozen
 counts for all 110,462 papers of both populations, and its output was hashed before labels were joined.
 
-\paragraph{Pre-specification record} The unchanged specification is \texttt{SPEC.md}, committed in the then-private
+\paragraph{Pre-specification record} The unchanged specification is \texttt{SPEC.md}, committed in the private
 project repository on 10 November 2026 at 04:02:19 UTC (Git commit
 \texttt{293755b1cb7087d6f226d6f96f4b97cb0148e4c5}). Its SHA-256,
 \nolinkurl{1403d0d13d35bd32c40ede1be24833ab15e7977edb2f56c2128ef8823373ad31},
 is recorded in the score run's \texttt{run.json}, which reports a start time of 06:12:02 UTC the same day
 (\texttt{e03\_cd5\_20261110\_01}); the evaluation run records the same hash. These files and provenance are available
-with the code. Git dates and local run records are not an independent registry timestamp, so the design is described
-as pre-specified, not publicly pre-registered.
+with the code, but the original repository and its commit history remain private: the cited commit cannot be
+inspected through the public release. The public provenance file reports this limitation explicitly.
+Git dates and local run records document the claimed ordering but are not an independently verifiable registry
+timestamp, so the design is described as pre-specified, not publicly pre-registered.
 
 \subsection{Analyses}
-All analyses below were specified before any score was computed, except those marked post hoc. The plan of each post
-hoc analysis, with its margins and expected directions, was recorded before it was run.
+The primary questions and robustness checks were specified before scoring. Exploratory analyses were planned after
+the primary results were known, with each plan recorded before its run in \texttt{POSTHOC.md}.
 \begin{itemize}
 \item \textbf{RQ1 (primary):} the mean difference in CD$_5$ between retracted papers and their controls within
 journal $\times$ year strata, averaged over retracted papers, with a 95\% interval from 2,000 bootstrap resamples of
@@ -103,31 +105,29 @@ Robins--Breslow--Greenland variance \citep{robins1986estimator}.
 \item \textbf{Robustness (pre-specified):} (a) without CD$_5 = 1$ papers; (b) without reviews (PubMed publication
 types Review, Systematic Review, Meta-Analysis); (c) strata further split by deciles of reference count; (d) window
 $t+1$ to $t+5$; (e) the secondary set; (f) papers with at least five citations in the window.
-\item \textbf{Post hoc, first round:} (P1) reference and citation counts by group; (P2) a three-year window (CD$_3$)
-for papers published 2000--2019, which adds paper-mill papers from 2018--2019, with the primary set defined by a
-retraction after the third year.
-\item \textbf{Post hoc, second round:} (P3) equivalence tests: two one-sided tests \citep{schuirmann1987tost,
-lakens2017equivalence} with margins of $\pm 0.1$ standard deviations of the score in the reference sample for mean
-differences and 0.80--1.25 for odds ratios; these post hoc margins are conventions, not validated thresholds for the CD
-index. Equivalence is shown if the 90\% interval lies inside the margin; the smallest supported symmetric margin is
-reported so readers can apply a different threshold. (P4) A positive control: reviews compared with the other
-never-retracted controls of the same journal and year, expected to be more consolidating because papers citing a
-review often also cite the work it reviews. (P5) RQ1--RQ3 with DI$_{nok}$. (P6) Before and after the notice: for
-retracted papers of the 2000--2019 population with retraction year $R$ between $t+1$ and 2021, the change in
-DI$_{nok}$ from the citing years $R-3$ to $R-1$ (not before $t$) to the years $R+1$ to $R+3$ (not after 2022),
-minus the mean change of their stratum's controls over the same years, for papers with at least one citing paper in
-both periods, with year $R$ and notice records excluded.
-(P7) The sign shift: papers without citing papers in the window, odds ratios among cited papers only, and conditional
-logistic regression within journal $\times$ year strata with $\log(1+\text{references})$ and
-$\log(1+\text{citing papers in the window})$ as covariates. (P8) Editorial notices: citing records that PubMed
-types as retraction notices, published errata or expressions of concern, or that carry the corresponding links
-(RetractionOf, ErratumFor, ExpressionOfConcernFor), and robustness check (e) without them.
-\item \textbf{Post hoc, third round:} (P9) checks of P6 for an earlier trend: a placebo notice three years before the
-real one, and yearly means on a balanced set of papers; (P10) the size of $n_k$.
-\item \textbf{Post hoc, fourth round (descriptive):} (P11) the controls behind the primary comparisons: their number in
-the strata used, and their shares above zero and above the yearly thresholds, with each stratum weighted by its
-retracted papers as for the mean difference (95\% interval from 2,000 bootstrap resamples of strata).
 \end{itemize}
+
+\paragraph{Exploratory questions}
+To interpret the sign shift, reviews were compared with other never-retracted controls of the same journal and year
+(P4), and comparisons were repeated with DI$_{nok}$ (P5) and among cited papers only (P7).
+To examine reference length, conditional logistic regression within journal $\times$ year strata used
+$\log(1+\text{references})$ and, separately, $\log(1+\text{citing papers in the window})$ as covariates (P7).
+The matched diagnostic P12 compares group means of these paper-level log counts within strata, weighting each
+stratum by its compared retracted papers, with 95\% intervals from 2,000 resamples of strata.
+
+For changes around the notice (P6), papers from 2000--2019 with retraction year $R$ between $t+1$ and 2021 were
+compared over citing years $R-3$ to $R-1$ (not before $t$) and $R+1$ to $R+3$ (not after 2022), excluding year $R$
+and notice records and requiring at least one citing paper in both periods. The change in DI$_{nok}$ minus
+the stratum-control mean change is a descriptive difference in differences. Notice records are identified through
+PubMed retraction-notice, erratum and expression-of-concern types or their corresponding comment/correction links
+(P8). A placebo notice three years earlier and a balanced annual event-time population examine earlier trends (P9).
+P12 adds 95\% strata-bootstrap intervals to the original mean paired annual gaps: a paper contributes only when
+its score and its stratum-control mean are both defined. Annual pair counts therefore vary.
+
+A three-year scoring window extends the publication years to 2019 (P2). The 90\% interval bounds (P3),
+original count summaries (P1), notice and timing diagnostics (P8--P9), denominator size (P10) and control
+accounting (P11) are documented in \ref{sec:appendix}. No multiplicity correction is applied to
+these exploratory analyses.
 Only group-level results are reported. No per-paper score of a non-retracted paper is released.
 
 \paragraph{Software and AI assistance} The analyses ran in Python 3.11 with DuckDB 1.5, pandas 3.1, NumPy 2.4, SciPy
