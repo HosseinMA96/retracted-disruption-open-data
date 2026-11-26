@@ -12,7 +12,7 @@
 | `e09_pretrend/` | **Post hoc** P9: placebo notice and balanced event time | `e09_pretrend_20261123_01` | `RESULTS_LOG.md` |
 | `e10_describe/` | **Post hoc** P10: size of n_k (descriptive) | `e10_nk_20261123_01` | `RESULTS_LOG.md` |
 | `e11_controls/` | **Post hoc** P11: controls behind the primary comparisons (counts, matched shares; descriptive; replays E4 first) | `e11_controls_20261126_01` | `RESULTS_LOG.md` |
-| `e06_figures/` | Paper figures from run records (laptop) | `e06_fig_20261123_02` (v0.2 figures); `e06_fig_20261110_04` (v0.1 figure) | `RESULTS_LOG.md` |
+| `e06_figures/` | Paper figures from run records (laptop) | `e06_fig_20261126_01` (current; same values, embedded fonts); earlier: `e06_fig_20261123_02`, `e06_fig_20261110_04` | `RESULTS_LOG.md` |
 
 Runs not cited carry a `SUPERSEDED.txt` with the reason: `e07_yearly_20261123_01`, `e08_posthoc2_20261123_01`
 (notice rule by type name; see POSTHOC.md P8 amendment), `e06_fig_20261110_01`, `_02`, `e06_fig_20261123_01` (layout).
@@ -20,6 +20,7 @@ Runs not cited carry a `SUPERSEDED.txt` with the reason: `e07_yearly_20261123_01
 | Record | Where |
 |---|---|
 | Pre-specified design | `../SPEC.md` (v1; its SHA-256 is in every run.json) |
+| Pre-specification commit/date and hash provenance | `spec_provenance.json` (private Git history, not a registry timestamp) |
 | Post hoc plans (written before each run) | `../POSTHOC.md` (its SHA-256 is in every post hoc run.json) |
 | Claim → number → run | `../FINDINGS.md` |
 | Lab notebook | `<exp>/RESULTS_LOG.md` |
