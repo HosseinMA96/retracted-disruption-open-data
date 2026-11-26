@@ -47,7 +47,9 @@ Run each from its experiment folder: `python <script> <args>`.
 | P11 | `e11_controls/e11_controls.py e11_controls_20261126_01 e02_pop_20261110_01 e03_cd5_20261110_01 e04_eval_20261110_01 e02_pop_cd3_20261110_01 e03_cd5_cd3_20261110_01 e04_eval_cd3_20261110_01` | seconds |
 | Test of P12 (synthetic data) | `e12_diagnostics/test_diagnostics.py` | seconds |
 | P12 matched-log and paired annual diagnostics | `e12_diagnostics/e12_diagnostics.py e12_diag_20261126_01` (fixed frozen input runs in the script) | 1 s |
-| Figures (laptop) | `e06_figures/e06_figs_v2.py e06_fig_20261126_04 e04_eval_20261110_01 e04_eval_cd3_20261110_01 e08_posthoc2_20261123_02 e09_pretrend_20261123_01 e12_diag_20261126_01` | seconds |
+| Test of P13 (synthetic classification and matching) | `e13_article_types/test_sensitivity.py` | seconds |
+| P13 article-type restriction | `e13_article_types/e13_article_types.py e13_articles_20261126_01` (frozen score/label tables plus PubMed metadata, no graph rerun) | 4.6 min |
+| Figures (laptop) | `e06_figures/e06_figs_v2.py e06_fig_20261126_06 e04_eval_20261110_01 e04_eval_cd3_20261110_01 e08_posthoc2_20261123_02 e09_pretrend_20261123_01 e12_diag_20261126_01` | seconds |
 | Paper | `cd paper/journals/joi && tectonic -X compile main.tex`; upload packages: `./build_submission.sh` | – |
 
 ## 4. Determinism and checks
@@ -60,11 +62,17 @@ Run each from its experiment folder: `python <script> <args>`.
   every `e04` value it uses (and `e02`'s counts of strata and controls) first.
 - P12 reproduces all seven original P9 paired points/counts, P11's 4,586 / 31,662 compared population and both P1
   log-of-mean points before computing new confidence intervals and matched mean-of-log diagnostics.
-- The current figure run plots those paired annual points with P12 intervals; the earlier marginal curves remain
-  in their immutable runs. Figure 1's values are unchanged, with TrueType fonts retaining en dashes.
+- The current figure run plots paired annual points with P12 intervals. Figure 1 is two by two; normal-size labels
+  and legends print at about 8.62 pt. Earlier figure runs remain immutable, and plotted values are unchanged,
+  with TrueType fonts retaining en dashes.
 - Pre-specification provenance: `experiments/spec_provenance.json`, the unchanged `SPEC.md`, and the score and
   evaluation run records. The original private Git commit is dated before scoring; this is not an independent public
   preregistration timestamp. The original commit history remains private and cannot be inspected in this release.
+- P13 replays both original primary comparisons and all six P7 models before filtering. It verifies frozen score
+  and label hashes, reproduces the original review flags, and records type-source, script, helper and pre-run plan
+  hashes. It retains Journal Article, excludes review/editorial/notice types on any linked record, and deliberately
+  retains Retracted Publication. Both groups are filtered; original controls and year thresholds are not redrawn
+  or recalibrated. PubMed Journal Article is an operational proxy, not a guarantee of original research.
 
 ## Submission document build
 `paper/journals/joi/build_submission.sh` also invokes `build_declaration.py` to create the editable

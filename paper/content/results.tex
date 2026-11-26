@@ -34,7 +34,7 @@ score lower than their controls (difference $-0.0041$, $-0.0077$ to $-0.0007$), 
 consolidating.
 
 \subsection{RQ3: the most disruptive papers}
-Retracted papers are not over-represented among the most disruptive papers of their year
+In the pre-specified five-year analysis, retracted papers are not over-represented among the most disruptive papers of their year
 (Table~\ref{tab:main}). 3.1\% of them (2.6--3.6) reach the top-5\% threshold, against 3.1\% (2.8--3.5) of their
 controls, weighted in the same way; within strata the odds ratio is 0.99 (0.83--1.20). For the top 1\%, 17
 retracted papers (0.37\%, 0.23--0.59) reach the threshold, against 0.54\% (0.43--0.66) of their controls; the odds
@@ -66,8 +66,8 @@ Other & 1,274 & 0.84 ($-1.72$, 3.97) & 1.18 (1.02, 1.36) & 1.06 (0.79, 1.41) & 1
 Table~\ref{tab:rob} gives the pre-specified checks. Excluding CD$_5 = 1$ papers (a), reviews (b) or using the window
 $t+1$ to $t+5$ (d) leaves the results unchanged. Three checks move them. Splitting strata by reference-count decile
 (c) gives a positive mean difference and an odds ratio of 1.47 (1.15--1.88) for the top 5\%; this check keeps only the
-3,664 retracted papers that have a control in the same decile, and the reference-length analysis below indicates that the shift reflects reference
-length rather than the change of sample. Restricting to papers with at least five citations in the window (f) gives a
+3,664 retracted papers that have a control in the same decile. The reference-length analysis below supports an
+imbalance consistent with this shift, but does not alone establish its explanation. Restricting to papers with at least five citations in the window (f) gives a
 small positive mean difference. Including the 5,863 papers retracted inside their window (e) raises the odds ratio for
 a positive score from 1.23 to 1.50 (1.42--1.58), while the top-5\% odds ratio stays at 1.00.
 
@@ -142,6 +142,16 @@ The corresponding matched difference in mean $\log(1+\text{citing papers})$ is $
 The log-of-stratum-mean statistics in \ref{sec:appendix} measure a different quantity; they are not evidence
 of balance in the model covariate.
 
+\paragraph{Article-type sensitivity (P13)}
+Restricting both groups to the PubMed article-type proxy compares 3,521 retracted papers with 23,839 controls in
+1,841 strata. The CD$_5$ mean difference is 0.00076 ($-0.00022$ to $0.00189$), the positive-score odds ratio
+1.24 (1.13--1.37), and the unadjusted top-5\% odds ratio 1.07 (0.86--1.33).
+The matched mean-log reference difference remains positive, $+0.064$ (0.045--0.083).
+The top-5\% conditional-logit odds ratio is 1.64 (1.28--2.10) with log references and 1.39 (1.08--1.80) with
+log references and citations. Excluding review and editorial/notice types therefore does not remove the
+reference-length imbalance or adjusted excess. The restriction changes the retracted set as well as its controls;
+it is not a causal decomposition. Class-specific results and population accounting are in \ref{sec:appendix}.
+
 \begin{table}[!htbp]
 \centering
 \caption{Exploratory estimates (95\% intervals unless stated). Primary set and CD$_5$ window unless stated; P6 uses
@@ -167,6 +177,8 @@ P7 CD$_5 > 0$, conditional logit with log references and log citations & 1.32 (1
 P7 Top 5\%, conditional logit with log references & 1.42 (1.16, 1.75) & 2,168 \\
 P7 Top 5\%, conditional logit with log references and log citations & 1.19 (0.96, 1.47) & 2,168 \\
 {\raggedright P12 Matched mean log reference count difference\par} & 0.084 (0.058, 0.109) & 4,586 \\
+{\raggedright P13 Article-type restriction: mean log reference count difference\par} & 0.064 (0.045, 0.083) & 3,521 \\
+{\raggedright P13 Article-type restriction: top 5\%, conditional logit with log references\par} & 1.64 (1.28, 2.10) & 1,524 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -187,10 +199,16 @@ respectively; uncited annual scores are undefined. This pattern is descriptive, 
 
 \subsection{Exploratory: a shorter scoring window}
 The shorter window admits 7,350 primary-set papers (7,349 with a
-defined score), including 708 paper-mill papers, compared with the 48,044 scored controls in the 3,308 strata that also
+defined score, 7,348 compared), including 708 paper-mill papers, compared with the 48,044 scored controls in the 3,308 strata that also
 contain a scored primary-set paper (P11).
-The results match the main analysis: mean
-difference $0.00039$ ($-0.00027$ to $0.00114$); odds ratio for a positive score 1.30
+The mean difference remains small,
+$0.00039$ ($-0.00027$ to $0.00114$), and the odds ratio for a positive score is 1.30
 (1.22--1.39); top 5\% 1.12 (0.98--1.28); top 1\%
-0.89 (0.63--1.28). For paper-mill papers the mean difference is $0.00039$ ($-0.00009$ to $0.00082$), the top-5\% odds
+0.89 (0.63--1.28). Unlike the pre-specified five-year comparison, these post hoc top-5\% estimates lean toward a
+modest excess: the odds ratios are 1.15 (1.01--1.31) when the window starts at $t+1$, 1.16 (1.06--1.26) for all
+retracted papers, and 1.32 (1.12--1.56) among papers with at least five window citations (Table~\ref{tab:rob}).
+For paper-mill papers the mean difference is $0.00039$ ($-0.00009$ to $0.00082$), the top-5\% odds
 ratio 1.23 (0.83--1.81), and none of the 708 reaches the top 1\% (Fig.~\ref{fig:forest}).
+The article-type sensitivity (P13) compares 5,592 papers with 37,334 controls in 2,735 strata. Its mean CD$_3$
+difference is 0.00087 (0.00018--0.00169), positive-score odds ratio 1.32 (1.23--1.42), and top-5\% odds ratio
+1.21 (1.04--1.42), also consistent with a modest excess rather than identical top-tier results across windows.

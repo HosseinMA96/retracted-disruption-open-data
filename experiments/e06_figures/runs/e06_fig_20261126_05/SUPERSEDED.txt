@@ -1,0 +1,2 @@
+Larger-font layout test; the long review row label and control legend exceed the PDF canvas.
+Not used in the manuscript. Corrected under the new immutable run e06_fig_20261126_06.

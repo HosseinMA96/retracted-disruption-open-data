@@ -139,3 +139,32 @@ restarting the preserved analysis VM for this short run; it must be deallocated 
   on disagreement. Release aggregate outputs only. A new run ID is required; original runs are never overwritten.
 - Check whether the preserved label schemas contain disambiguated author identifiers. If they do not, do not
   substitute journal clusters or ambiguous author strings for an author-cluster analysis; state the limitation.
+
+# Post hoc P13: publication-type sensitivity (2026-11-26; before running)
+
+The author requests an article-only check after seeing P1-P12 and Table 2. This is exploratory, not a change to SPEC.
+The operational research-article proxy requires a PubMed Journal Article type (D016428) and excludes any linked
+record typed Review (D016454), Systematic Review (D000078182), Meta-Analysis (D017418), Editorial (D016421),
+Letter (D016422), Comment (D016420), Published Erratum (D016425), Retraction Notice (D016440), or Expression of
+Concern (D000075742). Retracted Publication (D016441) is deliberately not excluded: it labels the original
+retracted article, not a notice. Journal Article is a broad indexing category; this proxy cannot guarantee that
+every included item reports original research. Missing/unlinked publication types are excluded and counted.
+
+- Use the original E2 PubMed linkage rule (PMID or exact DOI through Project D's id map), unioning types over
+  matches per node. Require at least one Journal Article match and no excluded type on any match. Apply the
+  identical rule to retracted papers and controls in both CD5 and CD3 primary comparisons.
+- Filter the existing deterministic control draw; do not redraw controls or recompute scores. Keep the original
+  yearly reference-sample thresholds fixed to isolate publication-type composition. Drop and report strata lacking
+  a defined score in either compared group after filtering.
+- Verify frozen score and label hashes, reproduce the original CD5/CD3 primary mean differences, intervals,
+  Mantel-Haenszel positive-score/top-5% odds ratios and compared counts before filtering. Reproduce the CD5 P7
+  conditional-logit estimates before adding article-only models.
+- Report CD mean differences with 95% journal-year strata-bootstrap intervals, positive-score/top-5% odds ratios
+  with 95% Robins-Breslow-Greenland intervals, and defined/compared control and retracted counts, overall and by
+  reason class. Also report the article-only DI_nok mean difference.
+- For CD5, repeat conditional logit for positive score and top 5%: unadjusted, log(1 + references), and additionally
+  log(1 + window citations), retaining only outcome-varying strata. Recompute the matched mean-of-log reference
+  and citation differences and the log-of-stratum-mean diagnostics; compare with P12, without presuming a direction.
+- Bootstrap seed 20261109, 2,000 draws; P13 comparisons use independent child generators after offset 1000.
+  Record the plan/helper/input hashes, metadata coverage and exclusion counts. Release aggregate outputs only.
+  Never overwrite a run. Deallocate the VM immediately after the run and checksum-verified fetch, including failure.

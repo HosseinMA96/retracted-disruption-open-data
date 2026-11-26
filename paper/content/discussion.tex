@@ -4,8 +4,9 @@
 rules out absolute mean CD$_5$ differences above 0.00093, about 28\% of the review comparison's effect. Retracted papers
 reach the top 5\% of their year about as often as controls, but positive scores are more common (odds ratio 1.23).
 Thus, the two primary estimates do not give identical conclusions: the index registers a sign shift without a large
-mean difference or unadjusted top-tier excess. An evaluation rewarding high CD$_5$ does not systematically favour
-these late-retracted papers, but it does not exclude them either. A separate prospective study found that links to
+mean difference or unadjusted top-tier excess. This absence of unadjusted top-tier excess applies to the pre-specified five-year analysis; the post hoc three-year
+window and several of its sensitivity checks lean toward a modest excess. An evaluation rewarding high CD$_5$
+does not systematically favour these late-retracted papers in the main comparison, but it does not exclude them either. A separate prospective study found that links to
 papers retracted by a fixed cutoff predicted later retraction, albeit weakly as a standalone screen
 \citep{arjomandi2026prospective}; \citet{lou2026beyond} reported the retrospective citation-network association.
 
@@ -28,12 +29,16 @@ analysis does not exclude citing papers that are themselves retracted, so it can
 the other explanations.
 
 \paragraph{Reference length and the top tier} At equal reference length, retracted papers reach the top 5\% of
-CD$_5$ more often (odds ratio 1.42). The unadjusted comparison, which is what an evaluator sees, shows no
+CD$_5$ more often (odds ratio 1.42). The pre-specified unadjusted five-year comparison, which is what an evaluator sees, shows no
 over-representation. The matched mean-log reference difference, $+0.084$ (0.058--0.109), supports a reference-length
 imbalance in the direction that suppresses high scores, consistent with the change after adjustment. The
 adjusted estimate shrinks when citations in the window are also held fixed (1.19), but citations are part of the score
 itself, so that model may over-adjust. These exploratory models show that the top-tier comparison is sensitive to
 reference length; they do not establish a causal effect or validate a preferred adjustment.
+The article-type sensitivity retains the reference-length imbalance ($+0.064$ in matched mean log references)
+and gives a larger reference-adjusted top-tier odds ratio, 1.64 (1.28--2.10), falling to 1.39 (1.08--1.80)
+with citations also held fixed. A mixture of reviews and editorial/notice items therefore does not explain away
+this pattern under the operational filter, though the restriction changes both populations.
 
 \paragraph{Scores that include the retraction} Scores computed over windows that include the retraction differ for two
 reasons. Notice records are counted among the citing papers, and more than a third of the papers retracted inside the
@@ -68,9 +73,9 @@ exploratory. The 0.00093 bound is an interval-based description, not a validated
 Bootstrap resampling clusters by journal--year, not by author; serial retractors can contribute papers across
 strata, so uncertainty may be understated if their outcomes are correlated. Retraction Watch supplies author-name
 strings, but no name-based exclusion or disambiguated author-cluster analysis is performed here.
-The controls are not restricted to research articles. Publication-type composition may therefore contribute to the
-reference-length imbalance and adjusted estimates; excluding reviews alone does not address editorials, letters,
-comments or notice items, and no research-article-only sensitivity analysis is performed.
+The main controls are not restricted to research articles. P13 excludes review and editorial/notice types from both
+groups, but PubMed Journal Article is a broad indexing category, so the restricted set is not guaranteed to contain
+only original research. Its changes cannot be attributed uniquely to the controls' publication-type composition.
 The primary set is also selected for late retraction: first notices occur in the sixth or a later calendar year after
 publication. Its conclusions need not generalize to papers retracted during the scoring window, which are analysed
 separately. Notice

@@ -34,7 +34,7 @@ All from `e04_eval_20261110_01` (scores `e03_cd5_20261110_01`, populations `e02_
 - Mean CD5 per year stays between −0.0049 and 0.0009 (`context_by_year.csv`); CD5 = 1 share ≤ 0.3% in every year, because zero-reference records are excluded.
 
 ## Reading (draft; to be checked in self-review)
-- Before retraction, retracted papers are **not more disruptive on average** and are **not over-represented among the most disruptive** papers of their year; they are slightly more often on the positive side of zero (OR ≈ 1.2–1.3), a small shift around a score that is near zero for almost all papers.
+- In the pre-specified five-year comparison, retracted papers have a small mean gap and **no unadjusted top-tier excess**; they are slightly more often on the positive side of zero (OR ≈ 1.2–1.3), a small shift around a score that is near zero for almost all papers.
 - When reference length is held fixed (c), retracted papers look somewhat more disruptive (top-5% OR 1.47): they tend to have reference lists that differ in length from their controls. To examine (post hoc: reference counts by group).
 - Including papers retracted inside the window (e) raises OR(CD5>0) to 1.50, consistent with retraction itself changing later citations (the reason for the primary-set rule).
 - Paper-mill papers are few in this window (276); the paper-mill question mostly needs post-2017 papers, which lack a full 5-year window in the Jan 2024 graph.
@@ -48,16 +48,39 @@ All from `e04_eval_20261110_01` (scores `e03_cd5_20261110_01`, populations `e02_
 - CD5 correlates negatively with reference count (Spearman −0.19) and with window citations (−0.43) in the context sample.
 
 ## P2 three-year window, papers 2000–2019 (`e04_eval_cd3_20261110_01`)
+There are 7,349 scored primary papers and 7,348 compared papers. The table's n is the compared count.
+These post hoc top-tier estimates lean toward a modest excess; they do not all match the five-year result.
 | Set | n | Diff [CI] | OR CD3>0 | OR top 5% | OR top 1% |
 |---|---|---|---|---|---|
-| Primary (retracted after pub_year + 3) | 7,349 | 0.00039 [−0.00027, 0.00114] | 1.30 [1.22, 1.39] | 1.12 [0.98, 1.28] | 0.89 [0.63, 1.28] |
-| Misconduct | 4,172 | 0.00045 [−0.00019, 0.00119] | 1.42 [1.31, 1.55] | 1.17 [0.97, 1.41] | 1.00 [0.62, 1.63] |
+| Primary (retracted after pub_year + 3) | 7,348 | 0.00039 [−0.00027, 0.00114] | 1.30 [1.22, 1.39] | 1.12 [0.98, 1.28] | 0.89 [0.63, 1.28] |
+| Misconduct | 4,171 | 0.00045 [−0.00019, 0.00119] | 1.42 [1.31, 1.55] | 1.17 [0.97, 1.41] | 1.00 [0.62, 1.63] |
 | Paper mill | 708 | 0.00039 [−0.00009, 0.00082] | 1.12 [0.95, 1.32] | 1.23 [0.83, 1.81] | 0 of 708 |
 | Honest error | 615 | −0.00267 [−0.00429, −0.00117] | 1.22 [0.97, 1.54] | 0.88 [0.55, 1.41] | 2 of 615 |
 | Other | 1,854 | 0.00128 [−0.00074, 0.00355] | 1.22 [1.08, 1.38] | 1.10 [0.87, 1.40] | 1.06 [0.60, 1.87] |
-| (c) + reference deciles | 7,349 | 0.00126 [0.00052, 0.00202] | 1.33 [1.23, 1.44] | 1.46 [1.23, 1.73] | 1.45 [0.92, 2.28] |
-| (e) all retracted | 13,658 | 0.00127 [0.00067, 0.00190] | 1.54 [1.47, 1.61] | 1.16 [1.06, 1.26] | 0.88 [0.70, 1.11] |
-| (f) ≥ 5 citations | 5,907 | 0.00078 [0.00023, 0.00136] | 1.39 [1.29, 1.49] | 1.32 [1.12, 1.56] | 1.13 [0.68, 1.89] |
+| (c) + reference deciles | 5,941 | 0.00126 [0.00052, 0.00202] | 1.33 [1.23, 1.44] | 1.46 [1.23, 1.73] | 1.45 [0.92, 2.28] |
+| (e) all retracted | 13,653 | 0.00127 [0.00067, 0.00190] | 1.54 [1.47, 1.61] | 1.16 [1.06, 1.26] | 0.88 [0.70, 1.11] |
+| (f) ≥ 5 citations | 5,863 | 0.00078 [0.00023, 0.00136] | 1.39 [1.29, 1.49] | 1.32 [1.12, 1.56] | 1.13 [0.68, 1.89] |
+
+## P13 article-type sensitivity (`e13_articles_20261126_01`)
+
+Planned in POSTHOC.md before the run. Original CD5/CD3 primary estimates and all six P7 models reproduced, with
+frozen score/label hashes and original review flags checked. Both groups require Journal Article, with any linked
+review/editorial/notice type excluded; Retracted Publication is retained. Thresholds/control draw stay fixed.
+
+| Window | Eligible / scored / compared retracted | Compared controls / strata | Mean CD gap [95% CI] | Positive OR [95% CI] | Top-5% OR [95% CI] |
+|---|---|---|---|---|---|
+| CD5 | 3,528 / 3,528 / 3,521 | 23,839 / 1,841 | 0.000761013 [-0.000218134, 0.001886385] | 1.244691 [1.131045, 1.369756] | 1.072056 [0.861843, 1.333544] |
+| CD3 | 5,600 / 5,599 / 5,592 | 37,334 / 2,735 | 0.000871718 [0.000183705, 0.001694908] | 1.322477 [1.229414, 1.422585] | 1.213136 [1.035646, 1.421045] |
+
+- CD5 matched mean log reference gap +0.064059 [0.045366, 0.083135], with means 3.626294 and 3.562235;
+  log-of-stratum-mean reference gap +0.005866. Mean log citation gap +0.265192 [0.233241, 0.299106].
+- CD5 top-5% conditional logit: unadjusted 1.073582 [0.862298, 1.336636], reference-adjusted
+  1.639967 [1.279035, 2.102752], both covariates 1.394909 [1.078519, 1.804114].
+  Each uses 1,524 retracted papers in 383 outcome-varying strata.
+- DI_nok gaps: CD5 +0.073527 [0.048851, 0.097828], 3,471 compared; CD3 +0.082218 [0.062421, 0.102031],
+  5,413 compared. All reason-class estimates are in windows.*.by_class and Appendix Table A.1.
+- Publication-type restriction retains the imbalance and adjusted excess; it changes both groups and does not
+  isolate a causal mechanism. The broad Journal Article category is not guaranteed to mean original research.
 
 # Inherited from Project D (cited as data-preparation facts)
 - Retraction Watch → graph: 52,254 of 62,735 retracted papers matched (83.3%) by DOI or PMID (`d05_match_20261101_02`, D repository `retracted-neighbours-open-data`); 53,170 matched graph nodes (also `e02_pop_20261110_01`: rw_matched_iids 53,170).

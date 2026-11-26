@@ -24,3 +24,10 @@
   rather than different-subset marginal means; its citation panel is unchanged.
 - PNG inspected and every rendered PDF word verified inside the page bounds. A first canvas check included an
   off-axis, undisplayed Matplotlib tick; the rendered-PDF check avoids that false positive.
+
+# v0.7 printed typography (2026-11-26)
+- `e06_fig_20261126_05`: larger-font layout test, superseded because the long review row and control legend
+  exceeded the PDF canvas. Preserved unchanged, with SUPERSEDED.txt.
+- **e06_fig_20261126_06**: current. Source fonts 11.5 pt (about 8.62 pt at manuscript width); Figure 1 is two by two,
+  with shorter review labels, and Figure 2 has wrapped axis labels and control legend. Same E4/E8/P12 estimates.
+  All rendered labels lie inside both PDF canvases. Earlier runs remain immutable.

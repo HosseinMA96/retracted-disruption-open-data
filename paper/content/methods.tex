@@ -86,9 +86,8 @@ counts for all 110,462 papers of both populations, and its output was hashed bef
 
 \paragraph{Pre-specification record} The unchanged specification is \texttt{SPEC.md}, committed in the private
 project repository on 10 November 2026 at 04:02:19 UTC (Git commit
-\texttt{293755b1cb7087d6f226d6f96f4b97cb0148e4c5}). Its SHA-256,
-\nolinkurl{1403d0d13d35bd32c40ede1be24833ab15e7977edb2f56c2128ef8823373ad31},
-is recorded in the score run's \texttt{run.json}, which reports a start time of 06:12:02 UTC the same day
+\texttt{293755b1cb7087d6f226d6f96f4b97cb0148e4c5}). Its full SHA-256 is recorded in the public
+\texttt{spec\_provenance.json} and the score run's \texttt{run.json}, which reports a start time of 06:12:02 UTC the same day
 (\texttt{e03\_cd5\_20261110\_01}); the evaluation run records the same hash. These files and provenance are available
 with the code, but the original repository and its commit history remain private: the cited commit cannot be
 inspected through the public release. The public provenance file reports this limitation explicitly.
@@ -119,6 +118,15 @@ $\log(1+\text{references})$ and, separately, $\log(1+\text{citing papers in the 
 The matched diagnostic P12 compares group means of these paper-level log counts within strata, weighting each
 stratum by its compared retracted papers, with 95\% intervals from 2,000 resamples of strata.
 
+An article-type sensitivity (P13) requires PubMed Journal Article and excludes reviews, systematic reviews,
+meta-analyses, editorials, letters, comments, published errata, retraction notices and expressions of concern from
+both groups if any PMID- or DOI-linked record carries an excluded type. Retracted Publication is retained because
+it labels the original article, not its notice. Missing publication types are excluded and counted.
+This is an operational research-article proxy, not a guarantee of original research. The original control draw,
+frozen scores and yearly thresholds are retained; strata lacking eligible scored papers in either group are dropped.
+P13 repeats the mean and odds-ratio comparisons in both windows, with matched-log diagnostics and conditional-logit
+models for CD$_5$.
+
 For changes around the notice (P6), papers from 2000--2019 with retraction year $R$ between $t+1$ and 2021 were
 compared over citing years $R-3$ to $R-1$ (not before $t$) and $R+1$ to $R+3$ (not after 2022), excluding year $R$
 and notice records and requiring at least one citing paper in both periods. The change in DI$_{nok}$ minus
@@ -137,6 +145,7 @@ Only group-level results are reported. No per-paper score of a non-retracted pap
 \paragraph{Software and AI assistance} The analyses ran in Python 3.11 with DuckDB 1.5, pandas 3.1, NumPy 2.4, SciPy
 1.17 and statsmodels 0.15 on one cloud machine; figures were drawn with Matplotlib 3.10 from the run records. The
 analysis and figure scripts were written with the help of a generative AI assistant (Claude Opus 5.5, Anthropic) under
-the author's direction. Every counting step was tested against brute-force counts on random graphs, each evaluation
+the author's direction. GitHub Copilot (GPT-6.1 Sol) was used for the P13 analysis code, figure-layout revisions
+and manuscript checks. Every counting step was tested against brute-force counts on random graphs, each evaluation
 script first reproduces the earlier estimates it builds on, and all scripts and run records are public
 (see the data and code availability statement).

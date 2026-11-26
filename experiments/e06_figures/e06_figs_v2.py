@@ -20,12 +20,12 @@ run = Run(sys.argv[1], __file__, {"e4_cd5": R5, "e4_cd3": R3, "e8": R8, "e9": R9
 load = lambda exp, r, f="results.json": json.loads((HERE / exp / "runs" / r / f).read_text())
 e4 = {"5": load("e04_eval", R5), "3": load("e04_eval", R3)}
 e8 = load("e08_posthoc2", R8)
-plt.rcParams.update({"font.size": 8, "axes.spines.top": False, "axes.spines.right": False, "font.family": "sans-serif",
+plt.rcParams.update({"font.size": 11.5, "axes.spines.top": False, "axes.spines.right": False, "font.family": "sans-serif",
                      "pdf.fonttype": 42})
 
 # ---------------- Fig. 1 -------------------------------------------------------------------------------------
 ROWS = [("All retracted", None), ("Misconduct", "misconduct"), ("Paper mill", "paper_mill"), ("Honest error", "honest_error"),
-        ("Other", "other"), ("Positive control:\nreviews vs others", "REVIEWS")]
+        ("Other", "other"), ("Reviews vs\nother controls", "REVIEWS")]
 SER = [("5", BLUE, "o", -0.14, "CD$_5$, papers 2000–2017"), ("3", ORANGE, "s", 0.14, "CD$_3$, papers 2000–2019 (post hoc)")]
 def cd_cell(w, k):
     if k == "REVIEWS": return e8["P4_reviews"]["cd5"] if w == "5" else None
@@ -38,7 +38,8 @@ panels = [("Mean difference in CD (×10$^{-3}$)", "diff", False, 0, cd_cell, 1e3
           ("Odds ratio, CD > 0", ("mh_cd_pos", "mh_pos"), True, 1, cd_cell, None),
           ("Odds ratio, top 5% of year", ("mh_top_p95", "mh_top_p95"), True, 1, cd_cell, None),
           ("Mean difference in DI$_{nok}$\n(post hoc)", "diff", False, 0, dinok_cell, 1.0)]
-fig, axes = plt.subplots(1, 4, figsize=(7.2, 3.0), sharey=True, gridspec_kw={"wspace": 0.14})
+fig, grid = plt.subplots(2, 2, figsize=(7.2, 5.6), sharey=True, gridspec_kw={"wspace": 0.25, "hspace": 0.45})
+axes = grid.ravel()
 for ax, (title, key, is_or, ref, cell, scale) in zip(axes, panels):
     for w, col, mk, dy, lab in SER:
         for i, (_, k) in enumerate(ROWS):
@@ -56,15 +57,15 @@ for ax, (title, key, is_or, ref, cell, scale) in zip(axes, panels):
     if is_or:
         ax.set_xscale("log"); ax.set_xlim(0.3, 2.6); ax.set_xticks([0.5, 1, 2]); ax.set_xticklabels(["0.5", "1", "2"])
         ax.xaxis.set_minor_formatter(matplotlib.ticker.NullFormatter())
-    ax.set_title(title, fontsize=7.5, color=DARK); ax.tick_params(colors="#55554f", length=2)
+    ax.set_title(title, fontsize=11.5, color=DARK); ax.tick_params(colors="#55554f", length=2)
     ax.grid(axis="x", color="#e6e6e1", lw=0.5); ax.set_axisbelow(True)
 axes[0].set_yticks(range(len(ROWS))); axes[0].set_yticklabels([r[0] for r in ROWS]); axes[0].invert_yaxis()
 axes[0].axhline(len(ROWS) - 1.5, color="#d0d0ca", lw=0.6)
 for ax in axes[1:]: ax.axhline(len(ROWS) - 1.5, color="#d0d0ca", lw=0.6)
 h, l = axes[0].get_legend_handles_labels()
 h.append(plt.Line2D([], [], color=GREY, marker="D", ms=4.5, mec="white", lw=1.5)); l.append("Reviews vs other controls, CD$_5$ window")
-fig.legend(h, l, loc="lower center", ncol=3, frameon=False, bbox_to_anchor=(0.55, 0.0), fontsize=7)
-fig.subplots_adjust(bottom=0.2, left=0.155, right=0.99, top=0.86)
+fig.legend(h, l, loc="lower center", ncol=1, frameon=False, bbox_to_anchor=(0.55, 0.0), fontsize=11.5)
+fig.subplots_adjust(bottom=0.20, left=0.20, right=0.99, top=0.90)
 for ext in ("pdf", "png"):
     fig.savefig(run.dir / f"fig1_forest.{ext}", dpi=200, metadata={"CreationDate": None} if ext == "pdf" else None)
 plt.close(fig)
@@ -72,7 +73,7 @@ plt.close(fig)
 # ---------------- Fig. 2 -------------------------------------------------------------------------------------
 et = pd.read_csv(HERE / "e09_pretrend" / "runs" / R9 / "event_time_balanced.csv")
 e9 = load("e09_pretrend", R9)
-fig, axes = plt.subplots(1, 2, figsize=(7.2, 2.5), gridspec_kw={"wspace": 0.28})
+fig, axes = plt.subplots(1, 2, figsize=(7.2, 3.6), gridspec_kw={"wspace": 0.40})
 ax = axes[0]
 if R12:
     paired_path = HERE / "e12_diagnostics" / "runs" / R12 / "paired_event.csv"
@@ -84,26 +85,26 @@ if R12:
                 yerr=[paired.paired_diff - paired.ci_lo, paired.ci_hi - paired.paired_diff],
                 color=ORANGE, marker="o", ms=4, lw=1.4, capsize=3)
     ax.axhline(0, color="#8a8a85", lw=0.7, zorder=0)
-    ax.set_ylabel("Mean paired DI$_{nok}$ gap\n(retracted − controls)", fontsize=7.5)
-    ax.set_title("Citation-composition gap (95% intervals)", fontsize=7.5, color=DARK)
+    ax.set_ylabel("Mean paired DI$_{nok}$ gap\n(retracted − controls)", fontsize=11.5)
+    ax.set_title("Citation-composition gap\n(95% intervals)", fontsize=11.5, color=DARK)
     run.log("paired_event_sha256", sha256(paired_path))
     run.log("plotted_paired_points", paired.to_dict("records"))
 else:
     ax.plot(et.tau, et.dinok_ret, color=ORANGE, marker="o", ms=4, lw=1.4, label="Retracted papers")
     ax.plot(et.tau, et.dinok_ctl, color=GREY, marker="s", ms=3.5, lw=1.4, label="Controls (same journal × year)")
-    ax.set_ylabel("Mean DI$_{nok}$ from that year's citing papers", fontsize=7.5)
-    ax.set_title("DI$_{nok}$ (higher: citing papers ignore the references)", fontsize=7.5, color=DARK)
+    ax.set_ylabel("Mean DI$_{nok}$ from that year's citing papers", fontsize=11.5)
+    ax.set_title("DI$_{nok}$\n(citing papers ignore the references)", fontsize=11.5, color=DARK)
 ax2 = axes[1]
 ax2.plot(et.tau, et.cites_ret, color=ORANGE, marker="o", ms=4, lw=1.4, label="Retracted papers")
-ax2.plot(et.tau, et.cites_ctl, color=GREY, marker="s", ms=3.5, lw=1.4, label="Controls (same journal × year)")
-ax2.set_ylabel("Citing papers per paper and year", fontsize=7.5); ax2.set_ylim(bottom=0)
-ax2.set_title("Citations", fontsize=7.5, color=DARK)
+ax2.plot(et.tau, et.cites_ctl, color=GREY, marker="s", ms=3.5, lw=1.4, label="Controls\n(same journal × year)")
+ax2.set_ylabel("Citing papers per paper and year", fontsize=11.5); ax2.set_ylim(bottom=0)
+ax2.set_title("Citations", fontsize=11.5, color=DARK)
 for a in axes:
     a.axvline(0, color="#8a8a85", lw=0.8, ls=(0, (3, 2)), zorder=0); a.set_xticks(range(-3, 4))
-    a.set_xlabel("Years relative to the first retraction notice", fontsize=7.5)
+    a.set_xlabel("Years relative to the\nfirst retraction notice", fontsize=11.5)
     a.tick_params(colors="#55554f", length=2); a.grid(axis="y", color="#e6e6e1", lw=0.5); a.set_axisbelow(True)
-axes[1 if R12 else 0].legend(frameon=False, fontsize=7, loc="lower left" if R12 else "upper left")
-fig.subplots_adjust(bottom=0.2, left=0.11 if R12 else 0.08, right=0.99, top=0.9)
+axes[1 if R12 else 0].legend(frameon=False, fontsize=11.5, loc="lower left" if R12 else "upper left")
+fig.subplots_adjust(bottom=0.27, left=0.15, right=0.99, top=0.82)
 for ext in ("pdf", "png"):
     fig.savefig(run.dir / f"fig2_event.{ext}", dpi=200, metadata={"CreationDate": None} if ext == "pdf" else None)
 run.log("balanced_papers", int(et.n_ret.iloc[0]))

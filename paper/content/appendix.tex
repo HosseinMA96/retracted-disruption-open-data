@@ -1,6 +1,8 @@
 \appendix
+\setcounter{table}{0}
+\renewcommand{\theHtable}{\theHsection.\arabic{table}}
 \section{Exploratory diagnostics and accounting}\label{sec:appendix}
-The identifiers P1--P12 refer to the archived plans in \texttt{POSTHOC.md}; the code's experiment index and
+The identifiers P1--P13 refer to the archived plans in \texttt{POSTHOC.md}; the code's experiment index and
 claim-to-run map link them to immutable results. These analyses were added after the primary results were known.
 
 \subsection{Reference and citation counts (P1)}
@@ -57,4 +59,57 @@ The remaining controls belong to strata without a primary retracted paper in the
 Pooled shares in the used strata are 18.1\% positive (5,725/31,662), 3.3\% above the top-5\% threshold
 (1,047/31,662), and 0.56\% above the top-1\% threshold (176/31,662).
 Weighting each stratum by its compared retracted papers instead gives 17.3\%, 3.1\% and 0.54\%, the shares
-reported in the main comparisons. CD$_3$ uses 7,349 scored primary papers and 48,044 scored controls in 3,308 strata.
+reported in the main comparisons. CD$_3$ has 7,349 scored primary papers, of which 7,348 are compared with
+48,044 scored controls in 3,308 strata.
+
+\subsection{Article-type sensitivity (P13)}
+The fixed filter is recorded in \texttt{POSTHOC.md} before the run. Publication types are unioned over the same
+PMID/DOI links used to build the original populations. Journal Article is required; any linked review,
+editorial, letter, comment, erratum, retraction-notice or expression-of-concern type excludes the paper.
+Neither unfiltered primary retracted/control group has missing types. For CD$_5$, 3,528 of 4,587 primary papers
+and 43,152 of 52,147 controls satisfy the filter; all 3,528 retracted papers and 43,143 controls have defined
+scores. Of these, 3,521 and 23,839, respectively, enter 1,841 comparison strata.
+For CD$_3$, 5,600 of 7,350 primary papers and 56,842 of 68,190 controls satisfy the filter; 5,599 and 56,822 have
+defined scores, and 5,592 and 37,334 enter 2,735 comparison strata. No controls are redrawn; thresholds remain those
+of the original reference sample. Thus this check isolates type eligibility, not an article-only recalibration
+of the top-5\% threshold.
+
+\begin{table}[!htbp]
+\centering
+\caption{P13 article-type sensitivity (95\% intervals). Diff.: mean CD gap in units of $10^{-3}$.
+$n$: compared retracted papers; reason-class comparisons use eligible controls in the class's strata.
+Both populations are filtered; these are exploratory estimates, not replacements for Table~\ref{tab:main}.}
+\label{tab:articles}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrrr}
+\toprule
+Group & $n$ & Diff. & OR, CD$>0$ & OR, top 5\% \\
+\midrule
+\multicolumn{5}{l}{CD$_5$, 2000--2017} \\
+All retracted & 3,521 & 0.76 ($-0.22$, 1.89) & 1.24 (1.13, 1.37) & 1.07 (0.86, 1.33) \\
+Misconduct & 2,249 & 0.71 (0.25, 1.12) & 1.34 (1.18, 1.51) & 0.99 (0.71, 1.37) \\
+Paper mill & 218 & 0.67 (0.10, 1.37) & 1.08 (0.80, 1.47) & 1.47 (0.70, 3.10) \\
+Honest error & 222 & $-4.05$ ($-7.67$, $-0.75$) & 1.00 (0.66, 1.49) & 0.93 (0.43, 2.02) \\
+Other & 832 & 2.21 ($-1.40$, 6.99) & 1.19 (0.99, 1.43) & 1.15 (0.82, 1.61) \\
+\midrule
+\multicolumn{5}{l}{CD$_3$, 2000--2019} \\
+All retracted & 5,592 & 0.87 (0.18, 1.69) & 1.32 (1.23, 1.42) & 1.21 (1.04, 1.42) \\
+Misconduct & 3,356 & 0.83 (0.24, 1.56) & 1.42 (1.29, 1.56) & 1.21 (0.97, 1.52) \\
+Paper mill & 510 & 0.57 (0.23, 0.90) & 1.09 (0.90, 1.32) & 1.50 (0.98, 2.29) \\
+Honest error & 478 & $-1.38$ ($-2.84$, $-0.004$) & 1.16 (0.88, 1.52) & 0.92 (0.53, 1.62) \\
+Other & 1,248 & 1.97 ($-0.54$, 4.94) & 1.32 (1.13, 1.53) & 1.23 (0.93, 1.62) \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+The CD$_5$ conditional-logit positive-score odds ratios are 1.25 (1.13--1.37) unadjusted,
+1.33 (1.21--1.47) with log references, and 1.34 (1.22--1.48) with log references and citations
+(2,740 retracted papers in 1,165 outcome-varying strata). The corresponding top-5\% odds ratios are
+1.07 (0.86--1.34), 1.64 (1.28--2.10) and 1.39 (1.08--1.80)
+(1,524 retracted papers in 383 outcome-varying strata).
+The matched mean-log reference difference is $+0.064$ (0.045--0.083; group means 3.626 and 3.562).
+The P1-style log-of-stratum-mean reference difference, retaining eligible papers with undefined CD scores, is
+$+0.0059$, rather than $-0.017$ on the unrestricted set.
+The matched mean-log citation difference is $+0.265$ (0.233--0.299).
+The DI$_{nok}$ mean gap is 0.074 (0.049--0.098; 3,471 compared papers) for CD$_5$ and
+0.082 (0.062--0.102; 5,413) for CD$_3$.
