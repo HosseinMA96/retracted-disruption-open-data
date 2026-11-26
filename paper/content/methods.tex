@@ -41,6 +41,9 @@ lowest value of a fixed hash of their identifier (seed 20261109), which makes th
 This pool is drawn for all 10,450 retracted papers, not just the 4,587 primary-set papers. A comparison uses only the
 controls with a defined score in strata containing scored papers of the compared set. The primary analysis uses
 2,239 strata containing 4,586 primary-set papers and 31,662 scored controls.
+Eligibility is not restricted by publication type: reviews, editorials, letters, comments, errata and retraction
+notices can enter the control pool if they satisfy these rules. PubMed publication types flag reviews, which are
+excluded only in robustness check (b); the main comparison is not limited to research articles.
 
 \paragraph{Reference sample} A deterministic 0.2\% sample of all eligible papers (24,491 papers) provides the
 yearly distribution of the index, from which the top-5\% and top-1\% thresholds are taken.
@@ -74,7 +77,8 @@ the papers that cite $f$ and is defined when there is at least one; $(1 - \mathr
 citing papers that also cite a reference. CD and DI$_{nok}$ always have the same sign.
 
 The score script reads only the list of focal papers and their years; it never reads retraction labels. Its output
-(86,950 papers) was hashed (SHA-256) before the evaluation script joined the labels, and the evaluation script checks
+(86,950 distinct papers: the 87,088 group memberships minus 138 overlaps with the reference sample)
+was hashed (SHA-256) before the evaluation script joined the labels, and the evaluation script checks
 the hash. An implementation in DuckDB \citep{raasveldt2019duckdb} was tested against a brute-force count on random
 graphs (1,200 focal papers, both windows, identical counts). For the before-and-after comparison, a second label-free
 script counted the citing papers of each focal paper by citing year; its sums over the scoring windows equal the frozen
@@ -121,11 +125,11 @@ and notice records and requiring at least one citing paper in both periods. The 
 the stratum-control mean change is a descriptive difference in differences. Notice records are identified through
 PubMed retraction-notice, erratum and expression-of-concern types or their corresponding comment/correction links
 (P8). A placebo notice three years earlier and a balanced annual event-time population examine earlier trends (P9).
-P12 adds 95\% strata-bootstrap intervals to the original mean paired annual gaps: a paper contributes only when
+P12 estimates mean paired annual gaps with 95\% strata-bootstrap intervals: a paper contributes only when
 its score and its stratum-control mean are both defined. Annual pair counts therefore vary.
 
 A three-year scoring window extends the publication years to 2019 (P2). The 90\% interval bounds (P3),
-original count summaries (P1), notice and timing diagnostics (P8--P9), denominator size (P10) and control
+count summaries (P1), notice and timing diagnostics (P8--P9), denominator size (P10) and control
 accounting (P11) are documented in \ref{sec:appendix}. No multiplicity correction is applied to
 these exploratory analyses.
 Only group-level results are reported. No per-paper score of a non-retracted paper is released.

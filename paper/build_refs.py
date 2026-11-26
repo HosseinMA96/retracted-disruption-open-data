@@ -25,6 +25,7 @@ for line in (HERE / "dois.txt").read_text().splitlines():
         raise SystemExit(f"{key}: bib_raw is not BibTeX (failed fetch?)")
     b = re.sub(r"@([a-zA-Z]+)\{[^,]*,", lambda m: f"@{m.group(1)}{{{key},", b, count=1)
     b = re.sub(r",\s*month\s*=\s*[a-zA-Z]+\s*", "", b)
+    b = re.sub(r",\s*url\s*=\s*\{https?://(?:dx\.)?doi\.org/[^}]*\}", "", b, flags=re.I)
     b = re.sub(r"(?<!\\)&", r"\\&", b.replace("&amp;", "&"))
     if key == "mantel1959":
         b = MANTEL

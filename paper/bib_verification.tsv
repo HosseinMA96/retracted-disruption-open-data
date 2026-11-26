@@ -22,7 +22,7 @@ deng2025persistent	10.1038/s43588-025-00808-7	OK crossref	2026-11-23	The critica
 lou2026beyond	10.1515/jdis-2026-0064	OK publisher; volume 11(3), pages 236-249	2026-11-26	Beyond Retractions: A Topic-Based Analysis of the Impact and Lifespan of Retracted Papers
 feng2024molbio	10.1007/s11192-024-05101-4	OK publisher/DBLP; volume 129(8), pages 4795-4817	2026-11-26	Citation network analysis of retractions in molecular biology field
 candal2022papermills	10.1136/bmj-2022-071517	OK crossref	2026-11-23	Retracted papers originating from paper mills: cross sectional study
-fletcher2025predicting	10.1186/s41073-025-00168-w	OK crossref	2026-11-23	Predicting retracted research: a dataset and machine learning approaches
+fletcher2025predicting	10.1186/s41073-025-00168-w	OK Europe PMC/PubMed 40495239; volume 10, article 9	2026-11-26	Predicting retracted research: a dataset and machine learning approaches
 cabanac2024chain	10.1038/d41586-024-02747-1	OK crossref	2026-11-23	Chain retraction: how to stop bad science propagating through the literature
 cabanac2022pps	10.48550/arXiv.2210.04895	OK datacite	2026-11-23	The 'Problematic Paper Screener' automatically selects suspect publications for post-publication (re)assessmen
 arjomandi2024dataset	10.13012/B2IDB-5216575_V1	OK datacite	2026-11-23	Parsed Open Citations and PubMed Data
@@ -31,7 +31,7 @@ massari2024meta	10.1162/qss_a_00292	OK crossref	2026-11-23	OpenCitations Meta
 peroni2020opencitations	10.1162/qss_a_00023	OK crossref	2026-11-23	OpenCitations, an infrastructure organization for open scholarship
 rittman2025rw	10.13003/692016	OK crossref	2026-11-23	Retraction Watch retractions now in the Crossref API
 mantel1959	10.1093/jnci/22.4.719	OK crossref	2026-11-23	Statistical Aspects of the Analysis of Data From Retrospective Studies of Disease
-robins1986estimator	10.2307/2531052	OK crossref	2026-11-23	Estimators of the Mantel-Haenszel Variance Consistent in Both Sparse Data and Large-Strata Limiting Models
+robins1986estimator	10.2307/2531052	OK Europe PMC/PubMed 3741973; pages 311-323	2026-11-26	Estimators of the Mantel-Haenszel Variance Consistent in Both Sparse Data and Large-Strata Limiting Models
 wilson1927	10.1080/01621459.1927.10502953	OK crossref	2026-11-23	Probable Inference, the Law of Succession, and Statistical Inference
 raasveldt2019duckdb	10.1145/3299869.3320212	OK crossref	2026-11-23	DuckDB
 arjomandi2026retracteddata	10.5281/zenodo.23874477	OK datacite	2026-11-23	Retracted papers and their open citation neighbourhoods: Retraction Watch labels linked to the OpenCitations g
@@ -40,7 +40,7 @@ bornmann2020convergent	10.1162/qss_a_00068	OK crossref	2026-11-23	Are disruption
 schuirmann1987tost	10.1007/BF01068419	OK crossref	2026-11-23	A comparison of the Two One-Sided Tests Procedure and the Power Approach for assessing the equivalence of aver
 lakens2017equivalence	10.1177/1948550617697177	OK crossref	2026-11-23	Equivalence Tests
 hsiao2021continued	10.1162/qss_a_00155	OK crossref	2026-11-23	Continued use of retracted papers: Temporal trends in citations and (lack of) awareness of retractions shown i
-crossdi2025	10.1038/s41597-025-06232-w	OK crossref	2026-11-23	CrossDI: A comprehensive dataset crossing three databases for calculating disruption indexes
+crossdi2025	10.1038/s41597-025-06232-w	OK Europe PMC/PubMed 41372204; volume 12, article 1974	2026-11-26	CrossDI: A comprehensive dataset crossing three databases for calculating disruption indexes
 azoulay2015retractions	10.1162/REST_a_00469	OK crossref	2026-11-23	Retractions
 arjomandi2026prospective	10.48550/arXiv.2611.10474	OK arXiv record/full text; DOI registration pending, cited by arXiv URL	2026-11-26	Do links to retracted papers predict future retractions? An out-of-sample test on the open biomedical citation graph
 scancar2026distortion	10.1073/pnas.2618402123	OK PubMed 42879494/publisher metadata	2026-11-26	Suspected distortion of citations in high-impact cancer journals

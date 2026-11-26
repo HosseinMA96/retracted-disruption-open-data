@@ -29,7 +29,7 @@ the other explanations.
 
 \paragraph{Reference length and the top tier} At equal reference length, retracted papers reach the top 5\% of
 CD$_5$ more often (odds ratio 1.42). The unadjusted comparison, which is what an evaluator sees, shows no
-over-representation. The new matched mean-log reference difference, $+0.084$ (0.058--0.109), supports a reference-length
+over-representation. The matched mean-log reference difference, $+0.084$ (0.058--0.109), supports a reference-length
 imbalance in the direction that suppresses high scores, consistent with the change after adjustment. The
 adjusted estimate shrinks when citations in the window are also held fixed (1.19), but citations are part of the score
 itself, so that model may over-adjust. These exploratory models show that the top-tier comparison is sensitive to
@@ -66,8 +66,11 @@ problematic work: some unreliable papers are never retracted, and the controls m
 were added after the main results were known. Their plans were recorded before their runs, but the analyses remain
 exploratory. The 0.00093 bound is an interval-based description, not a validated negligible-effect threshold.
 Bootstrap resampling clusters by journal--year, not by author; serial retractors can contribute papers across
-strata, so uncertainty may be understated if their outcomes are correlated. The diagnostic inputs contain no
-author identifiers, preventing an author-cluster or largest-retractor exclusion check.
+strata, so uncertainty may be understated if their outcomes are correlated. Retraction Watch supplies author-name
+strings, but no name-based exclusion or disambiguated author-cluster analysis is performed here.
+The controls are not restricted to research articles. Publication-type composition may therefore contribute to the
+reference-length imbalance and adjusted estimates; excluding reviews alone does not address editorials, letters,
+comments or notice items, and no research-article-only sensitivity analysis is performed.
 The primary set is also selected for late retraction: first notices occur in the sixth or a later calendar year after
 publication. Its conclusions need not generalize to papers retracted during the scoring window, which are analysed
 separately. Notice

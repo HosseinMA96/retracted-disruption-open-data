@@ -82,6 +82,9 @@ All from `e04_eval_20261110_01` (scores `e03_cd5_20261110_01`, populations `e02_
 - 6,032 reviews (4,832 in 2,083 usable strata) vs 46,090: CD5 difference **−0.00329 (−0.0066 to −0.0011)**
   (−0.074 SD); top 5% OR **0.58 (0.47–0.72)**; top 1% 0.39 (0.21–0.73); CD5 > 0 0.95 (0.86–1.04).
 - The retracted papers' 90% interval excludes mean differences above 0.00093, about 28% of the review gap.
+- Reviews versus other controls: positive-CD5 OR **0.947024745 (0.860810156–1.041874171)**, 4,832 compared reviews;
+  mean DI_nok difference **−0.076072618 (−0.194619308–0.033042631)**, 4,736 compared reviews. Both intervals
+  include the null. These are Figure 1's review sign and DI_nok panels, now also reported in text and Table 3.
 
 ## P5 DI_nok = (n_i − n_j)/(n_i + n_j)
 - CD5 window, primary (4,518 defined, **4,517 compared**): retracted −0.309, controls −0.376,
@@ -179,3 +182,14 @@ P1 log-of-mean points reproduced before new calculations. Seed 20261109, 2,000 j
   tau +2 **0.201497208 (0.161588681–0.241737852), n=1,982**.
 - Label inputs contain no author-identifier columns; no author-cluster or largest-retractor check was performed.
   The limitation is stated, and the VM was deallocated immediately after the run and checksum-verified fetch.
+
+## v0.6 accounting and scope clarification (no analysis rerun)
+- Scored-paper count: 10,450 retracted + 52,147 controls + 24,491 reference-sample memberships = 87,088;
+  E2's DISTINCT focal list has 86,950 papers, reconciling 138 overlaps with the reference sample.
+  E2's disjoint retracted/control construction and group/focal counts support the reconciliation.
+- CD3 mean differences are distinct before rounding: overall **0.000390019384**, paper mill **0.000393714743**;
+  both correctly print as 0.00039. Their original confidence intervals are unchanged.
+- E2 imposes no publication-type eligibility filter. Reviews are flagged, not excluded from the main controls;
+  editorial, letter, comment and notice items can qualify. No research-article-only rerun is performed.
+- Retraction Watch's raw CSV has an `Author` field (D2 run metadata); processed diagnostic labels omit it.
+  A raw-name exclusion is possible but not performed. The author requested manuscript-only changes and no VM restart.
