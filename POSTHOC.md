@@ -279,3 +279,9 @@ author names leave the VM. Any failed run is preserved and a retry receives a ne
 was blocked with ample RAM and no swapping; it was terminated by its specific PID and its source/logs/manifest
 preserved. Retry `_02` materializes bounded identifier/PubMed-key tables before reading nested metadata
 and uses single-threaded DuckDB with a 6 GB memory limit. No matching rule, filter, estimand or RNG choice changes.
+
+**Execution note before `_03`:** the bounded `_02` lookup completed, but an overly strict coverage guard
+rejected four graph nodes without a current PubMed match before any estimate was produced. The pre-recorded
+missing-source rule already requires unknown metadata, not exclusion from the original baseline or imputation.
+Retry explicitly counts those nodes and assigns the empty-source metadata state; article/topic eligibility
+remains false. Frozen primary/P13/P14 reproduction checks still must pass. `_02` records and exact source are preserved.
