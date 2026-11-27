@@ -196,3 +196,43 @@ names. It is not an author-cluster bootstrap or a disambiguated-author analysis.
   No new reference-length mechanism test or author-cluster interval is claimed. Release aggregate counts and
   estimates only, never names, per-paper associations or identifiers. Record plan/helper/input hashes, logs,
   manifest and checksums under a new run ID; deallocate immediately after fetch, including failure.
+
+# Post hoc P15: citing-record and journal sensitivity (2026-11-27 UTC; before execution)
+
+Requested after P1-P14 and the unfiltered DI_nok result were known. This is exploratory and does not alter SPEC,
+frozen CD scores, original control draws or earlier results. No direction or size of the filtered gap is assumed.
+
+- Use the frozen CD5 and CD3 populations/scores and E7 yearly counts. Reproduce the original P5 DI_nok
+  matched mean gaps and comparison counts, and the P8 notice counts, before calculating new estimates.
+- Citing-record flags use the original PMID/exact-DOI linkage, unioning matches per graph node. Notices use
+  P8's three publication-type UIs and three comments/corrections links. Comment/Letter use D016420/D016422.
+  Retracted citers are any nodes linked to a non-reinstated paper in the full frozen Retraction Watch snapshot
+  or flagged Retracted Publication (D016441) in PubMed, irrespective of their retraction date. Unmapped records
+  are not assumed to be notices/comments/letters/retracted; flag coverage is reported. This is retrospective
+  exclusion, not a claim that a citing paper was already retracted when its citation occurred.
+- Calculate four nested scenarios: unfiltered; notices removed; notices plus comments/letters removed;
+  all those plus retracted citers removed. The last is the main P15 contrast. Overlapping flags exclude a
+  citer only once. Remove flagged citers from n_i/n_j, retain the original focal reference lists, and keep
+  the original windows. DI_nok becomes undefined if no citing paper remains; count losses of papers,
+  controls and strata. Reproduce frozen counts with independent excluded-citer/reference joins and check
+  notice-only removals against E7. All reference-only citing counts are irrelevant to this variant.
+- For each window/scenario, estimate the original retracted-paper-weighted journal-year matched mean gap,
+  but give new 95% percentile intervals by resampling whole journals (all their publication-year strata
+  together), 2,000 draws, seed 20261109, independent children after offset 3000. Preserve historical
+  journal-year-bootstrap intervals as historical results rather than overwriting them. Report the fully
+  filtered mean contrast by reason class.
+- For CD5, fit paper-level weighted linear regressions with journal-year fixed effects: retracted indicator
+  alone; additionally log(1 + original reference count); additionally log(1 + remaining citing-paper count).
+  Each retracted paper has weight 1 and each control n_retracted/n_control within its used stratum, so the
+  unadjusted coefficient exactly reproduces the matched mean gap. Demean within strata using these weights;
+  resample whole journals and refit for 95% intervals. Report coefficients, counts and journals, not only
+  score-sign odds ratios. For the fully filtered scenario, also replace remaining-citer counts with original
+  window-citer counts as a covariate sensitivity. These regressions are descriptive, not causal.
+- For each window, fix the ten journals with the largest original eligible primary-set retraction counts
+  before filtering (ties by journal identifier ascending). Exclude their primary papers and controls,
+  without redraw, and repeat the fully filtered matched mean and (CD5) regressions with journal bootstrap.
+  Release journal-level exclusion counts/identifiers, not per-paper outputs.
+- Save code/helper/plan/input hashes, aggregate results, baseline checks, coverage/exclusion summaries,
+  logs, manifest and checksums under a new run ID. Verify frozen inputs before joins and fail on disagreement.
+  Fetch only aggregate records and deallocate the preserved VM immediately after verified retrieval, including
+  failure. No new citation graph or embedding model is created.
