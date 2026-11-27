@@ -1,5 +1,19 @@
 # Project E findings (claim → number → run)
 
+## v0.10 reading and layout corrections (no statistical rerun)
+
+- The abstract distinguishes pre-specified CD5 estimates (`e04_eval_20261110_01`) from the later exploratory
+  DI_nok comparison (`e08_posthoc2_20261123_02`, P5); estimates are unchanged.
+- Main-text analysis labels describe scientific questions rather than P-codes. P13/P14 definitions and full
+  sensitivity estimates remain in Appendix A.7/A.8 and the existing run map below.
+- Retraction Watch totals reconcile through `e14_authors_20261126_01/results.json` → `author_summary`:
+  **62,735** paper keys, **62,734** non-reinstated keys; one reinstated paper is excluded.
+- P7's second conditional-logit model adds log citations to log references; it is not a citations-only model.
+  Review comparison intervals resample different weighted journal–year contrasts, so similar paper counts
+  do not establish comparable precision. No per-stratum variance diagnosis was performed.
+- Figure `e06_fig_20261127_08` moves the legend only; Figure 1 and all paired points/CIs are unchanged.
+  The appendix FloatBarrier places Table A.2 before data/code availability; the complete visible URL is on page 27.
+
 All from `e04_eval_20261110_01` (scores `e03_cd5_20261110_01`, populations `e02_pop_20261110_01`, SPEC v1) unless stated. Mean differences are retracted − matched controls within journal × year, weighted by retracted papers, 95% bootstrap CI over strata. ORs are Mantel–Haenszel within journal × year.
 
 ## RQ1 (4,587 scored primary papers; 4,586 compared in 2,239 strata)

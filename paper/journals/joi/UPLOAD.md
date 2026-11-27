@@ -19,7 +19,8 @@ Do not upload `main.pdf` as a substitute for editable manuscript source. The loc
 not a member of the LaTeX ZIP. If the system asks for individual source files instead of a ZIP, upload the seven
 ZIP members directly from `submission/`, including the editable `main.tex`.
 
-The official declarations tool still needs to be completed. The local DOCX contains the prepared wording but is
+**The Elsevier declarations tool should always be completed when uploading**, even when there are no competing
+interests. It has not been completed here. The local DOCX contains the prepared wording but is
 not a tool-generated declaration; retain the official generated `.doc`/`.docx` without overwriting it with another
 local build (the build script regenerates the draft DOCX).
 

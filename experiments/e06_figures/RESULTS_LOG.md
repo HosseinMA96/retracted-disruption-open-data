@@ -1,5 +1,13 @@
 # E06 figures: lab notebook
 
+## v0.10 event-time legend (2026-11-27, UTC)
+`e06_fig_20261127_08` is current. Same E4/E8/E9/P12 inputs, paired points, intervals and counts.
+Figure 2 uses a horizontal figure-level legend below both axes; it no longer overlaps either dashed notice line.
+Native legend text is 11.5 pt (about 8.62 pt printed). Its text starts at PDF y=233.07 pt, below the notice-line
+end at y=171.07 pt and 15.59 pt below the bottom of the two-line axis labels.
+All rendered text lies inside the canvas. Figure 1 PDF and PNG are byte-identical to _07.
+The new run's JSON and SHA256SUMS are verified; earlier runs remain immutable. No statistical analysis was rerun.
+
 ## v0.9 review-label separation (2026-11-26)
 `e06_fig_20261126_07` is current. Same E4/E8/E9/P12 inputs and estimates; Figure 1 gives the two-line review
 label extra space below Other, without reducing the 11.5 pt native / 8.62 pt printed font.

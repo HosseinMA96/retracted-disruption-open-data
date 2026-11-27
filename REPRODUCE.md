@@ -51,7 +51,7 @@ Run each from its experiment folder: `python <script> <args>`.
 | P13 article-type restriction | `e13_article_types/e13_article_types.py e13_articles_20261126_01` (frozen score/label tables plus PubMed metadata, no graph rerun) | 4.6 min |
 | Test of P14 (synthetic names, duplicate/reinstated records, threshold, empty comparison) | `e14_authors/test_authors.py` | seconds |
 | P14 author-name exclusion | `e14_authors/e14_authors.py e14_authors_20261126_01` (frozen tables and raw RW CSV, no graph rerun) | 19 s |
-| Figures (laptop) | `e06_figures/e06_figs_v2.py e06_fig_20261126_07 e04_eval_20261110_01 e04_eval_cd3_20261110_01 e08_posthoc2_20261123_02 e09_pretrend_20261123_01 e12_diag_20261126_01` | seconds |
+| Figures (laptop) | `e06_figures/e06_figs_v2.py e06_fig_20261127_08 e04_eval_20261110_01 e04_eval_cd3_20261110_01 e08_posthoc2_20261123_02 e09_pretrend_20261123_01 e12_diag_20261126_01` | seconds |
 | Paper | `cd paper/journals/joi && tectonic -X compile main.tex`; upload packages: `./build_submission.sh` | – |
 
 ## 4. Determinism and checks
@@ -67,6 +67,7 @@ Run each from its experiment folder: `python <script> <args>`.
 - The current figure run plots paired annual points with P12 intervals. Figure 1 is two by two; normal-size labels
   and legends print at about 8.62 pt. Earlier figure runs remain immutable, and plotted values are unchanged,
   with TrueType fonts retaining en dashes.
+  Run _08 moves the Figure 2 legend below both axes, clear of the notice lines; Figure 1 is byte-identical to _07.
 - Pre-specification provenance: `experiments/spec_provenance.json`, the unchanged `SPEC.md`, and the score and
   evaluation run records. The original private Git commit is dated before scoring; this is not an independent public
   preregistration timestamp. The original commit history remains private and cannot be inspected in this release.

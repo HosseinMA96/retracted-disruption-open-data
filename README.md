@@ -47,13 +47,14 @@ labelled post hoc, and each plan was written down before it was run.
 | Size of n_k for the median paper | 2,862 papers citing only the references vs 12 citing the paper |
 | Change in DI_nok after vs before the notice, minus controls (post hoc) | +0.074 (0.050–0.097); placebo 3 years earlier +0.036 |
 
-**Take-away:** the pre-specified five-year analysis shows a small positive-score shift but no unadjusted top-tier
+**Take-away:** the pre-specified five-year analysis shows a small positive-score shift but no clear unadjusted top-tier
 excess; the post hoc three-year window leans toward a modest excess, but this weakens under author-name exclusions.
-The citation-composition contrast persists after that exclusion. Article-type restriction retains the reference
+The exploratory citation-composition contrast persists after that exclusion. Article-type restriction retains the reference
 imbalance and adjusted excess, but is an operational proxy, not a guarantee of original research.
 The n_k term compresses the citation-composition gap, and scores including post-retraction years are shifted. Every
 number above is traced in [`FINDINGS.md`](FINDINGS.md). Mean-log reference gaps describe the direction of imbalance,
 not the magnitude of the adjusted odds-ratio shifts. P14 uses name strings, not disambiguated author identities.
+The review positive control detects the mean and top-tier CD5 contrasts, but not a clear sign or DI_nok contrast.
 
 The full pool of 52,147 controls was drawn for all 10,450 retracted papers, including those retracted inside their
 window. Of these controls, 25 have an undefined CD5 because its denominator is zero, leaving 52,122 scored controls.
@@ -111,6 +112,9 @@ cd paper/journals/joi && tectonic -X compile main.tex
 **JOI upload:** use the identified `paper/journals/joi/joi_latex_source.zip`, not a manuscript PDF or the legacy
 anonymized package. Separate highlights and an official declarations-tool statement are also required.
 See [`paper/journals/joi/UPLOAD.md`](paper/journals/joi/UPLOAD.md); nothing has been submitted.
+The current v0.10 identified manuscript has a 171-word abstract and 33 pages; detailed article-type and author-name
+checks are in the appendix. Local builds use Tectonic. Editorial Manager's pdfLaTeX PDF must still be reviewed,
+and Elsevier's declarations tool must always be completed at upload.
 
 ## Data sources
 

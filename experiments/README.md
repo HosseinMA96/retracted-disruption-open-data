@@ -15,7 +15,7 @@
 | `e12_diagnostics/` | **Post hoc** P12: paired annual confidence intervals and matched mean-log count differences; reproduces P9/P11/P1 | `e12_diag_20261126_01` | `RESULTS_LOG.md` |
 | `e13_article_types/` | **Post hoc** P13: article-type restriction of both groups; frozen-score and original-estimate replay | `e13_articles_20261126_01` | `RESULTS_LOG.md` |
 | `e14_authors/` | **Post hoc** P14: exclude primary nodes linked to author names on at least ten retracted paper keys; baseline replay | `e14_authors_20261126_01` | `RESULTS_LOG.md` |
-| `e06_figures/` | Paper figures from run records (laptop) | `e06_fig_20261126_07` (current; separated review labels, 8.62 pt printed labels); paired annual intervals from P12 | `RESULTS_LOG.md` |
+| `e06_figures/` | Paper figures from run records (laptop) | `e06_fig_20261127_08` (current; Figure 2 legend below axes, Figure 1 unchanged, 8.62 pt printed labels); paired annual intervals from P12 | `RESULTS_LOG.md` |
 
 Runs not cited carry a `SUPERSEDED.txt` with the reason: `e07_yearly_20261123_01`, `e08_posthoc2_20261123_01`
 (notice rule by type name; see POSTHOC.md P8 amendment), `e06_fig_20261110_01`, `_02`, `e06_fig_20261123_01` (layout).

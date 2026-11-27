@@ -15,7 +15,7 @@ papers retracted by a fixed cutoff predicted later retraction, albeit weakly as 
 though near zero for honest error.
 Its interval excludes zero for
 misconduct and for other reasons, and the shift in its sign survives adjustment for reference and citation counts.
-CD$_5$ registers it only through its sign, because the papers that cite only the references outnumber the citing papers
+CD$_5$ registers it mainly through its sign, because the papers that cite only the references outnumber the citing papers
 by more than two orders of magnitude for the median paper. The pattern is in line with the first expectation set out in
 the introduction, that fabricated or falsified findings are cited without the literature they built on, but two other
 readings fit the data: retracted papers may attract citations from outside their immediate
@@ -28,13 +28,23 @@ This motivates considering the composition of citing papers, distinct from the g
 in the disruption-index literature. The DI$_{nok}$ contrast persists in both windows after excluding papers linked
 to frequently retracted author names.
 
-\paragraph{Reference length and the top tier} At equal reference length, retracted papers reach the top 5\% of
-CD$_5$ more often, whereas the pre-specified unadjusted comparison shows no clear excess.
-Retracted papers have longer reference lists on the matched mean-log scale, an imbalance in the direction that
-suppresses high scores. The adjusted contrast shrinks when citations in the window are also held fixed.
-The article-type sensitivity retains both the imbalance and the adjusted excess.
-Thus a mixture of reviews and editorial/notice items does not explain away the pattern under the operational filter;
-the comparisons remain sensitive to covariate adjustment.
+\paragraph{What the review comparison checks} Reviews differ from other controls on the CD$_5$ mean and top tier,
+but not clearly on the sign or DI$_{nok}$. This comparison therefore checks different endpoints and does not
+independently validate the exploratory citation-composition finding. Its intervals resample weighted journal--year
+contrasts, not individual papers; similar paper counts do not imply comparable precision across the two comparisons.
+
+\paragraph{Journal--year matching and reference length} The main controls match only on journal and publication year,
+not publication type or reference length. Editorials, letters and notice items can share a stratum with research
+articles. Retracted papers have longer reference lists on the matched mean-log scale, while short reference lists
+favour high CD$_5$ scores. The top-tier odds ratio of 0.99 in the unadjusted comparison and 1.42 after reference
+adjustment therefore describe different comparisons, not interchangeable estimates of one fully balanced contrast.
+
+The reference-length models and article-type restriction were added after the primary results were known.
+They should not be treated as corrections to the pre-specified result. The article-type check retains both the
+reference-length imbalance and the adjusted excess, so the mixture of reviews and editorial/notice items does not
+explain away the pattern under that operational filter. The restriction changes both groups and does not guarantee
+original research. Holding citing-paper counts fixed further reduces the adjusted contrast, demonstrating model
+dependence. These checks support caution about matching and adjustment rather than a causal reference-length explanation.
 
 \paragraph{Scores that include the retraction} Scores computed over windows that include the retraction differ for two
 reasons. Notice records are counted among the citing papers, and more than a third of the papers retracted inside the

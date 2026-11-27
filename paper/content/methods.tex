@@ -8,10 +8,11 @@ the snapshot is effectively complete to about September 2023. A paper is \emph{b
 its DOI appears in the PubMed 2026 baseline, from which publication types and comment/correction links are also taken.
 
 \paragraph{Retractions} Retraction labels come from the Retraction Watch database distributed by Crossref
-\citep{rittman2025rw}, in the repository snapshot of 30 October 2026 (62,735 retracted papers). Papers were linked to graph
+\citep{rittman2025rw}, in the repository snapshot of 30 October 2026 (62,735 papers with retraction records,
+including one marked reinstated). Papers were linked to graph
 nodes by DOI or PMID; 52,254 of the 62,735 (83.3\%) were matched, giving 53,170 graph nodes. The linked table is
 public \citep{arjomandi2026retracteddata}. The date of the first retraction notice and the union of the reasons given
-by Retraction Watch are kept per paper; reinstated papers are excluded.
+by Retraction Watch are kept per paper. The reinstated paper is excluded, leaving 62,734 non-reinstated paper keys.
 
 \paragraph{Reason classes} Each retracted paper receives one class, assigned in this order: \emph{paper mill} (reason
 ``Paper Mill''); \emph{misconduct} (fabrication or falsification, manipulation of images, data or results, plagiarism,
@@ -114,48 +115,38 @@ $t+1$ to $t+5$; (e) the secondary set; (f) papers with at least five citations i
 \end{itemize}
 
 \paragraph{Exploratory questions}
-To interpret the sign shift, reviews were compared with other never-retracted controls of the same journal and year
-(P4), and comparisons were repeated with DI$_{nok}$ (P5) and among cited papers only (P7).
+To interpret the sign shift, reviews were compared with other never-retracted controls of the same journal and year,
+and comparisons were repeated with DI$_{nok}$ and among cited papers only.
 To examine reference length, conditional logistic regression within journal $\times$ year strata used
-$\log(1+\text{references})$ and, separately, $\log(1+\text{citing papers in the window})$ as covariates (P7).
-The matched diagnostic P12 compares group means of these paper-level log counts within strata, weighting each
+$\log(1+\text{references})$ and, in a second model, also $\log(1+\text{citing papers in the window})$ as covariates.
+Matched diagnostics compare group means of these paper-level log counts within strata, weighting each
 stratum by its compared retracted papers, with 95\% intervals from 2,000 resamples of strata.
 
-An article-type sensitivity (P13) requires PubMed Journal Article and excludes reviews, systematic reviews,
-meta-analyses, editorials, letters, comments, published errata, retraction notices and expressions of concern from
-both groups if any PMID- or DOI-linked record carries an excluded type. Retracted Publication is retained because
-it labels the original article, not its notice. Missing publication types are excluded and counted.
-This is an operational research-article proxy. The original control draw,
-frozen scores and yearly thresholds are retained; strata lacking eligible scored papers in either group are dropped.
-P13 repeats the mean and odds-ratio comparisons in both windows, with matched-log diagnostics and conditional-logit
-models for CD$_5$.
+Additional checks restrict both populations by PubMed publication types and exclude primary papers linked to
+frequently retracted author names. Their definitions, population accounting and full results are in
+\ref{sec:appendix}. Original controls, scores and thresholds remain fixed, and resampling remains by journal $\times$ year.
 
-An author-name sensitivity (P14) counts distinct non-reinstated paper keys per author name across the full frozen
-Retraction Watch snapshot. Names are split on semicolons, whitespace is collapsed and case is normalized; duplicate
-notices are unioned, without fuzzy matching or merging initials. Any primary paper linked to a name on at least ten
-such papers is excluded. Blank or placeholder names are retained and their coverage reported. Both windows repeat
-the CD and DI$_{nok}$ comparisons overall and by reason class, retaining original controls, scores and thresholds.
-The resampling unit remains journal $\times$ year.
-
-For changes around the notice (P6), papers from 2000--2019 with retraction year $R$ between $t+1$ and 2021 were
+For changes around the notice, papers from 2000--2019 with retraction year $R$ between $t+1$ and 2021 were
 compared over citing years $R-3$ to $R-1$ (not before $t$) and $R+1$ to $R+3$ (not after 2022), excluding year $R$
 and notice records and requiring at least one citing paper in both periods. The change in DI$_{nok}$ minus
 the stratum-control mean change is a descriptive difference in differences. Notice records are identified through
-PubMed retraction-notice, erratum and expression-of-concern types or their corresponding comment/correction links
-(P8). A placebo notice three years earlier and a balanced annual event-time population examine earlier trends (P9).
-P12 estimates mean paired annual gaps with 95\% strata-bootstrap intervals: a paper contributes only when
+PubMed retraction-notice, erratum and expression-of-concern types or their corresponding comment/correction links.
+A placebo notice three years earlier and a balanced annual event-time population examine earlier trends.
+Matched annual diagnostics estimate mean paired annual gaps with 95\% strata-bootstrap intervals: a paper contributes only when
 its score and its stratum-control mean are both defined. Annual pair counts therefore vary.
 
-A three-year scoring window extends the publication years to 2019 (P2). The 90\% interval bounds (P3),
-count summaries (P1), notice and timing diagnostics (P8--P9), denominator size (P10) and control
-accounting (P11) are documented in \ref{sec:appendix}. No multiplicity correction is applied to
+A three-year scoring window extends the publication years to 2019. The 90\% interval bounds,
+count summaries, notice and timing diagnostics, denominator size and control
+accounting are documented in \ref{sec:appendix}. No multiplicity correction is applied to
 these exploratory analyses.
 Only group-level results are reported. No per-paper score of a non-retracted paper is released.
 
 \paragraph{Software and AI assistance} The analyses ran in Python 3.11 with DuckDB 1.5, pandas 3.1, NumPy 2.4, SciPy
-1.17 and statsmodels 0.15 on one cloud machine; figures were drawn with Matplotlib 3.10 from the run records. The
+1.17 and statsmodels 0.15 on one cloud machine; figures were drawn with Matplotlib 3.10.8 (Matplotlib development
+team) from the run records. The
 analysis and figure scripts were written with the help of a generative AI assistant (Claude Opus 5.5, Anthropic) under
-the author's direction. GitHub Copilot (GPT-6.1 Sol) was used for the P13 and P14 analysis code, figure-layout revisions
+the author's direction. GitHub Copilot CLI 1.0.116 (GitHub), powered by GPT-6.1 Sol (OpenAI), was used for additional
+analysis code, figure-layout revisions
 and manuscript checks. Every counting step was tested against brute-force counts on random graphs, each evaluation
 script first reproduces the earlier estimates it builds on, and all scripts and run records are public
 (see the data and code availability statement).

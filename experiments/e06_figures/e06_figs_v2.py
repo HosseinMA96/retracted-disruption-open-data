@@ -104,8 +104,13 @@ for a in axes:
     a.axvline(0, color="#8a8a85", lw=0.8, ls=(0, (3, 2)), zorder=0); a.set_xticks(range(-3, 4))
     a.set_xlabel("Years relative to the\nfirst retraction notice", fontsize=11.5)
     a.tick_params(colors="#55554f", length=2); a.grid(axis="y", color="#e6e6e1", lw=0.5); a.set_axisbelow(True)
-axes[1 if R12 else 0].legend(frameon=False, fontsize=11.5, loc="lower left" if R12 else "upper left")
-fig.subplots_adjust(bottom=0.27, left=0.15, right=0.99, top=0.82)
+if R12:
+    handles, labels = ax2.get_legend_handles_labels()
+    fig.legend(handles, [label.replace("\n", " ") for label in labels], frameon=False, fontsize=11.5,
+               loc="lower center", ncol=2, bbox_to_anchor=(0.55, 0.01))
+else:
+    axes[0].legend(frameon=False, fontsize=11.5, loc="upper left")
+fig.subplots_adjust(bottom=0.34 if R12 else 0.27, left=0.15, right=0.99, top=0.82)
 for ext in ("pdf", "png"):
     fig.savefig(run.dir / f"fig2_event.{ext}", dpi=200, metadata={"CreationDate": None} if ext == "pdf" else None)
 run.log("balanced_papers", int(et.n_ret.iloc[0]))

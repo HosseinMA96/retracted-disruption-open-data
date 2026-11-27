@@ -1,0 +1,12 @@
+Post-run validation record, 2026-11-27 UTC (not a captured stdout transcript).
+Run JSON and original SHA256SUMS preserved unchanged.
+PASS: Figure 1 PDF/PNG byte-identical to e06_fig_20261126_07.
+PASS: paired points, confidence intervals, counts and paired-input SHA-256 match e06_fig_20261126_07.
+PASS: current figure script SHA-256 matches run.json.
+PASS: figure PDFs/PNGs match the manuscript figure files.
+PASS: Figure 2 legend text is 11.5 pt native, below both dashed notice lines and axis labels.
+PASS: all Figure 2 text bounding boxes lie within the PDF canvas.
+PASS: original output checksums verified.
+Manuscript: identified journal/flat/arXiv PDFs agree; 33 pages; 171-word abstract.
+Table A.2 is on page 26; availability and all visible repository URL fragments are on page 27.
+Local builds used Tectonic, not pdfLaTeX. No statistical analysis or VM rerun.
