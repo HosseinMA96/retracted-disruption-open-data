@@ -17,7 +17,9 @@ project repository on 10 November 2026 at 04:02:19 UTC (Git commit
 (\texttt{e03\_cd5\_20261110\_01}); the evaluation run records the same hash. These files and provenance are available
 with the code, but the original repository and its commit history remain private: the cited commit cannot be
 inspected through the public release. The public provenance file reports this limitation explicitly.
-Git dates and local run records document the claimed ordering but are not an independently verifiable registry
-timestamp, so the design is described as pre-specified, not publicly pre-registered.
+Git dates and run records describe the claimed ordering, not an independently verifiable registry timestamp.
+VM analysis and laptop figure/Git records use different system clocks; cross-host timestamp strings are not
+directly comparable. Clock sources and discrepancies are documented in \texttt{spec\_provenance.json}.
+The design is described as pre-specified, not publicly pre-registered.
 The citing-record/journal sensitivity was recorded after the original results and published before execution in
 \href{https://github.com/HosseinMA96/retracted-disruption-open-data/commit/9c4ba4ca9bca39542f86a014bda2db463c1534ac}{the public P15 plan commit}.

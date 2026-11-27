@@ -46,3 +46,11 @@ Manuscript figure, first page and uniformly formatted Table 3 inspected after bu
 - **e06_fig_20261126_06**: current. Source fonts 11.5 pt (about 8.62 pt at manuscript width); Figure 1 is two by two,
   with shorter review labels, and Figure 2 has wrapped axis labels and control legend. Same E4/E8/P12 estimates.
   All rendered labels lie inside both PDF canvases. Earlier runs remain immutable.
+# e06_fig_20261127_09: visible forest null lines (v0.14)
+
+The four forest panels already had reference lines, but they were drawn beneath the grid.
+They now use a darker 1.1 pt dashed stroke above the grid and below the plotted estimates.
+Vector inspection confirms four null lines and unchanged non-null drawing objects and labels.
+All points/intervals and input runs are unchanged; the event PDF is byte-identical to _08.
+The flow figure is also unchanged. The Figure 2 caption identifies journal-year mean-gap intervals,
+distinct from the whole-journal intervals in the citing-record table. Run _08 remains immutable.

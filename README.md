@@ -121,7 +121,7 @@ are in [`REPRODUCE.md`](REPRODUCE.md).
 **JOI upload:** use the identified `paper/journals/joi/joi_latex_source.zip`, not a manuscript PDF or the legacy
 anonymized package. Separate highlights and an official declarations-tool statement are also required.
 See [`paper/journals/joi/UPLOAD.md`](paper/journals/joi/UPLOAD.md); nothing has been submitted.
-The v0.13 identified manuscript has a 202-word abstract and 35 pages. It reports both unfiltered and filtered DI_nok gaps, retains the original pre-specified CD results,
+The v0.14 identified manuscript has a 202-word abstract and 35 pages. It reports both unfiltered and filtered DI_nok gaps, retains the original pre-specified CD results,
 and adds a population flow. Detailed article-type, author-name and citing-record diagnostics are in the appendix.
 Local builds use Tectonic. Editorial Manager's pdfLaTeX PDF must still be reviewed,
 and Elsevier's declarations tool must always be completed at upload.
@@ -131,6 +131,9 @@ model-dependent reference-adjusted result. P15 increases, rather than removes, t
 annotation and retrospective retraction flags remain limitations. No journal or arXiv submission has been made.
 The separate [cover letter](paper/journals/joi/cover_letter.pdf) and its
 [editable source](paper/journals/joi/cover_letter.tex) identify the companion preprint and shared linked dataset.
+Mean-gap intervals in the forest use journal-year resampling; the citing-record table uses whole-journal
+resampling. All four forest panels mark the null. Clock sources and cross-host timestamp discrepancies are
+documented in `experiments/spec_provenance.json`; immutable dates are not adjusted.
 
 ## Data sources
 

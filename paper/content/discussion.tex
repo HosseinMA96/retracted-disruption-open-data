@@ -63,6 +63,8 @@ both groups nevertheless face the same cutoff within each publication year.
 Unrecognized notices, comments/letters and retracted citers can survive incomplete PubMed/Retraction Watch annotation.
 Citer retraction flags use the full snapshot, not status when citing. Filtering can change score availability and
 the compared population.
+Unretracted paper-mill citers and author self-citations can remain. The author-name check is not a citer-author
+matching analysis; removing graph self-loops does not remove author self-citations.
 
 Original intervals cluster by journal--year; the citing-record sensitivity resamples whole journals.
 Neither captures author dependence across journals. The author-name check removes about half the primary papers,

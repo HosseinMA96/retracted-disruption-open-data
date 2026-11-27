@@ -16,7 +16,7 @@
 | `e13_article_types/` | **Post hoc** P13: article-type restriction of both groups; frozen-score and original-estimate replay | `e13_articles_20261126_01` | `RESULTS_LOG.md` |
 | `e14_authors/` | **Post hoc** P14: exclude primary nodes linked to author names on at least ten retracted paper keys; baseline replay | `e14_authors_20261126_01` | `RESULTS_LOG.md` |
 | `e15_citers/` | **Post hoc** P15: citing-record exclusions, adjusted DI_nok mean, whole-journal bootstrap and top-ten-journal exclusion | `e15_citers_20261127_02`; population flow `e15_flow_20261127_02` (current; _01 preserved) | `RESULTS_LOG.md` |
-| `e06_figures/` | Paper figures from run records (laptop) | `e06_fig_20261127_08` (current; Figure 2 legend below axes, Figure 1 unchanged, 8.62 pt printed labels); paired annual intervals from P12 | `RESULTS_LOG.md` |
+| `e06_figures/` | Paper figures from run records (laptop) | `e06_fig_20261127_09` (current; four visible forest null lines, event unchanged, 8.62 pt printed base labels); paired annual intervals from P12 | `RESULTS_LOG.md` |
 
 Runs not cited carry a `SUPERSEDED.txt` with the reason: `e07_yearly_20261123_01`, `e08_posthoc2_20261123_01`
 (notice rule by type name; see POSTHOC.md P8 amendment), `e06_fig_20261110_01`, `_02`, `e06_fig_20261123_01` (layout).
@@ -24,7 +24,7 @@ Runs not cited carry a `SUPERSEDED.txt` with the reason: `e07_yearly_20261123_01
 | Record | Where |
 |---|---|
 | Pre-specified design | `../SPEC.md` (v1; its SHA-256 is in every run.json) |
-| Pre-specification commit/date and hash provenance | `spec_provenance.json` (private Git history, not a registry timestamp) |
+| Pre-specification commit/date, hash and clock-source provenance | `spec_provenance.json` (private Git history; VM/laptop timestamps are not directly comparable) |
 | Post hoc plans (written before each run) | `../POSTHOC.md` (its SHA-256 is in every post hoc run.json) |
 | Claim → number → run | `../FINDINGS.md` |
 | Lab notebook | `<exp>/RESULTS_LOG.md` |

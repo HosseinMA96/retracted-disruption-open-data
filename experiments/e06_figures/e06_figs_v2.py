@@ -54,7 +54,7 @@ for ax, (title, key, is_or, ref, cell, scale) in zip(axes, panels):
                 est, (lo, hi) = scale * x["diff"], [scale * v for v in x["diff_ci"]]
             ax.plot([lo, hi], [y] * 2, color=c, lw=1.5, solid_capstyle="round")
             ax.plot(est, y, marker=m, ms=4.5, color=c, mec="white", mew=0.7, ls="none", label=lab if (i == 0 and k != "REVIEWS") else None)
-    ax.axvline(ref, color="#8a8a85", lw=0.8, ls=(0, (3, 2)), zorder=0)
+    ax.axvline(ref, color=DARK, lw=1.1, ls=(0, (3, 2)), zorder=1.5)
     if is_or:
         ax.set_xscale("log"); ax.set_xlim(0.3, 2.6); ax.set_xticks([0.5, 1, 2]); ax.set_xticklabels(["0.5", "1", "2"])
         ax.xaxis.set_minor_formatter(matplotlib.ticker.NullFormatter())

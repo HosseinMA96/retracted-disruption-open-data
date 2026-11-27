@@ -339,3 +339,31 @@ The filtered confidence interval and every table result are unchanged. Current p
 The reference-only top-tier contribution is qualified by the reference-plus-citation model's imprecise contrast
 (P7 1.19, 0.96-1.47). Extreme-tail threshold sampling uncertainty is noted without introducing guessed counts.
 The separate public cover letter names arXiv:2611.10474 and the same linked dataset, DOI 10.5281/zenodo.23874477.
+
+## v0.14 disclosure, bootstrap labels and clock provenance (no statistical rerun)
+
+The author confirmed that he designed the study and specified every analysis, including exploratory checks.
+The AI disclosure retains drafting/code assistance and explicitly identifies that intellectual contribution.
+Elsevier's current author/figure policy was checked on 27 November 2026:
+https://www.elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals .
+The flow caption names the AI tool/version and its role in diagram code.
+
+All P1-P15 identifiers are mapped in the appendix, with P2 under three-year/control accounting and P4-P7
+under exploratory comparisons. Mean-gap intervals in the forest/Table A.3 resample journal-year strata;
+Table 3 resamples whole journals. Neither set of estimates or intervals was overwritten.
+Figure run `e06_fig_20261127_09` strengthens four existing null lines above the grid; plot marks are unchanged
+and the event PDF is byte-identical to _08.
+
+Reference volume years verified against Crossref published-print metadata:
+Leibel & Bornmann, Scientometrics 129(1), 601-639: 2024 (online 2023), DOI 10.1007/s11192-023-04873-5;
+Jiang & Liu, Journal of Information Science 52(3), 837-852: 2026 (online 2024),
+DOI 10.1177/01655515241263545. Internal citation keys remain stable; regenerated bibliography uses print years.
+
+`experiments/spec_provenance.json.clock_sources` identifies the VM and laptop clocks and client-generated
+Git dates, preserving every recorded timestamp. No synchronization check or measured offset is available;
+cross-host chronology is not claimed from timestamp strings alone. The note includes the actual run starts
+and c1d69e9 author/committer date, not a fabricated one-hour correction.
+
+No author self-citation exclusion or new-data replication was run. P14 names belong to Retraction Watch papers,
+not the complete citing population; they cannot establish author overlap for all remaining citers.
+Author self-citations and unretracted paper-mill citers are explicit limitations, distinct from excluded self-loops.

@@ -8,5 +8,18 @@
   "score_run_record": "experiments/e03_cd5/runs/e03_cd5_20261110_01/run.json",
   "evaluation_run_record": "experiments/e04_eval/runs/e04_eval_20261110_01/run.json",
   "independent_public_preregistration": false,
-  "qualification": "Git dates and local run records document ordering, not an independent registry timestamp. The original private project history is not included in the public companion repository."
+  "qualification": "Git dates and run records describe the claimed workflow ordering, not an independent registry timestamp. The original private project history is not included in the public companion repository. Mixed-clock timestamps are not directly comparable.",
+  "clock_sources": {
+    "analysis_runs": "P15 e15_citers_20261127_01/02 started_utc values were generated on the analysis VM (run.json host: vm-project-c), using time.strftime with time.gmtime on that host's system clock.",
+    "figure_runs": "P15 e15_flow_20261127_01/02 started_utc values were generated on the laptop (run.json host: Hossein), using the same formatter on its system clock.",
+    "git_dates": "Author and committer dates are client-generated Git timestamps from the local machine, not GitHub server receipt timestamps.",
+    "observed_records": {
+      "e15_citers_20261127_01_started_utc": "2026-11-27T06:33:23Z",
+      "e15_citers_20261127_02_started_utc": "2026-11-27T06:49:20Z",
+      "e15_flow_20261127_01_started_utc": "2026-11-27T05:55:21Z",
+      "e15_flow_20261127_02_started_utc": "2026-11-27T06:22:55Z",
+      "c1d69e904178a0d4550720d9365c827c319f181a_committer_date": "2026-11-26T23:03:54-07:00"
+    },
+    "limitation": "These records are non-monotonic across clock sources. No recorded synchronization check or measured offset is available, so an exact one-hour correction is not asserted. Original timestamps and run checksums are preserved; cross-host chronology cannot be established from the timestamp strings alone."
+  }
 }

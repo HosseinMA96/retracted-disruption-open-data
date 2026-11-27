@@ -54,7 +54,8 @@ This population contains every paper above; its accounting is in \ref{sec:append
 \caption{Five-year population and comparison flow. The control pool is drawn for all eligible retracted papers,
 not only late-retracted papers. Undefined scores and strata without a defined control score are excluded.
 The last box shows the exploratory DI$_{nok}$ comparison after removing notice, comment/letter and retracted
-citing records; original references and control draws remain fixed.}
+citing records; reference lists and control draws remain fixed. GitHub Copilot CLI 1.0.116 assisted with
+the diagram code; counts are taken from the logged inputs.}
 \label{fig:population}
 \end{figure}
 
@@ -119,7 +120,7 @@ stratum by its compared retracted papers, with 95\% intervals from 2,000 resampl
 
 Additional checks restrict both populations by PubMed publication types and exclude primary papers linked to
 frequently retracted author names. Their definitions, population accounting and full results are in
-\ref{sec:appendix}. Original controls, scores and thresholds remain fixed; these earlier checks resample journal $\times$ year.
+\ref{sec:appendix}. Controls, scores and thresholds remain fixed; the article-type and author-name checks resample journal $\times$ year.
 
 \paragraph{Citing records and journal dependence} A further exploratory check removes citing records identified
 as notices (the same types and links as below), Comment or Letter in PubMed, or retracted in the full frozen

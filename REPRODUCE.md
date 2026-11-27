@@ -54,7 +54,7 @@ Run each from its experiment folder: `python <script> <args>`.
 | P14 author-name exclusion | `e14_authors/e14_authors.py e14_authors_20261126_01` (frozen tables and raw RW CSV, no graph rerun) | 19 s |
 | Test of P15 (synthetic filtered counts and independent weighted least squares) | `e15_citers/test_citers.py` | seconds |
 | P15 citing-record filters, adjusted DI_nok means and journal sensitivities | `e15_citers/e15_citers.py e15_citers_20261127_02` | 2:49 |
-| Figures (laptop) | `e06_figures/e06_figs_v2.py e06_fig_20261127_08 e04_eval_20261110_01 e04_eval_cd3_20261110_01 e08_posthoc2_20261123_02 e09_pretrend_20261123_01 e12_diag_20261126_01` | seconds |
+| Figures (laptop) | `e06_figures/e06_figs_v2.py e06_fig_20261127_09 e04_eval_20261110_01 e04_eval_cd3_20261110_01 e08_posthoc2_20261123_02 e09_pretrend_20261123_01 e12_diag_20261126_01` | seconds |
 | Population flow (laptop) | `e15_citers/flow_diagram.py e15_flow_20261127_02 e15_citers_20261127_02` | seconds |
 | Paper | `cd paper/journals/joi && tectonic -X compile main.tex`; upload packages: `./build_submission.sh` | – |
 
@@ -72,12 +72,17 @@ Run each from its experiment folder: `python <script> <args>`.
   and legends print at about 8.62 pt. Earlier figure runs remain immutable, and plotted values are unchanged,
   with TrueType fonts retaining en dashes.
   Run _08 moves the event legend below both axes, clear of the notice lines; the forest is byte-identical to _07.
+  Run _09 makes all four forest null lines visible above the grid without changing plot marks; the event remains
+  byte-identical to _08. The forest caption names the journal-year bootstrap for its mean-gap intervals.
   The population flow is now Figure 1, the forest Figure 2 and the event plot Figure 3.
   Flow run _02 corrects subscript notation and puts exclusions before the final eligible count; all inputs and
   numbers match _01. The old flow source is preserved in commit c1d69e904178a0d4550720d9365c827c319f181a.
 - Pre-specification provenance: `experiments/spec_provenance.json`, the unchanged `SPEC.md`, and the score and
   evaluation run records. The original private Git commit is dated before scoring; this is not an independent public
   preregistration timestamp. The original commit history remains private and cannot be inspected in this release.
+  P15 VM run timestamps and laptop figure timestamps come from different host clocks; Git author/committer
+  dates are client-generated. `clock_sources` documents the non-monotonic records without claiming a measured
+  one-hour offset or rewriting immutable timestamps. Cross-host timestamp strings alone cannot prove chronology.
 - P13 replays both original primary comparisons and all six P7 models before filtering. It verifies frozen score
   and label hashes, reproduces the original review flags, and records type-source, script, helper and pre-run plan
   hashes. It retains Journal Article, excludes review/editorial/notice types on any linked record, and deliberately

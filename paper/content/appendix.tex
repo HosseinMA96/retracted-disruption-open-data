@@ -2,7 +2,7 @@
 \setcounter{table}{0}
 \renewcommand{\theHtable}{\theHsection.\arabic{table}}
 \section{Exploratory diagnostics and accounting}\label{sec:appendix}
-The identifiers P1--P15 refer to the archived plans in \texttt{POSTHOC.md}; the code's experiment index and
+The identifiers P1--P15 label one set of exploratory analyses, indexed in \texttt{POSTHOC.md}; the experiment index and
 claim-to-run map link them to immutable results. These analyses were added after the primary results were known.
 
 \subsection{Reference and citation counts (P1)}
@@ -48,7 +48,7 @@ For the median scored paper, 2,862 papers in the window cite only its references
 paper itself. The $n_k$ term accounts for at least 90\% of the CD$_5$ denominator for 97.9\% of papers.
 Thus a citation-composition difference can change the sign while producing only a small difference in CD$_5$.
 
-\subsection{Controls behind the primary comparisons (P11)}
+\subsection{Three-year window and control accounting (P2 and P11)}
 The 52,147 controls were drawn for all 10,450 retracted papers. The CD$_5$ primary comparison uses 2,239 strata
 with 4,586 scored retracted papers and 31,674 controls, of which 12 have undefined scores, leaving 31,662.
 The remaining controls belong to strata without a primary retracted paper in the comparison.
@@ -60,7 +60,7 @@ reported in the main comparisons. CD$_3$ has 7,349 scored primary papers, of whi
 
 \subsection{Article-type sensitivity (P13)}
 The fixed filter is recorded in \texttt{POSTHOC.md} before the run. Publication types are unioned over the same
-PMID/DOI links used to build the original populations. Journal Article is required; any linked review,
+PMID/DOI links used to build the study populations. Journal Article is required; any linked review,
 systematic review, meta-analysis, editorial, letter, comment, erratum, retraction-notice or expression-of-concern
 type excludes the paper. Retracted Publication is retained because it labels the original article, not its notice.
 Missing publication types are excluded and counted.
@@ -69,7 +69,7 @@ and 43,152 of 52,147 controls satisfy the filter; all 3,528 retracted papers and
 scores. Of these, 3,521 and 23,839, respectively, enter 1,841 comparison strata.
 For CD$_3$, 5,600 of 7,350 primary papers and 56,842 of 68,190 controls satisfy the filter; 5,599 and 56,822 have
 defined scores, and 5,592 and 37,334 enter 2,735 comparison strata. No controls are redrawn; thresholds remain those
-of the original reference sample. Thus this check isolates type eligibility, not an article-only recalibration
+of the reference sample. Thus this check isolates type eligibility, not an article-only recalibration
 of the top-5\% threshold.
 
 \begin{table}[!htbp]
@@ -126,7 +126,7 @@ For CD$_5$, the positive-score odds ratio is 1.26 (1.12--1.41) and the top-5\% o
 The CD$_3$ mean gap is 0.00063 ($-0.00047$ to $0.00184$), positive-score odds ratio 1.32 (1.21--1.44), and
 top-5\% odds ratio 1.03 (0.85--1.25). Table~\ref{tab:authors} gives mean contrasts by reason class; all
 odds ratios and aggregate coverage are in the run record. Original CD mean intervals, odds ratios and comparison
-counts, and DI$_{nok}$ mean points and counts, are reproduced before exclusion. The new intervals use 2,000
+counts, and DI$_{nok}$ mean points and counts, are reproduced before exclusion. Mean intervals use 2,000
 journal--year bootstrap resamples. Only aggregates are released, not author names or paper-name associations.
 
 \begin{table}[!htbp]
@@ -155,8 +155,8 @@ Other & 1,108 / 1,039 & 3.13 (0.17, 6.87) & 0.074 (0.035, 0.115) \\
 \bottomrule
 \end{tabular}}
 \end{table}
-\subsection{Earlier explanatory estimates}
-Table~\ref{tab:posthoc} preserves the exploratory results from the original scores.
+\subsection{Exploratory comparisons (P4--P7)}
+Table~\ref{tab:posthoc} summarizes exploratory comparisons using unfiltered citing records.
 For the unfiltered five-year DI$_{nok}$ comparison, the matched group means are $-0.309$ for retracted papers
 and $-0.376$ for controls (4,517 compared retracted papers). The gap is 0.083 (0.058--0.109) for misconduct,
 0.049 (0.019--0.078) for other reasons, 0.054 ($-0.003$ to 0.120) for paper mills and
@@ -165,7 +165,8 @@ are 65.5\% and 68.8\% overall. These unfiltered estimates are distinct from the 
 
 \begin{table}[!htbp]
 \centering
-\caption{Earlier exploratory estimates (95\% intervals unless stated). CD$_5$ checks use original unfiltered
+\caption{Exploratory comparisons (95\% intervals unless stated). Mean-gap intervals resample journal--year strata.
+CD$_5$ checks use unfiltered
 window counts; the before--after comparison uses the 2000--2019 population with notice records excluded.
 $n$: papers compared (reviews in the positive control); conditional-logit counts exclude strata without outcome variation.}
 \label{tab:posthoc}
@@ -193,9 +194,9 @@ Matched mean log reference count difference & 0.084 (0.058, 0.109) & 4,586 \\
 \end{table}
 \subsection{Citing-record exclusions and journal dependence (P15)}
 The complete plan was published before execution; its commit link is in the data and code availability statement.
-The run reproduces original DI$_{nok}$ means and per-paper window counts, including the notice-removal counts
-from P8. The new intervals use 2,000 whole-journal bootstrap draws; historical intervals in
-Table~\ref{tab:posthoc} and Fig.~\ref{fig:forest} remain journal--year intervals.
+The run verifies unfiltered DI$_{nok}$ means and per-paper window counts, including the notice-removal counts
+from P8. Citing-record mean intervals use 2,000 whole-journal bootstrap draws;
+Table~\ref{tab:posthoc} and Fig.~\ref{fig:forest} use journal--year mean-gap intervals.
 Across the union of both focal populations and windows, 1,384,201 of 1,700,837 citing events match PubMed;
 1,384,200 have a known publication type. The union of the three exclusion categories contains 37,961 events,
 with overlaps removed once.
@@ -224,7 +225,7 @@ For the three-year window they are 0.101 (0.069--0.129; 4,039), 0.089 (0.062--0.
 \begin{table}[!htbp]
 \centering
 \caption{DI$_{nok}$ population accounting for citing-record sensitivity. Defined counts precede the requirement
-that a stratum contain both groups; compared counts follow it. Full filter: notices, Comment/Letter and retracted
+that a stratum contain both groups; compared counts follow it. Full filter: notices, comment/letter and retracted
 citing papers. Top ten: original primary-count journal ranking.}
 \label{tab:citercounts}
 \small
@@ -237,14 +238,14 @@ Filter & Retracted & Controls & Retracted & Controls & Strata & Journals \\
 \multicolumn{7}{l}{Five-year window} \\
 Unfiltered & 4,518 & 50,039 & 4,517 & 30,482 & 2,196 & 974 \\
 Notices & 4,518 & 50,038 & 4,517 & 30,482 & 2,196 & 974 \\
-Also Comment/Letter & 4,514 & 49,928 & 4,513 & 30,423 & 2,195 & 974 \\
+Also comment/letter & 4,514 & 49,928 & 4,513 & 30,423 & 2,195 & 974 \\
 Full filter & 4,505 & 49,923 & 4,504 & 30,389 & 2,190 & 972 \\
 Full, exclude top ten & 3,014 & 39,552 & 3,013 & 20,111 & 2,100 & 962 \\
 \midrule
 \multicolumn{7}{l}{Three-year window} \\
 Unfiltered & 7,125 & 63,875 & 7,122 & 45,106 & 3,188 & 1,306 \\
 Notices & 7,124 & 63,867 & 7,121 & 45,101 & 3,188 & 1,306 \\
-Also Comment/Letter & 7,111 & 63,695 & 7,108 & 44,990 & 3,185 & 1,305 \\
+Also comment/letter & 7,111 & 63,695 & 7,108 & 44,990 & 3,185 & 1,305 \\
 Full filter & 7,091 & 63,682 & 7,088 & 44,918 & 3,176 & 1,302 \\
 Full, exclude top ten & 5,060 & 51,911 & 5,057 & 33,236 & 3,081 & 1,292 \\
 \bottomrule
