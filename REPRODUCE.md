@@ -119,6 +119,9 @@ Run each from its experiment folder: `python <script> <args>`.
   same rule. Matches stay fixed during 2,000 whole-journal draws (seed 20261109, child offset 4000).
   Metadata lookup is bounded and materialized before nested fields, with one DuckDB thread/6 GB limit.
   `vm/run_p16.sh` runs tests/analysis; publication-level types, topics and matches stay on the VM.
+  The frozen parser records major flags on DescriptorName, not QualifierName. A read-only synthetic audit
+  confirms qualifier-only flags are omitted; P16 therefore tests descriptor-major matching, not all major headings.
+  See `experiments/e16_topic/RESULTS_LOG.md`. Recovering qualifier-only flags requires a new extraction and planned rerun.
 
 ## Submission document build
 `paper/journals/joi/build_submission.sh` also invokes `build_declaration.py` to create the editable
@@ -131,8 +134,10 @@ files and the required Editorial Manager pdfLaTeX-generated PDF check.
 The build also compiles the separate cover letter; both `cover_letter.tex` and `cover_letter.pdf` are released.
 It names the companion arXiv preprint and shared linked dataset. The cover letter is not part of the manuscript ZIP.
 The build also creates `highlights.docx` from `highlights.txt` and checks paragraph text and the 85-character limit.
-JOI's journal-specific mandatory/optional status remains unverified because its guide returned HTTP 403;
-see the official Elsevier general guidance and uncertainty recorded in `UPLOAD.md`.
+The author confirmed mandatory separate highlights (3--5 bullets, at most 85 characters) and a 200-word
+abstract limit. Direct access to the current publisher guide remains blocked; see `UPLOAD.md` for the source distinction.
+The v0.16 build has a 199-word abstract, five highlights with a maximum of 84 characters, review line numbers,
+and AI-code assistance disclosed in each figure caption. All three figure PDFs and empirical results are unchanged.
 
 ## 5. Runs not cited
 - `e16_topic_20261127_01`: stalled before estimates (14:10.82, peak RSS 13,613,512 KB), terminated by known PID.

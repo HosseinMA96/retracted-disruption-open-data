@@ -1,8 +1,8 @@
 % Paper E, JOURNAL OF INFORMETRICS version (Elsevier elsarticle, author-year).
 % Text comes from ../../content/ (central version); only layout and journal-specific placement live here.
 % JOI guide not reachable by script (403); user confirmed single-anonymized review on 2026-11-26.
-% Confirm on the official page: abstract length, highlights,
-% keywords. Elsevier-wide rules applied: highlights 3-5 x <= 85 characters; AI declaration title and wording (2026-11-23).
+% Author-confirmed JOI requirements (2026-11-27): abstract <=200 words; separate editable highlights, 3-5 x <=85.
+% Elsevier AI policy read 2026-11-27; image-code assistance disclosed in captions as well as Methods/declaration.
 % Upload the identified source package from build_submission.sh; keep \anonfalse and the public GitHub link.
 % Build locally: tectonic -X compile main.tex (Elsevier compiles with pdflatex + bibtex).
 \documentclass[preprint,12pt,authoryear]{elsarticle}
@@ -11,6 +11,7 @@
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{placeins}
+\usepackage{lineno}
 \usepackage{xcolor}
 \usepackage{xurl}
 \usepackage[hidelinks]{hyperref}
@@ -44,6 +45,7 @@ postcode={98052-7329}, country={USA}}
 disruption index \sep CD index \sep retraction \sep research integrity \sep paper mills \sep OpenCitations
 \end{keyword}
 \end{frontmatter}
+\linenumbers
 
 \input{../../content/intro}
 \input{../../content/related}
@@ -61,7 +63,9 @@ Bars: 95\% intervals. Panel 1 retains the pre-specified journal--year bootstrap;
 panel 4 resamples whole journals, as does Table~\ref{tab:citers}.
 Dashed lines mark the null (0 for mean gaps, 1 for odds ratios).
 Circles: CD$_5$, papers 2000--2017, retracted after the five-year window
-(pre-specified). Squares: CD$_3$, papers 2000--2019, retracted after the three-year window (post hoc).}
+(pre-specified). Squares: CD$_3$, papers 2000--2019, retracted after the three-year window (post hoc).
+Claude Opus 5.5 (Anthropic) assisted plotting code; GitHub Copilot CLI 1.0.116 (GitHub) assisted code and layout
+revisions. The plotted values come directly from the reproducible analysis records.}
 \label{fig:forest}
 \end{figure}
 
@@ -78,7 +82,9 @@ annual DI$_{nok}$ gap, each retracted paper minus its same-journal--year control
 2,000 bootstrap resamples of strata. Positive values mean papers that cite a retracted paper are less likely to also
 cite its references than are papers citing its controls. Only defined pairs contribute; their numbers vary by year (\ref{sec:appendix}).
 Right: citing papers per paper and year, including zero counts, in this balanced population, not the broader
-5,100-paper window comparison.}
+5,100-paper window comparison.
+Claude Opus 5.5 (Anthropic) assisted plotting code; GitHub Copilot CLI 1.0.116 (GitHub) assisted code and layout
+revisions. The plotted values come directly from the reproducible analysis records.}
 \label{fig:event}
 \end{figure}
 

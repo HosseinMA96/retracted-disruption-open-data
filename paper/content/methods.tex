@@ -51,7 +51,7 @@ This population contains every paper above; its accounting is in \ref{sec:append
 \caption{Five-year population and comparison flow. The control pool is drawn for all eligible retracted papers,
 not only late-retracted papers. Undefined scores and strata without a defined control score are excluded.
 The last box shows the exploratory DI$_{nok}$ comparison after removing notice, comment/letter and retracted
-citing records; reference lists and control draws remain fixed. GitHub Copilot CLI 1.0.116 assisted with
+citing records; reference lists and control draws remain fixed. GitHub Copilot CLI 1.0.116 (GitHub) assisted with
 the diagram code; counts are taken from the logged inputs.}
 \label{fig:population}
 \end{figure}
@@ -87,17 +87,19 @@ The post hoc variant without $n_k$,
 \end{equation}
 was proposed by \citet{wuyan2019solo} and studied as DI$_1^{nok}$ by \citet{bornmann2020convergent}. It depends only on
 the papers that cite $f$ and is defined when there is at least one; $(1 - \mathrm{DI}_{nok})/2$ is the share of
-citing papers that also cite a reference. CD and DI$_{nok}$ always have the same sign.
+citing papers that also cite a reference. When both are defined, CD and DI$_{nok}$ have the same sign.
+Although DI$_5$ performed best in a physics-paper peer-validation study \citep{bornmann2021milestones},
+our exploratory question is narrower: removing only $n_k$ isolates citer composition and gives a direct share
+of citers, rather than selecting the best measure of innovation.
 
-The scorer reads focal IDs and years, not retraction labels; reference-sample overlaps are deduplicated for scoring.
-Its output was hashed before evaluation joined
-the labels; evaluation verifies that hash. The DuckDB implementation \citep{raasveldt2019duckdb} reproduces
-brute-force counts on random graphs. A separate label-free yearly counter reproduces the frozen window counts;
-its output is also hashed before labels are joined. Full validation and population accounting are in the run records.
+Scores are computed without retraction labels; reference-sample overlaps are deduplicated.
+Outputs are hashed before evaluation joins the labels. Brute-force tests validate the DuckDB counts
+\citep{raasveldt2019duckdb}; a separate label-free yearly counter reproduces the window counts.
+Public records document these checks.
 
 \subsection{Analyses}
 The primary questions and robustness checks were specified before scoring. Exploratory analyses were planned after
-the primary results were known, with each plan recorded before its run in \texttt{POSTHOC.md}.
+the primary results were known, with each plan recorded before execution in the public repository.
 \begin{itemize}
 \item \textbf{RQ1 (primary):} the mean difference in CD$_5$ between retracted papers and their controls within
 journal $\times$ year strata, averaged over retracted papers, with a 95\% interval from 2,000 bootstrap resamples of
@@ -124,12 +126,15 @@ frequently retracted author names. Their definitions, population accounting and 
 \ref{sec:appendix}. Controls, scores and thresholds remain fixed. CD mean intervals retain the original
 journal--year resampling; fixed-window DI$_{nok}$ mean intervals resample whole journals.
 
-The metadata audit prioritizes native PMID sources, falling back to non-notice DOI matches.
-Topic matching selects up to five original same-journal/year controls with highest positive major-MeSH Jaccard
-overlap, using deterministic hash ties and allowing reuse. Defined five-year DI$_{nok}$ and major descriptors
-are required for unfiltered scores. Per-paper gaps use selected-control means; baselines use all descriptor-eligible stratum controls
-for exactly the same retained papers. Both checks repeat with the article-type filter.
-Whole-journal intervals keep matches fixed; losses and complete rules are in the appendix and public plan.
+In the metadata audit, records linked by a paper's own PMID take priority over records linked only by DOI.
+When no PMID match exists, identified notices are excluded from DOI matches.
+The topic check uses unfiltered five-year scores and descriptor-level major MeSH tags.
+For each retracted paper, we select up to five original controls from its journal and year with the greatest
+positive Jaccard overlap of these tags. A fixed hash breaks ties, and a control can be used more than once.
+We compare each paper with the average score of its selected controls. To assess the effect of this selection,
+we also compare these same papers with all controls in their stratum that have usable tags.
+Both comparisons are repeated with the article-type filter. Matches stay fixed during journal resampling;
+coverage and definitions are in the appendix.
 
 \paragraph{Citing records and journal dependence} A further exploratory check removes citing records identified
 as notices (the same types and links as below), Comment or Letter in PubMed, or retracted in the full frozen
@@ -137,36 +142,33 @@ Retraction Watch mapping or PubMed. Flags are unioned over PMID/exact-DOI matche
 once. Retraction flags use the full snapshot irrespective of notice date. The reference lists remain unchanged.
 DI$_{nok}$ requires at least one remaining citer; controls and comparison strata are re-evaluated after filtering.
 
-For the mean DI$_{nok}$ contrast, paper-level weighted linear regressions include journal--year fixed effects,
-a retracted indicator, $\log(1+\text{references})$ and then $\log(1+\text{remaining citing papers})$.
-Each retracted paper has weight 1; each control has weight $n_r/n_c$ in its stratum, where $n_r,n_c$ are the
-compared group counts. Without covariates, this coefficient equals the matched mean gap.
-Intervals use 2,000 bootstrap resamples of whole journals, retaining all their years together. A sensitivity
-uses original rather than remaining citation counts. Another excludes the ten journals with the most original
-primary-set retractions, with ties ordered by journal identifier. Full definitions and results are in \ref{sec:appendix}.
+We also compare mean DI$_{nok}$ after adjusting for reference and citation counts in weighted linear models.
+The models include journal--year fixed effects, a retracted indicator, $\log(1+\text{references})$ and then
+$\log(1+\text{remaining citing papers})$. Each retracted paper has weight 1; each control has weight $n_r/n_c$,
+where $n_r,n_c$ are the compared group counts in its stratum. Without adjustment, the coefficient is the matched
+mean gap. The 2,000 bootstrap draws resample whole journals, keeping each journal's years together.
+One check uses original citation counts; another excludes the ten journals with the most primary-set
+retractions, ranked before filtering, with journal-identifier tie breaks.
 
-For changes around the notice, papers from 2000--2019 with retraction year $R$ between $t+1$ and 2021 were
-compared over citing years $R-3$ to $R-1$ (not before $t$) and $R+1$ to $R+3$ (not after 2022), excluding year $R$
-and notice records and requiring at least one citing paper in both periods. The change in DI$_{nok}$ minus
-the stratum-control mean change is a descriptive difference in differences. Notice records are identified through
-PubMed retraction-notice, erratum and expression-of-concern types or their corresponding comment/correction links.
-A placebo notice three years earlier and a balanced annual event-time population examine earlier trends.
-Matched annual diagnostics estimate mean paired annual gaps with 95\% strata-bootstrap intervals: a paper contributes only when
-its score and its stratum-control mean are both defined. Annual pair counts therefore vary.
+For the before--after comparison, we use papers published in 2000--2019 and retracted in year $R$, between $t+1$
+and 2021. We compare the three years before the notice ($R-3$ to $R-1$, no earlier than $t$) with the three years
+after it ($R+1$ to $R+3$, no later than 2022). Year $R$ and notice records are excluded, and both periods must
+contain a citing paper. Each paper's DI$_{nok}$ change is compared with its controls' mean change.
+This is a descriptive difference in differences, not an effect attributed to retraction.
+PubMed types and comment/correction links identify notices, errata and expressions of concern.
+We examine earlier trends with a placebo notice three years earlier and an annual plot restricted to papers
+published at least three years before the notice, with the notice no later than 2019.
+An annual pair contributes only when both the paper's score and its control mean are defined, so pair counts
+vary by year. Its 95\% intervals resample journal--year strata.
 
-A three-year scoring window extends the publication years to 2019. The 90\% interval bounds,
-count summaries, notice and timing diagnostics, denominator size and control
-accounting are documented in \ref{sec:appendix}. No multiplicity correction is applied to
-these exploratory analyses.
-Only group-level results are reported. No per-paper score of a non-retracted paper is released.
+The appendix gives interval bounds, denominator diagnostics and population counts.
+No multiplicity correction is applied to these exploratory analyses.
 
 \paragraph{Software and AI assistance} The analyses ran in Python 3.11 with DuckDB 1.5, pandas 3.1, NumPy 2.4, SciPy
 1.17 and statsmodels 0.15 on one cloud machine; figures were drawn from the run records with Matplotlib 3.10.8,
 developed by the Matplotlib development team. The
-analysis and figure scripts were written with the help of a generative AI assistant (Claude Opus 5.5, Anthropic) under
-the author's direction. GitHub Copilot CLI 1.0.116, developed by GitHub and powered by OpenAI's GPT-6.1 Sol,
-was used for additional
-analysis code, figure-layout revisions
-and manuscript checks. Excluded-citer counts, weighted regressions and matching logic were tested on synthetic data.
-Evaluation scripts reproduce their parent estimates before adding analyses; code and checksummed records are public
-(see data and code availability).
+analysis and original plotting scripts were written with Claude Opus 5.5 (Anthropic) under the author's direction.
+GitHub Copilot CLI 1.0.116, developed by GitHub and powered by OpenAI's GPT-6.1 Sol, assisted added analysis code,
+the flow-diagram code, layout revisions and manuscript checks. Synthetic tests check citation counts,
+regressions and matching. Scripts reproduce the estimates they build on before adding analyses.
+Code and checksummed records are public (see data and code availability).

@@ -1,27 +1,18 @@
 % Public companion repository is built by ../../release/build_release.sh.
-Citation data: \citet{arjomandi2024dataset}; identifiers, years and journals: \citet{ocmeta2024dump}; retractions:
-the Retraction Watch database distributed by Crossref (repository commit of 30 October 2026), linked to the graph as
-published in \citet{arjomandi2026retracteddata}; PubMed 2026 baseline courtesy of the U.S. National Library of
-Medicine. Scripts, the specification files with their recorded hashes, run records with checksums, the aggregate result
-tables and a map from every number in this article to the run that produced it:
+Citation data \citep{arjomandi2024dataset}, OpenCitations metadata \citep{ocmeta2024dump} and linked Retraction Watch
+labels \citep{arjomandi2026retracteddata} are public; PubMed metadata use the 2026 baseline from the
+U.S. National Library of Medicine.
+Scripts, specifications, checksummed records, aggregate tables and the claim-to-result map are available at
 \ifanon [repository link removed for anonymized review]\else
 \url{https://github.com/HosseinMA96/retracted-disruption-open-data}\fi. Per-paper scores of non-retracted papers are
-not released. This is a reporting choice, not a restriction imposed by the source data: scores could be mistaken for
-paper-level integrity labels, so only aggregate comparisons are published for non-retracted papers. All source data
-and scripts needed to recompute those scores are identified above and in the repository.
+not released because they could be mistaken for integrity labels, not because of a source-data restriction.
+The public inputs and code allow recomputation.
 
-\paragraph{Pre-specification record} The unchanged specification is \texttt{SPEC.md}, committed in the private
-project repository on 10 November 2026 at 04:02:19 UTC (Git commit
-\texttt{293755b1cb7087d6f226d6f96f4b97cb0148e4c5}). Its full SHA-256 is recorded in the public
-\texttt{spec\_provenance.json} and the score run's \texttt{run.json}, which reports a start time of 06:12:02 UTC the same day
-(\texttt{e03\_cd5\_20261110\_01}); the evaluation run records the same hash. These files and provenance are available
-with the code, but the original repository and its commit history remain private: the cited commit cannot be
-inspected through the public release. The public provenance file reports this limitation explicitly.
-Git dates and run records describe the claimed ordering, not an independently verifiable registry timestamp.
-VM analysis and laptop figure/Git records use different system clocks; cross-host timestamp strings are not
-directly comparable. Clock sources and discrepancies are documented in \texttt{spec\_provenance.json}.
-The design is described as pre-specified, not publicly pre-registered.
-The citing-record/journal sensitivity was recorded after the original results and published before execution in
-\href{https://github.com/HosseinMA96/retracted-disruption-open-data/commit/9c4ba4ca9bca39542f86a014bda2db463c1534ac}{the public P15 plan commit}.
-The identifier-aware type audit, major-MeSH matching and fixed-window interval rules were likewise recorded in
-\href{https://github.com/HosseinMA96/retracted-disruption-open-data/commit/018d835f7db497a788320977d54d4b62f3755918}{the public P16 plan commit}.
+\paragraph{Pre-specification record} The design was recorded on 10 November 2026 before scoring;
+the unchanged specification, hashes and detailed timing records are documented in
+\texttt{SPEC.md} and \texttt{spec\_provenance.json}.
+The original history remains private and uses mixed system clocks, so these records are not an independently
+verifiable public preregistration.
+Exploratory plans were published before execution:
+\href{https://github.com/HosseinMA96/retracted-disruption-open-data/commit/9c4ba4ca9bca39542f86a014bda2db463c1534ac}{citing-record and journal sensitivity}, and
+\href{https://github.com/HosseinMA96/retracted-disruption-open-data/commit/018d835f7db497a788320977d54d4b62f3755918}{type-linkage audit, topic matching and interval rules}.

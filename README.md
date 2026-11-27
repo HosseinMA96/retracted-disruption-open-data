@@ -46,8 +46,8 @@ labelled post hoc, and each plan was written down before it was run.
 | Original union-link type filter (P13), reference-adjusted CD5 top 5% | 1.64 (1.28-2.10); matched mean-log reference gap +0.064 (0.045-0.083) |
 | PMID-prioritized article types (P16), CD3 top 5% | 1.21 (1.04-1.42), 5,736 compared retracted papers / 37,776 controls |
 | Author-name exclusion (P14), five-year DI_nok, whole-journal interval | +0.061 (0.033-0.089), 2,260 compared papers; 2,280 primary papers removed |
-| Major-MeSH matching (P16), only 540 retained papers | +0.050 (-0.012 to 0.097); exact-retained-paper baseline +0.082 (-0.006 to 0.136): inconclusive |
-| Major-MeSH matching with PMID-prioritized article types, 417 papers | +0.063 (-0.003 to 0.124); exact-retained baseline +0.086 (-0.005 to 0.148): inconclusive |
+| Descriptor-major MeSH matching (P16), only 540 retained papers | +0.050 (-0.012 to 0.097); exact-retained-paper baseline +0.082 (-0.006 to 0.136): inconclusive |
+| Descriptor-major MeSH matching with PMID-prioritized article types, 417 papers | +0.063 (-0.003 to 0.124); exact-retained baseline +0.086 (-0.005 to 0.148): inconclusive |
 | Author-name exclusion (P14), three-year top 5% | 1.03 (0.85-1.25), 3,626 compared papers |
 | Size of n_k for the median paper | 2,862 papers citing only the references vs 12 citing the paper |
 | Change in DI_nok after vs before the notice, minus controls (post hoc) | +0.074 (0.050–0.097); placebo 3 years earlier +0.036 |
@@ -59,6 +59,7 @@ As a robustness check, the contrast persists after removing notices, comments/le
 adjusting reference and citation counts, and excluding the ten highest-retraction journals.
 PMID priority corrects some DOI-only type propagation; 21.0% of primary papers and 17.2% of drawn controls
 still fail the broad article filter. Topic matching has limited coverage and does not confirm the gap.
+The frozen extract records descriptor-major tags, not qualifier-only major tags; this is not complete major-heading coverage.
 Original union-link article models retain the reference imbalance; type flags do not guarantee original research.
 The n_k term compresses the citation-composition gap, and scores including post-retraction years are shifted. Every
 number above is traced in [`FINDINGS.md`](FINDINGS.md). Mean-log reference gaps describe the direction of imbalance,
@@ -124,12 +125,17 @@ cd paper/journals/joi && tectonic -X compile main.tex
 are in [`REPRODUCE.md`](REPRODUCE.md).
 
 **JOI upload:** use the identified `paper/journals/joi/joi_latex_source.zip`, not a manuscript PDF or the legacy
-anonymized package. The official declarations tool must be completed; a Word highlights file is prepared,
-but JOI-specific mandatory/optional status remains unverified.
+anonymized package. The official declarations tool must be completed; the required separate editable
+highlights file contains five bullets, each at most 84 characters. The author confirmed the 200-word abstract
+and mandatory-highlights requirements; direct access to the current publisher guide remains blocked.
 See [`paper/journals/joi/UPLOAD.md`](paper/journals/joi/UPLOAD.md); nothing has been submitted.
-The v0.15 revision leads with unfiltered DI_nok and credits earlier denominator work.
+The v0.16 revision leads with unfiltered DI_nok and credits earlier denominator work.
 It retains the original pre-specified CD results, adds the identifier-aware type audit and inconclusive topic check,
 and standardizes fixed-window DI_nok intervals to whole journals.
+The validated identified/flat/arXiv builds have 35 pages, a 199-word abstract and approximately 9,469 words
+before References, excluding review-margin line numbers. Review line numbers and truthful AI-code disclosures
+are included; figure data and all statistical results are unchanged. Dense methods/appendix prose is simplified.
+The MeSH parser audit is documented in the topic notebook; no broader extraction or empirical rerun was performed.
 Local builds use Tectonic. Editorial Manager's pdfLaTeX PDF must still be reviewed,
 and Elsevier's declarations tool must always be completed at upload.
 The abstract defines late retraction and the five-year index, and explains the denominator mechanism.

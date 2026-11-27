@@ -1,5 +1,5 @@
-The CD index of 4,587 biomedical papers, scored before their retraction
-Primary five-year CD: small mean gap, more positive scores, no clear top-5% excess
-Papers citing a retracted paper are less likely to also cite its references
-CD windows should end before the retraction notice, with notice records removed
-After the retraction notice the gap widens, partly continuing a trend
+On the five-year CD index, late-retracted papers show no clear mean or top-tier gap
+Citers of late-retracted papers co-cite their references less often (65.5% vs 68.8%)
+Papers citing only the references dominate the CD denominator, masking this gap
+Without the reference-only term (DInok), late-retracted papers score 0.067 higher
+End scoring windows before the first retraction notice; drop notice records

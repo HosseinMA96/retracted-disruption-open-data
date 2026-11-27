@@ -11,9 +11,10 @@ and examined variants without it; \citet{leydesdorff2021revision} proposed DI$^*
 Here, that problem matters because papers citing a late-retracted paper are less likely to also cite its references.
 The large reference-only citing population compresses this contrast in CD$_5$, whereas DI$_{nok}$ scores these
 papers somewhat higher. Citer exclusions retain the contrast rather than explain it away.
-\citet{dinh2019citations} found disciplinary and geographical differences in a subset of post-retraction
-citation contexts. Attention from outside the original literature is thus a plausible interpretation
-of the pre-notice composition gap, alongside criticism or differences in reference relevance.
+\citet{peng2022attention} found greater online attention to later-retracted papers, much of it before retraction.
+This supports considering pre-notice attention, but does not show that our citers came from other fields.
+\citet{dinh2019citations} found disciplinary and geographical differences only in post-retraction citation contexts.
+Broader attention, criticism and reference relevance remain possible explanations for our gap, not measured mechanisms.
 
 Matching deserves as much attention as the index formula. About one in six drawn controls fails the broad
 publication-type filter, and journal/year matching does not control topic within broad journals.
@@ -33,13 +34,16 @@ This recommendation concerns scoring practice, not a claim that a short window c
 \subsection{Limitations}
 The results depend on the coverage and metadata of one open graph. Missing references can alter index values,
 and disruption scores differ across data sources \citep{xu2025alternative,crossdi2025}.
+If the citers of retracted papers have less complete reference lists in the graph, that alone could reduce
+observed co-citation and raise DI$_{nok}$; we have not compared citer reference-list coverage.
 Retraction Watch linked most, but not all, recorded papers; reasons remain limited by notice information.
 Graph coverage restricts the cohorts to earlier publication years, whereas most paper-mill papers in the snapshot
 were published after 2019. Retractions are also an incomplete label for unreliable work, which can remain among controls.
 
 The controls match only on journal and year. Publication-type filtering does not guarantee original research,
 and major-MeSH overlap cannot ensure equal topics, methods or article roles. The topic check keeps only papers
-with usable descriptors and overlapping controls. Reference/citation adjustment describes conditional
+with usable descriptor-level major tags and overlapping controls; qualifier-only major tags are not in the extract.
+Reference/citation adjustment describes conditional
 associations, not a causal effect: a mean-log imbalance cannot quantify an odds-ratio shift, and conditional
 models omit strata without outcome variation. Citation count is itself part of the score, so adjustment may remove
 part of the phenomenon being measured.
@@ -49,6 +53,8 @@ a journal's years but cannot capture dependence among authors publishing across 
 retains the citation-composition contrast, yet names are not disambiguated: variants can escape exclusion and
 common names can merge people. The check does not establish responsibility and was not combined with citer filtering.
 Removing graph self-loops also leaves author self-citations.
+The reported Mantel--Haenszel odds-ratio intervals treat strata as independent; journal-clustered intervals for
+those odds ratios have not been estimated.
 
 The main conclusions apply to papers retracted after the scoring window, not to early retractions or stabilized
 lifetime scores. Short pre-notice windows are necessary for this design but remain sensitive to citation timing

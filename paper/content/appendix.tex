@@ -131,10 +131,8 @@ The rule removes 2,280 CD$_5$ primary papers, leaving 2,307 scored and 2,306 com
 with 37,294 controls in 2,115 strata. Original scores and yearly thresholds remain fixed.
 For CD$_5$, the positive-score odds ratio is 1.26 (1.12--1.41) and the top-5\% odds ratio 0.97 (0.75--1.25).
 The CD$_3$ mean gap is 0.00063 ($-0.00047$ to $0.00184$), positive-score odds ratio 1.32 (1.21--1.44), and
-top-5\% odds ratio 1.03 (0.85--1.25). Table~\ref{tab:authors} gives mean contrasts by reason class; all
-odds ratios and aggregate coverage are in the run record. Original CD mean intervals, odds ratios and comparison
-counts, and DI$_{nok}$ mean points and counts, are reproduced before exclusion. CD intervals use the original journal--year bootstrap; fixed-window DI$_{nok}$ intervals use whole-journal
-resamples from P16. Only aggregates are released, not author names or paper-name associations.
+top-5\% odds ratio 1.03 (0.85--1.25). Table~\ref{tab:authors} gives mean contrasts by reason class;
+the repository gives the remaining odds ratios and coverage details.
 
 \begin{table}[!htbp]
 \centering
@@ -165,9 +163,8 @@ Other & 1,108 / 1,039 & 3.13 (0.17, 6.87) & 0.074 (0.032, 0.135) \\
 \subsection{Exploratory comparisons (P4--P7)}
 Table~\ref{tab:posthoc} summarizes exploratory comparisons using unfiltered citing records.
 For the unfiltered five-year DI$_{nok}$ comparison, the matched group means are $-0.309$ for retracted papers
-and $-0.376$ for controls (4,517 compared retracted papers). The gap is 0.083 (0.042--0.118) for misconduct,
-0.049 (0.015--0.078) for other reasons, 0.054 ($-0.022$ to 0.159) for paper mills and
-0.004 ($-0.068$ to 0.071) for honest error. The corresponding shares of citing papers also citing a reference
+and $-0.376$ for controls (4,517 compared retracted papers). Figure~\ref{fig:forest} shows the reason-class contrasts.
+The corresponding shares of citing papers also citing a reference
 are 65.5\% and 68.8\% overall. These unfiltered estimates are distinct from the citing-record sensitivity.
 
 \begin{table}[!htbp]
@@ -201,13 +198,10 @@ Matched mean log reference count difference & 0.084 (0.058, 0.109) & 4,586 \\
 \end{tabular}
 \end{table}
 \subsection{Citing-record exclusions and journal dependence (P15)}
-The complete plan was published before execution; its commit link is in the data and code availability statement.
-The run verifies unfiltered DI$_{nok}$ means and per-paper window counts, including the notice-removal counts
-from P8. Citing-record and fixed-window unfiltered DI$_{nok}$ mean intervals use 2,000 whole-journal bootstrap draws,
-including Table~\ref{tab:posthoc} and panel 4 of Fig.~\ref{fig:forest}.
-Across the union of both focal populations and windows, 1,384,201 of 1,700,837 citing events match PubMed;
-1,384,200 have a known publication type. The union of the three exclusion categories contains 37,961 events,
-with overlaps removed once.
+The exclusions use the notice, publication-type and retraction flags described in Methods.
+Across both publication cohorts and scoring windows, PubMed metadata are available for 1,384,201 of
+1,700,837 citing events; 1,384,200 have a known publication type. The combined filter removes 37,961 events,
+counting each once even when more than one exclusion applies.
 
 For the five-year population, notice removal affects 844 of 4,587 primary papers and removes 1,228 citing records;
 it affects 2,456 of the 52,147 drawn controls and removes 3,026 citing records. The full filter affects 2,400 primary
@@ -215,16 +209,12 @@ papers and 12,009 controls, removing 6,525 and 23,978 citing records, respective
 It makes 13 primary and 116 control DI$_{nok}$ scores undefined. Table~\ref{tab:citercounts} distinguishes
 defined from compared counts; controls are not redrawn.
 
-The fully filtered model's covariate coefficients are $-0.16526$ for log references and $-0.01912$ for log remaining
-citations. Substituting original citation counts gives a retracted coefficient of 0.09880 (0.06485--0.12920).
-The unadjusted model reproduces the matched mean. Journal exclusions remove 1,493 five-year and 2,058 three-year
-eligible primary papers before score-availability checks; ranks and coefficients are in the aggregate record.
+Using original rather than remaining citation counts leaves a similar adjusted estimate:
+0.09880 (0.06485--0.12920). The ten excluded journals contain 1,493 eligible five-year and 2,058 three-year
+primary papers. Journals are ranked before filtering or checking whether a score remains defined.
 
-In the fully filtered five-year comparison, class-specific gaps are 0.097 (0.056--0.133; 2,706 compared papers)
-for misconduct, 0.069 (0.035--0.102; 1,235) for other reasons, 0.063 ($-0.002$ to 0.159; 275) for paper mills
-and 0.005 ($-0.064$ to 0.074; 288) for honest error.
-For the three-year window they are 0.101 (0.069--0.129; 4,039), 0.089 (0.062--0.124; 1,750),
-0.066 ($-0.016$ to 0.158; 701) and 0.048 (0.005--0.090; 598), respectively.
+The repository also reports the filtered reason-class estimates; the main comparison and Table~\ref{tab:citers}
+focus on the overall contrast.
 
 \begin{table}[!htbp]
 \centering
@@ -255,17 +245,19 @@ Full, exclude top ten & 5,060 & 51,911 & 5,057 & 33,236 & 3,081 & 1,292 \\
 \bottomrule
 \end{tabular}
 \end{table}
-\subsection{Major-MeSH matching and interval provenance (P16)}
-The fixed topic rule selects up to five controls with positive major-descriptor Jaccard overlap within the original
-journal/year, with deterministic hash ties and reuse. Of 4,518 primary papers with defined unfiltered DI$_{nok}$,
-1,722 have major descriptors and 540 find overlapping controls. They use 874 unique controls over 1,306 matched
-control assignments in 140 journals. Of the 540 papers, 237 have one selected control and 114 have five;
-median assignment similarity is 0.5. The other 1,182 major-descriptor papers have no eligible overlap.
-The article-type version retains 417 papers in 112 journals, using 699 unique controls over 1,029 assignments;
-938 of 1,355 descriptor-eligible papers have no match. Neither topic-matched interval excludes zero
-(Table~\ref{tab:citers}). Baselines use exactly these same retained papers and all descriptor-eligible
-controls in their original strata, rather than the full primary population.
+\subsection{Topic matching and uncertainty (P16)}
+The frozen metadata include major-topic tags attached to descriptors, but not those attached only to qualifiers.
+Thus the check does not cover all major MeSH headings.
 
-Whole-journal intervals use P15 for overall unfiltered means and P16 for class/review/type/name contrasts;
-P16 first reproduces their points and counts. Planned CD and event-time interval rules are unchanged.
+Of 4,518 primary papers with defined unfiltered DI$_{nok}$, 1,722 have these tags and 540 find overlapping
+controls, across 140 journals. The other 1,182 have no eligible overlap.
+The article-type version retains 417 papers in 112 journals; 938 of 1,355 papers with usable tags have no match.
+Both intervals include zero (Table~\ref{tab:citers}), so neither version establishes a gap.
+Each baseline compares exactly the same retained papers with all controls in their journal/year that have usable
+tags. Comparing these baselines with the topic-matched estimates separates the choice of controls from the loss
+of papers without a match.
+
+All fixed-window DI$_{nok}$ mean intervals resample whole journals, keeping their publication years together.
+The planned CD comparisons and annual event-time estimates instead retain journal--year resampling.
+Detailed interval-source mappings and validation checks are in the repository.
 \FloatBarrier

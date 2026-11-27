@@ -113,3 +113,29 @@ Holst et al. 2026 and Park et al. 2026 (Nature; paywalled: user PDF needed), J I
   Elsevier general guidance says 3-5 bullets, <=85 characters including spaces, Word format, final-files stage:
   https://www.elsevier.com/researcher/author/tools-and-resources/highlights .
   This general page does not establish JOI-specific mandatory/optional status.
+
+## Update 2026-11-27: v0.16 submission checks
+
+- The author confirmed JOI's maximum 200-word abstract and required separate editable highlights
+  (3-5 bullets, <=85 characters including spaces). The indexed WHU mirror corroborates the abstract limit:
+  https://apps.lib.whu.edu.cn/ensci/editnew/upfile/709551.pdf .
+  The full mirror could not be downloaded (DNS failure); the live publisher guide still returns HTTP 403.
+  Follow the author-confirmed requirements rather than the earlier generic Elsevier final-files guidance.
+- Current Elsevier AI policy read directly:
+  https://www.elsevier.com/about/policies-and-standards/generative-ai-policies-for-journals .
+  Explanatory images require caption tool/version/purpose disclosure. Data visualizations require reproducible
+  data-derived methods and tool/version/developer disclosure in Methods; the page does not explicitly impose
+  the same caption requirement on all plots. We add caption disclosures to the statistical plots as requested.
+  Flow code was Copilot-assisted; original statistical plotting code was Claude-assisted, with Copilot revisions.
+- Bornmann & Tekles (2021), DOI `10.1016/j.joi.2021.101159`, 15(3), 101159:
+  Crossref metadata and primary https://arxiv.org/abs/2006.10606 verified. Its abstract favors DI5 in
+  physics milestone validation, with DEP also favorable in CEM. Our rationale for DI_nok is the narrow
+  denominator/citer-share decomposition, not superiority as a measure of innovation.
+- Peng, Romero & Horvat (2022), DOI `10.1073/pnas.2119086119`, 119(25), e2119086119:
+  published full text https://pmc.ncbi.nlm.nih.gov/articles/PMC9231484/ verified.
+  Greater online attention and its timing before retraction support considering pre-notice attention;
+  they do not measure the disciplinary composition of our citing papers.
+- Read-only parser audit, using synthetic XML, confirms that `pubmed_parse.py:62-63` reads major flags only
+  from DescriptorName, not QualifierName. Existing matching is descriptor-major only.
+  Qualifier-only coverage cannot be recovered from the frozen parquet; broader matching requires a new
+  extraction and separately planned rerun. No empirical effect or coverage change was estimated here.

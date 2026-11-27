@@ -37,3 +37,16 @@ the graph's own PMID links from additional exact-DOI PubMed matches.
 
 The complete plan is in `../../POSTHOC.md`. Per-run JSON, aggregate outputs, logs, manifest and checksums
 live in `runs/<run_id>/`. Publication-level metadata/matches and author names stay on the VM.
+
+## v0.16 read-only metadata audit (2026-11-27)
+
+The source parser (`D_retraction_contamination/experiments/d04_pubmed/pubmed_parse.py:62-63`) reads
+`MajorTopicYN` only on `DescriptorName`, not `QualifierName`. Two synthetic XML cases confirm that descriptor N/qualifier Y
+returns `mesh_major=[False]`, while descriptor Y/qualifier N returns `[True]`.
+An initially missing lxml dependency was installed into an isolated session validation directory; the
+real parser then passed these checks. The source parser and all frozen metadata/results remain unchanged.
+
+Thus 1,722/4,518 describes descriptor-major coverage, not all major MeSH headings. Qualifier-only tags are
+absent from the parquet and cannot be reconstructed from it. The manuscript explicitly limits the existing
+check; a broader definition needs new metadata extraction and a pre-recorded rerun.
+No new matching, effect estimates or empirical coverage counts were generated.

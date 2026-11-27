@@ -432,3 +432,26 @@ are unchanged.
 Runtime 1:37.34; peak RSS 1,098,240 KB. Eight tests and frozen/P5/P13/P14 reproduction checks passed;
 aggregate fetch checksums verified and VM deallocated. Failed _01/_02 produced no estimates and remain preserved
 with exact source archives. Full oversight was confirmed by the author; the disclosure lists personal checks.
+
+## v0.16 submission text and descriptor-major qualification (no empirical rerun)
+
+The abstract follows the author's shorter draft, spells out confidence interval and specifies that the
+topic-matched subset uses unfiltered scores. All numerical results and figure PDFs remain unchanged.
+The five replacement highlights have 83/84/79/81/75 visible characters and a separate editable Word file.
+Caption disclosures identify the actual assistance: Copilot for flow code; Claude for original statistical
+plotting code, with Copilot code/layout revisions. Review line numbers are enabled.
+Provenance details stay in `experiments/spec_provenance.json`; the manuscript keeps the private-history/
+mixed-clock limitation without timestamp or run-ID prose.
+
+The metadata audit confirms that the frozen `mesh_major` field records DescriptorName-level major tags only.
+QualifierName-only major flags are not stored. Existing 1,722/4,518 and 540/417 counts are unchanged and now
+explicitly scoped to that definition; no broader coverage or rerun is claimed.
+Two synthetic XML cases exercise the real parser without modifying it or the frozen inputs.
+Detailed matched-control assignments/similarity summaries and filtered reason-class means remain in the
+original aggregate JSON rather than dense appendix prose.
+
+DI_nok's rationale is a direct citer-share decomposition, not best peer-validated disruption measurement.
+The verified JOI physics validation favors DI5; the Peng PNAS study supports considering attention before
+retraction but not attributing our gap to disciplinary boundaries.
+Citer reference-list coverage comparisons and journal-clustered odds-ratio intervals were not run;
+those limitations are now explicit. No new plan or empirical result was created.
