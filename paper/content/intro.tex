@@ -4,8 +4,8 @@ The CD index \citep{funk2017dynamic} compares later citations to a focal paper a
 Citers ignoring the references push it towards $+1$ (disruption), joint citers towards $-1$ (consolidation),
 and reference-only citers towards zero. Studies of team size \citep{wu2019large} and declining disruption
 \citep{park2023papers} popularized it, and research-evaluation uses have been proposed
-\citep{chen2025thresholds}. Its validity is debated: records without references can drive measured trends
-\citep{holst2024artefacts,holst2026partially,park2026reply}, citation inflation biases it
+\citep{chen2025thresholds}. Its validity is debated: records without references can partly drive measured trends
+\citep{holst2024artefacts,holst2026partially}, which \citet{park2025robust,park2026reply} dispute; citation inflation biases it
 \citep{petersen2024inflation,petersen2025reanalysis}, and its values depend on the data source
 \citep{leibel2023overview,xu2025alternative}.
 
@@ -36,10 +36,11 @@ Contributions:
 \begin{itemize}
 \item A paper-level measurement of the CD index for retracted papers scored before their retraction, overall and by
 retraction reason, using same-journal/year controls.
-\item A pre-specified comparison finding a small mean gap and no clear top-tier excess, but more positive scores.
+\item A pre-specified comparison finding a small mean gap and no clear top-tier excess, but more positive scores,
+which already indicate that their citing papers less often also cite their references.
 \item Exploratory evidence of what a known denominator problem means for retracted papers: their citing papers
 are less likely to also cite their references, a contrast compressed by CD$_5$.
-\item Sensitivity checks for citing-record composition, publication type, reference length and journal dependence,
-and practical scoring-window advice for researchers and bulk score providers.
+\item Sensitivity checks for citing-record composition, citer reference coverage, publication type, reference length
+and journal dependence, and practical scoring-window advice for researchers and bulk score providers.
 \item Open code, run records and specification files that let the analysis be repeated on the public data.
 \end{itemize}

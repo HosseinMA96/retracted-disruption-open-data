@@ -33,7 +33,7 @@ labelled post hoc, and each plan was written down before it was run.
 | Primary comparison: retracted papers / scored controls / journal-year strata | **4,586** / **31,662** / **2,239** |
 | Mean difference in CD5 (retracted − controls) | **0.0002** (95% CI −0.0006 to 0.0011) |
 | Interpretable mean-difference bound (post hoc 90% interval) | Absolute differences above **0.00093** excluded, about 28% of the review effect |
-| Odds ratio for a positive CD5 (pre-specified RQ1) | **1.23** (1.13–1.34) |
+| Odds ratio for a positive CD5 (pre-specified RQ1) | **1.23** (1.13–1.34); resampling whole journals 1.06–1.40 (P17) |
 | Odds ratio for reaching the top 5% of the year | **0.99** (0.83–1.20) |
 | Positive control: reviews vs other papers, top 5% | 0.58 (0.47–0.72): the design detects a real contrast |
 | Unfiltered DI_nok (exploratory) | **+0.067** (95% whole-journal CI 0.034-0.095); reference-co-citation shares **65.5% vs 68.8%** |
@@ -49,7 +49,9 @@ labelled post hoc, and each plan was written down before it was run.
 | Descriptor-major MeSH matching (P16), only 540 retained papers | +0.050 (-0.012 to 0.097); exact-retained-paper baseline +0.082 (-0.006 to 0.136): inconclusive |
 | Descriptor-major MeSH matching with PMID-prioritized article types, 417 papers | +0.063 (-0.003 to 0.124); exact-retained baseline +0.086 (-0.005 to 0.148): inconclusive |
 | Author-name exclusion (P14), three-year top 5% | 1.03 (0.85-1.25), 3,626 compared papers |
-| Size of n_k for the median paper | 2,862 papers citing only the references vs 12 citing the paper |
+| Citer coverage (P17): average share of citers with < 10 references in the graph | 2.3% (retracted) vs 2.9% (controls): citers of retracted papers are slightly better covered |
+| DI_nok counting only citers with ≥ 10 / ≥ 25 references in the graph (P17) | **+0.069** (0.037–0.097) / **+0.071** (0.036–0.102) |
+| Median sizes over all 86,904 papers with a defined CD5 | 2,862 papers citing only the references vs 12 citing the paper (19 / 13 for late-retracted papers / controls) |
 | Change in DI_nok after vs before the notice, minus controls (post hoc) | +0.074 (0.050–0.097); placebo 3 years earlier +0.036 |
 
 **Take-away:** the pre-specified five-year analysis shows a small positive-score shift but no clear unadjusted top-tier
@@ -83,13 +85,13 @@ The primary comparison uses only the 31,662 scored controls in strata containing
 .
 ├── README.md            ← you are here
 ├── SPEC.md              pre-specified design (v1; its SHA-256 is in every run.json)
-├── POSTHOC.md           post hoc plans P1–P16, each written before it was run
+├── POSTHOC.md           post hoc plans P1–P17, each written before it was run
 ├── FINDINGS.md          every number in the paper → the run that produced it
 ├── REPRODUCE.md         inputs, environment, exact commands in order, determinism notes
 ├── CITATION.cff         how to cite this repository
 ├── experiments/
 │   ├── README.md        index of steps and the runs cited in the paper
-│   ├── e01 … e16/       one folder per step: script(s), lab notebook RESULTS_LOG.md, runs/<run_id>/
+│   ├── e01 … e17/       one folder per step: script(s), lab notebook RESULTS_LOG.md, runs/<run_id>/
 │   └── …/runs/<id>/     run.json (parameters, script hash, counts) · stdout.log · group-level outputs · SHA256SUMS
 ├── paper/               LaTeX source (content/, journals/joi/main.tex), figures, refs.bib + DOI checks
 ├── lit/                 literature gate, verified DOIs and the claim check
@@ -108,6 +110,7 @@ python experiments/e13_article_types/test_sensitivity.py
 python experiments/e14_authors/test_authors.py
 python experiments/e15_citers/test_citers.py
 python experiments/e16_topic/test_topic.py
+python experiments/e17_coverage/test_coverage.py
 
 # 3. rebuild the figures from the run records (byte-identical to the committed ones with Matplotlib 3.10.8)
 cd experiments/e06_figures && python e06_figs_v2.py my_rebuild e04_eval_20261110_01 e04_eval_cd3_20261110_01 \
@@ -129,12 +132,15 @@ anonymized package. The official declarations tool must be completed; the requir
 highlights file contains five bullets, each at most 84 characters. The author confirmed the 200-word abstract
 and mandatory-highlights requirements; direct access to the current publisher guide remains blocked.
 See [`paper/journals/joi/UPLOAD.md`](paper/journals/joi/UPLOAD.md); nothing has been submitted.
-The v0.16 revision leads with unfiltered DI_nok and credits earlier denominator work.
+The v0.17 revision leads with unfiltered DI_nok and credits earlier denominator work. It adds the P17 citer-coverage
+check and journal-resampled primary intervals, frames the positive-score excess as citer composition (CD and DI_nok
+share the sign of n_i − n_j), and moves P13/P16 detail unchanged into a two-page supplementary PDF.
 It retains the original pre-specified CD results, adds the identifier-aware type audit and inconclusive topic check,
 and standardizes fixed-window DI_nok intervals to whole journals.
-The validated identified/flat/arXiv builds have 35 pages, a 199-word abstract and approximately 9,469 words
-before References, excluding review-margin line numbers. Review line numbers and truthful AI-code disclosures
-are included; figure data and all statistical results are unchanged. Dense methods/appendix prose is simplified.
+The validated identified/flat/arXiv builds have 35 pages, a 197-word abstract and approximately 9,393 words
+before References, excluding review-margin line numbers. Only the explanatory flow diagram's caption carries an
+AI note; data plots are covered in Methods. Earlier statistical results and all figure PDFs are unchanged.
+The version prepared for submission is tagged as release `v1.0.0`; Zenodo archiving has not been set up.
 The MeSH parser audit is documented in the topic notebook; no broader extraction or empirical rerun was performed.
 Local builds use Tectonic. Editorial Manager's pdfLaTeX PDF must still be reviewed,
 and Elsevier's declarations tool must always be completed at upload.

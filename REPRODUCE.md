@@ -56,6 +56,8 @@ Run each from its experiment folder: `python <script> <args>`.
 | P15 citing-record filters, adjusted DI_nok means and journal sensitivities | `e15_citers/e15_citers.py e15_citers_20261127_02` | 2:49 |
 | Test of P16 (synthetic metadata, nullable arrays, priority, matching and weights) | `e16_topic/test_topic.py` | seconds |
 | P16 type audit, topic matching and fixed-window journal intervals | `e16_topic/e16_topic.py e16_topic_20261127_03` (fixed parent runs in script) | 1:37 |
+| Test of P17 (synthetic graphs vs brute force and the frozen counter; journal Mantel–Haenszel resampling) | `e17_coverage/test_coverage.py` | seconds |
+| P17 citer coverage, coverage-restricted DI_nok/sign and journal-clustered primary intervals | `e17_coverage/e17_coverage.py e17_coverage_20261127_01 4169ea7cbd6a600f420c6871c566bdaa37b5b214` (via `vm/run_p17.sh`) | 2:54 |
 | Figures (laptop) | `e06_figures/e06_figs_v2.py e06_fig_20261127_10 e04_eval_20261110_01 e04_eval_cd3_20261110_01 e08_posthoc2_20261123_02 e09_pretrend_20261123_01 e12_diag_20261126_01 e16_topic_20261127_03` | seconds |
 | Population flow (laptop) | `e15_citers/flow_diagram.py e15_flow_20261127_02 e15_citers_20261127_02` | seconds |
 | Paper | `cd paper/journals/joi && tectonic -X compile main.tex`; upload packages: `./build_submission.sh` | – |
@@ -119,6 +121,13 @@ Run each from its experiment folder: `python <script> <args>`.
   same rule. Matches stay fixed during 2,000 whole-journal draws (seed 20261109, child offset 4000).
   Metadata lookup is bounded and materialized before nested fields, with one DuckDB thread/6 GB limit.
   `vm/run_p16.sh` runs tests/analysis; publication-level types, topics and matches stay on the VM.
+- P17 was publicly planned at `4169ea7cbd6a600f420c6871c566bdaa37b5b214` before execution. It verifies frozen
+  label/score hashes and the P15 graph hashes, rebuilds window citers with P15's `build_citers`, and independently
+  reproduces every paper's frozen n_i/n_j, the P15 unfiltered DI_nok gap and E4's mean gap and odds ratios.
+  Citer coverage is the out-degree in the same graph (self-loops excluded). Restricted counts keep citers with
+  at least 10 or 25 references; references, controls and strata are fixed. Whole-journal intervals use 2,000
+  draws (seed 20261109, child offset 5000); Mantel–Haenszel components are summed within journals.
+  `vm/run_p17.sh` runs tests/analysis; citer degrees and per-paper values stay on the VM.
   The frozen parser records major flags on DescriptorName, not QualifierName. A read-only synthetic audit
   confirms qualifier-only flags are omitted; P16 therefore tests descriptor-major matching, not all major headings.
   See `experiments/e16_topic/RESULTS_LOG.md`. Recovering qualifier-only flags requires a new extraction and planned rerun.
@@ -136,8 +145,10 @@ It names the companion arXiv preprint and shared linked dataset. The cover lette
 The build also creates `highlights.docx` from `highlights.txt` and checks paragraph text and the 85-character limit.
 The author confirmed mandatory separate highlights (3--5 bullets, at most 85 characters) and a 200-word
 abstract limit. Direct access to the current publisher guide remains blocked; see `UPLOAD.md` for the source distinction.
-The v0.16 build has a 199-word abstract, five highlights with a maximum of 84 characters, review line numbers,
-and AI-code assistance disclosed in each figure caption. All three figure PDFs and empirical results are unchanged.
+The v0.17 build has a 197-word abstract, five highlights with a maximum of 76 characters and review line numbers.
+The explanatory Figure 1 caption discloses AI code assistance; Methods names the plotting tools for Figures 2-3.
+`build_submission.sh` also compiles `supplement.pdf` (P13/P16 detail moved unchanged from the appendix).
+All three figure PDFs and earlier empirical results are unchanged.
 
 ## 5. Runs not cited
 - `e16_topic_20261127_01`: stalled before estimates (14:10.82, peak RSS 13,613,512 KB), terminated by known PID.

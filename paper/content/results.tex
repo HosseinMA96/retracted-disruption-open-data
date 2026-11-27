@@ -21,7 +21,9 @@ The post hoc 90\% interval, $-0.00051$ to $0.00093$, rules out absolute
 mean differences larger than 0.00093, about 28\% of the difference between reviews and other papers (below).
 Retracted papers have a positive score somewhat
 more often within the comparison strata (923 of 4,586, 20.1\%, against 17.3\% of their controls, 95\% bootstrap CI
-16.0--18.6; stratified odds ratio 1.23, 1.13--1.34).
+16.0--18.6; stratified odds ratio 1.23, 1.13--1.34). Resampling whole journals instead of strata gives
+1.06--1.40 for this odds ratio; the other primary intervals also widen without changing any conclusion
+(\ref{sec:appendix}).
 
 \subsection{RQ2: reason classes}
 The mean differences for misconduct (2,742 compared papers) and paper-mill production (276) are small
@@ -74,7 +76,7 @@ a positive score from 1.23 to 1.50 (1.42--1.58), while the top-5\% odds ratio st
 \centering
 \caption{Pre-specified robustness checks (a--f) and exploratory article-type checks for the primary set
 (CD$_5$) and the post hoc three-year window (CD$_3$). Article rows prioritize native PMID sources;
-definitions and accounting are in the appendix.
+definitions and accounting are in the supplementary material.
 Diff.\ in units of $10^{-3}$; all estimates have 95\% intervals in parentheses.}
 \label{tab:rob}
 \resizebox{\linewidth}{!}{%
@@ -121,11 +123,18 @@ For DI$_{nok}$, uncertainty resamples whole journals. Precision depends on the v
 journal contrasts, so similar paper counts do not imply similar interval widths.
 
 \paragraph{Citation composition}
-The denominator problem described by \citet{bornmann2020convergent} is substantial here: median counts are
-2,862 papers citing only the references and 12 citing the focal paper.
+The denominator problem described by \citet{bornmann2020convergent} is substantial here. Across all 86,904 papers
+with a defined CD$_5$, the median number of papers citing only the references is 2,862, whereas the median number
+citing the focal paper is 12 (19 for late-retracted papers and 13 for controls; \ref{sec:appendix}).
 Without $n_k$, the unfiltered DI$_{nok}$ mean gap is 0.067 (95\% whole-journal bootstrap CI 0.034--0.095).
 On average, 65.5\% of papers citing a retracted paper also cite a reference, against 68.8\% for controls.
 Thus the known compression of CD$_5$ obscures a difference in citer composition.
+
+Incomplete reference lists among citing papers do not explain this difference. Citers of retracted papers have
+slightly more references in the graph than citers of controls: on average, 2.3\% of a retracted paper's citers
+have fewer than ten, against 2.9\% for controls. Counting only citers with at least 10 or at least 25 references
+in the graph gives gaps of 0.069 and 0.071 (Table~\ref{tab:citers}); the positive-score odds ratios become
+1.25 and 1.29.
 
 The citing-record exclusions are a robustness check, planned after this unfiltered result was known.
 Removing notices, comments/letters and retracted citing papers increases the gap to 0.082
@@ -162,6 +171,10 @@ Same exclusion, both covariates & 0.070 (0.049, 0.091) & 3,013 \\
 CD$_3$ window: full filter & 0.090 (0.064, 0.114) & 7,088 \\
 CD$_3$: also exclude top ten journals & 0.082 (0.064, 0.099) & 5,057 \\
 \midrule
+\multicolumn{3}{l}{Five-year unfiltered scores: citers' references in the graph} \\
+At least 10 references & 0.069 (0.037, 0.097) & 4,501 \\
+At least 25 references & 0.071 (0.036, 0.102) & 4,473 \\
+\midrule
 \multicolumn{3}{l}{Five-year unfiltered scores: topic matching} \\
 Major-MeSH subset, journal/year baseline & 0.082 ($-0.006$, 0.136) & 540 \\
 Same papers, topic-matched controls & 0.050 ($-0.012$, 0.097) & 540 \\
@@ -180,7 +193,7 @@ Article-type restrictions also change the comparison (Table~\ref{tab:rob}).
 The metadata audit found DOI-only notice links on 106 primary papers.
 Prioritizing native PMID sources restores type eligibility for 98 primary papers and 15 controls, but
 21.0\% of primary papers and 17.2\% of drawn controls still fail the broad article-type filter.
-Full linkage diagnostics, type definitions and model results are in the appendix.
+Full linkage diagnostics, type definitions and model results are in the supplementary material.
 
 Major-MeSH topic matching retains only 540 primary papers. Its point estimate is below the journal/year baseline
 for exactly those papers, but both intervals include zero (Table~\ref{tab:citers}).
@@ -198,6 +211,6 @@ Annual score availability and the placebo check are reported in the appendix.
 The three-year window admits more recent papers, including more paper-mill papers.
 It retains a small mean CD gap and a positive-score shift, while some sensitivity checks favour a modest top-tier
 excess (Table~\ref{tab:rob}). The article-type restriction strengthens that apparent excess and the author-name
-exclusion attenuates it (appendix). The filtered DI$_{nok}$ contrast remains positive after the top-ten-journal
+exclusion attenuates it (supplementary material and appendix). The filtered DI$_{nok}$ contrast remains positive after the top-ten-journal
 exclusion (Table~\ref{tab:citers}). These early-window results are exploratory, not a replacement for the
 pre-specified five-year comparison.

@@ -2,7 +2,7 @@
 # Build the identified Journal of Informetrics upload package (single-anonymized review):
 #   submission/       identified manuscript: flat main.tex (content inlined, LaTeX comments removed), refs.bib, main.bbl,
 #                     figures, elsarticle.cls + elsarticle-harv.bst (LPPL, unchanged), main.pdf
-#   joi_latex_source.zip, highlights.txt/highlights.docx and local competing_interests.docx
+#   joi_latex_source.zip, supplement.pdf, highlights.txt/highlights.docx and local competing_interests.docx
 # Legacy submission_anon/ and joi_latex_source_anon.zip are not rebuilt and must not be uploaded to JOI.
 # Elsevier compiles with pdflatex + bibtex, so main.tex must be pure ASCII and must not need fontspec.
 # Re-run after any change to ../../content, ../../refs.bib or ../../figures.
@@ -59,6 +59,15 @@ build () {  # build OUTDIR ZIPNAME
 build submission joi_latex_source.zip
 ( cd "$HERE" && "$TECTONIC" -X compile title_page.tex )
 ( cd "$HERE" && "$TECTONIC" -X compile cover_letter.tex )
+# Supplementary material (separate PDF upload): moved appendix detail, compiled from ../../content/supplement.tex.
+( cd "$HERE" && "$TECTONIC" -X compile supplement.tex )
+python3 - "$P/content/supplement.tex" "$HERE/supplement.tex" <<'PY'
+import sys
+for f in sys.argv[1:]:
+    t = open(f).read(); bad = sorted({c for c in t if ord(c) > 127})
+    assert not bad and "TODO" not in t, (f, bad)
+print("supplement: ASCII source, no TODO")
+PY
 # Individual editable sources and figures are in submission/; see UPLOAD.md.
 # The identified PDF must retain authorship and the public code link.
 identified_txt=$(pdftotext "$HERE/submission/main.pdf" -)

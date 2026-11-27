@@ -1,5 +1,5 @@
-On the five-year CD index, late-retracted papers show no clear mean or top-tier gap
-Citers of late-retracted papers co-cite their references less often (65.5% vs 68.8%)
-Papers citing only the references dominate the CD denominator, masking this gap
-Without the reference-only term (DInok), late-retracted papers score 0.067 higher
-End scoring windows before the first retraction notice; drop notice records
+Late-retracted papers show a small mean CD5 gap versus journal/year controls
+Their pre-retraction CD5 scores are positive more often (odds ratio 1.23)
+Papers citing them less often also cite their references (65.5% vs 68.8%)
+Reference-only citers dominate CD5's denominator; DInok shows a 0.067 gap
+Disruption scoring windows should end before the first retraction notice

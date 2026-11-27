@@ -25,22 +25,23 @@ Retraction Watch), I computed the five-year CD index for 4,587 biomedical papers
 window had closed, comparing 4,586 of them with 31,662 scored, never-retracted controls in 2,239 journal--year strata.
 The design was specified before scoring; frozen-score hashes were checked before labels were joined. The findings are:
 \begin{itemize}
-\item The mean score difference is small: a post hoc 90\% interval rules out absolute differences above 0.00093,
-  about 28\% of the review comparison's effect. In the pre-specified five-year analysis, there is no clear over-representation among the top 5\%
-  (odds ratio 0.99, 95\% CI 0.83--1.20), but positive scores are more common (1.23, 1.13--1.34).
+\item The mean score difference is small: a post hoc 90\% interval rules out absolute differences above 0.00093.
+  There is no clear over-representation among the top 5\%
+  (odds ratio 0.99, 95\% CI 0.83--1.20), but positive scores are more common (1.23, 1.13--1.34; 1.06--1.40
+  resampling whole journals). A positive score means that most citing papers cite none of the references.
 \item Post hoc analyses apply a known denominator problem to retracted papers: their citing papers are less likely
   to also cite their references (65.5\% versus 68.8\%). The variant without $n_k$ shows an unfiltered mean gap
   of $+0.067$ (95\% whole-journal bootstrap CI 0.034--0.095).
   Removing notice, comment/letter and retracted citing records is a robustness check and raises the gap to $+0.082$.
-  The contrast persists with reference and citation adjustment and after excluding the ten highest-retraction journals.
+  The contrast persists among citers with at least 10 or 25 references in the graph (0.069, 0.071), with
+  reference and citation adjustment, and after excluding the ten highest-retraction journals.
   The small topic-matched check remains inconclusive.
 \item Post-retraction scores are shifted by notice records and a widening citation-composition gap, partly continuing
   an earlier trend; scoring windows should end before the notice.
 \end{itemize}
 
 \textbf{Why the journal.} The study contributes to the journal's debate on disruption-index validity and data
-dependence. Added analyses are labelled post hoc and were planned before execution. No paper-level scores of
-non-retracted papers are released.
+dependence. Added analyses are labelled post hoc and were planned before execution.
 
 \textbf{Openness.} Open inputs, code, specifications, checksummed run records and a claim-to-run map are documented at
 \mbox{\href{https://github.com/HosseinMA96/retracted-disruption-open-data}{github.com/HosseinMA96/retracted-disruption-open-data}}.

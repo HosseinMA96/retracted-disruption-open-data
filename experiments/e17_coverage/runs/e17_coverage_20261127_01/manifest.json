@@ -1,0 +1,26 @@
+{
+  "run_id": "e17_coverage_20261127_01",
+  "plan_commit": "4169ea7cbd6a600f420c6871c566bdaa37b5b214",
+  "inputs": [
+    "e02_pop_20261110_01",
+    "e03_cd5_20261110_01",
+    "e04_eval_20261110_01",
+    "e15_citers_20261127_02"
+  ],
+  "script_sha256": "3b772258232c558ea411d3f99711e091535e2976ff5dab80219128568efc1f67",
+  "helper_hashes": {
+    "e17_coverage/coverage_lib.py": "fb176b1009903202a19df1c41e6a52ef8f52439bee1bb30588ff80ba8bba43bd",
+    "e17_coverage/common.py": "3163596e203c31f513aba38a6baed7091f0497638ed85f6f4f85e87fa2c1a18d",
+    "e15_citers/citer_lib.py": "0da3a870314258ad2dbf7ca4fbaa5fb136c91ca3f6a3b65a3f20b21e866a7d01",
+    "e13_article_types/sensitivity_lib.py": "8b1071771c4159afe8ded5ed17287986b1cc1a980bc1214b58c776e598b76954"
+  },
+  "outputs": [
+    "results.json",
+    "run.json",
+    "manifest.json",
+    "stdout.log",
+    "SHA256SUMS"
+  ],
+  "private_output": "E_DATA/e17/e17_coverage_20261127_01/per_paper.parquet",
+  "release": "aggregate records only; citer degrees and per-paper values remain on the VM"
+}

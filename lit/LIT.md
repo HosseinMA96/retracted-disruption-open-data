@@ -139,3 +139,12 @@ Holst et al. 2026 and Park et al. 2026 (Nature; paywalled: user PDF needed), J I
   from DescriptorName, not QualifierName. Existing matching is descriptor-major only.
   Qualifier-only coverage cannot be recovered from the frozen parquet; broader matching requires a new
   extraction and separately planned rerun. No empirical effect or coverage change was estimated here.
+
+## Update 2026-11-27 (v0.17)
+- Leibel & Bornmann (2024), Scientometrics 129(12), 7971-7979, doi:10.1007/s11192-024-05201-1: verified by Crossref
+  and DOI content negotiation; arXiv:2406.13367 abstract read. A letter on hidden degrees of freedom in disruption
+  calculations recommending multiverse-style methods; cited only for "specification choices can change results".
+- Park et al. (2025 arXiv; 2026 Nature reply) dispute the zero-reference artefact explanation: now cited as disputing
+  Holst et al., not as support.
+- Dinh et al. (2019): wording now reports their post-retraction finding without implying a null pre-retraction test.
+- Holst et al. (2024): cited for the zero-reference artefact whose citing-side counterpart P17 tests.

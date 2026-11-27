@@ -87,7 +87,10 @@ The post hoc variant without $n_k$,
 \end{equation}
 was proposed by \citet{wuyan2019solo} and studied as DI$_1^{nok}$ by \citet{bornmann2020convergent}. It depends only on
 the papers that cite $f$ and is defined when there is at least one; $(1 - \mathrm{DI}_{nok})/2$ is the share of
-citing papers that also cite a reference. When both are defined, CD and DI$_{nok}$ have the same sign.
+citing papers that also cite a reference. Both indices have the numerator $n_i - n_j$ and a positive denominator, so
+when both are defined, $\operatorname{sign}(\mathrm{CD}) = \operatorname{sign}(\mathrm{DI}_{nok}) =
+\operatorname{sign}(n_i - n_j)$: a positive score means that most citing papers cite none of the references.
+The pre-specified positive-score comparison therefore already tests citer composition; DI$_{nok}$ measures its size.
 Although DI$_5$ performed best in a physics-paper peer-validation study \citep{bornmann2021milestones},
 our exploratory question is narrower: removing only $n_k$ isolates citer composition and gives a direct share
 of citers, rather than selecting the best measure of innovation.
@@ -123,18 +126,14 @@ stratum by its compared retracted papers, with 95\% intervals from 2,000 resampl
 
 Additional checks restrict both populations by PubMed publication types and exclude primary papers linked to
 frequently retracted author names. Their definitions, population accounting and full results are in
-\ref{sec:appendix}. Controls, scores and thresholds remain fixed. CD mean intervals retain the original
+\ref{sec:appendix} and the supplementary material. Controls, scores and thresholds remain fixed. CD mean intervals retain the original
 journal--year resampling; fixed-window DI$_{nok}$ mean intervals resample whole journals.
 
-In the metadata audit, records linked by a paper's own PMID take priority over records linked only by DOI.
-When no PMID match exists, identified notices are excluded from DOI matches.
-The topic check uses unfiltered five-year scores and descriptor-level major MeSH tags.
-For each retracted paper, we select up to five original controls from its journal and year with the greatest
-positive Jaccard overlap of these tags. A fixed hash breaks ties, and a control can be used more than once.
-We compare each paper with the average score of its selected controls. To assess the effect of this selection,
-we also compare these same papers with all controls in their stratum that have usable tags.
-Both comparisons are repeated with the article-type filter. Matches stay fixed during journal resampling;
-coverage and definitions are in the appendix.
+In the metadata audit, records linked by a paper's own PMID take priority over DOI-only records, from which
+identified notices are excluded. The topic check uses unfiltered five-year scores and descriptor-level major MeSH
+tags. Each retracted paper is compared with the average score of up to five controls from its journal and year
+with the greatest positive Jaccard overlap of these tags and, as a baseline, with all its stratum's controls that
+have usable tags. Rules and coverage are in the supplementary material.
 
 \paragraph{Citing records and journal dependence} A further exploratory check removes citing records identified
 as notices (the same types and links as below), Comment or Letter in PubMed, or retracted in the full frozen
@@ -149,6 +148,13 @@ where $n_r,n_c$ are the compared group counts in its stratum. Without adjustment
 mean gap. The 2,000 bootstrap draws resample whole journals, keeping each journal's years together.
 One check uses original citation counts; another excludes the ten journals with the most primary-set
 retractions, ranked before filtering, with journal-identifier tie breaks.
+
+\paragraph{Citer coverage and journal clustering} A citing paper whose reference list is only partly captured in
+the graph is more likely to be counted in $n_i$, a citing-side counterpart of the zero-reference artefact
+\citep{holst2024artefacts}. We count each citer's distinct references in the graph, a proxy for coverage, compare
+these counts between groups, and recompute $n_i$ and $n_j$ from unfiltered citing records using only citers with
+at least 10, or at least 25, references. Focal reference lists, controls and strata are unchanged. Finally, we
+resample whole journals to obtain additional intervals for the pre-specified CD$_5$ estimates.
 
 For the before--after comparison, we use papers published in 2000--2019 and retracted in year $R$, between $t+1$
 and 2021. We compare the three years before the notice ($R-3$ to $R-1$, no earlier than $t$) with the three years
@@ -168,7 +174,7 @@ No multiplicity correction is applied to these exploratory analyses.
 1.17 and statsmodels 0.15 on one cloud machine; figures were drawn from the run records with Matplotlib 3.10.8,
 developed by the Matplotlib development team. The
 analysis and original plotting scripts were written with Claude Opus 5.5 (Anthropic) under the author's direction.
-GitHub Copilot CLI 1.0.116, developed by GitHub and powered by OpenAI's GPT-6.1 Sol, assisted added analysis code,
-the flow-diagram code, layout revisions and manuscript checks. Synthetic tests check citation counts,
+GitHub Copilot CLI 1.0.116, developed by GitHub and powered by OpenAI's GPT-6.1 Sol and Anthropic's
+Claude Opus 5.5, assisted added analysis code, the flow-diagram code, layout revisions and manuscript checks. Synthetic tests check citation counts,
 regressions and matching. Scripts reproduce the estimates they build on before adding analyses.
 Code and checksummed records are public (see data and code availability).

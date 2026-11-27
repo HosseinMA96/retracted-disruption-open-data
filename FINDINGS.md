@@ -455,3 +455,35 @@ The verified JOI physics validation favors DI5; the Peng PNAS study supports con
 retraction but not attributing our gap to disciplinary boundaries.
 Citer reference-list coverage comparisons and journal-clustered odds-ratio intervals were not run;
 those limitations are now explicit. No new plan or empirical result was created.
+
+## P17 citer reference coverage and journal-clustered primary intervals (`e17_coverage_20261127_01`; v0.17)
+
+Plan published before execution: `4169ea7cbd6a600f420c6871c566bdaa37b5b214`. Run on the VM in 2:53.84
+(peak RSS 3,324,496 KB); four synthetic tests and all replays passed (frozen n_i/n_j for 56,734 papers and
+1,390,863 window citing events from 1,228,713 distinct citers; P15 unfiltered DI_nok; E4 mean gap and positive,
+top-5% and top-1% Mantel--Haenszel odds ratios with RGB intervals). Aggregates fetched with verified checksums;
+VM deallocated.
+
+| Claim in the paper | Value | Field in `results.json` |
+|---|---|---|
+| Journal-resampled positive-score OR (997 journals) | 1.23, 1.06--1.40 (RGB 1.13--1.34 unchanged) | `journal_clustered_primary.positive` |
+| Journal-resampled mean CD5 gap | 0.00020, -0.00070 to 0.00112 | `journal_clustered_primary.mean_gap` |
+| Journal-resampled top-5% / top-1% ORs | 0.99, 0.78--1.23 / 0.67, 0.35--1.12 | `journal_clustered_primary.top5`, `.top1` |
+| Citers with < 10 graph references (average share) | 2.3% retracted vs 2.9% controls | `citer_coverage.share_below_10` |
+| Citers with < 25 graph references (average share) | 11.7% vs 14.3%; gap -2.5 pp (-3.3 to -1.7) | `citer_coverage.share_below_25` |
+| Matched mean log(1 + citer references) gap | +0.048 (0.023--0.069) | `citer_coverage.mean_log_refs` |
+| Pooled citing-record medians (IQR) | 54 (37--96) vs 53 (35--88) | `citer_coverage.pooled_citing_events` |
+| DI_nok gap, citers with >= 10 graph references | 0.069 (0.037--0.097); 4,501 / 30,270 compared | `coverage_restricted.10.dinok` |
+| DI_nok gap, citers with >= 25 graph references | 0.071 (0.036--0.102); 4,473 / 29,814 compared | `coverage_restricted.25.dinok` |
+| Restricted positive-score ORs | 1.25 (1.15--1.36; journal 1.06--1.45), 1.29 (1.19--1.41; 1.11--1.50) | `coverage_restricted.*.positive_score` |
+
+Citers of late-retracted papers have slightly *more* references in the graph, so incomplete citer coverage
+does not explain the gap; restriction leaves it unchanged or slightly larger. Graph out-degree is a coverage
+proxy, not true reference-list length. Journal resampling widens the primary intervals without changing any
+conclusion. Five-year window only; the CD3 window and P15 citing-record filters were not repeated with these
+cutoffs.
+
+v0.17 text changes without new estimates: sign(CD) = sign(DI_nok) = sign(n_i - n_j) framing, Park et al. as
+disputing Holst et al., Dinh wording, median-population naming (all 86,904 papers with defined CD5; 19/13 for
+late-retracted papers/controls), UTC pre-specification date, AI notes only in the explanatory Figure 1 caption,
+updated Copilot model disclosure, and P13/P16 detail moved unchanged to `paper/content/supplement.tex`.

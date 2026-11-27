@@ -1,0 +1,79 @@
+% Supplementary material (moved from the appendix in v0.17 to offset added text; wording and numbers unchanged
+% except cross-references to main-text tables). Compiled by ../journals/joi/supplement.tex.
+\section{Article-type sensitivities (P13 and P16)}\label{sec:s-articles}
+The union-link filter is recorded in \texttt{POSTHOC.md} before the run. Publication types are unioned over the same
+PMID/DOI links used to build the study populations. Journal Article is required; any linked review,
+systematic review, meta-analysis, editorial, letter, comment, erratum, retraction-notice or expression-of-concern
+type excludes the paper. Retracted Publication is retained because it labels the original article, not its notice.
+Missing publication types are excluded and counted.
+Neither unfiltered primary retracted/control group has missing types. For CD$_5$, 3,528 of 4,587 primary papers
+and 43,152 of 52,147 controls satisfy the filter; all 3,528 retracted papers and 43,143 controls have defined
+scores. Of these, 3,521 and 23,839, respectively, enter 1,841 comparison strata.
+For CD$_3$, 5,600 of 7,350 primary papers and 56,842 of 68,190 controls satisfy the filter; 5,599 and 56,822 have
+defined scores, and 5,592 and 37,334 enter 2,735 comparison strata. No controls are redrawn; thresholds remain those
+of the reference sample. Thus this check isolates type eligibility, not an article-only recalibration
+of the top-5\% threshold.
+
+P16 finds DOI-only notice records targeting native PMIDs for 106 primary papers and 13 controls.
+PMID priority removes propagation of any DOI-only excluded type, not just notices.
+It retains 3,626 primary papers and 43,167 drawn controls, recovering 98 and 15, respectively.
+CD$_5$ compares 3,619 with 24,192 in 1,898 strata; CD$_3$ retains 5,745 and 56,861, comparing 5,736 with 37,776
+in 2,808 strata. Table~2 of the main text uses PMID priority; Table~\ref{tab:articles} uses union links.
+The PMID-prioritized DI$_{nok}$ gaps are 0.073 (0.035--0.109; 3,569 compared papers) and
+0.083 (0.054--0.108; 5,555), respectively, using whole-journal intervals.
+
+\begin{table}[!htbp]
+\centering
+\caption{Union-link article-type sensitivity (P13, 95\% intervals). Diff.: mean CD gap in units of $10^{-3}$.
+$n$: compared retracted papers; reason-class comparisons use eligible controls in the class's strata.
+Both populations are filtered; these are exploratory estimates, not replacements for Table~1 of the main text.}
+\label{tab:articles}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrrr}
+\toprule
+Group & $n$ & Diff. & OR, CD$>0$ & OR, top 5\% \\
+\midrule
+\multicolumn{5}{l}{CD$_5$, 2000--2017} \\
+All retracted & 3,521 & 0.76 ($-0.22$, 1.89) & 1.24 (1.13, 1.37) & 1.07 (0.86, 1.33) \\
+Misconduct & 2,249 & 0.71 (0.25, 1.12) & 1.34 (1.18, 1.51) & 0.99 (0.71, 1.37) \\
+Paper mill & 218 & 0.67 (0.10, 1.37) & 1.08 (0.80, 1.47) & 1.47 (0.70, 3.10) \\
+Honest error & 222 & $-4.05$ ($-7.67$, $-0.75$) & 1.00 (0.66, 1.49) & 0.93 (0.43, 2.02) \\
+Other & 832 & 2.21 ($-1.40$, 6.99) & 1.19 (0.99, 1.43) & 1.15 (0.82, 1.61) \\
+\midrule
+\multicolumn{5}{l}{CD$_3$, 2000--2019} \\
+All retracted & 5,592 & 0.87 (0.18, 1.69) & 1.32 (1.23, 1.42) & 1.21 (1.04, 1.42) \\
+Misconduct & 3,356 & 0.83 (0.24, 1.56) & 1.42 (1.29, 1.56) & 1.21 (0.97, 1.52) \\
+Paper mill & 510 & 0.57 (0.23, 0.90) & 1.09 (0.90, 1.32) & 1.50 (0.98, 2.29) \\
+Honest error & 478 & $-1.38$ ($-2.84$, $-0.004$) & 1.16 (0.88, 1.52) & 0.92 (0.53, 1.62) \\
+Other & 1,248 & 1.97 ($-0.54$, 4.94) & 1.32 (1.13, 1.53) & 1.23 (0.93, 1.62) \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+For the union-link type definition, the CD$_5$ conditional-logit positive-score odds ratios are 1.25 (1.13--1.37) unadjusted,
+1.33 (1.21--1.47) with log references, and 1.34 (1.22--1.48) with log references and citations
+(2,740 retracted papers in 1,165 outcome-varying strata). The corresponding top-5\% odds ratios are
+1.07 (0.86--1.34), 1.64 (1.28--2.10) and 1.39 (1.08--1.80)
+(1,524 retracted papers in 383 outcome-varying strata).
+The matched mean-log reference difference is $+0.064$ (0.045--0.083; group means 3.626 and 3.562).
+The matched mean-log citation difference is $+0.265$ (0.233--0.299).
+The union-link DI$_{nok}$ mean gap is 0.074 (0.035--0.107; 3,471 compared papers) for CD$_5$ and
+0.082 (0.053--0.107; 5,413) for CD$_3$, with whole-journal intervals from P16.
+
+\section{Topic matching (P16)}\label{sec:s-topic}
+For each retracted paper, up to five original controls from its journal and year are selected by the greatest
+positive Jaccard overlap of descriptor-level major MeSH tags. A fixed hash breaks ties, and a control can be used
+more than once. Each paper is compared with the average score of its selected controls and, as a baseline, with all
+controls in its stratum that have usable tags. Both comparisons are repeated with the article-type filter, and the
+matches stay fixed during whole-journal resampling.
+
+The frozen metadata include major-topic tags attached to descriptors, but not those attached only to qualifiers.
+Thus the check does not cover all major MeSH headings.
+
+Of 4,518 primary papers with defined unfiltered DI$_{nok}$, 1,722 have these tags and 540 find overlapping
+controls, across 140 journals. The other 1,182 have no eligible overlap.
+The article-type version retains 417 papers in 112 journals; 938 of 1,355 papers with usable tags have no match.
+Both intervals include zero (Table~3 of the main text), so neither version establishes a gap.
+Each baseline compares exactly the same retained papers with all controls in their journal/year that have usable
+tags. Comparing these baselines with the topic-matched estimates separates the choice of controls from the loss
+of papers without a match.

@@ -12,6 +12,7 @@ The build script now generates only this submission version.
 | Required separate editable highlights | `highlights.docx` (Word); `highlights.txt` is the matching plain-text source |
 | Competing-interests statement | `competing_interests.docx`, **after replacing the locally generated draft with the official Elsevier declarations-tool output** |
 | Cover letter | `cover_letter.pdf` or its editable `cover_letter.tex`, as the system requests |
+| Supplementary material | `supplement.pdf` (two pages; source `supplement.tex` with `../../content/supplement.tex`) |
 | Separate title page, only if requested | `title_page.pdf` or `title_page.tex` |
 
 Do **not** use `submission_anon/` or `joi_latex_source_anon.zip`: these are legacy artifacts and omit the GitHub link.
@@ -44,11 +45,13 @@ https://apps.lib.whu.edu.cn/ensci/editnew/upfile/709551.pdf .
 The full mirror was unavailable by DNS and the live publisher guide returned HTTP 403, so this is not a claim
 of direct access to the current official guide.
 
-Validated revision: v0.16, 35-page identified manuscript, 199-word abstract, review line numbers and three figures.
-Five editable highlights have a maximum of 84 characters including spaces. Identified, flat-source and arXiv
+Validated revision: v0.17, 35-page identified manuscript, 197-word abstract, review line numbers and three figures,
+plus a two-page supplementary PDF. Five editable highlights have a maximum of 76 characters including spaces. Identified, flat-source and arXiv
 preview text agree; the eight-member source ZIP matches its files. The approximate pre-References PDF count
-is 9,469 words, excluding review-margin line numbers (not a certification of the journal's counting convention).
-All three captions disclose actual AI-code assistance; statistical results and figure PDFs are unchanged.
+is 9,393 words, excluding review-margin line numbers (not a certification of the journal's counting convention).
+Only the explanatory flow-diagram caption carries an AI note (Elsevier: data plots are covered in Methods).
+P17 adds the citer-coverage check and journal-resampled primary intervals; earlier results and figures are unchanged.
+The repository version is tagged `v1.0.0`; Zenodo archiving was deferred by the author.
 The unfiltered DI_nok result leads, with whole-journal intervals throughout. P16 adds the PMID-prioritized
 type audit and a small, inconclusive descriptor-major MeSH check. Qualifier-only major tags are absent from the
 frozen extract; no broader rerun has been performed. Original pre-specified CD results are unchanged.

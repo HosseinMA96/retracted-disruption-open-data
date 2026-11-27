@@ -48,3 +48,4 @@ arjomandi2026prospective	10.48550/arXiv.2611.10474
 scancar2026distortion	10.1073/pnas.2618402123
 bornmann2021milestones	10.1016/j.joi.2021.101159
 peng2022attention	10.1073/pnas.2119086119
+leibel2024specification	10.1007/s11192-024-05201-1

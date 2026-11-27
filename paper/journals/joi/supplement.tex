@@ -1,0 +1,26 @@
+% Paper E supplementary material for the Journal of Informetrics submission (upload as a separate PDF).
+% Content lives in ../../content/supplement.tex (moved unchanged from the appendix in v0.17, apart from
+% cross-references to main-text tables). Build: tectonic -X compile supplement.tex (also run by build_submission.sh).
+\documentclass[12pt]{article}
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\input{../../content/meta}
+\renewcommand{\thesection}{S\arabic{section}}
+\renewcommand{\thetable}{S\arabic{table}}
+\title{Supplementary material for ``\papertitle''}
+\author{Hossein Mohasel Arjomandi}
+\date{}
+\begin{document}
+\maketitle
+\noindent This supplement gives the definitions, population accounting and estimates for two exploratory checks
+summarized in the main text: publication-type sensitivities and major-MeSH topic matching. The identifiers P13 and
+P16 refer to plans in \texttt{POSTHOC.md}. All numbers trace to run records in the public repository,
+\url{https://github.com/HosseinMA96/retracted-disruption-open-data}.
+
+\input{../../content/supplement}
+\end{document}
