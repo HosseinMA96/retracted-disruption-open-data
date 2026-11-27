@@ -1,0 +1,89 @@
+{
+  "definition": {
+    "posthoc": "P18",
+    "plan_commit": "ac8d639a1157c70f57a1ebd6d0ec3da984d21dd9",
+    "population": "five-year primary retracted papers and drawn controls",
+    "inputs": [
+      "e02_pop_20261110_01",
+      "e13_articles_20261126_01",
+      "e16_topic_20261127_03"
+    ],
+    "duckdb_threads": 1,
+    "duckdb_memory_limit": "6GB",
+    "category_order": [
+      "review_types",
+      "letter_comment_editorial",
+      "erratum_notice_concern",
+      "no_journal_article",
+      "unknown_types"
+    ],
+    "spec_sha256": "1403d0d13d35bd32c40ede1be24833ab15e7977edb2f56c2128ef8823373ad31",
+    "posthoc_sha256": "dad8e0ddb56d0cb09b0d3fe85cd37e582c5b70de0ff77f4885720586cfbbc612",
+    "helper_hashes": {
+      "e18_types/types_lib.py": "3a865585791aafbd31c87adb1280e6a5b86c79d6fd9155baf0e8e722c1957df4",
+      "e18_types/common.py": "3163596e203c31f513aba38a6baed7091f0497638ed85f6f4f85e87fa2c1a18d",
+      "e16_topic/topic_lib.py": "232d59bb1cfc41c10d9204befd16d479d3d5504d8ac5aef7346348ee6d57fd18"
+    }
+  },
+  "input_hashes": {
+    "labels": "e8f7465a2c309c0bd9c7f7e011d71dc784260916134ec0d6c070c7f9de48911f",
+    "idmap.parquet": "ec7707dcc12dcb4b7bb4c88094a65583ef7696ae9e024fa0acb0c13728028e9c",
+    "pubmed26.parquet": "7b7f578189ac18545a0a657872df926065776c010e4aa097f3efa6efa0d1d2de"
+  },
+  "groups": {
+    "primary": {
+      "total": 4587,
+      "identifier_aware": 3626,
+      "union_link": 3528,
+      "failing": 961,
+      "failing_share": 0.20950512317418793,
+      "exclusive": {
+        "review_types": 395,
+        "letter_comment_editorial": 67,
+        "erratum_notice_concern": 499,
+        "no_journal_article": 0,
+        "unknown_types": 0
+      },
+      "overlapping": {
+        "review": 395,
+        "editorial": 10,
+        "letter": 48,
+        "comment": 15,
+        "published_erratum": 16,
+        "retraction_notice": 458,
+        "expression_of_concern": 47,
+        "no_journal_article": 63,
+        "unknown_types": 0
+      },
+      "failing_with_retracted_publication": 682,
+      "passing_with_retracted_publication": 3320
+    },
+    "controls": {
+      "total": 52147,
+      "identifier_aware": 43167,
+      "union_link": 43152,
+      "failing": 8980,
+      "failing_share": 0.17220549600168752,
+      "exclusive": {
+        "review_types": 6032,
+        "letter_comment_editorial": 2518,
+        "erratum_notice_concern": 265,
+        "no_journal_article": 165,
+        "unknown_types": 0
+      },
+      "overlapping": {
+        "review": 6032,
+        "editorial": 631,
+        "letter": 1361,
+        "comment": 1663,
+        "published_erratum": 228,
+        "retraction_notice": 37,
+        "expression_of_concern": 6,
+        "no_journal_article": 2305,
+        "unknown_types": 0
+      },
+      "failing_with_retracted_publication": 0,
+      "passing_with_retracted_publication": 0
+    }
+  }
+}

@@ -51,7 +51,9 @@ preview text agree; the eight-member source ZIP matches its files. The approxima
 is 9,393 words, excluding review-margin line numbers (not a certification of the journal's counting convention).
 Only the explanatory flow-diagram caption carries an AI note (Elsevier: data plots are covered in Methods).
 P17 adds the citer-coverage check and journal-resampled primary intervals; earlier results and figures are unchanged.
-The repository version is tagged `v1.0.0`; Zenodo archiving was deferred by the author.
+The repository version is tagged `v1.0.1`; Zenodo archiving was deferred by the author.
+Upload `supplement.pdf` (Sections S1-S2) with the submission: the main text cites it for article-type and
+topic-matching details, including the P18 breakdown of article-type filter failures.
 The unfiltered DI_nok result leads, with whole-journal intervals throughout. P16 adds the PMID-prioritized
 type audit and a small, inconclusive descriptor-major MeSH check. Qualifier-only major tags are absent from the
 frozen extract; no broader rerun has been performed. Original pre-specified CD results are unchanged.

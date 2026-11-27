@@ -124,8 +124,10 @@ $\log(1+\text{references})$ and, in a second model, also $\log(1+\text{citing pa
 Matched diagnostics compare group means of these paper-level log counts within strata, weighting each
 stratum by its compared retracted papers, with 95\% intervals from 2,000 resamples of strata.
 
-Additional checks restrict both populations by PubMed publication types and exclude primary papers linked to
-frequently retracted author names. Their definitions, population accounting and full results are in
+A broad article-type filter keeps papers that PubMed types as Journal Article and that carry no review,
+systematic review, meta-analysis, editorial, letter, comment, erratum, retraction-notice or expression-of-concern
+type; Retracted Publication is kept. Additional checks apply this filter to both populations and exclude primary
+papers linked to frequently retracted author names. Their definitions, population accounting and full results are in
 \ref{sec:appendix} and the supplementary material. Controls, scores and thresholds remain fixed. CD mean intervals retain the original
 journal--year resampling; fixed-window DI$_{nok}$ mean intervals resample whole journals.
 

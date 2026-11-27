@@ -487,3 +487,20 @@ v0.17 text changes without new estimates: sign(CD) = sign(DI_nok) = sign(n_i - n
 disputing Holst et al., Dinh wording, median-population naming (all 86,904 papers with defined CD5; 19/13 for
 late-retracted papers/controls), UTC pre-specification date, AI notes only in the explanatory Figure 1 caption,
 updated Copilot model disclosure, and P13/P16 detail moved unchanged to `paper/content/supplement.tex`.
+
+## P18 composition of article-type filter failures (`e18_types_20261127_01`; v0.18)
+
+Plan published before execution: `ac8d639a1157c70f57a1ebd6d0ec3da984d21dd9`; descriptive only. Replays P16/P13
+eligibility exactly. Fields: `groups.primary`, `groups.controls` in `results.json`.
+
+| Claim in the paper | Value |
+|---|---|
+| Failing primary papers / drawn controls | 961 of 4,587 (21.0%) / 8,980 of 52,147 (17.2%) |
+| Primary failures, ordered split | reviews 395; letters/comments/editorials 67; only notice types 499; no Journal Article 0 |
+| Primary failures with Retraction of Publication / Retracted Publication | 458 / 682 (overlapping) |
+| Control failures, ordered split | 6,032; 2,518; 265; 165 |
+| Failures without notice types | 462 / 4,587 = 10.1% vs 8,715 / 52,147 = 16.7% |
+
+The notice-type interpretation is an inference (these papers are retracted originals; notice types belong to notices).
+v0.18 text: "no clear unadjusted top-tier excess" in the abstract, contributions, conclusions, RQ3 and cover letter;
+broad article-type filter defined in Methods; repository release `v1.0.1`.

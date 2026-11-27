@@ -1,0 +1,32 @@
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
+[    22.4s] frozen_label_and_metadata_hashes_verified: {'labels': 'e8f7465a2c309c0bd9c7f7e011d71dc784260916134ec0d6c070c7f9de48911f', 'idmap.parquet': 'ec7707dcc12dcb4b7bb4c88094a65583ef7696ae9e024fa0acb0c13728028e9c', 'pubmed26.parquet': '7b7f578189ac18545a0a657872df926065776c010e4aa097f3efa6efa0d1d2de'}
+[    46.6s] bounded_metadata_links: 111991
+[    63.0s] composition: {'primary': {'total': 4587, 'identifier_aware': 3626, 'union_link': 3528, 'failing': 961, 'failing_share': 0.20950512317418793, 'exclusive': {'review_types': 395, 'letter_comment_editorial': 67, 'erratum_notice_concern': 499, 'no_journal_article': 0, 'unknown_types': 0}, 'overlapping': {'review': 395, 'editorial': 10, 'letter': 48, 'comment': 15, 'published_erratum': 16, 'retraction_notice': 458, 'expression_of_concern': 47, 'no_journal_article': 63, 'unknown_types': 0}, 'failing_with_retracted_publication': 682, 'passing_with_retracted_publication': 3320}, 'controls': {'total': 52147, 'identifier_aware': 43167, 'union_link': 43152, 'failing': 8980, 'failing_share': 0.17220549600168752, 'exclusive': {'review_types': 6032, 'letter_comment_editorial': 2518, 'erratum_notice_concern': 265, 'no_journal_article': 165, 'unknown_types': 0}, 'overlapping': {'review': 6032, 'editorial': 631, 'letter': 1361, 'comment': 1663, 'published_erratum': 228, 'retraction_notice': 37, 'expression_of_concern': 6, 'no_journal_article': 2305, 'unknown_types': 0}, 'failing_with_retracted_publication': 0, 'passing_with_retracted_publication': 0}}
+done in 63.1 s -> /home/azureuser/e/experiments/e18_types/runs/e18_types_20261127_01
+	Command being timed: "/home/azureuser/mamba/envs/d/bin/python e18_types.py e18_types_20261127_01 ac8d639a1157c70f57a1ebd6d0ec3da984d21dd9"
+	User time (seconds): 41.88
+	System time (seconds): 1.60
+	Percent of CPU this job got: 67%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:03.96
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 492988
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 24
+	Minor (reclaiming a frame) page faults: 315564
+	Voluntary context switches: 1318
+	Involuntary context switches: 289
+	Swaps: 0
+	File system inputs: 6279024
+	File system outputs: 64
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

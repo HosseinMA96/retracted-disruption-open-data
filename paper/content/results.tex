@@ -35,7 +35,8 @@ score lower than their controls (difference $-0.0041$, $-0.0077$ to $-0.0007$), 
 consolidating.
 
 \subsection{RQ3: the most disruptive papers}
-In the pre-specified five-year analysis, retracted papers are not over-represented among the most disruptive papers of their year
+Without adjustment, retracted papers in the pre-specified five-year analysis are not clearly over-represented among the
+most disruptive papers of their year
 (Table~\ref{tab:main}). 3.1\% of them (2.6--3.6) reach the top-5\% threshold, against 3.1\% (2.8--3.5) of their
 controls, weighted in the same way; within strata the odds ratio is 0.99 (0.83--1.20). For the top 1\%, 17
 retracted papers (0.37\%, 0.23--0.59) reach the threshold, against 0.54\% (0.43--0.66) of their controls; the odds
@@ -190,10 +191,13 @@ Adding citation count reduces the contrast and its interval includes one (Table~
 Retracted papers have longer reference lists on the matched mean-log scale, with a gap of $+0.084$.
 Because short lists favour high scores, this imbalance pushes retracted papers' unadjusted scores down.
 Article-type restrictions also change the comparison (Table~\ref{tab:rob}).
-The metadata audit found DOI-only notice links on 106 primary papers.
-Prioritizing native PMID sources restores type eligibility for 98 primary papers and 15 controls, but
-21.0\% of primary papers and 17.2\% of drawn controls still fail the broad article-type filter.
-Full linkage diagnostics, type definitions and model results are in the supplementary material.
+After a metadata audit that prioritizes native PMID records over DOI-only notice links, 21.0\% of primary
+papers and 17.2\% of drawn controls fail the broad article-type filter.
+Of the 961 failing primary papers, 395 are reviews and 67 letters, comments or editorials; the other 499 carry
+only notice types, mostly Retraction of Publication, consistent with notice records linked to the retracted
+paper rather than with its own type. Setting notice-type failures aside, 10.1\% of primary papers fail against
+16.7\% of controls, which are mainly reviews, letters, comments and editorials.
+Linkage diagnostics and model results are in the supplementary material.
 
 Major-MeSH topic matching retains only 540 primary papers. Its point estimate is below the journal/year baseline
 for exactly those papers, but both intervals include zero (Table~\ref{tab:citers}).

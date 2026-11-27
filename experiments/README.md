@@ -18,6 +18,7 @@
 | `e15_citers/` | **Post hoc** P15: citing-record exclusions, adjusted DI_nok mean, whole-journal bootstrap and top-ten-journal exclusion | `e15_citers_20261127_02`; population flow `e15_flow_20261127_02` (current; _01 preserved) | `RESULTS_LOG.md` |
 | `e16_topic/` | **Post hoc** P16: PMID-prioritized type audit, major-MeSH matching and fixed-window journal intervals | `e16_topic_20261127_03` (successful; _01/_02 preserved) | `RESULTS_LOG.md` |
 | `e17_coverage/` | **Post hoc** P17: citer reference coverage, coverage-restricted DI_nok/sign and whole-journal primary intervals | `e17_coverage_20261127_01` | `RESULTS_LOG.md` |
+| `e18_types/` | **Post hoc** P18: composition of PMID-prioritized article-type filter failures (descriptive) | `e18_types_20261127_01` | `RESULTS_LOG.md` |
 | `e06_figures/` | Paper figures from run records (laptop) | `e06_fig_20261127_10` (current; whole-journal DI_nok intervals, original CD/event values, four null lines); paired annual intervals from P12 | `RESULTS_LOG.md` |
 
 Runs not cited carry a `SUPERSEDED.txt` with the reason: `e07_yearly_20261123_01`, `e08_posthoc2_20261123_01`
@@ -42,6 +43,7 @@ Runs not cited carry a `SUPERSEDED.txt` with the reason: `e07_yearly_20261123_01
 | Failed P15 join and exact source audit | `e15_citers/runs/e15_citers_20261127_01/`, `e15_citers/versions/e15_01_source.tgz` |
 | P16 type-linkage audit, topic coverage/matched baselines and fixed-window journal intervals | `e16_topic/runs/e16_topic_20261127_03/results.json`, `run.json`, `manifest.json` |
 | P17 citer coverage, restricted DI_nok/sign and journal-clustered primary intervals | `e17_coverage/runs/e17_coverage_20261127_01/results.json`, `run.json`, `manifest.json` |
+| P18 publication types behind article-type filter failures (aggregate counts) | `e18_types/runs/e18_types_20261127_01/results.json`, `run.json`, `manifest.json` |
 | P16 failed attempts and exact source audits | `e16_topic/runs/e16_topic_20261127_01/`, `_02/`; `e16_topic/versions/e16_01_source.tgz`, `e16_02_source.tgz` |
 | Large intermediates (labels, frozen scores, yearly counts) | VM disk `~/e/data/work/` only (per-paper tables are never released) |
 | VM billing events | `../vm/sessions.log` |
