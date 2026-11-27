@@ -1,26 +1,24 @@
 \section{Introduction}\label{sec:intro}
 
-The CD index \citep{funk2017dynamic} compares the later papers that cite a focal paper with the later papers that cite
-the focal paper's references. Citing papers that ignore the references push the score towards $+1$, and the paper is
-called disruptive; citing papers that also cite them push it towards $-1$, and the paper is called consolidating;
-papers that cite only the references pull the score towards zero. The index became widely known through studies of
-team size \citep{wu2019large} and of a decline in disruptiveness across science and technology \citep{park2023papers}.
-An inventory lists 105 studies that bear on whether innovation is becoming less disruptive
-\citep{wu2026inventory}, and recommendations have been made for using the index in research evaluation
-\citep{chen2025thresholds}. The index is also debated: records without references can drive measured trends
+The CD index \citep{funk2017dynamic} compares later citations to a focal paper and its references.
+Citers ignoring the references push it towards $+1$ (disruption), joint citers towards $-1$ (consolidation),
+and reference-only citers towards zero. Studies of team size \citep{wu2019large} and declining disruption
+\citep{park2023papers} popularized it, and research-evaluation uses have been proposed
+\citep{chen2025thresholds}. Its validity is debated: records without references can drive measured trends
 \citep{holst2024artefacts,holst2026partially,park2026reply}, citation inflation biases it
 \citep{petersen2024inflation,petersen2025reanalysis}, and its values depend on the data source
 \citep{leibel2023overview,xu2025alternative}.
 
 A question that matters for both uses has not been answered: how does the index score papers that are later
-retracted? Retractions for paper-mill production have grown quickly: the Retraction Watch snapshot used here records
-11,716 such papers, with at most four retraction notices per year before 2020 and 6,782 in 2023 alone. If fabricated
-or mass-produced papers scored as disruptive, an evaluation that rewards disruption would also reward them; if they
+retracted? Retractions cover unreliable work from misconduct, errors and paper-mill production.
+If unreliable papers scored as disruptive, an evaluation that rewards disruption would also reward them; if they
 scored as consolidating, the index might carry a signal that integrity screening could use. The closest prior work
 studied other units: questionable publications were less disruptive than comparable publications
 \citep{you2022questionable}, and a disruption measure computed for MeSH concepts differed between the concepts used to
 annotate retracted and non-retracted papers in most years \citep{copara2024mesh}. Neither compared the scores of the
 retracted papers themselves with those of comparable papers, measured before the retraction.
+Only 276 paper-mill papers enter our five-year comparison, so it is primarily a study of late-retracted papers,
+not of the recent paper-mill surge.
 
 Opposite expectations are plausible. Fabricated or falsified results can report findings that later work cites as new
 evidence without engaging the literature the paper built on; such papers would score as disruptive. Paper-mill products
@@ -30,25 +28,18 @@ after a retraction \citep{azoulay2015retractions}, retraction notices appear amo
 \citep{hsiao2021continued}, and scores computed over windows that include these years may describe the retraction
 rather than the paper.
 
-This study answers the question on the open biomedical citation graph. The comparison has three features. First, it is
-temporal: retracted papers enter the main analysis only if the retraction came after their five-year scoring window
-closed, so the score reflects how the paper was cited while it was still part of the record. Second, each retracted
-paper is compared with never-retracted papers from the same journal and publication year. Third, the design, the
-reason classes and every pre-planned analysis were written down before any score was computed. Analyses added later
-are labelled exploratory; they include interval bounds, a review positive control, a variant of the index without
-its $n_k$ term, reference-length diagnostics and a comparison of citing papers around the retraction notice.
+We compare scores from windows closing before retraction with never-retracted journal/year controls.
+The design, reason classes and planned analyses were specified before scoring. Added analyses are labelled
+exploratory; they examine the denominator, citing records, matching and changes around the notice.
 
 Contributions:
 \begin{itemize}
 \item A paper-level measurement of the CD index for retracted papers scored before their retraction, overall and by
-retraction reason (paper mill, misconduct, honest error), for 4,587 papers, of which 4,586 are compared with 31,662
-scored controls in 2,239 journal--year strata, with a post hoc extension to 7,349 scored papers, of which 7,348 are compared.
-\item Bounds on the small mean difference and no unadjusted top-tier excess in the pre-specified five-year analysis,
-alongside a positive-score shift; the post hoc three-year window leans toward a modest top-tier excess.
-\item Exploratory evidence that the index hides a difference in how retracted papers are cited: papers that cite a retracted paper
-are less likely to also cite its references. A reference-adjusted top-tier excess is not clear after also adjusting
-for citation count.
-\item Evidence that scores including the years after the notice are shifted by notice records and by a gap that widens
-around the notice, with a practical recommendation for evaluators.
+retraction reason, using same-journal/year controls.
+\item A pre-specified comparison finding a small mean gap and no clear top-tier excess, but more positive scores.
+\item Exploratory evidence of what a known denominator problem means for retracted papers: their citing papers
+are less likely to also cite their references, a contrast compressed by CD$_5$.
+\item Sensitivity checks for citing-record composition, publication type, reference length and journal dependence,
+and practical scoring-window advice for researchers and bulk score providers.
 \item Open code, run records and specification files that let the analysis be repeated on the public data.
 \end{itemize}

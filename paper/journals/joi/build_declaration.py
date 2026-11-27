@@ -33,6 +33,18 @@ def main():
     if actual != expected:
         raise ValueError("DOCX text does not match its sources")
     print(f"{target.name}: editable local declaration; Elsevier tool completion still required")
+    items = (HERE / "highlights.txt").read_text().splitlines()
+    if not 3 <= len(items) <= 5 or any(len(item) > 85 for item in items):
+        raise ValueError("Highlights must contain 3-5 bullets of at most 85 characters")
+    highlights = Document()
+    highlights.core_properties.title = "Highlights"
+    highlights.core_properties.author = "Hossein Mohasel Arjomandi"
+    for item in items:
+        highlights.add_paragraph(item, style="List Bullet")
+    highlights.save(HERE / "highlights.docx")
+    if [p.text for p in Document(HERE / "highlights.docx").paragraphs] != items:
+        raise ValueError("Highlights DOCX differs from the editable text source")
+    print("highlights.docx: editable Word highlights verified")
 
 
 if __name__ == "__main__":

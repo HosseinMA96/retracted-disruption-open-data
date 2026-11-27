@@ -7,9 +7,9 @@ The build script now generates only this submission version.
 
 | Upload item | File(s), relative to this folder |
 |---|---|
-| Editable LaTeX manuscript source | `joi_latex_source.zip` (identified); contains `submission/main.tex`, bibliography/style/class files and all three figures, with flat ZIP member names |
+| Editable LaTeX manuscript source | `joi_latex_source.zip` (identified); eight flat members: `main.tex`, bibliography/style/class files and all three figures |
 | Figures, if requested as separate upload items | `submission/fig1_forest.pdf`, `submission/fig2_event.pdf`, `submission/fig3_population_flow.pdf` |
-| Separate editable highlights | `highlights.txt` |
+| Separate editable highlights, if requested | `highlights.docx` (Word); `highlights.txt` is the matching plain-text source |
 | Competing-interests statement | `competing_interests.docx`, **after replacing the locally generated draft with the official Elsevier declarations-tool output** |
 | Cover letter | `cover_letter.pdf` or its editable `cover_letter.tex`, as the system requests |
 | Separate title page, only if requested | `title_page.pdf` or `title_page.tex` |
@@ -18,6 +18,8 @@ Do **not** use `submission_anon/` or `joi_latex_source_anon.zip`: these are lega
 Do not upload `main.pdf` as a substitute for editable manuscript source. The local PDF in `submission/` is a preview,
 not a member of the LaTeX ZIP. If the system asks for individual source files instead of a ZIP, upload the eight
 ZIP members directly from `submission/`, including the editable `main.tex` and all three figures.
+If using the public repository rather than a local build, first extract the ZIP into `submission/`;
+that generated folder is not separately published.
 
 **The Elsevier declarations tool should always be completed when uploading**, even when there are no competing
 interests: https://declarations.elsevier.com/ .
@@ -34,7 +36,19 @@ The source is ASCII elsarticle and does not require XeLaTeX.
 
 No files have been uploaded or submitted. Final author review and explicit submission approval are still required.
 
-Current prepared package: v0.14, 35-page identified manuscript, 202-word abstract and three figures.
-The P15 results and population flow are included; original pre-specified results remain unchanged.
+**Highlights status:** the JOI-specific mandatory/optional requirement could not be independently verified:
+the official author guide returned HTTP 403. Elsevier's official general highlights page specifies 3--5
+bullets, each at most 85 characters including spaces, provided as a Word document; it says they are not
+required until the final-files stage. This does not establish JOI's own requirement.
+`highlights.docx` is prepared and its text is checked against `highlights.txt`.
+Source checked 27 November 2026: https://www.elsevier.com/researcher/author/tools-and-resources/highlights .
+
+Current prepared package: v0.15, 36-page identified manuscript, 218-word abstract and three figures.
+Approximate pre-References PDF whitespace count: 9,814, including appendix/captions/declarations;
+this is not a certification of the journal's exact counting convention.
+The unfiltered DI_nok result leads, with whole-journal intervals throughout. P16 adds the PMID-prioritized
+type audit and a small, inconclusive major-MeSH matching check. Original pre-specified CD results are unchanged.
+The author must review the new P16 findings and revised text before submission; prior oversight confirmation
+does not substitute for review of this new revision.
 Both `cover_letter.tex` and `cover_letter.pdf` are now included in the public repository; the letter names the
 companion arXiv preprint and explains the shared linked dataset and different research question.

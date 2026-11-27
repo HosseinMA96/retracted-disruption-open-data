@@ -367,3 +367,68 @@ and c1d69e9 author/committer date, not a fabricated one-hour correction.
 No author self-citation exclusion or new-data replication was run. P14 names belong to Retraction Watch papers,
 not the complete citing population; they cannot establish author overlap for all remaining citers.
 Author self-citations and unretracted paper-mill citers are explicit limitations, distinct from excluded self-loops.
+
+## P16 identifier-aware types, topic matching and current interval map (v0.15)
+
+Plan published before execution at `018d835f7db497a788320977d54d4b62f3755918`;
+source `experiments/e16_topic/runs/e16_topic_20261127_03/results.json`.
+Earlier sections preserve the values in their original immutable records. Current fixed-window DI_nok intervals
+use whole-journal resampling: overall unfiltered means come verbatim from P15, all other unfiltered class/review/type/
+author means from P16. Planned CD and event-time intervals are unchanged.
+The unfiltered five-year mean is **0.066767822 (0.034453503, 0.094954208)** everywhere it appears in the manuscript.
+The abstract leads with that estimate and **65.5% vs 68.8%**, then treats the filtered 0.081597702 as sensitivity.
+Prior credit: Bornmann et al. 2020, DOI 10.1162/qss_a_00068; revised indices, DOI 10.3145/epi.2021.ene.21.
+Short-window limitation: DOI 10.3145/epi.2019.mar.07 and 10.1162/QSS.a.409.
+Dinh et al., DOI 10.1002/pra2.35, concerns disciplinary/geographic changes in a post-retraction subset,
+not direct evidence of our pre-notice citers' fields.
+
+**Type audit:** 106 primary papers and 13 drawn controls have DOI-only notice records targeting their native PMID.
+Prioritizing PMID sources recovers 98/15 article-eligible papers, not necessarily all through notice removal:
+it prevents propagation of any DOI-only excluded type. Eligible counts are **3,626/4,587** primary and
+**43,167/52,147** drawn controls (21.0%/17.2% still excluded). Four focal nodes have unknown source metadata;
+no types/topics are imputed. Native identifier linkage comes from the original OpenCitations ID map.
+
+| PMID-prioritized type analysis | CD5 | CD3 |
+|---|---|---|
+| CD compared retracted / controls / strata | 3,619 / 24,192 / 1,898 | 5,736 / 37,776 / 2,808 |
+| CD mean gap | 0.000770438 (-0.000139642, 0.001876607) | 0.000841291 (0.000115573, 0.001696539) |
+| Positive-score OR | 1.249452 (1.136557, 1.373562) | 1.335033 (1.242140, 1.434872) |
+| Top-5% OR | 1.067260 (0.860058, 1.324382) | 1.213312 (1.037829, 1.418467) |
+| DI_nok gap, whole-journal interval | 0.072860345 (0.034626318, 0.109363908) | 0.082516856 (0.053848468, 0.107870904) |
+| DI_nok compared retracted / controls | 3,569 / 23,525 | 5,555 / 35,869 |
+
+Paths: `windows.cd5/cd3.type_sensitive.identifier_aware_cd/identifier_aware_dinok`.
+Main Table 2 uses these CD estimates. Appendix A.7 preserves original union-link P13 CD/model results;
+its DI_nok intervals now use `legacy_dinok`: CD5 **0.073527015 (0.034573800, 0.106851140)**,
+CD3 **0.082218165 (0.053095966, 0.106830246)**. These are different metadata definitions.
+
+**Topic matching:** fixed up-to-five positive major-MeSH Jaccard overlaps among original journal/year controls,
+deterministic ties/reuse; unfiltered five-year scores. Each baseline uses exactly the retained retracted papers
+and all descriptor-eligible controls in their original strata, not the full population.
+
+| Topic analysis | Papers / journals | Gap, whole-journal 95% interval |
+|---|---|---|
+| All types, exact-retained journal/year baseline | 540 / 140 | 0.082465018 (-0.005868149, 0.136079661) |
+| All types, major-MeSH matches | 540 / 140 | 0.049776862 (-0.012347972, 0.097392746) |
+| PMID-prioritized articles, exact-retained baseline | 417 / 112 | 0.085793242 (-0.005036865, 0.148465208) |
+| PMID-prioritized articles, major-MeSH matches | 417 / 112 | 0.062789308 (-0.002551950, 0.123826087) |
+
+Paths: `windows.cd5.topic_matching.all_types/identifier_aware_articles.estimates`.
+Of 4,518 defined primary papers, 1,722 have major descriptors; 1,182 have no eligible overlapping control.
+The 540 matched papers use 874 unique controls over 1,306 assignments; 237 have one control, 114 have five,
+median Jaccard 0.5. The article version uses 699 unique controls over 1,029 assignments; 938/1,355
+descriptor-eligible papers do not match. Both topic intervals include zero: **inconclusive**, not robustness confirmation.
+No matching rule was relaxed after results.
+
+Author-name DI_nok intervals in current Table A.2 use `windows.cd5/cd3.authors`:
+overall **0.060765180 (0.032727077, 0.089066895)** and
+**0.068509649 (0.040276725, 0.094704849)**; points/counts and all CD cells remain unchanged.
+The main text reports 2,280/4,587 linked to names on at least ten retractions, without treating names as identities.
+Review DI_nok, `windows.cd5.reviews`: **-0.076072618 (-0.195781440, 0.028318081)**, 4,736 reviews.
+Class means and their journal intervals are in `windows.cd5/cd3.unfiltered.by_class`.
+Figure run `e06_fig_20261127_10` uses these intervals in the DI_nok panel; other forest cells and event/flow PDFs
+are unchanged.
+
+Runtime 1:37.34; peak RSS 1,098,240 KB. Eight tests and frozen/P5/P13/P14 reproduction checks passed;
+aggregate fetch checksums verified and VM deallocated. Failed _01/_02 produced no estimates and remain preserved
+with exact source archives. Full oversight was confirmed by the author; the disclosure lists personal checks.

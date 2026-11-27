@@ -54,3 +54,12 @@ Vector inspection confirms four null lines and unchanged non-null drawing object
 All points/intervals and input runs are unchanged; the event PDF is byte-identical to _08.
 The flow figure is also unchanged. The Figure 2 caption identifies journal-year mean-gap intervals,
 distinct from the whole-journal intervals in the citing-record table. Run _08 remains immutable.
+
+# e06_fig_20261127_10: fixed-window journal intervals (v0.15)
+
+P16 `_03` supplies whole-journal intervals for the unfiltered primary, class and review DI_nok means.
+The primary intervals are reused verbatim from P15. All mean points, original CD/OR intervals and null lines
+remain unchanged; the event PDF is byte-identical to _09. The manuscript now uses these DI_nok intervals
+consistently in Figure 2, Table 3 and Appendix A.3. `_09` and all earlier files remain immutable.
+An isolated validation rebuild with Matplotlib 3.10.8 reproduces both current figure PDFs byte-identically;
+no experimental run or current paper figure is overwritten.

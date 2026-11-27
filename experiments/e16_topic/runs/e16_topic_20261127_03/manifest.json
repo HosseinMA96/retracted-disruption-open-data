@@ -1,0 +1,32 @@
+{
+  "run_id": "e16_topic_20261127_03",
+  "plan_commit": "018d835f7db497a788320977d54d4b62f3755918",
+  "inputs": {
+    "cd5": [
+      "e02_pop_20261110_01",
+      "e03_cd5_20261110_01",
+      "e04_eval_20261110_01"
+    ],
+    "cd3": [
+      "e02_pop_cd3_20261110_01",
+      "e03_cd5_cd3_20261110_01",
+      "e04_eval_cd3_20261110_01"
+    ]
+  },
+  "script_sha256": "baeaf4c25fa6fb598edf99dbc788ef326b39e5e4e2912dfaad993d120b711590",
+  "source_and_helper_hashes": {
+    "e16_topic/topic_lib.py": "232d59bb1cfc41c10d9204befd16d479d3d5504d8ac5aef7346348ee6d57fd18",
+    "e15_citers/citer_lib.py": "0da3a870314258ad2dbf7ca4fbaa5fb136c91ca3f6a3b65a3f20b21e866a7d01",
+    "e15_citers/common.py": "3163596e203c31f513aba38a6baed7091f0497638ed85f6f4f85e87fa2c1a18d",
+    "e13_article_types/sensitivity_lib.py": "8b1071771c4159afe8ded5ed17287986b1cc1a980bc1214b58c776e598b76954",
+    "e14_authors/author_lib.py": "c1b050dff2a27e82c6423bc5ddc68d918c792882da1ef8c61c144c700e97f485"
+  },
+  "outputs": [
+    "results.json",
+    "run.json",
+    "manifest.json",
+    "stdout.log",
+    "SHA256SUMS"
+  ],
+  "release": "aggregate records only; metadata and matches remain on the VM"
+}

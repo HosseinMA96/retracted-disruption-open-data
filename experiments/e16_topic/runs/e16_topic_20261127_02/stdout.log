@@ -1,0 +1,41 @@
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.024s
+
+OK
+[    18.6s] frozen_scores_labels_metadata_hashes_verified: True
+[    26.8s] bounded_identifiers: 219298
+[    30.2s] bounded_pubmed_keys: 113222
+[    45.5s] bounded_pubmed_records: 113222
+[    46.8s] bounded_metadata_links: 218809
+[    84.3s] metadata_audit_completed: {'nodes': 110462, 'linked': 110458, 'pmid_sources': 108823}
+Traceback (most recent call last):
+  File "/home/azureuser/e/experiments/e16_topic/e16_topic.py", line 190, in <module>
+    main()
+  File "/home/azureuser/e/experiments/e16_topic/e16_topic.py", line 121, in main
+    raise ValueError("An originally linked focal node lacks metadata")
+ValueError: An originally linked focal node lacks metadata
+Command exited with non-zero status 1
+	Command being timed: "/home/azureuser/mamba/envs/d/bin/python e16_topic.py e16_topic_20261127_02 018d835f7db497a788320977d54d4b62f3755918"
+	User time (seconds): 68.46
+	System time (seconds): 2.00
+	Percent of CPU this job got: 81%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:26.70
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 882228
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 24
+	Minor (reclaiming a frame) page faults: 395816
+	Voluntary context switches: 1323
+	Involuntary context switches: 450
+	Swaps: 0
+	File system inputs: 6428992
+	File system outputs: 32
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1

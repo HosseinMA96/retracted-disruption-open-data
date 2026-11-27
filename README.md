@@ -36,26 +36,30 @@ labelled post hoc, and each plan was written down before it was run.
 | Odds ratio for a positive CD5 (pre-specified RQ1) | **1.23** (1.13–1.34) |
 | Odds ratio for reaching the top 5% of the year | **0.99** (0.83–1.20) |
 | Positive control: reviews vs other papers, top 5% | 0.58 (0.47–0.72): the design detects a real contrast |
+| Unfiltered DI_nok (exploratory) | **+0.067** (95% whole-journal CI 0.034-0.095); reference-co-citation shares **65.5% vs 68.8%** |
 | DI_nok after excluding notice, comment/letter and retracted citers (P15) | **+0.082** (95% journal CI 0.049–0.110); 4,504 compared retracted / 30,389 controls |
 | Filtered DI_nok with reference and citation adjustment | **+0.097** (0.065–0.127) |
 | Filtered DI_nok excluding ten highest-retraction journals | **+0.053** (0.033–0.074); with both covariates +0.070 (0.049–0.091) |
-| Historical unfiltered DI_nok, original strata interval | +0.067 (0.046–0.087) |
 | Top 5%, reference-adjusted and then also citation-adjusted (post hoc) | 1.42 (1.16–1.75), then 1.19 (0.96–1.47): model-dependent |
 | Matched difference in mean log(1 + references), P12 | **+0.084** (0.058–0.109), 4,586 retracted papers / 31,662 controls |
-| Article-type sensitivity, CD5 top 5% (P13) | 1.07 (0.86-1.33), 3,521 compared retracted papers / 23,839 controls |
-| Article-type sensitivity, reference-adjusted CD5 top 5% | 1.64 (1.28-2.10); matched mean-log reference gap +0.064 (0.045-0.083) |
-| Article-type sensitivity, CD3 top 5% | 1.21 (1.04-1.42), 5,592 compared retracted papers / 37,334 controls |
-| Author-name exclusion (P14), five-year DI_nok | +0.061 (0.038-0.084), 2,260 compared papers; 2,280 primary papers removed |
+| PMID-prioritized article types (P16), CD5 top 5% | 1.07 (0.86-1.32), 3,619 compared retracted papers / 24,192 controls |
+| Original union-link type filter (P13), reference-adjusted CD5 top 5% | 1.64 (1.28-2.10); matched mean-log reference gap +0.064 (0.045-0.083) |
+| PMID-prioritized article types (P16), CD3 top 5% | 1.21 (1.04-1.42), 5,736 compared retracted papers / 37,776 controls |
+| Author-name exclusion (P14), five-year DI_nok, whole-journal interval | +0.061 (0.033-0.089), 2,260 compared papers; 2,280 primary papers removed |
+| Major-MeSH matching (P16), only 540 retained papers | +0.050 (-0.012 to 0.097); exact-retained-paper baseline +0.082 (-0.006 to 0.136): inconclusive |
+| Major-MeSH matching with PMID-prioritized article types, 417 papers | +0.063 (-0.003 to 0.124); exact-retained baseline +0.086 (-0.005 to 0.148): inconclusive |
 | Author-name exclusion (P14), three-year top 5% | 1.03 (0.85-1.25), 3,626 compared papers |
 | Size of n_k for the median paper | 2,862 papers citing only the references vs 12 citing the paper |
 | Change in DI_nok after vs before the notice, minus controls (post hoc) | +0.074 (0.050–0.097); placebo 3 years earlier +0.036 |
 
 **Take-away:** the pre-specified five-year analysis shows a small positive-score shift but no clear unadjusted top-tier
 excess; the post hoc three-year window leans toward a modest excess, but this weakens under author-name exclusions.
-The filtered citation-composition contrast persists after removing notices, comments/letters and retracted citers,
+The unfiltered citation-composition gap applies a known denominator problem to late-retracted papers.
+As a robustness check, the contrast persists after removing notices, comments/letters and retracted citers,
 adjusting reference and citation counts, and excluding the ten highest-retraction journals.
-Article-type restriction retains the reference
-imbalance and adjusted excess, but is an operational proxy, not a guarantee of original research.
+PMID priority corrects some DOI-only type propagation; 21.0% of primary papers and 17.2% of drawn controls
+still fail the broad article filter. Topic matching has limited coverage and does not confirm the gap.
+Original union-link article models retain the reference imbalance; type flags do not guarantee original research.
 The n_k term compresses the citation-composition gap, and scores including post-retraction years are shifted. Every
 number above is traced in [`FINDINGS.md`](FINDINGS.md). Mean-log reference gaps describe the direction of imbalance,
 not the magnitude of the adjusted odds-ratio shifts. P14 uses name strings, not disambiguated author identities.
@@ -78,13 +82,13 @@ The primary comparison uses only the 31,662 scored controls in strata containing
 .
 ├── README.md            ← you are here
 ├── SPEC.md              pre-specified design (v1; its SHA-256 is in every run.json)
-├── POSTHOC.md           post hoc plans P1–P15, each written before it was run
+├── POSTHOC.md           post hoc plans P1–P16, each written before it was run
 ├── FINDINGS.md          every number in the paper → the run that produced it
 ├── REPRODUCE.md         inputs, environment, exact commands in order, determinism notes
 ├── CITATION.cff         how to cite this repository
 ├── experiments/
 │   ├── README.md        index of steps and the runs cited in the paper
-│   ├── e01 … e15/       one folder per step: script(s), lab notebook RESULTS_LOG.md, runs/<run_id>/
+│   ├── e01 … e16/       one folder per step: script(s), lab notebook RESULTS_LOG.md, runs/<run_id>/
 │   └── …/runs/<id>/     run.json (parameters, script hash, counts) · stdout.log · group-level outputs · SHA256SUMS
 ├── paper/               LaTeX source (content/, journals/joi/main.tex), figures, refs.bib + DOI checks
 ├── lit/                 literature gate, verified DOIs and the claim check
@@ -102,10 +106,11 @@ cd experiments/e03_cd5 && python test_cd.py && cd ../e07_yearly && python test_y
 python experiments/e13_article_types/test_sensitivity.py
 python experiments/e14_authors/test_authors.py
 python experiments/e15_citers/test_citers.py
+python experiments/e16_topic/test_topic.py
 
 # 3. rebuild the figures from the run records (byte-identical to the committed ones with Matplotlib 3.10.8)
 cd experiments/e06_figures && python e06_figs_v2.py my_rebuild e04_eval_20261110_01 e04_eval_cd3_20261110_01 \
-   e08_posthoc2_20261123_02 e09_pretrend_20261123_01 e12_diag_20261126_01 && \
+   e08_posthoc2_20261123_02 e09_pretrend_20261123_01 e12_diag_20261126_01 e16_topic_20261127_03 && \
    cmp runs/my_rebuild/fig1_forest.pdf ../../paper/figures/fig1_forest.pdf && \
    cmp runs/my_rebuild/fig2_event.pdf ../../paper/figures/fig2_event.pdf && cd ../..
 python experiments/e15_citers/flow_diagram.py my_flow e15_citers_20261127_02
@@ -119,10 +124,12 @@ cd paper/journals/joi && tectonic -X compile main.tex
 are in [`REPRODUCE.md`](REPRODUCE.md).
 
 **JOI upload:** use the identified `paper/journals/joi/joi_latex_source.zip`, not a manuscript PDF or the legacy
-anonymized package. Separate highlights and an official declarations-tool statement are also required.
+anonymized package. The official declarations tool must be completed; a Word highlights file is prepared,
+but JOI-specific mandatory/optional status remains unverified.
 See [`paper/journals/joi/UPLOAD.md`](paper/journals/joi/UPLOAD.md); nothing has been submitted.
-The v0.14 identified manuscript has a 202-word abstract and 35 pages. It reports both unfiltered and filtered DI_nok gaps, retains the original pre-specified CD results,
-and adds a population flow. Detailed article-type, author-name and citing-record diagnostics are in the appendix.
+The v0.15 revision leads with unfiltered DI_nok and credits earlier denominator work.
+It retains the original pre-specified CD results, adds the identifier-aware type audit and inconclusive topic check,
+and standardizes fixed-window DI_nok intervals to whole journals.
 Local builds use Tectonic. Editorial Manager's pdfLaTeX PDF must still be reviewed,
 and Elsevier's declarations tool must always be completed at upload.
 The abstract defines late retraction and the five-year index, and explains the denominator mechanism.
@@ -131,8 +138,9 @@ model-dependent reference-adjusted result. P15 increases, rather than removes, t
 annotation and retrospective retraction flags remain limitations. No journal or arXiv submission has been made.
 The separate [cover letter](paper/journals/joi/cover_letter.pdf) and its
 [editable source](paper/journals/joi/cover_letter.tex) identify the companion preprint and shared linked dataset.
-Mean-gap intervals in the forest use journal-year resampling; the citing-record table uses whole-journal
-resampling. All four forest panels mark the null. Clock sources and cross-host timestamp discrepancies are
+CD mean-gap intervals in the forest use journal-year resampling; fixed-window DI_nok means use whole-journal
+resampling throughout. Event-time intervals retain journal-year resampling. All four forest panels mark the null.
+Clock sources and cross-host timestamp discrepancies are
 documented in `experiments/spec_provenance.json`; immutable dates are not adjusted.
 
 ## Data sources
@@ -176,6 +184,7 @@ keep their own terms.
 
 ## Generative AI
 
-Claude Opus 5.5 (Anthropic) was used as a coding and writing assistant under the author's direction; GitHub Copilot
-(powered by GPT-6.1 Sol, OpenAI) was used to check and edit the manuscript before submission. The author
-checked every analysis, number and reference.
+Claude Opus 5.5 (Anthropic) was used as a coding and writing assistant under the author's direction;
+GitHub Copilot CLI 1.0.116 (GitHub, powered by OpenAI's GPT-6.1 Sol) assisted added analysis/visualization code,
+tests and manuscript edits. The author directed these revisions and confirmed checks of analysis,
+numbers and sources. Final review of the new P16 findings and current text remains required before submission.

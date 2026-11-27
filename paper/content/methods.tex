@@ -14,13 +14,10 @@ nodes by DOI or PMID; 52,254 of the 62,735 (83.3\%) were matched, giving 53,170 
 public \citep{arjomandi2026retracteddata}. The date of the first retraction notice and the union of the reasons given
 by Retraction Watch are kept per paper. The reinstated paper is excluded, leaving 62,734 non-reinstated paper keys.
 
-\paragraph{Reason classes} Each retracted paper receives one class, assigned in this order: \emph{paper mill} (reason
-``Paper Mill''); \emph{misconduct} (fabrication or falsification, manipulation of images, data or results, plagiarism,
-duplicated images, compromised peer review, rogue editor, forged authorship or affiliation, computer-generated
-content, hoax papers, or an official misconduct finding); \emph{honest error} (any ``Error in'' or ``Error by''
-reason, results not reproducible, contaminated materials or cell lines, ``Doing the Right Thing''); and \emph{other}
-(everything else, including notices with limited information). The full list of reason strings is in the
-specification file (see the data and code availability statement).
+\paragraph{Reason classes} One class is assigned in precedence order: \emph{paper mill} (the ``Paper Mill'' reason);
+\emph{misconduct} (fabrication, falsification, manipulation, plagiarism, compromised review or related findings);
+\emph{honest error} (stated errors, reproducibility failures or contamination); then \emph{other}.
+The specification gives the complete reason-string rules (see data and code availability).
 
 \subsection{Populations}
 \paragraph{Eligible papers} Biomedical papers published 2000--2017 with a journal in Meta, at least one reference in
@@ -33,7 +30,7 @@ and is undefined otherwise, and they are the records behind the CD$_5 = 1$ artef
 is dated after 31 December of the fifth year after publication, so that the whole scoring window precedes the
 retraction. Papers retracted earlier form, together with the primary set, the \emph{secondary set} used in a robustness check.
 
-\paragraph{Controls} For every retracted paper, five eligible papers from the same journal and publication year that
+\paragraph{Controls} Within each journal/year stratum, we draw up to five eligible controls per retracted paper that
 are neither in Retraction Watch nor flagged as retracted in PubMed. Within a stratum, controls are the papers with the
 lowest value of a fixed hash of their identifier (seed 20261109), which makes the draw deterministic.
 The pool is drawn for all eligible retracted papers, not only the primary set. A comparison uses only controls
@@ -78,6 +75,12 @@ timestamp than the focal work\footnote{Software \texttt{cdindex} by R.~J. Funk,
 \url{https://github.com/russellfunk/cdindex}, file \texttt{src/cdindex.c} at commit \texttt{4eece64}.}, which with
 year-level timestamps corresponds to the citing years $t+1$ to $t+5$; this window is used in robustness check (d).
 
+These short windows are chosen to close before the retraction notice, not to estimate a fully stabilized score.
+\citet{bornmann2019window} showed that index values depend on the citation window.
+\citet{lin2026displacement} advise against five-year windows for general use because stabilization may take ten
+years or more. Our temporal comparison trades that longer horizon for separation from the retraction;
+the three-year extension probes an even earlier citation pattern.
+
 The post hoc variant without $n_k$,
 \begin{equation}
 \mathrm{DI}_{nok}(f) = \frac{n_i - n_j}{n_i + n_j},
@@ -86,13 +89,11 @@ was proposed by \citet{wuyan2019solo} and studied as DI$_1^{nok}$ by \citet{born
 the papers that cite $f$ and is defined when there is at least one; $(1 - \mathrm{DI}_{nok})/2$ is the share of
 citing papers that also cite a reference. CD and DI$_{nok}$ always have the same sign.
 
-The score script reads only the list of focal papers and their years; it never reads retraction labels. Its output
-(86,950 distinct papers: the 87,088 group memberships minus 138 overlaps with the reference sample)
-was hashed (SHA-256) before the evaluation script joined the labels, and the evaluation script checks
-the hash. An implementation in DuckDB \citep{raasveldt2019duckdb} was tested against a brute-force count on random
-graphs (1,200 focal papers, both windows, identical counts). For the before-and-after comparison, a second label-free
-script counted the citing papers of each focal paper by citing year; its sums over the scoring windows equal the frozen
-counts for all 110,462 papers of both populations, and its output was hashed before labels were joined.
+The scorer reads focal IDs and years, not retraction labels; reference-sample overlaps are deduplicated for scoring.
+Its output was hashed before evaluation joined
+the labels; evaluation verifies that hash. The DuckDB implementation \citep{raasveldt2019duckdb} reproduces
+brute-force counts on random graphs. A separate label-free yearly counter reproduces the frozen window counts;
+its output is also hashed before labels are joined. Full validation and population accounting are in the run records.
 
 \subsection{Analyses}
 The primary questions and robustness checks were specified before scoring. Exploratory analyses were planned after
@@ -120,7 +121,15 @@ stratum by its compared retracted papers, with 95\% intervals from 2,000 resampl
 
 Additional checks restrict both populations by PubMed publication types and exclude primary papers linked to
 frequently retracted author names. Their definitions, population accounting and full results are in
-\ref{sec:appendix}. Controls, scores and thresholds remain fixed; the article-type and author-name checks resample journal $\times$ year.
+\ref{sec:appendix}. Controls, scores and thresholds remain fixed. CD mean intervals retain the original
+journal--year resampling; fixed-window DI$_{nok}$ mean intervals resample whole journals.
+
+The metadata audit prioritizes native PMID sources, falling back to non-notice DOI matches.
+Topic matching selects up to five original same-journal/year controls with highest positive major-MeSH Jaccard
+overlap, using deterministic hash ties and allowing reuse. Defined five-year DI$_{nok}$ and major descriptors
+are required for unfiltered scores. Per-paper gaps use selected-control means; baselines use all descriptor-eligible stratum controls
+for exactly the same retained papers. Both checks repeat with the article-type filter.
+Whole-journal intervals keep matches fixed; losses and complete rules are in the appendix and public plan.
 
 \paragraph{Citing records and journal dependence} A further exploratory check removes citing records identified
 as notices (the same types and links as below), Comment or Letter in PubMed, or retracted in the full frozen
@@ -158,8 +167,6 @@ analysis and figure scripts were written with the help of a generative AI assist
 the author's direction. GitHub Copilot CLI 1.0.116, developed by GitHub and powered by OpenAI's GPT-6.1 Sol,
 was used for additional
 analysis code, figure-layout revisions
-and manuscript checks. CD and yearly counts were tested against brute-force counts on random graphs;
-excluded-citer counts and weighted regressions were checked on synthetic data against direct counts and weighted
-least squares. Each evaluation
-script first reproduces the earlier estimates it builds on, and all scripts and run records are public
-(see the data and code availability statement).
+and manuscript checks. Excluded-citer counts, weighted regressions and matching logic were tested on synthetic data.
+Evaluation scripts reproduce their parent estimates before adding analyses; code and checksummed records are public
+(see data and code availability).

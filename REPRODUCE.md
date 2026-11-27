@@ -54,7 +54,9 @@ Run each from its experiment folder: `python <script> <args>`.
 | P14 author-name exclusion | `e14_authors/e14_authors.py e14_authors_20261126_01` (frozen tables and raw RW CSV, no graph rerun) | 19 s |
 | Test of P15 (synthetic filtered counts and independent weighted least squares) | `e15_citers/test_citers.py` | seconds |
 | P15 citing-record filters, adjusted DI_nok means and journal sensitivities | `e15_citers/e15_citers.py e15_citers_20261127_02` | 2:49 |
-| Figures (laptop) | `e06_figures/e06_figs_v2.py e06_fig_20261127_09 e04_eval_20261110_01 e04_eval_cd3_20261110_01 e08_posthoc2_20261123_02 e09_pretrend_20261123_01 e12_diag_20261126_01` | seconds |
+| Test of P16 (synthetic metadata, nullable arrays, priority, matching and weights) | `e16_topic/test_topic.py` | seconds |
+| P16 type audit, topic matching and fixed-window journal intervals | `e16_topic/e16_topic.py e16_topic_20261127_03` (fixed parent runs in script) | 1:37 |
+| Figures (laptop) | `e06_figures/e06_figs_v2.py e06_fig_20261127_10 e04_eval_20261110_01 e04_eval_cd3_20261110_01 e08_posthoc2_20261123_02 e09_pretrend_20261123_01 e12_diag_20261126_01 e16_topic_20261127_03` | seconds |
 | Population flow (laptop) | `e15_citers/flow_diagram.py e15_flow_20261127_02 e15_citers_20261127_02` | seconds |
 | Paper | `cd paper/journals/joi && tectonic -X compile main.tex`; upload packages: `./build_submission.sh` | – |
 
@@ -73,7 +75,9 @@ Run each from its experiment folder: `python <script> <args>`.
   with TrueType fonts retaining en dashes.
   Run _08 moves the event legend below both axes, clear of the notice lines; the forest is byte-identical to _07.
   Run _09 makes all four forest null lines visible above the grid without changing plot marks; the event remains
-  byte-identical to _08. The forest caption names the journal-year bootstrap for its mean-gap intervals.
+  byte-identical to _08. Run _10 replaces only fixed-window DI_nok intervals with P16 whole-journal intervals;
+  CD mean/OR points and intervals and the event PDF are unchanged.
+  The caption distinguishes the CD journal-year and DI_nok whole-journal resampling units.
   The population flow is now Figure 1, the forest Figure 2 and the event plot Figure 3.
   Flow run _02 corrects subscript notation and puts exclusions before the final eligible count; all inputs and
   numbers match _01. The old flow source is preserved in commit c1d69e904178a0d4550720d9365c827c319f181a.
@@ -105,6 +109,16 @@ Run each from its experiment folder: `python <script> <args>`.
   Top-ten journals are ranked on original primary counts, with journal-ID tie breaks; no controls are redrawn.
   Only aggregate results are public; `E_DATA/e15/<run>/removed_yearly.parquet` stays on the VM.
   `vm/run_p15.sh` runs the tests and analysis; the controller must fetch records and deallocate the VM afterward.
+- P16 was publicly planned at `018d835f7db497a788320977d54d4b62f3755918` before execution.
+  Native OpenCitations PMID links are prioritized; without them, exact-DOI records are used after notice exclusion.
+  Missing source nodes remain explicitly unknown. It reproduces original P13 type flags/CD estimates and P5/P13/P14
+  DI_nok points/counts before adding identifier-prioritized estimates and whole-journal intervals.
+  Topic matching uses unfiltered five-year DI_nok, major-MeSH sets, up to five highest positive Jaccard controls
+  from the original journal/year pool, reuse and SHA-256 ties `20261109|retracted_iid|control_iid`.
+  Exact-retained-paper baselines use all descriptor-eligible stratum controls. Article restriction repeats the
+  same rule. Matches stay fixed during 2,000 whole-journal draws (seed 20261109, child offset 4000).
+  Metadata lookup is bounded and materialized before nested fields, with one DuckDB thread/6 GB limit.
+  `vm/run_p16.sh` runs tests/analysis; publication-level types, topics and matches stay on the VM.
 
 ## Submission document build
 `paper/journals/joi/build_submission.sh` also invokes `build_declaration.py` to create the editable
@@ -116,8 +130,17 @@ an anonymized variant; author and GitHub-link presence are checked. See `paper/j
 files and the required Editorial Manager pdfLaTeX-generated PDF check.
 The build also compiles the separate cover letter; both `cover_letter.tex` and `cover_letter.pdf` are released.
 It names the companion arXiv preprint and shared linked dataset. The cover letter is not part of the manuscript ZIP.
+The build also creates `highlights.docx` from `highlights.txt` and checks paragraph text and the 85-character limit.
+JOI's journal-specific mandatory/optional status remains unverified because its guide returned HTTP 403;
+see the official Elsevier general guidance and uncertainty recorded in `UPLOAD.md`.
 
 ## 5. Runs not cited
+- `e16_topic_20261127_01`: stalled before estimates (14:10.82, peak RSS 13,613,512 KB), terminated by known PID.
+  Available RAM was about 49 GiB with no swap; memory exhaustion was not demonstrated.
+  `_02`: bounded metadata lookup completed, then an overly strict all-linked guard failed on four unknown nodes
+  before estimates (1:26.70, peak RSS 882,228 KB).
+  Both records and exact source archives are preserved. `_03` implements the already-planned unknown-source
+  handling, not a changed statistical rule; eight tests and reproduction checks pass.
 - `e15_citers_20261127_01`: failed incoming-citer join before any estimate (12:05.08, peak RSS 50,386,716 KB).
   Failure metadata/logs/checksums and the exact source snapshot are preserved. Retry _02 explicitly
   materializes bounded incoming-edge/year joins; the statistical design is unchanged.

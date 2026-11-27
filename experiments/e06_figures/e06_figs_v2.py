@@ -1,7 +1,7 @@
 """E6 v2: paper figures from run records only (results.json / CSV files of the E4, E8 and E9 runs). Runs on a laptop.
 Fig. 1: forest plot by retraction reason, CD5 and CD3 (v1 + P2), DI_nok (P5) and the review positive control (P4).
 Fig. 2: event time around the retraction notice, balanced set (P9b); optional P12 adds paired-gap confidence intervals.
-usage: python e06_figs_v2.py RUN_ID E4_CD5 E4_CD3 E8 E9 [E12] -> PDF figures (+ PNG previews).
+usage: python e06_figs_v2.py RUN_ID E4_CD5 E4_CD3 E8 E9 [E12 [E16]] -> PDF figures (+ PNG previews).
 Without E12, the earlier marginal-score figure is reproduced.
 """
 import sys, json
@@ -13,13 +13,17 @@ from common import Run, sha256
 
 HERE = Path(__file__).resolve().parents[1]
 R5, R3, R8, R9 = sys.argv[2:6]
-R12 = sys.argv[6] if len(sys.argv) == 7 else None
+R12 = sys.argv[6] if len(sys.argv) > 6 else None
+R16 = sys.argv[7] if len(sys.argv) > 7 else None
 BLUE, ORANGE, GREY, DARK = "#2a78d6", "#eb6834", "#7a7a74", "#333330"
 run = Run(sys.argv[1], __file__, {"e4_cd5": R5, "e4_cd3": R3, "e8": R8, "e9": R9, "matplotlib": matplotlib.__version__,
-                                   "palette": [BLUE, ORANGE, GREY], "pdf_fonttype": 42, "e12": R12})
+                                   "palette": [BLUE, ORANGE, GREY], "pdf_fonttype": 42, "e12": R12, "e16": R16})
 load = lambda exp, r, f="results.json": json.loads((HERE / exp / "runs" / r / f).read_text())
 e4 = {"5": load("e04_eval", R5), "3": load("e04_eval", R3)}
 e8 = load("e08_posthoc2", R8)
+e16 = load("e16_topic", R16) if R16 else None
+if R16:
+    run.log("journal_interval_input_sha256", sha256(HERE / "e16_topic/runs" / R16 / "results.json"))
 plt.rcParams.update({"font.size": 11.5, "axes.spines.top": False, "axes.spines.right": False, "font.family": "sans-serif",
                      "pdf.fonttype": 42})
 
@@ -32,6 +36,14 @@ def cd_cell(w, k):
     if k == "REVIEWS": return e8["P4_reviews"]["cd5"] if w == "5" else None
     return e4[w]["primary"] if k is None else e4[w]["by_class"][k]
 def dinok_cell(w, k):
+    if e16:
+        window = e16["windows"]["cd5" if w == "5" else "cd3"]
+        if k == "REVIEWS":
+            if w != "5": return None
+            x = window["reviews"]
+        else:
+            x = window["unfiltered"]["primary"] if k is None else window["unfiltered"]["by_class"][k]
+        return {"diff": x["diff"], "diff_ci": x["ci"]}
     if k == "REVIEWS": return e8["P4_reviews"]["dinok"] if w == "5" else None
     P = e8["P5_dinok"]["cd5" if w == "5" else "cd3"]
     return P["primary"] if k is None else P["by_class"][k]

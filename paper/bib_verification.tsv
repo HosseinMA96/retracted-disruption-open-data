@@ -44,3 +44,6 @@ crossdi2025	10.1038/s41597-025-06232-w	OK Europe PMC/PubMed 41372204; volume 12,
 azoulay2015retractions	10.1162/REST_a_00469	OK crossref	2026-11-23	Retractions
 arjomandi2026prospective	10.48550/arXiv.2611.10474	OK arXiv record/full text; DOI registration pending, cited by arXiv URL	2026-11-26	Do links to retracted papers predict future retractions? An out-of-sample test on the open biomedical citation graph
 scancar2026distortion	10.1073/pnas.2618402123	OK PubMed 42879494/publisher metadata	2026-11-26	Suspected distortion of citations in high-impact cancer journals
+leydesdorff2021revision	10.3145/epi.2021.ene.21	OK Crossref and publisher; DI* and DI#; volume 30(1), e300121	2026-11-27	A proposal to revise the disruption index
+bornmann2019window	10.3145/epi.2019.mar.07	OK Crossref and published PDF; volume 28(2), e280207	2026-11-27	Disruption index depends on length of citation window
+dinh2019citations	10.1002/pra2.35	OK Crossref and author/institutional abstract; volume 56(1), 390-394	2026-11-27	Systematic examination of pre- and post-retraction citations

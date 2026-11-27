@@ -36,6 +36,9 @@ raasveldt2019duckdb	10.1145/3299869.3320212
 arjomandi2026retracteddata	10.5281/zenodo.23874477
 wuyan2019solo	10.48550/arXiv.1905.03461
 bornmann2020convergent	10.1162/qss_a_00068
+leydesdorff2021revision	10.3145/epi.2021.ene.21
+bornmann2019window	10.3145/epi.2019.mar.07
+dinh2019citations	10.1002/pra2.35
 schuirmann1987tost	10.1007/BF01068419
 lakens2017equivalence	10.1177/1948550617697177
 hsiao2021continued	10.1162/qss_a_00155

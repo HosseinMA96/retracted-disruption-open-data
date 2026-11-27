@@ -91,3 +91,25 @@ Holst et al. 2026 and Park et al. 2026 (Nature; paywalled: user PDF needed), J I
 | Hsiao & Schneider (2021), QSS | 10.1162/qss_a_00155 | PMC full (claim check) | notices among citing contexts (612 excluded) |
 | Xu et al. (2025), Scientific Data (CrossDI) | 10.1038/s41597-025-06232-w | full (claim check) | OpenCitations lowest coverage of three sources |
 | Azoulay, Furman, Krieger & Murray (2015), REStat | 10.1162/REST_a_00469 | NBER w18499 full | retracted papers lose 69% of citations vs controls |
+## Update 2026-11-27: denominator credit, short windows and citer geography
+
+- Bornmann et al. (2020), DOI `10.1162/qss_a_00068`: primary preprint
+  https://arxiv.org/pdf/1911.08775, PDF p. 8, questions the function of Nk and discusses removing it.
+  The publisher-indexed text also explains large-Nk score compression; this is prior work, not our discovery.
+- Leydesdorff, Tekles and Bornmann (2021), DOI `10.3145/epi.2021.ene.21`: Crossref and publisher verified.
+  Publisher abstract explicitly proposes DI* and DI#; volume 30(1), e300121.
+  https://revista.profesionaldelainformacion.com/index.php/EPI/article/view/86387
+- Bornmann and Tekles (2019), DOI `10.3145/epi.2019.mar.07`: Crossref and published PDF verified,
+  *Disruption index depends on length of citation window*, 28(2), e280207.
+  https://www.scipedia.com/wd/images/e/ef/Bornmann_Tekles_2019a-71715-5926-document.pdf
+- Lin et al., published 2026 DOI `10.1162/QSS.a.409`: latest available primary preprint
+  https://arxiv.org/pdf/2504.04677, section 4.2, PDF p. 11, advises against five-year windows for general use
+  because stabilization may take ten years or more. Our shorter windows are a pre-notice design constraint.
+- Dinh et al. (2019), DOI `10.1002/pra2.35`: Crossref/authors/pages and institutional abstract verified;
+  56(1), 390-394. Disciplinary/geographical observations are from post-retraction citation-context subsets,
+  not evidence that our pre-notice gap directly measures field boundaries.
+  https://www.researchwithnj.com/en/publications/systematic-examination-of-pre-and-post-retraction-citations-2/
+- JOI author guide returned HTTP 403; its own highlights requirement remains unverified.
+  Elsevier general guidance says 3-5 bullets, <=85 characters including spaces, Word format, final-files stage:
+  https://www.elsevier.com/researcher/author/tools-and-resources/highlights .
+  This general page does not establish JOI-specific mandatory/optional status.

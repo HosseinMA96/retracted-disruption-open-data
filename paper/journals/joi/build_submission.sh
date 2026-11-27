@@ -2,7 +2,7 @@
 # Build the identified Journal of Informetrics upload package (single-anonymized review):
 #   submission/       identified manuscript: flat main.tex (content inlined, LaTeX comments removed), refs.bib, main.bbl,
 #                     figures, elsarticle.cls + elsarticle-harv.bst (LPPL, unchanged), main.pdf
-#   joi_latex_source.zip, highlights.txt and local competing_interests.docx
+#   joi_latex_source.zip, highlights.txt/highlights.docx and local competing_interests.docx
 # Legacy submission_anon/ and joi_latex_source_anon.zip are not rebuilt and must not be uploaded to JOI.
 # Elsevier compiles with pdflatex + bibtex, so main.tex must be pure ASCII and must not need fontspec.
 # Re-run after any change to ../../content, ../../refs.bib or ../../figures.
@@ -60,8 +60,6 @@ build submission joi_latex_source.zip
 ( cd "$HERE" && "$TECTONIC" -X compile title_page.tex )
 ( cd "$HERE" && "$TECTONIC" -X compile cover_letter.tex )
 # Individual editable sources and figures are in submission/; see UPLOAD.md.
-"$DOCX_PYTHON" "$HERE/build_declaration.py"
-test -s "$HERE/competing_interests.docx"
 # The identified PDF must retain authorship and the public code link.
 identified_txt=$(pdftotext "$HERE/submission/main.pdf" -)
 if ! grep -q "Hossein Mohasel Arjomandi" <<< "$identified_txt" || ! grep -q "HosseinMA96" <<< "$identified_txt"; then
@@ -76,3 +74,5 @@ assert 3 <= len(items) <= 5 and all(len(i) <= 85 for i in items), [len(i) for i 
 open(sys.argv[2], "w").write("\n".join(items) + "\n")
 print("highlights.txt:", len(items), "bullets, max", max(map(len, items)), "characters")
 PY
+"$DOCX_PYTHON" "$HERE/build_declaration.py"
+test -s "$HERE/competing_interests.docx" && test -s "$HERE/highlights.docx"

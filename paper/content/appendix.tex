@@ -2,7 +2,7 @@
 \setcounter{table}{0}
 \renewcommand{\theHtable}{\theHsection.\arabic{table}}
 \section{Exploratory diagnostics and accounting}\label{sec:appendix}
-The identifiers P1--P15 label one set of exploratory analyses, indexed in \texttt{POSTHOC.md}; the experiment index and
+The identifiers P1--P16 label one set of exploratory analyses, indexed in \texttt{POSTHOC.md}; the experiment index and
 claim-to-run map link them to immutable results. These analyses were added after the primary results were known.
 
 \subsection{Reference and citation counts (P1)}
@@ -44,9 +44,8 @@ Mean control citations in this population range from 4.0 to 4.9 per year; it is 
 three-year-window comparison.
 
 \subsection{Denominator size (P10)}
-For the median scored paper, 2,862 papers in the window cite only its references, against 12 that cite the
-paper itself. The $n_k$ term accounts for at least 90\% of the CD$_5$ denominator for 97.9\% of papers.
-Thus a citation-composition difference can change the sign while producing only a small difference in CD$_5$.
+The $n_k$ term accounts for at least 90\% of the CD$_5$ denominator for 97.9\% of papers.
+Median counts are reported in the main citation-composition results.
 
 \subsection{Three-year window and control accounting (P2 and P11)}
 The 52,147 controls were drawn for all 10,450 retracted papers. The CD$_5$ primary comparison uses 2,239 strata
@@ -58,8 +57,8 @@ Weighting each stratum by its compared retracted papers instead gives 17.3\%, 3.
 reported in the main comparisons. CD$_3$ has 7,349 scored primary papers, of which 7,348 are compared with
 48,044 scored controls in 3,308 strata.
 
-\subsection{Article-type sensitivity (P13)}
-The fixed filter is recorded in \texttt{POSTHOC.md} before the run. Publication types are unioned over the same
+\subsection{Article-type sensitivities (P13 and P16)}
+The union-link filter is recorded in \texttt{POSTHOC.md} before the run. Publication types are unioned over the same
 PMID/DOI links used to build the study populations. Journal Article is required; any linked review,
 systematic review, meta-analysis, editorial, letter, comment, erratum, retraction-notice or expression-of-concern
 type excludes the paper. Retracted Publication is retained because it labels the original article, not its notice.
@@ -72,9 +71,17 @@ defined scores, and 5,592 and 37,334 enter 2,735 comparison strata. No controls 
 of the reference sample. Thus this check isolates type eligibility, not an article-only recalibration
 of the top-5\% threshold.
 
+P16 finds DOI-only notice records targeting native PMIDs for 106 primary papers and 13 controls.
+PMID priority removes propagation of any DOI-only excluded type, not just notices.
+It retains 3,626 primary papers and 43,167 drawn controls, recovering 98 and 15, respectively.
+CD$_5$ compares 3,619 with 24,192 in 1,898 strata; CD$_3$ retains 5,745 and 56,861, comparing 5,736 with 37,776
+in 2,808 strata. Table~\ref{tab:rob} uses PMID priority; Table~\ref{tab:articles} uses union links.
+The PMID-prioritized DI$_{nok}$ gaps are 0.073 (0.035--0.109; 3,569 compared papers) and
+0.083 (0.054--0.108; 5,555), respectively, using whole-journal intervals.
+
 \begin{table}[!htbp]
 \centering
-\caption{P13 article-type sensitivity (95\% intervals). Diff.: mean CD gap in units of $10^{-3}$.
+\caption{Union-link article-type sensitivity (P13, 95\% intervals). Diff.: mean CD gap in units of $10^{-3}$.
 $n$: compared retracted papers; reason-class comparisons use eligible controls in the class's strata.
 Both populations are filtered; these are exploratory estimates, not replacements for Table~\ref{tab:main}.}
 \label{tab:articles}
@@ -100,15 +107,15 @@ Other & 1,248 & 1.97 ($-0.54$, 4.94) & 1.32 (1.13, 1.53) & 1.23 (0.93, 1.62) \\
 \end{tabular}}
 \end{table}
 
-The CD$_5$ conditional-logit positive-score odds ratios are 1.25 (1.13--1.37) unadjusted,
+For the union-link type definition, the CD$_5$ conditional-logit positive-score odds ratios are 1.25 (1.13--1.37) unadjusted,
 1.33 (1.21--1.47) with log references, and 1.34 (1.22--1.48) with log references and citations
 (2,740 retracted papers in 1,165 outcome-varying strata). The corresponding top-5\% odds ratios are
 1.07 (0.86--1.34), 1.64 (1.28--2.10) and 1.39 (1.08--1.80)
 (1,524 retracted papers in 383 outcome-varying strata).
 The matched mean-log reference difference is $+0.064$ (0.045--0.083; group means 3.626 and 3.562).
 The matched mean-log citation difference is $+0.265$ (0.233--0.299).
-The DI$_{nok}$ mean gap is 0.074 (0.049--0.098; 3,471 compared papers) for CD$_5$ and
-0.082 (0.062--0.102; 5,413) for CD$_3$.
+The union-link DI$_{nok}$ mean gap is 0.074 (0.035--0.107; 3,471 compared papers) for CD$_5$ and
+0.082 (0.053--0.107; 5,413) for CD$_3$, with whole-journal intervals from P16.
 
 \subsection{Author-name sensitivity (P14)}
 P14 was planned in \texttt{POSTHOC.md} before execution. Across the full frozen snapshot,
@@ -126,8 +133,8 @@ For CD$_5$, the positive-score odds ratio is 1.26 (1.12--1.41) and the top-5\% o
 The CD$_3$ mean gap is 0.00063 ($-0.00047$ to $0.00184$), positive-score odds ratio 1.32 (1.21--1.44), and
 top-5\% odds ratio 1.03 (0.85--1.25). Table~\ref{tab:authors} gives mean contrasts by reason class; all
 odds ratios and aggregate coverage are in the run record. Original CD mean intervals, odds ratios and comparison
-counts, and DI$_{nok}$ mean points and counts, are reproduced before exclusion. Mean intervals use 2,000
-journal--year bootstrap resamples. Only aggregates are released, not author names or paper-name associations.
+counts, and DI$_{nok}$ mean points and counts, are reproduced before exclusion. CD intervals use the original journal--year bootstrap; fixed-window DI$_{nok}$ intervals use whole-journal
+resamples from P16. Only aggregates are released, not author names or paper-name associations.
 
 \begin{table}[!htbp]
 \centering
@@ -140,32 +147,33 @@ CD gap is in units of $10^{-3}$; DI$_{nok}$ gap is unscaled. Controls and yearly
 Group & $n$, CD / DI$_{nok}$ & CD gap & DI$_{nok}$ gap \\
 \midrule
 \multicolumn{4}{l}{Five-year window, 2000--2017} \\
-All retracted & 2,306 / 2,260 & 0.27 ($-1.13$, 1.95) & 0.061 (0.038, 0.084) \\
-Misconduct & 1,244 / 1,231 & 0.05 ($-0.73$, 0.78) & 0.079 (0.048, 0.110) \\
-Paper mill & 88 / 87 & 0.75 (0.27, 1.29) & 0.064 ($-0.024$, 0.162) \\
-Honest error & 204 / 199 & $-5.44$ ($-9.83$, $-1.33$) & $-0.023$ ($-0.091$, 0.046) \\
-Other & 770 / 743 & 2.08 ($-1.68$, 6.75) & 0.053 (0.017, 0.089) \\
+All retracted & 2,306 / 2,260 & 0.27 ($-1.13$, 1.95) & 0.061 (0.033, 0.089) \\
+Misconduct & 1,244 / 1,231 & 0.05 ($-0.73$, 0.78) & 0.079 (0.034, 0.113) \\
+Paper mill & 88 / 87 & 0.75 (0.27, 1.29) & 0.064 ($-0.031$, 0.205) \\
+Honest error & 204 / 199 & $-5.44$ ($-9.83$, $-1.33$) & $-0.023$ ($-0.090$, 0.042) \\
+Other & 770 / 743 & 2.08 ($-1.68$, 6.75) & 0.053 (0.018, 0.101) \\
 \midrule
 \multicolumn{4}{l}{Three-year window, 2000--2019} \\
-All retracted & 3,626 / 3,485 & 0.63 ($-0.47$, 1.84) & 0.069 (0.048, 0.089) \\
-Misconduct & 1,875 / 1,816 & 0.15 ($-0.59$, 0.98) & 0.085 (0.057, 0.113) \\
-Paper mill & 231 / 228 & 0.45 (0.02, 0.89) & 0.006 ($-0.089$, 0.102) \\
-Honest error & 412 / 402 & $-3.75$ ($-5.92$, $-1.65$) & 0.014 ($-0.032$, 0.063) \\
-Other & 1,108 / 1,039 & 3.13 (0.17, 6.87) & 0.074 (0.035, 0.115) \\
+All retracted & 3,626 / 3,485 & 0.63 ($-0.47$, 1.84) & 0.069 (0.040, 0.095) \\
+Misconduct & 1,875 / 1,816 & 0.15 ($-0.59$, 0.98) & 0.085 (0.051, 0.113) \\
+Paper mill & 231 / 228 & 0.45 (0.02, 0.89) & 0.006 ($-0.104$, 0.148) \\
+Honest error & 412 / 402 & $-3.75$ ($-5.92$, $-1.65$) & 0.014 ($-0.033$, 0.063) \\
+Other & 1,108 / 1,039 & 3.13 (0.17, 6.87) & 0.074 (0.032, 0.135) \\
 \bottomrule
 \end{tabular}}
 \end{table}
 \subsection{Exploratory comparisons (P4--P7)}
 Table~\ref{tab:posthoc} summarizes exploratory comparisons using unfiltered citing records.
 For the unfiltered five-year DI$_{nok}$ comparison, the matched group means are $-0.309$ for retracted papers
-and $-0.376$ for controls (4,517 compared retracted papers). The gap is 0.083 (0.058--0.109) for misconduct,
-0.049 (0.019--0.078) for other reasons, 0.054 ($-0.003$ to 0.120) for paper mills and
-0.004 ($-0.056$ to 0.060) for honest error. The corresponding shares of citing papers also citing a reference
+and $-0.376$ for controls (4,517 compared retracted papers). The gap is 0.083 (0.042--0.118) for misconduct,
+0.049 (0.015--0.078) for other reasons, 0.054 ($-0.022$ to 0.159) for paper mills and
+0.004 ($-0.068$ to 0.071) for honest error. The corresponding shares of citing papers also citing a reference
 are 65.5\% and 68.8\% overall. These unfiltered estimates are distinct from the citing-record sensitivity.
 
 \begin{table}[!htbp]
 \centering
-\caption{Exploratory comparisons (95\% intervals unless stated). Mean-gap intervals resample journal--year strata.
+\caption{Exploratory comparisons (95\% intervals unless stated). Fixed-window DI$_{nok}$ mean intervals resample
+whole journals; CD and event-time intervals retain journal--year resampling.
 CD$_5$ checks use unfiltered
 window counts; the before--after comparison uses the 2000--2019 population with notice records excluded.
 $n$: papers compared (reviews in the positive control); conditional-logit counts exclude strata without outcome variation.}
@@ -179,9 +187,9 @@ Mean difference in CD$_5$: 90\% interval & $-0.00051$ to $0.00093$ & 4,586 \\
 Reviews vs other controls: mean difference in CD$_5$ & $-0.0033$ ($-0.0066$, $-0.0011$) & 4,832 \\
 Reviews vs other controls: top 5\%, odds ratio & 0.58 (0.47, 0.72) & 4,832 \\
 Reviews vs other controls: CD$_5>0$, odds ratio & 0.95 (0.86, 1.04) & 4,832 \\
-Reviews vs other controls: mean difference in DI$_{nok}$ & $-0.076$ ($-0.195$, 0.033) & 4,736 \\
-Mean difference in DI$_{nok}$ & 0.067 (0.046, 0.087) & 4,517 \\
-Mean difference in DI$_{nok}$, CD$_3$ window, 2000--2019 & 0.075 (0.056, 0.093) & 7,122 \\
+Reviews vs other controls: mean difference in DI$_{nok}$ & $-0.076$ ($-0.196$, 0.028) & 4,736 \\
+Mean difference in DI$_{nok}$ & 0.067 (0.034, 0.095) & 4,517 \\
+Mean difference in DI$_{nok}$, CD$_3$ window, 2000--2019 & 0.075 (0.049, 0.098) & 7,122 \\
 Change in DI$_{nok}$ after vs before the notice, minus controls & 0.074 (0.050, 0.097) & 5,100 \\
 CD$_5 > 0$, cited papers only, odds ratio & 1.20 (1.11, 1.31) & 4,517 \\
 CD$_5 > 0$, conditional logit with log references & 1.32 (1.21, 1.44) & 3,766 \\
@@ -195,8 +203,8 @@ Matched mean log reference count difference & 0.084 (0.058, 0.109) & 4,586 \\
 \subsection{Citing-record exclusions and journal dependence (P15)}
 The complete plan was published before execution; its commit link is in the data and code availability statement.
 The run verifies unfiltered DI$_{nok}$ means and per-paper window counts, including the notice-removal counts
-from P8. Citing-record mean intervals use 2,000 whole-journal bootstrap draws;
-Table~\ref{tab:posthoc} and Fig.~\ref{fig:forest} use journal--year mean-gap intervals.
+from P8. Citing-record and fixed-window unfiltered DI$_{nok}$ mean intervals use 2,000 whole-journal bootstrap draws,
+including Table~\ref{tab:posthoc} and panel 4 of Fig.~\ref{fig:forest}.
 Across the union of both focal populations and windows, 1,384,201 of 1,700,837 citing events match PubMed;
 1,384,200 have a known publication type. The union of the three exclusion categories contains 37,961 events,
 with overlaps removed once.
@@ -207,14 +215,10 @@ papers and 12,009 controls, removing 6,525 and 23,978 citing records, respective
 It makes 13 primary and 116 control DI$_{nok}$ scores undefined. Table~\ref{tab:citercounts} distinguishes
 defined from compared counts; controls are not redrawn.
 
-The fully filtered, weighted within-stratum linear model has coefficients 0.09743 for the retracted indicator,
-$-0.16526$ for log references and $-0.01912$ for log remaining citations. Substituting original citation counts
-gives a retracted coefficient of 0.09880 (0.06485--0.12920).
-With the ten highest-retraction journals excluded, the corresponding remaining-citation model gives 0.07032
-(0.04909--0.09136). The unadjusted model reproduces the matched mean gap exactly.
-Journal rankings use original eligible primary counts: the exclusions remove 1,493 five-year and 2,058 three-year
-primary papers before evaluating score availability. Journal identifiers, ranks and model coefficients are in
-the aggregate run record.
+The fully filtered model's covariate coefficients are $-0.16526$ for log references and $-0.01912$ for log remaining
+citations. Substituting original citation counts gives a retracted coefficient of 0.09880 (0.06485--0.12920).
+The unadjusted model reproduces the matched mean. Journal exclusions remove 1,493 five-year and 2,058 three-year
+eligible primary papers before score-availability checks; ranks and coefficients are in the aggregate record.
 
 In the fully filtered five-year comparison, class-specific gaps are 0.097 (0.056--0.133; 2,706 compared papers)
 for misconduct, 0.069 (0.035--0.102; 1,235) for other reasons, 0.063 ($-0.002$ to 0.159; 275) for paper mills
@@ -251,4 +255,17 @@ Full, exclude top ten & 5,060 & 51,911 & 5,057 & 33,236 & 3,081 & 1,292 \\
 \bottomrule
 \end{tabular}
 \end{table}
+\subsection{Major-MeSH matching and interval provenance (P16)}
+The fixed topic rule selects up to five controls with positive major-descriptor Jaccard overlap within the original
+journal/year, with deterministic hash ties and reuse. Of 4,518 primary papers with defined unfiltered DI$_{nok}$,
+1,722 have major descriptors and 540 find overlapping controls. They use 874 unique controls over 1,306 matched
+control assignments in 140 journals. Of the 540 papers, 237 have one selected control and 114 have five;
+median assignment similarity is 0.5. The other 1,182 major-descriptor papers have no eligible overlap.
+The article-type version retains 417 papers in 112 journals, using 699 unique controls over 1,029 assignments;
+938 of 1,355 descriptor-eligible papers have no match. Neither topic-matched interval excludes zero
+(Table~\ref{tab:citers}). Baselines use exactly these same retained papers and all descriptor-eligible
+controls in their original strata, rather than the full primary population.
+
+Whole-journal intervals use P15 for overall unfiltered means and P16 for class/review/type/name contrasts;
+P16 first reproduces their points and counts. Planned CD and event-time interval rules are unchanged.
 \FloatBarrier

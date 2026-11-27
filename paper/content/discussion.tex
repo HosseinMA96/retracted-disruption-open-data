@@ -1,77 +1,66 @@
 \section{Discussion}\label{sec:discussion}
 
-\paragraph{A small mean difference, but a sign shift} The pre-specified five-year comparison shows a small mean
-difference and no clear unadjusted top-tier excess, but positive scores are more common. These are distinct findings,
-not complete agreement between groups. The exploratory three-year window leans toward a modest excess.
-Rewarding high CD$_5$ neither systematically favours nor excludes late-retracted papers in the main comparison.
+The pre-specified comparison gives a simple result: late-retracted papers have a small mean CD$_5$ gap and no clear
+unadjusted top-tier excess, although positive scores are more common. CD$_5$ therefore does not reliably separate
+these papers from their journal/year controls. The review comparison shows that the design can detect a CD$_5$
+mean and top-tier contrast, but it does not validate the exploratory DI$_{nok}$ finding.
+Precision depends on the variation and weights of journal contrasts, not just the number of papers.
 
-\paragraph{What the $n_k$ term hides} Papers that cite a retracted paper are less likely to also cite its references.
-The difference grows after notice, comment/letter and retracted-citer removal, and persists with reference/citation
-adjustment and top-ten-journal exclusion. CD$_5$ registers it mainly through its sign because reference-only citing
-papers dominate its denominator. Thus, variants without $n_k$ \citep{wuyan2019solo,bornmann2020convergent} score
-late-retracted papers higher. This fits the expectation that fabricated findings are cited without their supporting
-literature, but could also reflect citations from outside that literature or less relevant reference lists.
-Paper-mill papers do not show the expected consolidating pattern.
-\citet{scancar2026distortion} found citation patterns consistent with manipulated citation counts among suspected
-paper-mill articles in molecular-cancer journals. Potential citation-count manipulation is another reason to
-inspect citing records, distinct from the reference-length effects discussed below.
+The role of $n_k$ is a known problem, not a new index discovery. \citet{bornmann2020convergent} questioned its function
+and examined variants without it; \citet{leydesdorff2021revision} proposed DI$^*$ and DI$^{\#}$.
+Here, that problem matters because papers citing a late-retracted paper are less likely to also cite its references.
+The large reference-only citing population compresses this contrast in CD$_5$, whereas DI$_{nok}$ scores these
+papers somewhat higher. Citer exclusions retain the contrast rather than explain it away.
+\citet{dinh2019citations} found disciplinary and geographical differences in a subset of post-retraction
+citation contexts. Attention from outside the original literature is thus a plausible interpretation
+of the pre-notice composition gap, alongside criticism or differences in reference relevance.
 
-\paragraph{What the review comparison checks} Reviews differ from other controls on the CD$_5$ mean and top tier,
-but not clearly on the sign or DI$_{nok}$; they do not independently validate the citation-composition finding.
-Their weighted journal--year contrasts differ from the retraction contrasts, so similar paper counts need not yield
-similar precision.
+Matching deserves as much attention as the index formula. About one in six drawn controls fails the broad
+publication-type filter, and journal/year matching does not control topic within broad journals.
+Retracted papers also have longer reference lists, while short lists favour high CD$_5$.
+The reference-adjusted top-tier excess weakens after citation adjustment, so it is model-dependent.
+The DOI-linkage audit identifies some type misclassification, but correcting it leaves the broad type imbalance.
+Topic matching yields a lower point estimate on its small retained subset, with an interval spanning zero.
+The top-ten-journal exclusion also shows that the journal mix matters.
+These checks help interpret the planned comparison rather than establish a topic-adjusted population effect.
 
-\paragraph{Journal--year matching and reference length} The main controls match on journal and year, not publication type or
-reference length; editorials, letters and notice items can share strata with research articles.
-Retracted papers have longer references on the matched mean-log scale, whereas short lists favour high CD$_5$.
-The unadjusted and reference-adjusted top-tier odds ratios therefore describe different comparisons.
-The post hoc article-type restriction retains the imbalance and adjusted excess, but changes both groups and
-does not guarantee original research. Adding citations reduces the adjusted contrast, showing model dependence.
-These exploratory checks motivate caution about matching and adjustment, not replacement of the planned result.
+For researchers and bulk score providers, the practical implication is temporal. Windows spanning the notice
+mix a paper's earlier citation pattern with responses to its retraction: notice records enter the graph and
+the citation-composition gap widens. Windows should end before the first notice, with notice records removed
+and the horizon reported. An evaluator who knows a paper is retracted can exclude it rather than rely on its CD score.
+This recommendation concerns scoring practice, not a claim that a short window captures lifetime disruption.
 
-\paragraph{Scores that include the retraction} Notice records enter the citing population of more than a third of
-papers retracted within the scoring window. Beyond notices, citing papers increasingly skip the references while
-citations fall. The divergence starts before retraction, most clearly for misconduct, and steepens afterward;
-critical attention preceding the formal notice is one possible explanation.
-Windows including the notice year or later years mix the paper's citation pattern with responses to its retraction.
-They should end before the notice, with notice records removed, or be flagged.
+\subsection{Limitations}
+The results depend on the coverage and metadata of one open graph. Missing references can alter index values,
+and disruption scores differ across data sources \citep{xu2025alternative,crossdi2025}.
+Retraction Watch linked most, but not all, recorded papers; reasons remain limited by notice information.
+Graph coverage restricts the cohorts to earlier publication years, whereas most paper-mill papers in the snapshot
+were published after 2019. Retractions are also an incomplete label for unreliable work, which can remain among controls.
 
-\paragraph{Honest error} Papers retracted for honest error score slightly lower than their controls on CD$_5$, show no
-clear difference on filtered five-year DI$_{nok}$ and no earlier event-time trend. Their filtered three-year gap is
-positive, however, so the pattern depends on the window. These small classes warrant hypotheses, not a general
-claim that honest errors are cited differently.
+The controls match only on journal and year. Publication-type filtering does not guarantee original research,
+and major-MeSH overlap cannot ensure equal topics, methods or article roles. The topic check keeps only papers
+with usable descriptors and overlapping controls. Reference/citation adjustment describes conditional
+associations, not a causal effect: a mean-log imbalance cannot quantify an odds-ratio shift, and conditional
+models omit strata without outcome variation. Citation count is itself part of the score, so adjustment may remove
+part of the phenomenon being measured.
 
-\paragraph{Relation to the debate on declining disruption} Requiring at least one reference removes almost all
-CD$_5 = 1$ records, which are the records at the centre of the artefact debate
-\citep{holst2024artefacts,holst2026partially,park2026reply}. This study makes no claim about long-run trends; the
-yearly reference-sample means provide orientation only. On this large graph, $n_k$ compresses CD$_5$ near zero,
-so group differences appear in thousandths.
+Retraction events are concentrated among author-name strings. Whole-journal bootstraps retain dependence across
+a journal's years but cannot capture dependence among authors publishing across journals. The name restriction
+retains the citation-composition contrast, yet names are not disambiguated: variants can escape exclusion and
+common names can merge people. The check does not establish responsibility and was not combined with citer filtering.
+Removing graph self-loops also leaves author self-citations.
 
-\paragraph{Limitations} OpenCitations does not cover all references, and the choice of data source affects disruption
-scores \citep{xu2025alternative,crossdi2025}; 83.3\% of Retraction Watch papers matched the graph.
-Reason classes are rule-based and depend on often limited notice information. Graph completeness limits the
-five-year cohort to 2017 and the three-year cohort to 2019; most paper-mill papers in the snapshot were published after 2019.
-Retractions incompletely label unreliable work, which can remain among controls.
-Post hoc analyses remain exploratory despite plans recorded before execution. The mean-difference bound is descriptive,
-not a validated negligible-effect threshold. Adjustment is not causal: mean-log imbalances do not quantify
-odds-ratio shifts, conditional-logit samples omit non-varying strata, and reference tails/model-subset imbalances
-are not diagnosed. Citations are part of the score, so adjusting for them may over-adjust.
-Citation composition cannot distinguish reference omission from out-of-field attention.
-Yearly top-tier cutoffs are estimated from a small reference sample, making extreme-tail thresholds noisy;
-both groups nevertheless face the same cutoff within each publication year.
+The main conclusions apply to papers retracted after the scoring window, not to early retractions or stabilized
+lifetime scores. Short pre-notice windows are necessary for this design but remain sensitive to citation timing
+\citep{bornmann2019window,lin2026displacement}. Trends preceding the notice prevent attributing later changes
+to the notice alone. Incomplete annotations can leave notices, comments/letters and retracted citers;
+citer retraction flags use the full snapshot rather than status at citation time.
+Unretracted suspected paper-mill citers can also remain: \citet{scancar2026distortion} report citation patterns
+consistent with citation-count manipulation in molecular-cancer journals. Distinguishing criticism, reference
+omission and out-of-field attention requires citation-context or field measurements.
 
-Unrecognized notices, comments/letters and retracted citers can survive incomplete PubMed/Retraction Watch annotation.
-Citer retraction flags use the full snapshot, not status when citing. Filtering can change score availability and
-the compared population.
-Unretracted paper-mill citers and author self-citations can remain. The author-name check is not a citer-author
-matching analysis; removing graph self-loops does not remove author self-citations.
-
-Original intervals cluster by journal--year; the citing-record sensitivity resamples whole journals.
-Neither captures author dependence across journals. The author-name check removes about half the primary papers,
-but names are not disambiguated: variants can escape exclusion, common names can merge people, and names do not
-establish responsibility. The restriction retains the unfiltered citation-composition contrast but weakens
-the three-year top-tier excess; it was not combined with citer filtering.
-PubMed Journal Article is a broad category; the article-type restriction does not isolate original research or
-uniquely attribute changes to control types.
-The primary conclusions concern late-retracted papers, not papers retracted during their window.
-Earlier event-time trends prevent attribution of the change to the notice alone. Only two index variants are analysed.
+The DI$_{nok}$ finding and sensitivity checks are exploratory, even where each plan preceded its execution.
+They need confirmation on a later graph release or another data source. The mean-difference bound is descriptive,
+not a validated negligible-effect threshold. Yearly top-tier cutoffs are noisy at the extreme tail, although
+both groups face the same cutoff within each year. Only two index variants are studied, and the review comparator
+checks CD$_5$ rather than independently confirming DI$_{nok}$.
