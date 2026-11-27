@@ -4,8 +4,6 @@
 difference and no clear unadjusted top-tier excess, but positive scores are more common. These are distinct findings,
 not complete agreement between groups. The exploratory three-year window leans toward a modest excess.
 Rewarding high CD$_5$ neither systematically favours nor excludes late-retracted papers in the main comparison.
-A companion prospective study found that links to already-retracted papers weakly predicted later retraction
-\citep{arjomandi2026prospective}; \citet{lou2026beyond} reported the retrospective citation-network association.
 
 \paragraph{What the $n_k$ term hides} Papers that cite a retracted paper are less likely to also cite its references.
 The difference grows after notice, comment/letter and retracted-citer removal, and persists with reference/citation
@@ -15,8 +13,8 @@ late-retracted papers higher. This fits the expectation that fabricated findings
 literature, but could also reflect citations from outside that literature or less relevant reference lists.
 Paper-mill papers do not show the expected consolidating pattern.
 \citet{scancar2026distortion} found citation patterns consistent with manipulated citation counts among suspected
-paper-mill articles in molecular-cancer journals; this concerns citer composition, not reference-list growth.
-The earlier author-name restriction also retained the unfiltered contrast, but was not combined with citer filtering.
+paper-mill articles in molecular-cancer journals. Potential citation-count manipulation is another reason to
+inspect citing records, distinct from the reference-length effects discussed below.
 
 \paragraph{What the review comparison checks} Reviews differ from other controls on the CD$_5$ mean and top tier,
 but not clearly on the sign or DI$_{nok}$; they do not independently validate the citation-composition finding.
@@ -59,6 +57,8 @@ not a validated negligible-effect threshold. Adjustment is not causal: mean-log 
 odds-ratio shifts, conditional-logit samples omit non-varying strata, and reference tails/model-subset imbalances
 are not diagnosed. Citations are part of the score, so adjusting for them may over-adjust.
 Citation composition cannot distinguish reference omission from out-of-field attention.
+Yearly top-tier cutoffs are estimated from a small reference sample, making extreme-tail thresholds noisy;
+both groups nevertheless face the same cutoff within each publication year.
 
 Unrecognized notices, comments/letters and retracted citers can survive incomplete PubMed/Retraction Watch annotation.
 Citer retraction flags use the full snapshot, not status when citing. Filtering can change score availability and
@@ -67,7 +67,8 @@ the compared population.
 Original intervals cluster by journal--year; the citing-record sensitivity resamples whole journals.
 Neither captures author dependence across journals. The author-name check removes about half the primary papers,
 but names are not disambiguated: variants can escape exclusion, common names can merge people, and names do not
-establish responsibility. It weakens the three-year top-tier excess.
+establish responsibility. The restriction retains the unfiltered citation-composition contrast but weakens
+the three-year top-tier excess; it was not combined with citer filtering.
 PubMed Journal Article is a broad category; the article-type restriction does not isolate original research or
 uniquely attribute changes to control types.
 The primary conclusions concern late-retracted papers, not papers retracted during their window.

@@ -34,5 +34,7 @@ The source is ASCII elsarticle and does not require XeLaTeX.
 
 No files have been uploaded or submitted. Final author review and explicit submission approval are still required.
 
-Current prepared package: v0.12, 35-page identified manuscript, 190-word abstract and three figures.
+Current prepared package: v0.13, 35-page identified manuscript, 202-word abstract and three figures.
 The P15 results and population flow are included; original pre-specified results remain unchanged.
+Both `cover_letter.tex` and `cover_letter.pdf` are now included in the public repository; the letter names the
+companion arXiv preprint and explains the shared linked dataset and different research question.

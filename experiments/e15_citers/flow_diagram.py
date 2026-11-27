@@ -44,9 +44,9 @@ def arrow(start, end):
 
 
 box(0.5, 0.92, 0.9, 0.11,
-    f"Eligible biomedical papers, 2000\u20132017: {e2['eligible']:,}\n"
-    f"Journal/DOI rules: {e2['with_journal_not_dup']:,}\nNo references excluded: "
-    f"{e2['with_journal_not_dup_zero_refs']:,}")
+    f"Biomedical papers after journal/DOI rules: {e2['with_journal_not_dup']:,}\n"
+    f"Without references excluded: {e2['with_journal_not_dup_zero_refs']:,}\n"
+    f"Eligible, 2000\u20132017: {e2['eligible']:,}")
 box(0.25, 0.735, 0.43, 0.12, f"Eligible retracted papers\n{e2['retracted_secondary_all']:,}")
 box(0.75, 0.735, 0.43, 0.12,
     f"Controls drawn for all\n{e2['retracted_secondary_all']:,} retracted papers\n"
@@ -57,18 +57,18 @@ box(0.25, 0.55, 0.43, 0.12,
     f"First notice after window\n{e2['retracted_primary_after_window']:,} primary papers\n"
     f"{e2['retracted_secondary_all'] - e2['retracted_primary_after_window']:,} earlier retractions excluded")
 box(0.75, 0.55, 0.43, 0.12,
-    f"Defined CD5 controls\n{e4['controls_defined']:,}\n"
+    r"Defined $\mathrm{CD}_5$ controls" + f"\n{e4['controls_defined']:,}\n"
     f"{e4['controls_n'] - e4['controls_defined']:,} zero denominators excluded")
 arrow((0.25, 0.667), (0.25, 0.618))
 arrow((0.75, 0.667), (0.75, 0.618))
 box(0.5, 0.36, 0.9, 0.12,
-    f"Primary CD5 comparison: {e4['retracted_in_used_strata']:,} retracted papers\n"
+    r"Primary $\mathrm{CD}_5$ comparison: " + f"{e4['retracted_in_used_strata']:,} retracted papers\n"
     f"{e11['controls_used_strata']['controls_defined']:,} scored controls; {e4['strata_used']:,} journal\u2013year strata\n"
     f"{e4['retracted_defined'] - e4['retracted_in_used_strata']:,} primary paper lacks a scored stratum control")
 arrow((0.25, 0.482), (0.4, 0.428))
 arrow((0.75, 0.482), (0.6, 0.428))
 box(0.5, 0.165, 0.9, 0.14,
-    f"DI_nok: unfiltered comparison {raw['retracted_compared']:,} retracted / {raw['controls_compared']:,} controls\n"
+    r"$\mathrm{DI}_{nok}$: unfiltered comparison " + f"{raw['retracted_compared']:,} retracted / {raw['controls_compared']:,} controls\n"
     f"After excluding notice, comment/letter and retracted citing records:\n"
     f"{clean['retracted_compared']:,} retracted / {clean['controls_compared']:,} controls\n"
     f"{clean['strata']:,} strata; {clean['journals']:,} journals", "#f8efdf")

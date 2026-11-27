@@ -1,0 +1,39 @@
+{
+  "run_id": "e15_flow_20261127_02",
+  "script": "flow_diagram.py",
+  "script_sha256": "1c63e60e5af9084f117ec102888a564c347c7376c221865fbdf63880d943556b",
+  "config": {
+    "e2_sha256": "98476f929a565a3926495c297bf978e15ae4dda666a52f8f2994f6f3c1bdd2ca",
+    "e4_sha256": "077d0d75ec3f2ab464639b8e036df5358791048c2c36caef2b10ebc1caa3e659",
+    "e11_sha256": "d5faf8acc92b91ae5868377396e51d6b1301faa365460b82354d1f7c79d8f7f6",
+    "p15_sha256": "a82ef43cb5e87508a44903eb517eb2a3c3221491524174ee7dde04c18b9928e4",
+    "matplotlib": "3.10.8"
+  },
+  "host": "Hossein",
+  "python": "3.10.22",
+  "platform": "Linux-6.8.0-149-generic-x86_64-with-glibc2.35",
+  "started_utc": "2026-11-27T06:22:55Z",
+  "results": {
+    "comparison_counts": {
+      "cd5_retracted": 4586,
+      "cd5_controls": 31662,
+      "p15": {
+        "diff": 0.08159770162962846,
+        "ci": [
+          0.049014401679927114,
+          0.1099654292712343
+        ],
+        "mean_retracted": -0.2995083172842903,
+        "mean_controls": -0.38110601891391876,
+        "retracted_defined": 4505,
+        "controls_defined": 49923,
+        "retracted_compared": 4504,
+        "controls_compared": 30389,
+        "strata": 2190,
+        "journals": 972,
+        "bootstrap_unit": "journal"
+      }
+    }
+  },
+  "seconds": 0.6
+}

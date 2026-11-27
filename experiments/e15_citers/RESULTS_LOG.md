@@ -46,3 +46,11 @@ Generated from checksummed E2, E4, E11 and completed P15 aggregate files; no inf
 The PDF/PNG and per-run metadata/checksums are preserved. Native labels are 11.5 pt and print at 8-9 pt
 at manuscript width; text lies within the canvas. Flow appears as Figure 1, preceding the unchanged forest/event
 figures (now Figures 2 and 3). Both the CD5 and DI_nok compared control counts are stated explicitly.
+
+## e15_flow_20261127_02: notation and ordering correction
+
+The same checksummed inputs and comparison counts are retained. The first box now gives the journal/DOI
+population, the no-reference exclusion, then the final eligible count. CD5 and DI_nok use mathematical
+subscripts rather than literal labels. Native base text remains 11.5 pt; subscripts are 8.05 pt and their
+baselines are verified below the base letters. Installed PDF/PNG match this immutable run's files.
+Run _01 remains unchanged; its source is in public commit c1d69e904178a0d4550720d9365c827c319f181a.

@@ -330,3 +330,12 @@ Adjustment is descriptive, and journal resampling does not cluster authors acros
 Population flow: `experiments/e15_citers/runs/e15_flow_20261127_01/run.json`, with checksummed E2/E4/E11/P15
 sources. Figure 1 is now this flow; Figure 2 retains the original forest and Figure 3 the paired event plot.
 Original explanatory Table 3 moves to the appendix; the main Table 3 reports P15.
+
+## v0.13 editorial corrections (no empirical rerun)
+
+The abstract reports both the unfiltered P15 point 0.066767822 (0.067) and filtered point 0.081597702 (0.082).
+The filtered confidence interval and every table result are unchanged. Current population flow:
+`e15_citers/runs/e15_flow_20261127_02/`; same hashed input records/counts as _01, corrected count order/subscripts.
+The reference-only top-tier contribution is qualified by the reference-plus-citation model's imprecise contrast
+(P7 1.19, 0.96-1.47). Extreme-tail threshold sampling uncertainty is noted without introducing guessed counts.
+The separate public cover letter names arXiv:2611.10474 and the same linked dataset, DOI 10.5281/zenodo.23874477.

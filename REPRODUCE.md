@@ -55,7 +55,7 @@ Run each from its experiment folder: `python <script> <args>`.
 | Test of P15 (synthetic filtered counts and independent weighted least squares) | `e15_citers/test_citers.py` | seconds |
 | P15 citing-record filters, adjusted DI_nok means and journal sensitivities | `e15_citers/e15_citers.py e15_citers_20261127_02` | 2:49 |
 | Figures (laptop) | `e06_figures/e06_figs_v2.py e06_fig_20261127_08 e04_eval_20261110_01 e04_eval_cd3_20261110_01 e08_posthoc2_20261123_02 e09_pretrend_20261123_01 e12_diag_20261126_01` | seconds |
-| Population flow (laptop) | `e15_citers/flow_diagram.py e15_flow_20261127_01 e15_citers_20261127_02` | seconds |
+| Population flow (laptop) | `e15_citers/flow_diagram.py e15_flow_20261127_02 e15_citers_20261127_02` | seconds |
 | Paper | `cd paper/journals/joi && tectonic -X compile main.tex`; upload packages: `./build_submission.sh` | – |
 
 ## 4. Determinism and checks
@@ -73,6 +73,8 @@ Run each from its experiment folder: `python <script> <args>`.
   with TrueType fonts retaining en dashes.
   Run _08 moves the event legend below both axes, clear of the notice lines; the forest is byte-identical to _07.
   The population flow is now Figure 1, the forest Figure 2 and the event plot Figure 3.
+  Flow run _02 corrects subscript notation and puts exclusions before the final eligible count; all inputs and
+  numbers match _01. The old flow source is preserved in commit c1d69e904178a0d4550720d9365c827c319f181a.
 - Pre-specification provenance: `experiments/spec_provenance.json`, the unchanged `SPEC.md`, and the score and
   evaluation run records. The original private Git commit is dated before scoring; this is not an independent public
   preregistration timestamp. The original commit history remains private and cannot be inspected in this release.
@@ -107,6 +109,8 @@ the author must still complete that tool and upload its generated `.doc`/`.docx`
 JOI's single-anonymized review process requires the identified source package. The build no longer generates
 an anonymized variant; author and GitHub-link presence are checked. See `paper/journals/joi/UPLOAD.md` for exact
 files and the required Editorial Manager pdfLaTeX-generated PDF check.
+The build also compiles the separate cover letter; both `cover_letter.tex` and `cover_letter.pdf` are released.
+It names the companion arXiv preprint and shared linked dataset. The cover letter is not part of the manuscript ZIP.
 
 ## 5. Runs not cited
 - `e15_citers_20261127_01`: failed incoming-citer join before any estimate (12:05.08, peak RSS 50,386,716 KB).

@@ -1,0 +1,64 @@
+% Cover letter for the Journal of Informetrics submission of Paper E. Numbers match content/abstract.tex and FINDINGS.md.
+\documentclass[10pt]{letter}
+\usepackage[margin=1.6cm,top=1.2cm,bottom=1.4cm]{geometry}
+\usepackage{xurl}
+\sloppy
+\usepackage[hidelinks]{hyperref}
+\signature{Hossein Mohasel Arjomandi\\Microsoft, Redmond, WA, USA\\\href{mailto:hosseinm@microsoft.com}{hosseinm@microsoft.com}}
+\address{}
+\date{\today}
+\begin{document}
+\begin{letter}{Editorial Office\\\emph{Journal of Informetrics}}
+\opening{Dear Editor,}
+
+I am pleased to submit the manuscript \emph{``Do retracted papers look disruptive? The CD index before retraction on
+the open biomedical citation graph''} for consideration as a research article in the \emph{Journal of Informetrics}.
+
+\textbf{Context.} Proposals to use the CD index in research evaluation need evidence on how it treats unreliable
+work. This study measures papers that were later retracted, with scores computed before their retraction.
+
+\textbf{What the manuscript does.} Using only open data (OpenCitations, January 2024, linked to PubMed and to
+Retraction Watch), I computed the five-year CD index for 4,587 biomedical papers retracted only after their scoring
+window had closed, comparing 4,586 of them with 31,662 scored, never-retracted controls in 2,239 journal--year strata.
+The design was specified before scoring; frozen-score hashes were checked before labels were joined. The findings are:
+\begin{itemize}
+\item The mean score difference is small: a post hoc 90\% interval rules out absolute differences above 0.00093,
+  about 28\% of the review comparison's effect. In the pre-specified five-year analysis, there is no clear over-representation among the top 5\%
+  (odds ratio 0.99, 95\% CI 0.83--1.20), but positive scores are more common (1.23, 1.13--1.34).
+\item Post hoc analyses help explain this sign shift: papers that cite a retracted paper are less likely to also cite its
+  references. After removing notice, comment/letter and retracted citing records, the variant without $n_k$ shows
+  a mean gap of $+0.082$ (95\% journal-bootstrap CI 0.049--0.110).
+  The contrast persists with reference and citation adjustment and after excluding the ten highest-retraction journals.
+  The post hoc three-year window leans toward a modest top-tier excess, though this weakens under author-name exclusion.
+\item Post-retraction scores are shifted by notice records and a widening citation-composition gap, partly continuing
+  an earlier trend; scoring windows should end before the notice.
+\end{itemize}
+
+\textbf{Why the journal.} The study contributes to the journal's debate on disruption-index validity and data
+dependence. Added analyses are labelled post hoc and were planned before execution. No paper-level scores of
+non-retracted papers are released.
+
+\textbf{Openness.} Open inputs, code, specifications, checksummed run records and a claim-to-run map are documented at
+\mbox{\href{https://github.com/HosseinMA96/retracted-disruption-open-data}{github.com/HosseinMA96/retracted-disruption-open-data}}.
+
+\textbf{Related submissions.} Two other manuscripts by the same author are under consideration at
+\emph{Scientometrics}: \emph{``Can open citation data detect citation stacking? An audit against Clarivate's journal
+suppressions''} and \emph{``Do links to retracted papers predict future retractions? An out-of-sample test on the
+open biomedical citation graph''}; the latter is also available as the preprint
+\href{https://arxiv.org/abs/2611.10474}{arXiv:2611.10474}. This manuscript reuses their open citation snapshot and the
+second study's linked Retraction Watch dataset
+(\href{https://doi.org/10.5281/zenodo.23874477}{doi:10.5281/zenodo.23874477}).
+The companion preprint tests whether links to already-retracted papers predict future retractions.
+This manuscript instead examines disruption-index scores before a paper's first retraction notice and reports none
+of the companion manuscripts' results.
+
+The manuscript is original, has not been published, and is not under consideration elsewhere. I am the sole author,
+there is no funding to declare and I have no competing interests. The use of generative AI is declared in line with
+Elsevier's policy and described in Methods. The views expressed are my
+own and do not necessarily reflect those of Microsoft.
+
+Thank you for considering this manuscript.
+
+\closing{Sincerely,}
+\end{letter}
+\end{document}

@@ -15,7 +15,7 @@
 | `e12_diagnostics/` | **Post hoc** P12: paired annual confidence intervals and matched mean-log count differences; reproduces P9/P11/P1 | `e12_diag_20261126_01` | `RESULTS_LOG.md` |
 | `e13_article_types/` | **Post hoc** P13: article-type restriction of both groups; frozen-score and original-estimate replay | `e13_articles_20261126_01` | `RESULTS_LOG.md` |
 | `e14_authors/` | **Post hoc** P14: exclude primary nodes linked to author names on at least ten retracted paper keys; baseline replay | `e14_authors_20261126_01` | `RESULTS_LOG.md` |
-| `e15_citers/` | **Post hoc** P15: citing-record exclusions, adjusted DI_nok mean, whole-journal bootstrap and top-ten-journal exclusion | `e15_citers_20261127_02`; population flow `e15_flow_20261127_01` | `RESULTS_LOG.md` |
+| `e15_citers/` | **Post hoc** P15: citing-record exclusions, adjusted DI_nok mean, whole-journal bootstrap and top-ten-journal exclusion | `e15_citers_20261127_02`; population flow `e15_flow_20261127_02` (current; _01 preserved) | `RESULTS_LOG.md` |
 | `e06_figures/` | Paper figures from run records (laptop) | `e06_fig_20261127_08` (current; Figure 2 legend below axes, Figure 1 unchanged, 8.62 pt printed labels); paired annual intervals from P12 | `RESULTS_LOG.md` |
 
 Runs not cited carry a `SUPERSEDED.txt` with the reason: `e07_yearly_20261123_01`, `e08_posthoc2_20261123_01`
@@ -36,7 +36,7 @@ Runs not cited carry a `SUPERSEDED.txt` with the reason: `e07_yearly_20261123_01
 | P13 type coverage, restricted counts, estimates and input hashes | `e13_article_types/runs/e13_articles_20261126_01/results.json` |
 | P14 aggregate author coverage, exclusions and comparisons (no names or associations) | `e14_authors/runs/e14_authors_20261126_01/results.json` |
 | P15 filters, matched/regression means, classes, journal ranks, coverage and hashes | `e15_citers/runs/e15_citers_20261127_02/results.json`, `manifest.json` |
-| Population-flow inputs, counts and checksums | `e15_citers/runs/e15_flow_20261127_01/` |
+| Population-flow inputs, counts and checksums | `e15_citers/runs/e15_flow_20261127_02/` (current) |
 | Failed P15 join and exact source audit | `e15_citers/runs/e15_citers_20261127_01/`, `e15_citers/versions/e15_01_source.tgz` |
 | Large intermediates (labels, frozen scores, yearly counts) | VM disk `~/e/data/work/` only (per-paper tables are never released) |
 | VM billing events | `../vm/sessions.log` |

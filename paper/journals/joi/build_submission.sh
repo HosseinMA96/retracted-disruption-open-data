@@ -58,6 +58,7 @@ build () {  # build OUTDIR ZIPNAME
 
 build submission joi_latex_source.zip
 ( cd "$HERE" && "$TECTONIC" -X compile title_page.tex )
+( cd "$HERE" && "$TECTONIC" -X compile cover_letter.tex )
 # Individual editable sources and figures are in submission/; see UPLOAD.md.
 "$DOCX_PYTHON" "$HERE/build_declaration.py"
 test -s "$HERE/competing_interests.docx"
