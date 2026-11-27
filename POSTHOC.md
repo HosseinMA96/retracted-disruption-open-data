@@ -285,3 +285,47 @@ rejected four graph nodes without a current PubMed match before any estimate was
 missing-source rule already requires unknown metadata, not exclusion from the original baseline or imputation.
 Retry explicitly counts those nodes and assigns the empty-source metadata state; article/topic eligibility
 remains false. Frozen primary/P13/P14 reproduction checks still must pass. `_02` records and exact source are preserved.
+
+## P17: citer reference coverage and journal-clustered primary intervals (2026-11-27 UTC)
+
+**Recorded before execution; exploratory, requested after P1--P16 results were known.** It does not alter SPEC,
+frozen scores, control draws, thresholds or earlier results. No direction or size of any contrast is assumed.
+Five-year window only; CD3 and the P15 citing-record filters are not repeated.
+
+1. **Inputs and replay.** Use the frozen five-year population `e02_pop_20261110_01` and scores
+   `e03_cd5_20261110_01`: primary retracted papers and all drawn controls. Verify label/score hashes. Rebuild window
+   citing events with P15's `build_citers` (whole graph, self-loops excluded, citing years t to t+5). For every
+   window citing event, determine independently whether the citer also cites at least one reference of the focal
+   paper (self-loops excluded). Before any new estimate, reproduce for every paper the frozen n_i, n_j and window
+   citation totals; P15's unfiltered DI_nok gap and compared counts; and E4's primary mean CD5 gap, positive-score,
+   top-5% and top-1% Mantel--Haenszel odds ratios with Robins--Breslow--Greenland intervals. Top-tier thresholds
+   are the original reference-sample yearly quantiles. Stop on any disagreement.
+2. **Citer reference coverage.** For each distinct citing paper c, R(c) is the number of distinct papers it cites in
+   the same January 2024 graph (out-degree, self-loops excluded): references linked to DOI-identified works, not
+   the true reference-list length. For each focal paper with at least one window citing event: mean log(1 + R) over
+   its citing events, and the shares of its citing events with R < 10 and R < 25. Compare groups with P15's
+   retracted-paper-weighted journal/year matched mean difference and weighted group means. Also report pooled
+   citing-event quartiles of R by compared group (descriptive only).
+3. **Coverage-restricted DI_nok.** Recompute n_i and n_j from unfiltered window citing events, keeping only citers
+   with R >= 10, and separately R >= 25. Focal reference lists, windows, controls and strata are unchanged. DI_nok is
+   undefined when no citer remains; report defined and compared counts, the matched mean gap and group means.
+   Only these two pre-stated cutoffs are used.
+4. **Coverage-restricted sign.** CD and DI_nok share the sign of n_i - n_j. For each cutoff, the indicator
+   n_i' > n_j' is evaluated on the original CD5-compared population (4,586 retracted papers, 31,662 controls,
+   2,239 strata); papers with no remaining citer are not positive, as CD5 = 0 when n_i = n_j.
+   Report Mantel--Haenszel odds ratios with RGB intervals and whole-journal bootstrap intervals.
+5. **Journal-clustered primary intervals.** For the original primary comparison, recompute 95% percentile
+   intervals for the mean CD5 gap and the positive-score, top-5% and top-1% odds ratios by resampling whole journals
+   (all their compared strata together). Mantel--Haenszel numerator and denominator components are summed within
+   journal; each draw's odds ratio is the ratio of resampled sums. Points are unchanged. The pre-specified intervals
+   remain the reported primary intervals; these supplement them and do not replace them.
+6. **Uncertainty.** All new intervals use 2,000 whole-journal draws over journals with compared strata,
+   seed 20261109, independent child generators from offset 5000.
+7. **Interpretation.** A coverage-restricted contrast is described as persisting only if its point estimate is
+   positive and its whole-journal interval excludes zero; otherwise as not established. A coverage imbalance is
+   reported whichever group has better-covered citers.
+8. **Tests and records.** Synthetic tests compare restricted counts with brute force, check the journal-bootstrap
+   odds-ratio identity and confirm the generalized matched mean reproduces P15's helper. Code, helper and plan
+   hashes, aggregate JSON, logs, manifest and checksums go under a new run ID. Citer degrees and per-paper values
+   stay on the VM. The VM is deallocated after verified retrieval, including after failure. A failed run is
+   preserved and a retry receives a new run ID.
