@@ -236,3 +236,41 @@ frozen CD scores, original control draws or earlier results. No direction or siz
   logs, manifest and checksums under a new run ID. Verify frozen inputs before joins and fail on disagreement.
   Fetch only aggregate records and deallocate the preserved VM immediately after verified retrieval, including
   failure. No new citation graph or embedding model is created.
+## P16: identifier-aware focal types, major-MeSH matching and fixed-window DI_nok intervals (2026-11-27 UTC)
+
+**Recorded before execution; exploratory after all P1--P15 results were known.** The author approved the
+topic-matching rule before execution. This checks focal-paper metadata, not citing-record exclusions.
+Original runs and the original journal/year-matched control pool remain unchanged.
+
+1. Reconstruct P13's union-of-PMID-and-exact-DOI publication-type flags and verify its eligible counts and
+   CD/DI_nok point estimates. Audit DOI-only records with notice/erratum/expression-of-concern types or
+   RetractionOf/ErratumFor/ExpressionOfConcernFor links, particularly those referring to a node's matched PMID.
+   Count changes from DOI-only excluded-type propagation, separately for primary papers and all drawn controls.
+2. Use an identifier-aware alternative: if a node has PubMed PMID matches, use those records alone;
+   otherwise use its exact-DOI matches after removing records identified as notices by the preceding rule.
+   Union types and major-MeSH descriptor UIs within those retained records. No usable source or no type
+   stays unknown; it is not imputed. Apply P13's same Journal Article requirement and excluded-type list.
+   Report alternative coverage and unadjusted CD/DI_nok contrasts; do not replace P13's immutable output.
+3. Topic matching uses the unfiltered five-year DI_nok scores, original primary retracted papers and
+   original drawn controls, requiring defined DI_nok and at least one major-MeSH descriptor in both groups.
+   Within the original journal/year stratum, select up to five controls with the highest **positive**
+   Jaccard overlap of major-MeSH descriptor sets for each retracted paper. Ties use ascending SHA-256 of
+   `20261109|retracted_iid|control_iid`; controls may be reused. No new controls, ontology traversal,
+   outcome-based matching, minimum citation cutoff or tuned similarity threshold.
+   Repeat with the identifier-aware article-type restriction on both groups.
+4. Each retained retracted paper has weight one; its controls receive equal weights summing to one.
+   Report the mean per-paper DI_nok gap and a baseline using all major-MeSH-eligible original controls
+   in the same journal/year for exactly those retained retracted papers. Report unmatched losses, unique
+   controls, per-paper control counts and similarity distribution. This estimates a selected
+   topic-overlap population, not the original full primary estimand.
+5. Recompute fixed-window unfiltered DI_nok intervals for the primary/class/review comparisons and the
+   P13/P14 restrictions using 2,000 whole-journal bootstrap draws (seed 20261109, child offsets from 4000).
+   Verify all points and compared counts against the original runs; planned CD intervals/odds ratios
+   remain unchanged. P15's primary interval remains the canonical five-year overall interval.
+   Annual/event-time contrasts are different estimands and retain explicitly labelled original intervals.
+   Topic intervals resample whole journals over the fixed per-paper gaps; matches are fixed, not redrawn.
+
+Frozen score/label hashes and metadata/author-source hashes are recorded. Synthetic tests cover identifier
+priority, foreign notice propagation, positive-overlap matching, deterministic ties and journal dependence.
+Only aggregate JSON/logs/checksums are released; no identifiers, publication-level matches, MeSH sets or
+author names leave the VM. Any failed run is preserved and a retry receives a new run name.
