@@ -351,3 +351,23 @@ threshold or earlier result changes. Five-year population only.
 4. Group-level counts only; no new comparison or interval. Synthetic tests check category assignment and agreement
    with `topic_lib.metadata`. Hashes, aggregate JSON, logs, manifest and checksums go under a new run ID. The VM is
    deallocated after verified retrieval, including after failure.
+
+## P19: adjusted sign and top-tier models in the PMID-priority article sample (2026-11-27 UTC)
+
+**Recorded before execution; exploratory, requested after P13 and P16 results were known.** It repeats P13's
+conditional logistic models, which were fitted only on the union-link article sample, on the PMID-priority article
+sample used in Table 2. No control draw, score, threshold or earlier result changes. Five-year window only.
+
+1. Use the frozen five-year labels and scores (`e02_pop_20261110_01`, `e03_cd5_20261110_01`) with their recorded hashes,
+   and the original reference-sample top-5% thresholds from all scored context papers. Rebuild union-link and
+   PMID-priority article flags for primary retracted papers and drawn controls with P16's bounded metadata lookup and
+   `topic_lib.metadata`, verifying the P13 metadata-source hashes.
+2. Before any new estimate, reproduce P13's six union-link conditional-logit odds ratios and intervals (positive and
+   top-5% outcomes; unadjusted, log references, log references and log citations; tolerance 1e-6) and P16's
+   PMID-priority Mantel--Haenszel positive and top-5% odds ratios with their intervals. Stop on disagreement.
+3. Fit the same six models with P13's `clogit` on the PMID-priority article sample: both groups filtered, journal x year
+   strata, strata without outcome variation omitted as before, covariates log(1 + references) and
+   log(1 + window citing papers). Report odds ratios, Wald 95% intervals, retracted papers and strata in each model.
+4. No direction is assumed and no other specification is tried. Synthetic tests cover flag selection and the model
+   wrapper. Hashes, aggregate JSON, logs, manifest and checksums go under a new run ID; the VM is deallocated after
+   verified retrieval, including after failure.
