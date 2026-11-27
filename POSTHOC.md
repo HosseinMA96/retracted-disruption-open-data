@@ -274,3 +274,8 @@ Frozen score/label hashes and metadata/author-source hashes are recorded. Synthe
 priority, foreign notice propagation, positive-overlap matching, deterministic ties and journal dependence.
 Only aggregate JSON/logs/checksums are released; no identifiers, publication-level matches, MeSH sets or
 author names leave the VM. Any failed run is preserved and a retry receives a new run name.
+
+**Execution note before retry:** `e16_topic_20261127_01` stalled without producing estimates. Its process
+was blocked with ample RAM and no swapping; it was terminated by its specific PID and its source/logs/manifest
+preserved. Retry `_02` materializes bounded identifier/PubMed-key tables before reading nested metadata
+and uses single-threaded DuckDB with a 6 GB memory limit. No matching rule, filter, estimand or RNG choice changes.
