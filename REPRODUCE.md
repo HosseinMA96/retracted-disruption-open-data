@@ -60,6 +60,8 @@ Run each from its experiment folder: `python <script> <args>`.
 | P17 citer coverage, coverage-restricted DI_nok/sign and journal-clustered primary intervals | `e17_coverage/e17_coverage.py e17_coverage_20261127_01 4169ea7cbd6a600f420c6871c566bdaa37b5b214` (via `vm/run_p17.sh`) | 2:54 |
 | Test of P18 (category order; agreement with P16 metadata) | `e18_types/test_types.py` | seconds |
 | P18 composition of article-type filter failures | `e18_types/e18_types.py e18_types_20261127_01 ac8d639a1157c70f57a1ebd6d0ec3da984d21dd9` (via `vm/run_p18.sh`) | 1:04 |
+| Test of P19 (flag selection; conditional-logit wrapper) | `e19_models/test_models.py` | seconds |
+| P19 PMID-priority conditional-logit models | `e19_models/e19_models.py e19_models_20261127_01 d14be2e63862fd8a2c755b9ac2b2de3e9a59afb6` (via `vm/run_p19.sh`) | 4:55 |
 | Figures (laptop) | `e06_figures/e06_figs_v2.py e06_fig_20261127_10 e04_eval_20261110_01 e04_eval_cd3_20261110_01 e08_posthoc2_20261123_02 e09_pretrend_20261123_01 e12_diag_20261126_01 e16_topic_20261127_03` | seconds |
 | Population flow (laptop) | `e15_citers/flow_diagram.py e15_flow_20261127_02 e15_citers_20261127_02` | seconds |
 | Paper | `cd paper/journals/joi && tectonic -X compile main.tex`; upload packages: `./build_submission.sh` | – |
@@ -133,6 +135,9 @@ Run each from its experiment folder: `python <script> <args>`.
 - P18 was publicly planned at `ac8d639a1157c70f57a1ebd6d0ec3da984d21dd9` before execution. It rebuilds P16's
   PMID-prioritized types with the same bounded lookup and `topic_lib`, reproduces P16/P13 eligible counts, and
   counts excluded types among failing papers (overlapping and in a fixed order). Descriptive; no estimates.
+- P19 was publicly planned at `d14be2e63862fd8a2c755b9ac2b2de3e9a59afb6` before execution. It rebuilds both article
+  flags, reproduces P13's six union-link conditional-logit models (tolerance 1e-6) and P16's PMID-priority
+  Mantel–Haenszel odds ratios, then fits the same six models on the PMID-priority sample.
   The frozen parser records major flags on DescriptorName, not QualifierName. A read-only synthetic audit
   confirms qualifier-only flags are omitted; P16 therefore tests descriptor-major matching, not all major headings.
   See `experiments/e16_topic/RESULTS_LOG.md`. Recovering qualifier-only flags requires a new extraction and planned rerun.

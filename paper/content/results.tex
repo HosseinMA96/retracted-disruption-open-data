@@ -10,7 +10,7 @@ percentiles are $-0.0218$, $-0.0010$ and $0.0059$. The large $n_k$ term compress
 (\ref{sec:appendix}). Papers without a citing paper in the window but with $n_k>0$ score exactly zero. CD$_5 = 1$ is
 rare (0.04\% of defined scores) because papers without references are excluded. In the reference sample, the yearly
 top-5\% threshold falls from 0.021 (2000) to between 0.005 and 0.006 (2014--2017), and the top-1\% threshold from 0.13
-to between 0.04 and 0.06. The mean CD$_5$ per publication year stays between $-0.0049$ and $0.0009$.
+to between 0.04 and 0.06.
 
 \subsection{RQ1: retracted papers versus matched controls}
 The comparison population is shown in Fig.~\ref{fig:population}. Control percentages below use its defined-score
@@ -114,14 +114,11 @@ Article types: PMID priority & 0.84 (0.12, 1.70) & 1.34 (1.24, 1.43) & 1.21 (1.0
 \paragraph{A review positive control}
 Reviews among the never-retracted controls score lower than the other controls of the same journal and year: the mean
 difference in CD$_5$ is $-0.0033$ ($-0.0066$ to $-0.0011$), and reviews reach the top 5\% (odds ratio 0.58,
-0.47--0.72) and the top 1\% (0.39, 0.21--0.73) much less often (6,032 reviews, 4,832 of them in the 2,083 strata that
-also contain other controls; Fig.~\ref{fig:forest}). The design therefore detects a contrast expected from the
-construction of the index, with sample sizes similar to those of the main analysis.
-The odds ratio for a positive CD$_5$ is 0.95 (0.86--1.04), and the mean DI$_{nok}$ difference is
-$-0.076$ ($-0.196$ to $0.028$; 4,736 compared reviews). Both intervals include the null: the positive control
-detects the CD$_5$ mean and top-tier contrasts, but not a clear sign or DI$_{nok}$ mean contrast.
-For DI$_{nok}$, uncertainty resamples whole journals. Precision depends on the variation and weights of
-journal contrasts, so similar paper counts do not imply similar interval widths.
+0.47--0.72) and the top 1\% (0.39, 0.21--0.73) much less often (4,832 reviews in 2,083 strata with other controls;
+Fig.~\ref{fig:forest}). The design therefore detects a contrast expected from the construction of the index, with
+sample sizes similar to those of the main analysis. It does not detect a clear sign contrast (odds ratio 0.95,
+0.86--1.04) or DI$_{nok}$ mean contrast ($-0.076$, $-0.196$ to $0.028$; 4,736 reviews). That DI$_{nok}$ interval
+resamples whole journals, so similar paper counts need not give similar widths.
 
 \paragraph{Citation composition}
 The denominator problem described by \citet{bornmann2020convergent} is substantial here. Across all 86,904 papers
@@ -131,22 +128,20 @@ Without $n_k$, the unfiltered DI$_{nok}$ mean gap is 0.067 (95\% whole-journal b
 On average, 65.5\% of papers citing a retracted paper also cite a reference, against 68.8\% for controls.
 Thus the known compression of CD$_5$ obscures a difference in citer composition.
 
-Incomplete reference lists among citing papers do not explain this difference. Citers of retracted papers have
+Incomplete reference lists among citing papers are unlikely to explain this difference. Citers of retracted papers have
 slightly more references in the graph than citers of controls: on average, 2.3\% of a retracted paper's citers
 have fewer than ten, against 2.9\% for controls. Counting only citers with at least 10 or at least 25 references
 in the graph gives gaps of 0.069 and 0.071 (Table~\ref{tab:citers}); the positive-score odds ratios become
 1.25 and 1.29.
 
-The citing-record exclusions are a robustness check, planned after this unfiltered result was known.
-Removing notices, comments/letters and retracted citing papers increases the gap to 0.082
-(Table~\ref{tab:citers}). Reference/citation adjustment retains the filtered contrast.
-Excluding the ten journals with the most primary-set retractions reduces it to 0.053.
-Full estimates, class contrasts and changed score availability are in the tables and appendix.
+Removing notices, comments/letters and retracted citing papers, a check planned after this unfiltered result was
+known, increases the gap to 0.082; adjusting for references and citations retains it, and excluding the ten journals
+with the most primary-set retractions reduces it to 0.053 (Table~\ref{tab:citers}; accounting in the appendix).
 
 Retractions are also concentrated among author-name strings: 2,280 of 4,587 primary papers are linked to names
 on at least ten retracted papers in the snapshot. Removing those papers retains the unfiltered DI$_{nok}$ gap
 (Table~\ref{tab:authors}).
-CD and DI$_{nok}$ have the same sign; the sign models are in Table~\ref{tab:posthoc}.
+Sign models are in Table~\ref{tab:posthoc}.
 DI$_{nok}$ cannot define a useful top tier here because its yearly 95th and 99th percentiles equal 1.
 
 \begin{table}[!htbp]
@@ -186,12 +181,14 @@ Same papers, topic-matched controls & 0.063 ($-0.003$, 0.124) & 417 \\
 \end{table}
 
 \subsection{Exploratory: matching, reference length and the top tier}
-The reference-only conditional logistic model gives a top-5\% odds ratio of 1.42.
-Adding citation count reduces the contrast and its interval includes one (Table~\ref{tab:posthoc}).
-Retracted papers have longer reference lists on the matched mean-log scale, with a gap of $+0.084$.
-Because short lists favour high scores, this imbalance pushes retracted papers' unadjusted scores down.
-Article-type restrictions also change the comparison (Table~\ref{tab:rob}).
-After a metadata audit that prioritizes native PMID records over DOI-only notice links, 21.0\% of primary
+Retracted papers have longer reference lists than their controls (matched mean-log gap $+0.084$), and short
+lists favour high scores, so this imbalance pushes retracted papers' unadjusted scores down. Adjusting for reference
+length in a conditional logistic model raises the top-5\% odds ratio to 1.42; adding citation count lowers it to
+1.19, with an interval that includes one (Table~\ref{tab:posthoc}). In the article-only samples, the two-covariate
+odds ratio stays above one: 1.39 (1.07--1.79) with PMID priority and 1.39 (1.08--1.80) with union links
+(supplementary material).
+
+Publication types also change the comparison (Table~\ref{tab:rob}). After a metadata audit that prioritizes native PMID records over DOI-only notice links, 21.0\% of primary
 papers and 17.2\% of drawn controls fail the broad article-type filter.
 Of the 961 failing primary papers, 395 are reviews and 67 letters, comments or editorials; the other 499 carry
 only notice types, mostly Retraction of Publication, consistent with notice records linked to the retracted
@@ -208,13 +205,12 @@ Notice removal changes the primary sign comparison little, but reduces it for pa
 (\ref{sec:appendix}). For 5,100 papers with citations before and after the notice, the DI$_{nok}$ change exceeds
 the same-calendar control change by 0.074 (Table~\ref{tab:posthoc}).
 Figure~\ref{fig:event} uses a separate balanced population of 3,083 papers and plots paired annual gaps:
-the divergence starts before the notice and steepens afterward, while citations to retracted papers fall.
-Annual score availability and the placebo check are reported in the appendix.
+the divergence starts before the notice and steepens afterward, while citations to retracted papers fall
+(placebo check and annual availability in the appendix).
 
 \subsection{Exploratory: a shorter scoring window}
 The three-year window admits more recent papers, including more paper-mill papers.
 It retains a small mean CD gap and a positive-score shift, while some sensitivity checks favour a modest top-tier
 excess (Table~\ref{tab:rob}). The article-type restriction strengthens that apparent excess and the author-name
 exclusion attenuates it (supplementary material and appendix). The filtered DI$_{nok}$ contrast remains positive after the top-ten-journal
-exclusion (Table~\ref{tab:citers}). These early-window results are exploratory, not a replacement for the
-pre-specified five-year comparison.
+exclusion (Table~\ref{tab:citers}).

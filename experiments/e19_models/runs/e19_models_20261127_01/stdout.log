@@ -1,0 +1,37 @@
+./home/azureuser/e/experiments/e13_article_types/sensitivity_lib.py:18: Pandas4Warning: The 'lsuffix' and 'rsuffix' keywords in DataFrame.join are deprecated and will be removed in a future version. Use the 'suffixes' keyword instead.
+  m = gr.join(gc, lsuffix="_r", rsuffix="_c", how="inner").sort_index()
+/home/azureuser/e/experiments/e13_article_types/sensitivity_lib.py:81: RuntimeWarning: overflow encountered in exp
+  "ci": [float(np.exp(beta - 1.96 * se)), float(np.exp(beta + 1.96 * se))],
+.
+----------------------------------------------------------------------
+Ran 2 tests in 5.175s
+
+OK
+[    24.7s] frozen_and_metadata_hashes_verified: {'labels': 'e8f7465a2c309c0bd9c7f7e011d71dc784260916134ec0d6c070c7f9de48911f', 'scores': 'fa9fdb9ad3105c06d3bc490c0ddd518f927e5466e85445f09163aa566459c015', 'idmap.parquet': 'ec7707dcc12dcb4b7bb4c88094a65583ef7696ae9e024fa0acb0c13728028e9c', 'pubmed26.parquet': '7b7f578189ac18545a0a657872df926065776c010e4aa097f3efa6efa0d1d2de'}
+[    53.3s] bounded_metadata_links: 111991
+[   185.1s] replays: passed: eligibility counts, six P13 union-link models, P16 PMID-priority MH odds ratios
+[   293.2s] pmid_priority_models: {'pos_unadjusted': {'or': 1.2525374555888271, 'ci': [1.1388550885954185, 1.3775677813301421], 'retracted_in_model': 2813, 'strata': 1199}, 'pos_refs': {'or': 1.3369613026037561, 'ci': [1.2137438912740168, 1.4726875558431884], 'retracted_in_model': 2813, 'strata': 1199}, 'pos_refs_cites': {'or': 1.350073663334069, 'ci': [1.2247955147272307, 1.4881658811709473], 'retracted_in_model': 2813, 'strata': 1199}, 'top5_unadjusted': {'or': 1.0685696974478336, 'ci': [0.8603900843344952, 1.3271203598155825], 'retracted_in_model': 1546, 'strata': 393}, 'top5_refs': {'or': 1.6240447575549868, 'ci': [1.2681181580253373, 2.0798703636961386], 'retracted_in_model': 1546, 'strata': 393}, 'top5_refs_cites': {'or': 1.3874744579071774, 'ci': [1.074202124379405, 1.79210720929917], 'retracted_in_model': 1546, 'strata': 393}}
+done in 293.2 s -> /home/azureuser/e/experiments/e19_models/runs/e19_models_20261127_01
+	Command being timed: "/home/azureuser/mamba/envs/d/bin/python e19_models.py e19_models_20261127_01 d14be2e63862fd8a2c755b9ac2b2de3e9a59afb6"
+	User time (seconds): 248.59
+	System time (seconds): 23.57
+	Percent of CPU this job got: 92%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 4:54.61
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 10975216
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 23
+	Minor (reclaiming a frame) page faults: 8896326
+	Voluntary context switches: 1271
+	Involuntary context switches: 2198
+	Swaps: 0
+	File system inputs: 6282648
+	File system outputs: 88
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

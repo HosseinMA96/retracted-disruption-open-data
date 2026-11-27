@@ -1,0 +1,171 @@
+{
+  "definition": {
+    "posthoc": "P19",
+    "plan_commit": "d14be2e63862fd8a2c755b9ac2b2de3e9a59afb6",
+    "window": [
+      0,
+      5
+    ],
+    "inputs": [
+      "e02_pop_20261110_01",
+      "e03_cd5_20261110_01",
+      "e13_articles_20261126_01",
+      "e16_topic_20261127_03"
+    ],
+    "duckdb_threads": 1,
+    "duckdb_memory_limit": "6GB",
+    "replay_tolerance_clogit": 1e-06,
+    "spec_sha256": "1403d0d13d35bd32c40ede1be24833ab15e7977edb2f56c2128ef8823373ad31",
+    "posthoc_sha256": "4cae7660e83d7a83141379c007ff16749fc442f7ffd27a3c315e237a8defff46",
+    "helper_hashes": {
+      "e19_models/models_lib.py": "5ed01cbac8912384be7f0f5ad944098c6a0fcb0dbfc909f187f9291757beb31c",
+      "e19_models/common.py": "3163596e203c31f513aba38a6baed7091f0497638ed85f6f4f85e87fa2c1a18d",
+      "e16_topic/topic_lib.py": "232d59bb1cfc41c10d9204befd16d479d3d5504d8ac5aef7346348ee6d57fd18",
+      "e13_article_types/sensitivity_lib.py": "8b1071771c4159afe8ded5ed17287986b1cc1a980bc1214b58c776e598b76954"
+    }
+  },
+  "input_hashes": {
+    "labels": "e8f7465a2c309c0bd9c7f7e011d71dc784260916134ec0d6c070c7f9de48911f",
+    "scores": "fa9fdb9ad3105c06d3bc490c0ddd518f927e5466e85445f09163aa566459c015",
+    "idmap.parquet": "ec7707dcc12dcb4b7bb4c88094a65583ef7696ae9e024fa0acb0c13728028e9c",
+    "pubmed26.parquet": "7b7f578189ac18545a0a657872df926065776c010e4aa097f3efa6efa0d1d2de"
+  },
+  "samples": {
+    "union_link": {
+      "retracted": 3528,
+      "controls": 43152
+    },
+    "pmid_priority": {
+      "retracted": 3626,
+      "controls": 43167
+    }
+  },
+  "replayed_union_link_models": {
+    "pos_unadjusted": {
+      "or": 1.2476015829942864,
+      "ci": [
+        1.1332057574250924,
+        1.373545536361024
+      ],
+      "retracted_in_model": 2740,
+      "strata": 1165
+    },
+    "pos_refs": {
+      "or": 1.3315263235521853,
+      "ci": [
+        1.2075316141882042,
+        1.4682533603928212
+      ],
+      "retracted_in_model": 2740,
+      "strata": 1165
+    },
+    "pos_refs_cites": {
+      "or": 1.343680430098742,
+      "ci": [
+        1.217700859457683,
+        1.4826934580915299
+      ],
+      "retracted_in_model": 2740,
+      "strata": 1165
+    },
+    "top5_unadjusted": {
+      "or": 1.0735820960467017,
+      "ci": [
+        0.8622980314380315,
+        1.336635913490264
+      ],
+      "retracted_in_model": 1524,
+      "strata": 383
+    },
+    "top5_refs": {
+      "or": 1.6399671706189043,
+      "ci": [
+        1.2790345259783251,
+        2.1027519320876813
+      ],
+      "retracted_in_model": 1524,
+      "strata": 383
+    },
+    "top5_refs_cites": {
+      "or": 1.3949091194971466,
+      "ci": [
+        1.0785188683894005,
+        1.8041144283011117
+      ],
+      "retracted_in_model": 1524,
+      "strata": 383
+    }
+  },
+  "pmid_priority_mh": {
+    "positive": {
+      "or": 1.249452400047709,
+      "ci": [
+        1.1365569940244613,
+        1.3735618259293214
+      ]
+    },
+    "top5": {
+      "or": 1.0672603431309586,
+      "ci": [
+        0.8600577099777942,
+        1.3243816395174466
+      ]
+    }
+  },
+  "pmid_priority_models": {
+    "pos_unadjusted": {
+      "or": 1.2525374555888271,
+      "ci": [
+        1.1388550885954185,
+        1.3775677813301421
+      ],
+      "retracted_in_model": 2813,
+      "strata": 1199
+    },
+    "pos_refs": {
+      "or": 1.3369613026037561,
+      "ci": [
+        1.2137438912740168,
+        1.4726875558431884
+      ],
+      "retracted_in_model": 2813,
+      "strata": 1199
+    },
+    "pos_refs_cites": {
+      "or": 1.350073663334069,
+      "ci": [
+        1.2247955147272307,
+        1.4881658811709473
+      ],
+      "retracted_in_model": 2813,
+      "strata": 1199
+    },
+    "top5_unadjusted": {
+      "or": 1.0685696974478336,
+      "ci": [
+        0.8603900843344952,
+        1.3271203598155825
+      ],
+      "retracted_in_model": 1546,
+      "strata": 393
+    },
+    "top5_refs": {
+      "or": 1.6240447575549868,
+      "ci": [
+        1.2681181580253373,
+        2.0798703636961386
+      ],
+      "retracted_in_model": 1546,
+      "strata": 393
+    },
+    "top5_refs_cites": {
+      "or": 1.3874744579071774,
+      "ci": [
+        1.074202124379405,
+        1.79210720929917
+      ],
+      "retracted_in_model": 1546,
+      "strata": 393
+    }
+  }
+}

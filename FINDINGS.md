@@ -504,3 +504,18 @@ eligibility exactly. Fields: `groups.primary`, `groups.controls` in `results.jso
 The notice-type interpretation is an inference (these papers are retracted originals; notice types belong to notices).
 v0.18 text: "no clear unadjusted top-tier excess" in the abstract, contributions, conclusions, RQ3 and cover letter;
 broad article-type filter defined in Methods; repository release `v1.0.1`.
+
+## P19 PMID-priority conditional-logit models (`e19_models_20261127_01`; v0.19)
+
+Plan published before execution: `d14be2e63862fd8a2c755b9ac2b2de3e9a59afb6`. Replays P13 (six union-link models) and
+P16 (PMID-priority MH odds ratios) first. Field: `pmid_priority_models` in `results.json`.
+
+| Model (PMID-priority sample) | Odds ratio (95% CI) | Retracted / strata |
+|---|---|---|
+| CD5 > 0: unadjusted / log refs / log refs + log cites | 1.25 (1.14-1.38) / 1.34 (1.21-1.47) / 1.35 (1.22-1.49) | 2,813 / 1,199 |
+| Top 5%: unadjusted / log refs / log refs + log cites | 1.07 (0.86-1.33) / 1.62 (1.27-2.08) / 1.39 (1.07-1.79) | 1,546 / 393 |
+
+Main-text use (v0.19): with both covariates the top-5% excess persists in both article-only samples (1.39) but not in
+the full sample (1.19, 0.96-1.47), so the adjusted top-tier excess depends on model and sample. Other v0.19 text:
+abstract density (gap range 0.053-0.097 across citer filters, adjustment and top-ten exclusion) and answers to the
+introduction's questions; "are unlikely to explain"; cover-letter citation key removed; release `v1.0.2`.

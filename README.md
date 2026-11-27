@@ -40,7 +40,7 @@ labelled post hoc, and each plan was written down before it was run.
 | DI_nok after excluding notice, comment/letter and retracted citers (P15) | **+0.082** (95% journal CI 0.049–0.110); 4,504 compared retracted / 30,389 controls |
 | Filtered DI_nok with reference and citation adjustment | **+0.097** (0.065–0.127) |
 | Filtered DI_nok excluding ten highest-retraction journals | **+0.053** (0.033–0.074); with both covariates +0.070 (0.049–0.091) |
-| Top 5%, reference-adjusted and then also citation-adjusted (post hoc) | 1.42 (1.16–1.75), then 1.19 (0.96–1.47): model-dependent |
+| Top 5%, reference-adjusted and then also citation-adjusted (post hoc) | 1.42 (1.16–1.75), then 1.19 (0.96–1.47); in article-only samples with both covariates 1.39 (PMID priority 1.07–1.79, P19; union link 1.08–1.80): depends on model and sample |
 | Matched difference in mean log(1 + references), P12 | **+0.084** (0.058–0.109), 4,586 retracted papers / 31,662 controls |
 | Why 21.0% of primary papers fail the article-type filter (P18) | 395 reviews, 67 letters/comments/editorials, 499 notice types only (mostly Retraction of Publication); without notice types 10.1% vs 16.7% of controls |
 | PMID-prioritized article types (P16), CD5 top 5% | 1.07 (0.86-1.32), 3,619 compared retracted papers / 24,192 controls |
@@ -86,13 +86,13 @@ The primary comparison uses only the 31,662 scored controls in strata containing
 .
 ├── README.md            ← you are here
 ├── SPEC.md              pre-specified design (v1; its SHA-256 is in every run.json)
-├── POSTHOC.md           post hoc plans P1–P18, each written before it was run
+├── POSTHOC.md           post hoc plans P1–P19, each written before it was run
 ├── FINDINGS.md          every number in the paper → the run that produced it
 ├── REPRODUCE.md         inputs, environment, exact commands in order, determinism notes
 ├── CITATION.cff         how to cite this repository
 ├── experiments/
 │   ├── README.md        index of steps and the runs cited in the paper
-│   ├── e01 … e18/       one folder per step: script(s), lab notebook RESULTS_LOG.md, runs/<run_id>/
+│   ├── e01 … e19/       one folder per step: script(s), lab notebook RESULTS_LOG.md, runs/<run_id>/
 │   └── …/runs/<id>/     run.json (parameters, script hash, counts) · stdout.log · group-level outputs · SHA256SUMS
 ├── paper/               LaTeX source (content/, journals/joi/main.tex), figures, refs.bib + DOI checks
 ├── lit/                 literature gate, verified DOIs and the claim check
@@ -113,6 +113,7 @@ python experiments/e15_citers/test_citers.py
 python experiments/e16_topic/test_topic.py
 python experiments/e17_coverage/test_coverage.py
 python experiments/e18_types/test_types.py
+python experiments/e19_models/test_models.py
 
 # 3. rebuild the figures from the run records (byte-identical to the committed ones with Matplotlib 3.10.8)
 cd experiments/e06_figures && python e06_figs_v2.py my_rebuild e04_eval_20261110_01 e04_eval_cd3_20261110_01 \
@@ -142,7 +143,7 @@ and standardizes fixed-window DI_nok intervals to whole journals.
 The validated identified/flat/arXiv builds have 35 pages, a 197-word abstract and approximately 9,393 words
 before References, excluding review-margin line numbers. Only the explanatory flow diagram's caption carries an
 AI note; data plots are covered in Methods. Earlier statistical results and all figure PDFs are unchanged.
-The version prepared for submission is tagged as release `v1.0.1` (`v1.0.0` preceded the P18 type breakdown);
+The version prepared for submission is tagged as release `v1.0.2` (`v1.0.0` and `v1.0.1` preceded P18 and P19);
 Zenodo archiving has not been set up.
 The MeSH parser audit is documented in the topic notebook; no broader extraction or empirical rerun was performed.
 Local builds use Tectonic. Editorial Manager's pdfLaTeX PDF must still be reviewed,

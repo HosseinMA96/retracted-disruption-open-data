@@ -1,0 +1,25 @@
+{
+  "run_id": "e19_models_20261127_01",
+  "plan_commit": "d14be2e63862fd8a2c755b9ac2b2de3e9a59afb6",
+  "inputs": [
+    "e02_pop_20261110_01",
+    "e03_cd5_20261110_01",
+    "e13_articles_20261126_01",
+    "e16_topic_20261127_03"
+  ],
+  "script_sha256": "0d28d634add31c0abb83ac27a400e00712ce6d1033df2c6b030a186303b04f9a",
+  "helper_hashes": {
+    "e19_models/models_lib.py": "5ed01cbac8912384be7f0f5ad944098c6a0fcb0dbfc909f187f9291757beb31c",
+    "e19_models/common.py": "3163596e203c31f513aba38a6baed7091f0497638ed85f6f4f85e87fa2c1a18d",
+    "e16_topic/topic_lib.py": "232d59bb1cfc41c10d9204befd16d479d3d5504d8ac5aef7346348ee6d57fd18",
+    "e13_article_types/sensitivity_lib.py": "8b1071771c4159afe8ded5ed17287986b1cc1a980bc1214b58c776e598b76954"
+  },
+  "outputs": [
+    "results.json",
+    "run.json",
+    "manifest.json",
+    "stdout.log",
+    "SHA256SUMS"
+  ],
+  "release": "aggregate model estimates only; publication-level flags remain on the VM"
+}

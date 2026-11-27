@@ -7,7 +7,8 @@ authors:
     given-names: "Hossein"
 license: MIT
 repository-code: "https://github.com/HosseinMA96/retracted-disruption-open-data"
-date-released: "2026-11-24"
+version: "1.0.2"
+date-released: "2026-11-27"
 keywords:
   - disruption index
   - CD index
