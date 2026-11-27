@@ -36,8 +36,11 @@ labelled post hoc, and each plan was written down before it was run.
 | Odds ratio for a positive CD5 (pre-specified RQ1) | **1.23** (1.13–1.34) |
 | Odds ratio for reaching the top 5% of the year | **0.99** (0.83–1.20) |
 | Positive control: reviews vs other papers, top 5% | 0.58 (0.47–0.72): the design detects a real contrast |
-| Variant without n_k (DI_nok): retracted − controls (post hoc) | **+0.067** (0.046–0.087): papers citing a retracted paper are less likely to also cite its references |
-| Top 5% at equal reference length (post hoc) | 1.42 (1.16–1.75) |
+| DI_nok after excluding notice, comment/letter and retracted citers (P15) | **+0.082** (95% journal CI 0.049–0.110); 4,504 compared retracted / 30,389 controls |
+| Filtered DI_nok with reference and citation adjustment | **+0.097** (0.065–0.127) |
+| Filtered DI_nok excluding ten highest-retraction journals | **+0.053** (0.033–0.074); with both covariates +0.070 (0.049–0.091) |
+| Historical unfiltered DI_nok, original strata interval | +0.067 (0.046–0.087) |
+| Top 5%, reference-adjusted and then also citation-adjusted (post hoc) | 1.42 (1.16–1.75), then 1.19 (0.96–1.47): model-dependent |
 | Matched difference in mean log(1 + references), P12 | **+0.084** (0.058–0.109), 4,586 retracted papers / 31,662 controls |
 | Article-type sensitivity, CD5 top 5% (P13) | 1.07 (0.86-1.33), 3,521 compared retracted papers / 23,839 controls |
 | Article-type sensitivity, reference-adjusted CD5 top 5% | 1.64 (1.28-2.10); matched mean-log reference gap +0.064 (0.045-0.083) |
@@ -49,7 +52,9 @@ labelled post hoc, and each plan was written down before it was run.
 
 **Take-away:** the pre-specified five-year analysis shows a small positive-score shift but no clear unadjusted top-tier
 excess; the post hoc three-year window leans toward a modest excess, but this weakens under author-name exclusions.
-The exploratory citation-composition contrast persists after that exclusion. Article-type restriction retains the reference
+The filtered citation-composition contrast persists after removing notices, comments/letters and retracted citers,
+adjusting reference and citation counts, and excluding the ten highest-retraction journals.
+Article-type restriction retains the reference
 imbalance and adjusted excess, but is an operational proxy, not a guarantee of original research.
 The n_k term compresses the citation-composition gap, and scores including post-retraction years are shifted. Every
 number above is traced in [`FINDINGS.md`](FINDINGS.md). Mean-log reference gaps describe the direction of imbalance,
@@ -73,13 +78,13 @@ The primary comparison uses only the 31,662 scored controls in strata containing
 .
 ├── README.md            ← you are here
 ├── SPEC.md              pre-specified design (v1; its SHA-256 is in every run.json)
-├── POSTHOC.md           post hoc plans P1–P14, each written before it was run
+├── POSTHOC.md           post hoc plans P1–P15, each written before it was run
 ├── FINDINGS.md          every number in the paper → the run that produced it
 ├── REPRODUCE.md         inputs, environment, exact commands in order, determinism notes
 ├── CITATION.cff         how to cite this repository
 ├── experiments/
 │   ├── README.md        index of steps and the runs cited in the paper
-│   ├── e01 … e14/       one folder per step: script(s), lab notebook RESULTS_LOG.md, runs/<run_id>/
+│   ├── e01 … e15/       one folder per step: script(s), lab notebook RESULTS_LOG.md, runs/<run_id>/
 │   └── …/runs/<id>/     run.json (parameters, script hash, counts) · stdout.log · group-level outputs · SHA256SUMS
 ├── paper/               LaTeX source (content/, journals/joi/main.tex), figures, refs.bib + DOI checks
 ├── lit/                 literature gate, verified DOIs and the claim check
@@ -96,28 +101,34 @@ ok=1; for d in experiments/*/runs/*/; do (cd "$d" && sha256sum -c --quiet SHA256
 cd experiments/e03_cd5 && python test_cd.py && cd ../e07_yearly && python test_yearly.py && cd ../..
 python experiments/e13_article_types/test_sensitivity.py
 python experiments/e14_authors/test_authors.py
+python experiments/e15_citers/test_citers.py
 
 # 3. rebuild the figures from the run records (byte-identical to the committed ones with Matplotlib 3.10.8)
 cd experiments/e06_figures && python e06_figs_v2.py my_rebuild e04_eval_20261110_01 e04_eval_cd3_20261110_01 \
    e08_posthoc2_20261123_02 e09_pretrend_20261123_01 e12_diag_20261126_01 && \
    cmp runs/my_rebuild/fig1_forest.pdf ../../paper/figures/fig1_forest.pdf && \
    cmp runs/my_rebuild/fig2_event.pdf ../../paper/figures/fig2_event.pdf && cd ../..
+python experiments/e15_citers/flow_diagram.py my_flow e15_citers_20261127_02
+cmp experiments/e15_citers/runs/my_flow/fig3_population_flow.pdf paper/figures/fig3_population_flow.pdf
 
 # 4. build the paper (Tectonic or any LaTeX)
 cd paper/journals/joi && tectonic -X compile main.tex
 ```
 
-**Full pipeline:** about 64 GB RAM and under one machine-hour on top of the graph tables; see [`REPRODUCE.md`](REPRODUCE.md).
+**Full pipeline:** graph steps used a 64 GB RAM machine; recorded step timings, including the failed P15 attempt,
+are in [`REPRODUCE.md`](REPRODUCE.md).
 
 **JOI upload:** use the identified `paper/journals/joi/joi_latex_source.zip`, not a manuscript PDF or the legacy
 anonymized package. Separate highlights and an official declarations-tool statement are also required.
 See [`paper/journals/joi/UPLOAD.md`](paper/journals/joi/UPLOAD.md); nothing has been submitted.
-The current v0.11 identified manuscript has a 190-word abstract and 33 pages; detailed article-type and author-name
-checks are in the appendix. Local builds use Tectonic. Editorial Manager's pdfLaTeX PDF must still be reviewed,
+The v0.12 identified manuscript has a 190-word abstract and 35 pages. It leads with the filtered DI_nok finding, retains the original pre-specified CD results,
+and adds a population flow. Detailed article-type, author-name and citing-record diagnostics are in the appendix.
+Local builds use Tectonic. Editorial Manager's pdfLaTeX PDF must still be reviewed,
 and Elsevier's declarations tool must always be completed at upload.
-The abstract defines the five-year index and explains why CD5 and DI_nok gaps are not directly comparable.
+The abstract defines late retraction and the five-year index, and explains the denominator mechanism.
 The highlights recommend pre-notice windows with notice records removed, rather than headlining a
-model-dependent reference-adjusted result. Comment/Letter and retracted-citer exclusions remain unrun limitations.
+model-dependent reference-adjusted result. P15 increases, rather than removes, the DI_nok gap; incomplete
+annotation and retrospective retraction flags remain limitations. No journal or arXiv submission has been made.
 
 ## Data sources
 

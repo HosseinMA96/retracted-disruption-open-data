@@ -2,7 +2,7 @@
 \setcounter{table}{0}
 \renewcommand{\theHtable}{\theHsection.\arabic{table}}
 \section{Exploratory diagnostics and accounting}\label{sec:appendix}
-The identifiers P1--P14 refer to the archived plans in \texttt{POSTHOC.md}; the code's experiment index and
+The identifiers P1--P15 refer to the archived plans in \texttt{POSTHOC.md}; the code's experiment index and
 claim-to-run map link them to immutable results. These analyses were added after the primary results were known.
 
 \subsection{Reference and citation counts (P1)}
@@ -154,5 +154,100 @@ Honest error & 412 / 402 & $-3.75$ ($-5.92$, $-1.65$) & 0.014 ($-0.032$, 0.063) 
 Other & 1,108 / 1,039 & 3.13 (0.17, 6.87) & 0.074 (0.035, 0.115) \\
 \bottomrule
 \end{tabular}}
+\end{table}
+\subsection{Earlier explanatory estimates}
+Table~\ref{tab:posthoc} preserves the exploratory results from the original scores.
+For the unfiltered five-year DI$_{nok}$ comparison, the matched group means are $-0.309$ for retracted papers
+and $-0.376$ for controls (4,517 compared retracted papers). The gap is 0.083 (0.058--0.109) for misconduct,
+0.049 (0.019--0.078) for other reasons, 0.054 ($-0.003$ to 0.120) for paper mills and
+0.004 ($-0.056$ to 0.060) for honest error. The corresponding shares of citing papers also citing a reference
+are 65.5\% and 68.8\% overall. These unfiltered estimates are distinct from the citing-record sensitivity.
+
+\begin{table}[!htbp]
+\centering
+\caption{Earlier exploratory estimates (95\% intervals unless stated). CD$_5$ checks use original unfiltered
+window counts; the before--after comparison uses the 2000--2019 population with notice records excluded.
+$n$: papers compared (reviews in the positive control); conditional-logit counts exclude strata without outcome variation.}
+\label{tab:posthoc}
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.46\linewidth}p{0.40\linewidth}r@{}}
+\toprule
+Analysis & Estimate & $n$ \\
+\midrule
+Mean difference in CD$_5$: 90\% interval & $-0.00051$ to $0.00093$ & 4,586 \\
+Reviews vs other controls: mean difference in CD$_5$ & $-0.0033$ ($-0.0066$, $-0.0011$) & 4,832 \\
+Reviews vs other controls: top 5\%, odds ratio & 0.58 (0.47, 0.72) & 4,832 \\
+Reviews vs other controls: CD$_5>0$, odds ratio & 0.95 (0.86, 1.04) & 4,832 \\
+Reviews vs other controls: mean difference in DI$_{nok}$ & $-0.076$ ($-0.195$, 0.033) & 4,736 \\
+Mean difference in DI$_{nok}$ & 0.067 (0.046, 0.087) & 4,517 \\
+Mean difference in DI$_{nok}$, CD$_3$ window, 2000--2019 & 0.075 (0.056, 0.093) & 7,122 \\
+Change in DI$_{nok}$ after vs before the notice, minus controls & 0.074 (0.050, 0.097) & 5,100 \\
+CD$_5 > 0$, cited papers only, odds ratio & 1.20 (1.11, 1.31) & 4,517 \\
+CD$_5 > 0$, conditional logit with log references & 1.32 (1.21, 1.44) & 3,766 \\
+CD$_5 > 0$, conditional logit with log references and log citations & 1.32 (1.21, 1.43) & 3,766 \\
+Top 5\%, conditional logit with log references & 1.42 (1.16, 1.75) & 2,168 \\
+Top 5\%, conditional logit with log references and log citations & 1.19 (0.96, 1.47) & 2,168 \\
+Matched mean log reference count difference & 0.084 (0.058, 0.109) & 4,586 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\subsection{Citing-record exclusions and journal dependence (P15)}
+The complete plan was published before execution; its commit link is in the data and code availability statement.
+The run reproduces original DI$_{nok}$ means and per-paper window counts, including the notice-removal counts
+from P8. The new intervals use 2,000 whole-journal bootstrap draws; historical intervals in
+Table~\ref{tab:posthoc} and Fig.~\ref{fig:forest} remain journal--year intervals.
+Across the union of both focal populations and windows, 1,384,201 of 1,700,837 citing events match PubMed;
+1,384,200 have a known publication type. The union of the three exclusion categories contains 37,961 events,
+with overlaps removed once.
+
+For the five-year population, notice removal affects 844 of 4,587 primary papers and removes 1,228 citing records;
+it affects 2,456 of the 52,147 drawn controls and removes 3,026 citing records. The full filter affects 2,400 primary
+papers and 12,009 controls, removing 6,525 and 23,978 citing records, respectively.
+It makes 13 primary and 116 control DI$_{nok}$ scores undefined. Table~\ref{tab:citercounts} distinguishes
+defined from compared counts; controls are not redrawn.
+
+The fully filtered, weighted within-stratum linear model has coefficients 0.09743 for the retracted indicator,
+$-0.16526$ for log references and $-0.01912$ for log remaining citations. Substituting original citation counts
+gives a retracted coefficient of 0.09880 (0.06485--0.12920).
+With the ten highest-retraction journals excluded, the corresponding remaining-citation model gives 0.07032
+(0.04909--0.09136). The unadjusted model reproduces the matched mean gap exactly.
+Journal rankings use original eligible primary counts: the exclusions remove 1,493 five-year and 2,058 three-year
+primary papers before evaluating score availability. Journal identifiers, ranks and model coefficients are in
+the aggregate run record.
+
+In the fully filtered five-year comparison, class-specific gaps are 0.097 (0.056--0.133; 2,706 compared papers)
+for misconduct, 0.069 (0.035--0.102; 1,235) for other reasons, 0.063 ($-0.002$ to 0.159; 275) for paper mills
+and 0.005 ($-0.064$ to 0.074; 288) for honest error.
+For the three-year window they are 0.101 (0.069--0.129; 4,039), 0.089 (0.062--0.124; 1,750),
+0.066 ($-0.016$ to 0.158; 701) and 0.048 (0.005--0.090; 598), respectively.
+
+\begin{table}[!htbp]
+\centering
+\caption{DI$_{nok}$ population accounting for citing-record sensitivity. Defined counts precede the requirement
+that a stratum contain both groups; compared counts follow it. Full filter: notices, Comment/Letter and retracted
+citing papers. Top ten: original primary-count journal ranking.}
+\label{tab:citercounts}
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+ & \multicolumn{2}{c}{Defined} & \multicolumn{2}{c}{Compared} & & \\
+Filter & Retracted & Controls & Retracted & Controls & Strata & Journals \\
+\midrule
+\multicolumn{7}{l}{Five-year window} \\
+Unfiltered & 4,518 & 50,039 & 4,517 & 30,482 & 2,196 & 974 \\
+Notices & 4,518 & 50,038 & 4,517 & 30,482 & 2,196 & 974 \\
+Also Comment/Letter & 4,514 & 49,928 & 4,513 & 30,423 & 2,195 & 974 \\
+Full filter & 4,505 & 49,923 & 4,504 & 30,389 & 2,190 & 972 \\
+Full, exclude top ten & 3,014 & 39,552 & 3,013 & 20,111 & 2,100 & 962 \\
+\midrule
+\multicolumn{7}{l}{Three-year window} \\
+Unfiltered & 7,125 & 63,875 & 7,122 & 45,106 & 3,188 & 1,306 \\
+Notices & 7,124 & 63,867 & 7,121 & 45,101 & 3,188 & 1,306 \\
+Also Comment/Letter & 7,111 & 63,695 & 7,108 & 44,990 & 3,185 & 1,305 \\
+Full filter & 7,091 & 63,682 & 7,088 & 44,918 & 3,176 & 1,302 \\
+Full, exclude top ten & 5,060 & 51,911 & 5,057 & 33,236 & 3,081 & 1,292 \\
+\bottomrule
+\end{tabular}
 \end{table}
 \FloatBarrier

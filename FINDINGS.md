@@ -284,3 +284,49 @@ Primary CD5 means are -0.002165233620 and -0.002363267049, yielding +0.000198033
   it cites the focal paper: **65.5% vs 68.8% for controls** (unchanged P5 results).
 - Figure run `e06_fig_20261126_07` changes review-row spacing only; Figure 2 is byte-identical to _06.
   Identified-only JOI source and persistent upload instructions retain the author and GitHub link.
+
+## P15 citing-record filtering, mean adjustment and journal sensitivity (v0.12)
+
+Plan: public commit `9c4ba4ca9bca39542f86a014bda2db463c1534ac`, before empirical execution.
+Source: `experiments/e15_citers/runs/e15_citers_20261127_02/results.json`.
+All intervals here use 2,000 whole-journal resamples; historical P5 journal-year intervals remain unchanged.
+The failed _01 attempt produced no estimate; its records and exact source are preserved.
+
+| Five-year analysis | Gap / coefficient | 95% journal interval | Compared retracted / controls |
+|---|---|---|---|
+| Unfiltered | 0.066767822 | 0.034453503, 0.094954208 | 4,517 / 30,482 |
+| Notices removed | 0.068584173 | 0.037090942, 0.096448297 | 4,517 / 30,482 |
+| Also Comment/Letter removed | 0.069582608 | 0.036721184, 0.098340328 | 4,513 / 30,423 |
+| Full filter, also retracted citers | 0.081597702 | 0.049014402, 0.109965429 | 4,504 / 30,389 |
+| Full filter, reference-adjusted | 0.093524883 | 0.060499736, 0.124207899 | 4,504 / 30,389 |
+| Full filter, references and remaining citations | 0.097434218 | 0.065435405, 0.127390640 | 4,504 / 30,389 |
+| Full filter, references and original citations | 0.098803222 | 0.064851619, 0.129201671 | 4,504 / 30,389 |
+| Full filter, remove top ten journals | 0.052643894 | 0.032772592, 0.074151824 | 3,013 / 20,111 |
+| Same journal exclusion, both covariates | 0.070323702 | 0.049090613, 0.091359500 | 3,013 / 20,111 |
+
+JSON paths: `windows.cd5.scenarios.<filter>.mean`; adjusted rows use
+`models.references`, `models.references_citations`, `models.references_original_citations`;
+journal exclusion uses `without_top_journals.mean/models`.
+Fully filtered means are -0.299508317 and -0.381106019. Applying `(1 - mean)/2` gives reference-co-citation
+shares 64.975416% and 69.055301%, printed **65.0% vs 69.1%**. The fully filtered comparison has 2,190 strata
+and 972 journals. Full-filter losses: 13 previously defined primary and 116 control scores;
+population and category removals are in `scenarios.<filter>.removals`.
+The gap increases, not decreases, under these exclusions.
+
+Three-year full-filter gap: **0.090397829 (0.064237782, 0.113946235)**; 7,088 retracted / 44,918 controls,
+3,176 strata / 1,302 journals. Removing the top ten journals: **0.081533970 (0.064081353, 0.099387224)**;
+5,057 / 33,236 compared, 3,081 strata / 1,292 journals.
+Full class-specific means, intervals and counts are in `windows.cd5/cd3.by_class`; Appendix citing-record tables
+use those values and each filter's `mean` counts. Top-ten ranks are in `top_journals`;
+original eligible primary removals are 1,493 / 2,058.
+
+Counting validation: frozen hashes, original per-paper yearly-window counts, independent incoming-citer totals,
+P8 notice counts, original P5 gaps/counts and the matched/unadjusted-regression equality all pass.
+Runtime 2:49.01; peak RSS 1,716,668 KB; fetched checksums verified and VM deallocated.
+The filter removes only recognized citers; original focal references and drawn controls remain fixed.
+Retraction flags are retrospective over the full snapshot. Undefined remaining denominators are not zero-filled.
+Adjustment is descriptive, and journal resampling does not cluster authors across journals.
+
+Population flow: `experiments/e15_citers/runs/e15_flow_20261127_01/run.json`, with checksummed E2/E4/E11/P15
+sources. Figure 1 is now this flow; Figure 2 retains the original forest and Figure 3 the paired event plot.
+Original explanatory Table 3 moves to the appendix; the main Table 3 reports P15.

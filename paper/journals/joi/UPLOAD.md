@@ -7,8 +7,8 @@ The build script now generates only this submission version.
 
 | Upload item | File(s), relative to this folder |
 |---|---|
-| Editable LaTeX manuscript source | `joi_latex_source.zip` (identified); contains `submission/main.tex`, bibliography/style/class files and both figures, with flat ZIP member names |
-| Figures, if requested as separate upload items | `submission/fig1_forest.pdf`, `submission/fig2_event.pdf` |
+| Editable LaTeX manuscript source | `joi_latex_source.zip` (identified); contains `submission/main.tex`, bibliography/style/class files and all three figures, with flat ZIP member names |
+| Figures, if requested as separate upload items | `submission/fig1_forest.pdf`, `submission/fig2_event.pdf`, `submission/fig3_population_flow.pdf` |
 | Separate editable highlights | `highlights.txt` |
 | Competing-interests statement | `competing_interests.docx`, **after replacing the locally generated draft with the official Elsevier declarations-tool output** |
 | Cover letter | `cover_letter.pdf` or its editable `cover_letter.tex`, as the system requests |
@@ -16,8 +16,8 @@ The build script now generates only this submission version.
 
 Do **not** use `submission_anon/` or `joi_latex_source_anon.zip`: these are legacy artifacts and omit the GitHub link.
 Do not upload `main.pdf` as a substitute for editable manuscript source. The local PDF in `submission/` is a preview,
-not a member of the LaTeX ZIP. If the system asks for individual source files instead of a ZIP, upload the seven
-ZIP members directly from `submission/`, including the editable `main.tex`.
+not a member of the LaTeX ZIP. If the system asks for individual source files instead of a ZIP, upload the eight
+ZIP members directly from `submission/`, including the editable `main.tex` and all three figures.
 
 **The Elsevier declarations tool should always be completed when uploading**, even when there are no competing
 interests: https://declarations.elsevier.com/ .
@@ -33,3 +33,6 @@ GitHub link, equations, tables, references, figures, keywords and absence of mis
 The source is ASCII elsarticle and does not require XeLaTeX.
 
 No files have been uploaded or submitted. Final author review and explicit submission approval are still required.
+
+Current prepared package: v0.12, 35-page identified manuscript, 190-word abstract and three figures.
+The P15 results and population flow are included; original pre-specified results remain unchanged.

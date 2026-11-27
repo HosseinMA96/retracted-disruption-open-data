@@ -27,31 +27,36 @@ specification file (see the data and code availability statement).
 the graph, and no duplicate DOI record. The year limit ensures that the five-year window ends by 2022, inside the
 complete part of the snapshot. Papers without references are excluded: their index equals 1 whenever they are cited
 and is undefined otherwise, and they are the records behind the CD$_5 = 1$ artefact discussed by
-\citet{holst2024artefacts}. Of 12,522,210 biomedical papers from 2000--2017 with a journal, 341,432 (2.7\%) have no
-reference in the graph, leaving 12,180,778 eligible papers.
+\citet{holst2024artefacts}. Figure~\ref{fig:population} gives the population and comparison counts.
 
-\paragraph{Retracted papers} Eligible papers matched to a retraction: 10,450. The \emph{primary set} contains the
-4,587 papers whose first retraction notice is dated after 31 December of the fifth year after publication, so that the
-whole scoring window precedes the retraction. The 5,863 papers retracted earlier form, together with the primary set,
-the \emph{secondary set} used in a robustness check.
+\paragraph{Retracted papers} The \emph{primary set} contains eligible retracted papers whose first retraction notice
+is dated after 31 December of the fifth year after publication, so that the whole scoring window precedes the
+retraction. Papers retracted earlier form, together with the primary set, the \emph{secondary set} used in a robustness check.
 
 \paragraph{Controls} For every retracted paper, five eligible papers from the same journal and publication year that
 are neither in Retraction Watch nor flagged as retracted in PubMed. Within a stratum, controls are the papers with the
-lowest value of a fixed hash of their identifier (seed 20261109), which makes the draw deterministic. This gives
-52,147 controls in 5,458 journal $\times$ year strata; four strata (four retracted papers) have no eligible control.
-This pool is drawn for all 10,450 retracted papers, not just the 4,587 primary-set papers. A comparison uses only the
-controls with a defined score in strata containing scored papers of the compared set. The primary analysis uses
-2,239 strata containing 4,586 primary-set papers and 31,662 scored controls.
+lowest value of a fixed hash of their identifier (seed 20261109), which makes the draw deterministic.
+The pool is drawn for all eligible retracted papers, not only the primary set. A comparison uses only controls
+with a defined score in strata containing scored papers of the compared set (Fig.~\ref{fig:population}).
 Eligibility is not restricted by publication type: reviews, editorials, letters, comments, errata and retraction
 notices can enter the control pool if they satisfy these rules. PubMed publication types flag reviews, which are
 excluded only in robustness check (b); the main comparison is not limited to research articles.
 
-\paragraph{Reference sample} A deterministic 0.2\% sample of all eligible papers (24,491 papers) provides the
+\paragraph{Reference sample} A deterministic 0.2\% sample of all eligible papers provides the
 yearly distribution of the index, from which the top-5\% and top-1\% thresholds are taken.
 
-\paragraph{Post hoc population} The same rules applied to papers published 2000--2019 with a three-year window give
-13,661 retracted papers (7,350 retracted after their window), 68,190 controls and a reference sample of 28,784 papers.
-It contains every paper of the population above.
+\paragraph{Post hoc population} The same rules extend to papers published 2000--2019 with a three-year window.
+This population contains every paper above; its accounting is in \ref{sec:appendix}.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\linewidth]{fig3_population_flow}
+\caption{Five-year population and comparison flow. The control pool is drawn for all eligible retracted papers,
+not only late-retracted papers. Undefined scores and strata without a defined control score are excluded.
+The last box shows the exploratory DI$_{nok}$ comparison after removing notice, comment/letter and retracted
+citing records; original references and control draws remain fixed.}
+\label{fig:population}
+\end{figure}
 
 \subsection{The CD index}\label{sec:score}
 For a focal paper $f$ published in year $t$ with references $R(f)$ in the graph, let $A$ be the papers published in the
@@ -88,16 +93,6 @@ graphs (1,200 focal papers, both windows, identical counts). For the before-and-
 script counted the citing papers of each focal paper by citing year; its sums over the scoring windows equal the frozen
 counts for all 110,462 papers of both populations, and its output was hashed before labels were joined.
 
-\paragraph{Pre-specification record} The unchanged specification is \texttt{SPEC.md}, committed in the private
-project repository on 10 November 2026 at 04:02:19 UTC (Git commit
-\texttt{293755b1cb7087d6f226d6f96f4b97cb0148e4c5}). Its full SHA-256 is recorded in the public
-\texttt{spec\_provenance.json} and the score run's \texttt{run.json}, which reports a start time of 06:12:02 UTC the same day
-(\texttt{e03\_cd5\_20261110\_01}); the evaluation run records the same hash. These files and provenance are available
-with the code, but the original repository and its commit history remain private: the cited commit cannot be
-inspected through the public release. The public provenance file reports this limitation explicitly.
-Git dates and local run records document the claimed ordering but are not an independently verifiable registry
-timestamp, so the design is described as pre-specified, not publicly pre-registered.
-
 \subsection{Analyses}
 The primary questions and robustness checks were specified before scoring. Exploratory analyses were planned after
 the primary results were known, with each plan recorded before its run in \texttt{POSTHOC.md}.
@@ -124,7 +119,21 @@ stratum by its compared retracted papers, with 95\% intervals from 2,000 resampl
 
 Additional checks restrict both populations by PubMed publication types and exclude primary papers linked to
 frequently retracted author names. Their definitions, population accounting and full results are in
-\ref{sec:appendix}. Original controls, scores and thresholds remain fixed, and resampling remains by journal $\times$ year.
+\ref{sec:appendix}. Original controls, scores and thresholds remain fixed; these earlier checks resample journal $\times$ year.
+
+\paragraph{Citing records and journal dependence} A further exploratory check removes citing records identified
+as notices (the same types and links as below), Comment or Letter in PubMed, or retracted in the full frozen
+Retraction Watch mapping or PubMed. Flags are unioned over PMID/exact-DOI matches, and an overlapping record is removed
+once. Retraction flags use the full snapshot irrespective of notice date. The reference lists remain unchanged.
+DI$_{nok}$ requires at least one remaining citer; controls and comparison strata are re-evaluated after filtering.
+
+For the mean DI$_{nok}$ contrast, paper-level weighted linear regressions include journal--year fixed effects,
+a retracted indicator, $\log(1+\text{references})$ and then $\log(1+\text{remaining citing papers})$.
+Each retracted paper has weight 1; each control has weight $n_r/n_c$ in its stratum, where $n_r,n_c$ are the
+compared group counts. Without covariates, this coefficient equals the matched mean gap.
+Intervals use 2,000 bootstrap resamples of whole journals, retaining all their years together. A sensitivity
+uses original rather than remaining citation counts. Another excludes the ten journals with the most original
+primary-set retractions, with ties ordered by journal identifier. Full definitions and results are in \ref{sec:appendix}.
 
 For changes around the notice, papers from 2000--2019 with retraction year $R$ between $t+1$ and 2021 were
 compared over citing years $R-3$ to $R-1$ (not before $t$) and $R+1$ to $R+3$ (not after 2022), excluding year $R$
@@ -147,6 +156,8 @@ team) from the run records. The
 analysis and figure scripts were written with the help of a generative AI assistant (Claude Opus 5.5, Anthropic) under
 the author's direction. GitHub Copilot CLI 1.0.116 (GitHub), powered by GPT-6.1 Sol (OpenAI), was used for additional
 analysis code, figure-layout revisions
-and manuscript checks. Every counting step was tested against brute-force counts on random graphs, each evaluation
+and manuscript checks. CD and yearly counts were tested against brute-force counts on random graphs;
+excluded-citer counts and weighted regressions were checked on synthetic data against direct counts and weighted
+least squares. Each evaluation
 script first reproduces the earlier estimates it builds on, and all scripts and run records are public
 (see the data and code availability statement).

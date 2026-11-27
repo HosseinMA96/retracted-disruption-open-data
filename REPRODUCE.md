@@ -7,7 +7,8 @@ Scripts refuse to write into an existing run folder, so a rerun always gets a ne
 
 ## 1. Machine and environment
 - Steps that read the citation graph need about 64 GB RAM and 150 GB of disk; they ran on one Azure
-  `Standard_E8s_v6` VM (8 vCPU, 64 GB). Total compute for all E runs: under one VM-hour.
+  `Standard_E8s_v6` VM (8 vCPU, 64 GB). Step timings below exclude VM provisioning overhead;
+  the failed P15 attempt is recorded separately.
 - Python environment: `vm/environment_e.lock.yml` (conda-forge; Python 3.11, DuckDB 1.5.6, pandas 3.1.0, NumPy 2.4.6,
   SciPy 1.17.1, statsmodels 0.15.0, pyarrow 25). Create it with `micromamba create -n d -f vm/environment_e.lock.yml`.
 - Figures run on a laptop with Matplotlib 3.10.8 (any Python ≥ 3.10).
@@ -51,7 +52,10 @@ Run each from its experiment folder: `python <script> <args>`.
 | P13 article-type restriction | `e13_article_types/e13_article_types.py e13_articles_20261126_01` (frozen score/label tables plus PubMed metadata, no graph rerun) | 4.6 min |
 | Test of P14 (synthetic names, duplicate/reinstated records, threshold, empty comparison) | `e14_authors/test_authors.py` | seconds |
 | P14 author-name exclusion | `e14_authors/e14_authors.py e14_authors_20261126_01` (frozen tables and raw RW CSV, no graph rerun) | 19 s |
+| Test of P15 (synthetic filtered counts and independent weighted least squares) | `e15_citers/test_citers.py` | seconds |
+| P15 citing-record filters, adjusted DI_nok means and journal sensitivities | `e15_citers/e15_citers.py e15_citers_20261127_02` | 2:49 |
 | Figures (laptop) | `e06_figures/e06_figs_v2.py e06_fig_20261127_08 e04_eval_20261110_01 e04_eval_cd3_20261110_01 e08_posthoc2_20261123_02 e09_pretrend_20261123_01 e12_diag_20261126_01` | seconds |
+| Population flow (laptop) | `e15_citers/flow_diagram.py e15_flow_20261127_01 e15_citers_20261127_02` | seconds |
 | Paper | `cd paper/journals/joi && tectonic -X compile main.tex`; upload packages: `./build_submission.sh` | – |
 
 ## 4. Determinism and checks
@@ -64,10 +68,11 @@ Run each from its experiment folder: `python <script> <args>`.
   every `e04` value it uses (and `e02`'s counts of strata and controls) first.
 - P12 reproduces all seven original P9 paired points/counts, P11's 4,586 / 31,662 compared population and both P1
   log-of-mean points before computing new confidence intervals and matched mean-of-log diagnostics.
-- The current figure run plots paired annual points with P12 intervals. Figure 1 is two by two; normal-size labels
+- The forest and event figure run plots paired annual points with P12 intervals. The forest is two by two; normal-size labels
   and legends print at about 8.62 pt. Earlier figure runs remain immutable, and plotted values are unchanged,
   with TrueType fonts retaining en dashes.
-  Run _08 moves the Figure 2 legend below both axes, clear of the notice lines; Figure 1 is byte-identical to _07.
+  Run _08 moves the event legend below both axes, clear of the notice lines; the forest is byte-identical to _07.
+  The population flow is now Figure 1, the forest Figure 2 and the event plot Figure 3.
 - Pre-specification provenance: `experiments/spec_provenance.json`, the unchanged `SPEC.md`, and the score and
   evaluation run records. The original private Git commit is dated before scoring; this is not an independent public
   preregistration timestamp. The original commit history remains private and cannot be inspected in this release.
@@ -83,6 +88,16 @@ Run each from its experiment folder: `python <script> <args>`.
   non-reinstated paper keys in the full snapshot qualify a name; any qualifying linked key excludes a primary node.
   Controls, scores and thresholds stay fixed. Missing names are retained; 2,000 journal-year bootstrap draws use
   seed 20261109 with child-generator offset 2000. Only aggregates are released; names are not disambiguated identities.
+- P15 was publicly planned at `9c4ba4ca9bca39542f86a014bda2db463c1534ac` before execution. It checks frozen
+  labels/scores/yearly files, replays per-paper counts, independently counts incoming citers, reproduces P8
+  notice removals and original P5 means/counts, and verifies the unadjusted weighted model equals the matched mean.
+  Nested exclusions remove notices, then Comment/Letter, then retracted citing papers, without changing focal
+  references. Retraction flags use the full snapshot, not status when citing. New intervals use 2,000
+  whole-journal resamples (seed 20261109, child offset 3000); original strata intervals remain unchanged.
+  Models use weights 1 for retracted papers and n_retracted/n_control for controls within each used stratum.
+  Top-ten journals are ranked on original primary counts, with journal-ID tie breaks; no controls are redrawn.
+  Only aggregate results are public; `E_DATA/e15/<run>/removed_yearly.parquet` stays on the VM.
+  `vm/run_p15.sh` runs the tests and analysis; the controller must fetch records and deallocate the VM afterward.
 
 ## Submission document build
 `paper/journals/joi/build_submission.sh` also invokes `build_declaration.py` to create the editable
@@ -94,6 +109,9 @@ an anonymized variant; author and GitHub-link presence are checked. See `paper/j
 files and the required Editorial Manager pdfLaTeX-generated PDF check.
 
 ## 5. Runs not cited
+- `e15_citers_20261127_01`: failed incoming-citer join before any estimate (12:05.08, peak RSS 50,386,716 KB).
+  Failure metadata/logs/checksums and the exact source snapshot are preserved. Retry _02 explicitly
+  materializes bounded incoming-edge/year joins; the statistical design is unchanged.
 - `e07_yearly_20261123_01`, `e08_posthoc2_20261123_01`: notice rule matched PubMed publication types by name; the 2026
   baseline names D016440 "Retraction Notice", so the rule was changed to type identifiers before any P8 result was read
   (POSTHOC.md P8 amendment). Kept with `SUPERSEDED.txt`.

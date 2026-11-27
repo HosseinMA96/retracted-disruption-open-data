@@ -11,7 +11,7 @@ HERE="$(cd "$(dirname "$0")" && pwd)"; P="$(cd "$HERE/../.." && pwd)"
 TECTONIC="${TECTONIC:-$HOME/miniforge3/envs/tectonic-env/bin/tectonic}"
 DOCX_PYTHON="${DOCX_PYTHON:-python3}"
 CLS_DIR="${CLS_DIR:-$(dirname "$(find "$HOME/.cache/tectonic" -name elsarticle.cls | head -1)")}"
-FIGS="fig1_forest fig2_event"
+FIGS="fig1_forest fig2_event fig3_population_flow"
 
 flatten () {  # flatten SRC DST
   python3 - "$1" "$2" <<'PY'

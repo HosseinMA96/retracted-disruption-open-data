@@ -4,10 +4,12 @@ On the open biomedical citation graph, papers that were later retracted, includi
 paper-mill production, have a small mean CD$_5$ difference from comparable papers, and no unadjusted excess in the most
 disruptive tier in the pre-specified five-year analysis. The post hoc three-year window leans toward a modest excess,
 though this weakens under author-name exclusions. Positive scores are nevertheless more common, a sign shift that should not be read as complete
-agreement between the groups. These conclusions concern papers retracted only after their scoring window. The same
-exploratory comparison shows what the index's largest term, $n_k$, hides: papers that cite a retracted paper are less likely to also
-cite its references. This contrast persists after excluding papers linked to frequently retracted author names.
-Reference-adjusted comparisons also show higher top-tier odds. Scores that include the years
-after a retraction behave differently again, through notice records and a widening gap, and should be computed on
-windows that end before the notice. The analysis can be repeated with later snapshots of the open graph, which will add
+agreement between the groups. These conclusions concern papers retracted only after their scoring window.
+The exploratory DI$_{nok}$ comparison shows what the index's largest term, $n_k$, compresses:
+papers that cite a retracted paper are less likely to also cite its references. This difference persists after
+removing notices, comments/letters and retracted citing papers, adjusting reference and citation counts, and
+excluding the ten highest-retraction journals. A variant without $n_k$ therefore scores these late-retracted papers
+somewhat higher than their controls. Scores that include retraction years behave differently again, through
+notice records and a widening gap; scoring windows should end before the first notice, with notice records removed.
+The analysis can be repeated with later snapshots of the open graph, which will add
 the large cohorts of paper-mill papers published after 2019.
