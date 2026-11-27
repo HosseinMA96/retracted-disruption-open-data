@@ -112,9 +112,12 @@ cd paper/journals/joi && tectonic -X compile main.tex
 **JOI upload:** use the identified `paper/journals/joi/joi_latex_source.zip`, not a manuscript PDF or the legacy
 anonymized package. Separate highlights and an official declarations-tool statement are also required.
 See [`paper/journals/joi/UPLOAD.md`](paper/journals/joi/UPLOAD.md); nothing has been submitted.
-The current v0.10 identified manuscript has a 171-word abstract and 33 pages; detailed article-type and author-name
+The current v0.11 identified manuscript has a 190-word abstract and 33 pages; detailed article-type and author-name
 checks are in the appendix. Local builds use Tectonic. Editorial Manager's pdfLaTeX PDF must still be reviewed,
 and Elsevier's declarations tool must always be completed at upload.
+The abstract defines the five-year index and explains why CD5 and DI_nok gaps are not directly comparable.
+The highlights recommend pre-notice windows with notice records removed, rather than headlining a
+model-dependent reference-adjusted result. Comment/Letter and retracted-citer exclusions remain unrun limitations.
 
 ## Data sources
 

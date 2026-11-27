@@ -1,5 +1,14 @@
 # Project E findings (claim → number → run)
 
+## v0.11 editorial clarification (no statistical rerun)
+
+- Abstract co-citation percentages **65.5% / 68.8%** and DI_nok gap **0.067 (0.046–0.087)** are unchanged
+  P5 results from `e08_posthoc2_20261123_02`; different denominators preclude a direct size comparison with CD5.
+- Highlight 4 now recommends pre-notice windows with notice records removed, rather than the model-dependent
+  reference-adjusted top-tier estimate. No estimate, threshold, run result or figure was changed.
+- Comments/letters among citing records and retracted citing papers have not been excluded in a new analysis;
+  these remain explicit limitations, not completed sensitivity checks.
+
 ## v0.10 reading and layout corrections (no statistical rerun)
 
 - The abstract distinguishes pre-specified CD5 estimates (`e04_eval_20261110_01`) from the later exploratory

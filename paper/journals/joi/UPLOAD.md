@@ -20,7 +20,10 @@ not a member of the LaTeX ZIP. If the system asks for individual source files in
 ZIP members directly from `submission/`, including the editable `main.tex`.
 
 **The Elsevier declarations tool should always be completed when uploading**, even when there are no competing
-interests. It has not been completed here. The local DOCX contains the prepared wording but is
+interests: https://declarations.elsevier.com/ .
+It has not been completed here. The official page was reachable on 27 November 2026 (UTC), but its interactive
+browser workflow could not be completed with the available CLI/web-fetch tools.
+The local DOCX contains the prepared wording but is
 not a tool-generated declaration; retain the official generated `.doc`/`.docx` without overwriting it with another
 local build (the build script regenerates the draft DOCX).
 

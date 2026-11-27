@@ -72,7 +72,7 @@ scores \citep{xu2025alternative,crossdi2025}; scores computed here are scores on
 papers were matched to the graph. Reason classes are a rule-based grouping of Retraction Watch reasons, and many
 notices give limited information (the ``other'' class). Because the graph is complete only to about September 2023, the
 main analysis ends with papers from 2017; the post hoc three-year window includes more paper-mill papers,
-but most were published after 2019. Retractions are a selected and incomplete label of
+but most paper-mill papers in the snapshot were published after 2019. Retractions are a selected and incomplete label of
 problematic work: some unreliable papers are never retracted, and the controls may contain them. Several analyses
 were added after the main results were known. Their plans were recorded before their runs, but the analyses remain
 exploratory. The mean-difference bound is an interval-based description, not a validated negligible-effect threshold.
@@ -81,8 +81,9 @@ The reference-adjustment contrasts are not causal decompositions. The overall me
 the direction of imbalance, not the magnitude of the odds-ratio shifts; the models use only outcome-varying strata,
 and reference-count tails or model-subset imbalances are not diagnosed here. Adjusting for citations may over-adjust
 because citations form part of the score. Citation-composition contrasts do not distinguish omission of relevant
-references from citations arriving from outside the immediate literature; citing papers that are themselves
-retracted are not excluded.
+references from citations arriving from outside the immediate literature. Comment and Letter citing records are
+not excluded; critical letters could contribute to the pre-notice citation-composition contrast, but this has
+not been tested. Citing papers that are themselves retracted are also not excluded.
 
 Bootstrap resampling clusters by journal--year, not by author; serial retractors can contribute papers across
 strata, so uncertainty may be understated if their outcomes are correlated. The author-name check removes about half the primary papers,
