@@ -329,3 +329,25 @@ Five-year window only; CD3 and the P15 citing-record filters are not repeated.
    hashes, aggregate JSON, logs, manifest and checksums go under a new run ID. Citer degrees and per-paper values
    stay on the VM. The VM is deallocated after verified retrieval, including after failure. A failed run is
    preserved and a retry receives a new run ID.
+
+## P18: composition of article-type filter failures (2026-11-27 UTC)
+
+**Recorded before execution; descriptive, requested after P16 showed that 21.0% of primary retracted papers and
+17.2% of drawn controls fail the PMID-prioritized article-type filter.** No estimate, comparison, control draw,
+threshold or earlier result changes. Five-year population only.
+
+1. Rebuild P16's identifier-aware publication types for the five-year primary retracted papers and all drawn
+   controls with P16's bounded metadata lookup and `topic_lib` functions; nodes without PubMed metadata keep
+   unknown types. Verify frozen label hashes and the metadata-source hashes recorded by P13. Reproduce P16's
+   identifier-aware eligible counts (3,626 of 4,587; 43,167 of 52,147) and P13's union-link eligible counts
+   (3,528; 43,152) before counting anything new; stop on disagreement.
+2. For papers failing the filter, count each category among their retained types: review types (Review,
+   Systematic Review, Meta-Analysis), Editorial, Letter, Comment, Published Erratum, Retraction of Publication,
+   Expression of Concern, and absence of Journal Article. Report overlapping counts and a mutually exclusive
+   assignment in this fixed order: review types; letter, comment or editorial; erratum, retraction-notice or
+   expression-of-concern types; no Journal Article type without an excluded type; unknown types.
+3. Also count failing papers that carry Retracted Publication. Every passing paper must carry Journal Article and
+   no excluded type, and every failing paper must receive exactly one category.
+4. Group-level counts only; no new comparison or interval. Synthetic tests check category assignment and agreement
+   with `topic_lib.metadata`. Hashes, aggregate JSON, logs, manifest and checksums go under a new run ID. The VM is
+   deallocated after verified retrieval, including after failure.
